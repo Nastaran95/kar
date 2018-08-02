@@ -1,0 +1,57 @@
+body {
+    font-family: IRANSans,BYekan;
+    max-width: 1600px;
+    margin: auto;
+}
+
+a{
+    color: #d58331;
+}
+
+@font-face {
+    font-family:'BYekan';/*تعریف یک نام برای فونت*/
+    src:url('../fonts/Yekan/Yekan.eot');/*اکسپلورر 9 به بعد*/
+    src:local('bYekan'),/*بررسی نصب بودن فونت در سیستم کاربر*/
+    local('b Yekan'),/*برای برخی از مرورگرها مانند سافاری*/
+    url('../fonts/Yekan/Yekan.eot?#iefix') format('embedded-opentype'),/*هک برای اکسپلورر 8 و ماقبل*/
+    url('../fonts/Yekan/Yekan.woff') format('woff'),/*مرورگر های جدید*/
+    url('../fonts/Yekan/Yekan.ttf') format('truetype'),/*تمام مرورگرها به جزء اکسپلورر*/
+    url('../fonts/Yekan/Yekan.svg#BYekan') format('svg');/*نسخه های قدیمی سیستم عامل iOS*/
+    font-style:normal;
+    font-weight:normal;
+}
+
+@font-face {
+    font-family: IRANSans;
+    font-style: normal;
+    font-weight: normal;
+    src: url('../fonts/IRANSansWeb.woff') format('woff');  /* All Major Browsers */
+}
+
+.centeral{
+    text-align: center;
+}
+
+.h2size,h2{
+    font-size: 20px;
+}
+.h4size,h4{
+    font-size: 14px;
+}
+.fontweitght900{
+    font-weight: 900;
+}
+.h3size,h3{
+    font-size: 18px;
+}
+
+.h5size ,h5{
+    font-size: 14px;
+}
+h1{
+    font-size: 24px;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    line-height: 1.5;
+}
