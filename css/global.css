@@ -4,10 +4,6 @@ body {
     margin: auto;
 }
 
-a{
-    color: #d58331;
-}
-
 @font-face {
     font-family:'BYekan';/*تعریف یک نام برای فونت*/
     src:url('../fonts/Yekan/Yekan.eot');/*اکسپلورر 9 به بعد*/
@@ -54,4 +50,33 @@ h1{
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     line-height: 1.5;
+}
+
+.footer{
+    background-color: rgb(38,48,54);
+    color: white;
+}
+
+.foot-box{
+    width: 130px;
+    height: 70px;
+    border: 2px solid white;
+    display: table;
+    margin: 30px;
+    margin-bottom: 50px;
+    padding-top: 15px;
+}
+
+.foot-top-box{
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+
+.footer a{
+    color: white;
+}
+
+.footer .icon{
+    width: 50px;
+    height: 50px;
 }

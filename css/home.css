@@ -1,0 +1,102 @@
+.grayColor{
+    background-color : rgb(247,247,247);
+}
+
+.container{
+    width: 80%;
+}
+
+.colorBlue{
+    background-color : #1c4e75;
+    display: table;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.colorBlue .navnavbarlink{
+    color : white;
+}
+
+.colorBlue a:hover{
+    color : salmon;
+}
+
+
+.navnavbarlink{
+    padding: 0;
+    padding-top: 17px;
+    float: right;
+    text-align: justify;
+}
+
+.icon{
+    padding-right: 0;
+    padding-left: 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+}
+
+.icon img{
+    width: 60%;
+}
+
+.colorWhite{
+    background-color: white;
+    display: table;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+}
+
+.colorWhite .navnavbarlink{
+    color : #1c4e75;
+}
+
+hr{
+    color: rgb(221,227,232);
+}
+
+
+.pagination li{
+    width: 30px;
+    height: 30px;
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.428571429;
+    text-decoration: none;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+}
+
+.active{
+    background-color:  #1c4e75 !important;
+    color: white;
+}
+
+/*tablet*/
+@media (max-width: 900px) {
+    .icon img{
+        width: 80%;
+    }
+    .navnavbarlink{
+        font-size: 10px;
+        padding-bottom: 5px;
+    }
+}
+/*mobile*/
+@media (max-width: 768px) {
+    .icon img{
+        width: 100%;
+    }
+    .navnavbarlink{
+        padding-top: 5px;
+        font-size: 10px;
+        padding-bottom: 5px;
+    }
+}
+
