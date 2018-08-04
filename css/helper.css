@@ -1,0 +1,12 @@
+.opening_bars .bar{
+    background-color:  #24646a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    width: 70%;
+    height: 50px;
+    padding: 10px auto;
+    margin:15px auto;
+}

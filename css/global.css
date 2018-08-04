@@ -24,6 +24,18 @@ body {
     src: url('../fonts/IRANSansWeb.woff') format('woff');  /* All Major Browsers */
 }
 
+.grayColor{
+    background-color : rgb(247,247,247);
+}
+
+.container{
+    width: 80%;
+    margin: 0 auto;
+    height: 100%;
+    position: relative;
+    top: 200px;
+}
+
 .centeral{
     text-align: center;
 }
@@ -79,4 +91,83 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 .footer .icon{
     width: 50px;
     height: 50px;
+}
+
+.header{
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    height:200px;
+}
+.header .cover{
+    background-image: url(../images/header.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height:100%;
+    display: flex;
+    align-items: center;
+}
+.header .cover_text{
+    /*position: relative;*/
+    /*top: 100px;*/
+    display: flex;
+    padding:100px 150px 100px 150px;
+    width:100%;
+    margin: auto 100px;
+    border: 2px solid #fff;
+    background-color: rgba(255,255,255, 0.4)
+}
+.header .menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: #ffffff;
+}
+.header .cover_menu{
+    background-color: #24646a;
+}
+.header .menu ul{
+    margin: 0;
+}
+.header .menu li{
+    list-style-type: none;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 10px 15px;
+}
+
+.header img#logo{
+    display: flex;
+    width: 60px;
+    justify-content: flex-end;
+    margin-left: 40px;
+}
+
+.header .fixed{
+    box-shadow: 0px 5px 8px #888888;
+}
+
+.header .karasa {
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+}
+
+.header .karasa .title{
+    font-size: 80px;
+    margin: 10px 30px;
+}
+.dark_text {
+    color: #1c4e75;;
+}
+
+.light_text{
+    color: #fff;
+}
+
+.dark{
+    background-color: #1c4e75;
 }
