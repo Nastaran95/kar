@@ -13,6 +13,7 @@ include 'header.php'
 <html lang="fa" dir="rtl">
 
 <head>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
     <link rel="stylesheet" href="css/global.css"/>
     <link rel="stylesheet" href="css/helper.css"/>
     <script src="js/jQuery.js" ></script>
