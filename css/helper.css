@@ -1,12 +1,31 @@
-.opening_bars .bar{
+.opening_bars .item{
+    width: 60%;
+    margin: 15px auto;
+}
+.opening_bars .item .bar{
+    position: relative;
     background-color:  #24646a;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: #fff;
-    width: 70%;
     height: 50px;
     padding: 10px auto;
-    margin:15px auto;
+}
+.bar .bar_arrow{
+    position: absolute;
+    left: 10px;
+    top: auto;
+}
+.bar .bar_arrow:before{
+    content: "\f078";
+    font-family: FontAwesome;
+}
+.bar .bar_arrow.opened:before{
+    content: "\f077";
+    font-family: FontAwesome;
+}
+.hide {
+    display: none;
 }
