@@ -75,6 +75,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 .footer{
     background-color: rgb(38,48,54);
     color: white;
+    padding: 0;
 }
 
 .foot-box{
@@ -103,6 +104,16 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 .footCont{
     padding-bottom: 10px;
+}
+
+.footer input {
+    background-color: rgb(38,48,54);
+}
+
+.footerDown{
+    background-color : #192226;
+    height: 40px;
+    padding-top: 10px;
 }
 
 .header{
