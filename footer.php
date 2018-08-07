@@ -8,23 +8,23 @@
 ?>
 
 <div class="footer col-md-12 ">
-    <div class="container  text-center">
+    <div class="container  text-center footCont">
         <div class="col-md-2"></div>
         <div class="col-md-8 foot-top-box">
             کاراسا به عنوان بازوی اجرایی مرکز مطالعات دانشگاه صنعتی شریف در جهت کمک به تامین، جذب و آموزش نیروی انسانی برای سازمانهای مختلف اقدامات زیر را انجام می دهد:
         </div>
         <div class="col-md-2"></div>
         <div class="col-md-12">
-            <div class="col-md-3 foot-box">
+            <div class="col-md-2 foot-box">
                 برگزاری آزمون استخدامی
             </div>
-            <div class="col-md-3 foot-box">
+            <div class="col-md-2 foot-box">
                مصاحبه
             </div>
-            <div class="col-md-3 foot-box">
+            <div class="col-md-2 foot-box">
                 برگزاری مصاحبه روانشناختی
             </div>
-            <div class="col-md-3 foot-box">
+            <div class="col-md-2 foot-box">
               ثبت سفارش
             </div>
         </div>

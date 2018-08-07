@@ -50,7 +50,7 @@ if (file_exists($productXMLNAME)) {
 <?php
 include 'Header.php';
 ?>
-<div class ="container grayColor">
+<div class ="container grayColor main">
     <div class="row">
         <br/>
         <div class="col-md-12">

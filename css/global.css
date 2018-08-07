@@ -34,6 +34,13 @@ body {
     /*height: 100%;*/
     padding: 50px 70px;
     position: relative;
+    /*top: 200px;*/
+}
+
+.main{
+    top: 200px;
+}
+.footer{
     top: 200px;
 }
 
@@ -71,7 +78,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 .foot-box{
-    width: 130px;
+    /*width: 130px;*/
     height: 70px;
     border: 2px solid white;
     display: table;
@@ -81,7 +88,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 .foot-top-box{
-    margin-top: 60px;
+    /*margin-top: 60px;*/
     margin-bottom: 20px;
 }
 
@@ -92,6 +99,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 .footer .icon{
     width: 50px;
     height: 50px;
+}
+
+.footCont{
+    padding-bottom: 10px;
 }
 
 .header{

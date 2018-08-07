@@ -21,7 +21,7 @@ include "header.php";
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
 </head>
 <body>
-<div class ="container grayColor">
+<div class ="container grayColor main">
 
     <h1 class="dark_text">تماس با ما</h1>
     <p class="dark_text" style="margin: 70px 50px;">
