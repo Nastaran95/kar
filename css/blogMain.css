@@ -140,3 +140,8 @@ hr{
     background-color: white;
     margin: 40px;
 }
+
+.bookText{
+
+    text-align: justify;
+}
