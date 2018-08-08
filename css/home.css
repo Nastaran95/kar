@@ -54,11 +54,11 @@ hr{
 
 
 .pagination li{
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     position: relative;
     float: left;
-    padding: 6px 12px;
+    padding: 10px 12px;
     margin-left: -1px;
     line-height: 1.428571429;
     text-decoration: none;
@@ -69,6 +69,13 @@ hr{
 .active{
     background-color:  #1c4e75 !important;
     color: white;
+}
+
+.subj{
+    color: rgb(27,93,99);
+    padding-top: 10px;
+    padding-bottom: 50px;
+    font-size: 25px;
 }
 
 /*tablet*/
