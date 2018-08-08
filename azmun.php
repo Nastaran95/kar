@@ -90,10 +90,10 @@ if (isset($_GET['ID'])) {
     <div class="subj"><hr></div>
     <br><br>
 
-    <div class="opening_bars">
+    <div class="opening_bars azmun">
         <div class="item">
             <div id="bar_1" class="bar"> آگهی استخدام<span id="arrow_1" class="bar_arrow"></span></div>
-            <div id="text_1" class="bar_text hide">
+            <div id="text_1" class="bar_text">
                 <?php echo $azmunDescription;?>
             </div>
         </div>
