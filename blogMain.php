@@ -55,10 +55,23 @@ include 'Header.php';
     <div class="row">
 
         <div class="col-md-4">
-            <h4 class="subj">
+            <h3 class="subj">
                 &#9673;
                 معرفی کتاب
-            </h4>
+            </h3>
+            <div>
+                <div class="col-md-12 bookImg">
+
+                </div>
+                <div class="col-md-12">
+
+                </div>
+                <div class="col-md-12 book">
+                   در مورد این کتاب بیشتر بخوانید
+                </div>
+            </div>
+
+
             <br>
 
         </div>
@@ -81,20 +94,49 @@ include 'Header.php';
             <div class="col-md-12 rightMid">
                 <div class="col-md-12 bio">
                     <div class="col-md-9">
-
+                        <h4>علی محمدزاده</h4>
+                        <h5> متولد ۱۶ آذر ۱۳۶۵</h5>
+                        <p>پس از اتمام درخواست تامین وسایل،کارشناسان بخش تامین قسطی کلاب با شما جهت انعقاد قرارداد حضوری دعوت می نمایند، و یا درصورت عدم امکان حضور، به صورت غیر حضوری قرارداد منعقد می شود.</p>
+                        <div class="col-md-4 button">
+                            بیشتر بخوانید
+                        </div>
                     </div>
                     <div class="col-md-3 circle">
                         <span class="glyphicon glyphicon-user circleIn"></span>
                     </div>
+
+                </div>
+                <div class="col-md-12 bio">
+                    <div class="col-md-3 circle pull-left">
+                        <span class="glyphicon glyphicon-user circleIn"></span>
+                    </div>
+                    <div class="col-md-9">
+                        <h4>علی محمدزاده</h4>
+                        <h5> متولد ۱۶ آذر ۱۳۶۵</h5>
+                        <p>پس از اتمام درخواست تامین وسایل،کارشناسان بخش تامین قسطی کلاب با شما جهت انعقاد قرارداد حضوری دعوت می نمایند، و یا درصورت عدم امکان حضور، به صورت غیر حضوری قرارداد منعقد می شود.</p>
+
+                        <div class="col-md-4 button">
+                            بیشتر بخوانید
+                        </div>
+                    </div>
+
+
                 </div>
                 <div class="col-md-12 bio">
                     <div class="col-md-9">
-
+                        <h4>علی محمدزاده</h4>
+                        <h5> متولد ۱۶ آذر ۱۳۶۵</h5>
+                        <p>پس از اتمام درخواست تامین وسایل،کارشناسان بخش تامین قسطی کلاب با شما جهت انعقاد قرارداد حضوری دعوت می نمایند، و یا درصورت عدم امکان حضور، به صورت غیر حضوری قرارداد منعقد می شود.</p>
+                        <div class="col-md-3 button">
+                            بیشتر بخوانید
+                        </div>
                     </div>
-                    <div class="col-md-3 circle">
+                    <div class="col-md-4 circle">
                         <span class="glyphicon glyphicon-user circleIn"></span>
                     </div>
+
                 </div>
+
             </div>
 
             <div class="col-md-12 rightBut">
