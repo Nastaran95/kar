@@ -5,7 +5,7 @@
  * Date: 8/4/2018
  * Time: 7:13 PM
  */
-include 'header.php'
+//include 'header.php'
 ?>
 
 
@@ -21,7 +21,10 @@ include 'header.php'
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<div class ="container grayColor main">
+<?php
+include "header.php";
+?>
+<div class ="container grayColor main" id="main">
 
             <h1 class="dark_text">درباره ما</h1>
             <p class="dark_text" style="margin: 70px 50px; text-align: center;">

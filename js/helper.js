@@ -11,4 +11,5 @@ $(document).ready(function () {
         $("div.karjoo_register").addClass('hide');
         $("div."+form_name).removeClass('hide');
     });
+
 });

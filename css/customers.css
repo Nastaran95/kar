@@ -1,0 +1,38 @@
+.customer{
+    border-bottom:1px solid #1c4e75;
+    padding-bottom: 50px;
+    margin-top: 20px;
+}
+.customer:last-child{
+    border:none;
+}
+.customer .customer_name{
+    color: #1c4e75;
+    padding-bottom: 15px;
+}
+.customer .customer_name h2{
+    display: inline-flex;
+    margin-right: 10px;
+}
+.customer .customer_info{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+.customer .customer_info .customer_logo{
+    width: 120px;
+    min-width: 120px;
+    height: 120px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.customer .customer_info .customer_description{
+    margin-right: 30px;
+    text-align: justify;
+}
+.customer .customer_info .customer_logo .customer_logo_img{
+    width: 80px;
+}
