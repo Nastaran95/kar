@@ -65,6 +65,7 @@ if (isset($_GET['ID'])) {
         $dateKart = $row['dateKart'];
         $dateNatayej = $row['dateNatayej'];
         $xmlAdress = $row['xmlAdress'];
+        $type = $row['type'];
         if (file_exists($xmlAdress)) {
             $XMLFile = simplexml_load_file($xmlAdress);
             $azmunDescription=$XMLFile->data;
@@ -92,7 +93,7 @@ if (isset($_GET['ID'])) {
 
     <div class="opening_bars azmun">
         <div class="item">
-            <div id="bar_1" class="bar"> آگهی استخدام<span id="arrow_1" class="bar_arrow"></span></div>
+            <div id="bar_1" class="bar"> آگهی استخدام<span id="arrow_1" class="bar_arrow opened"></span></div>
             <div id="text_1" class="bar_text">
                 <?php echo $azmunDescription;?>
             </div>
@@ -100,25 +101,74 @@ if (isset($_GET['ID'])) {
         <div class="item">
             <div id="bar_2" class="bar">زمان دریافت کارت<span class="bar_arrow"/> </div>
             <div class="bar_text hide">
-                زمان دریافت کارت این آزمون مورخ
-                <?php echo $dateKart;?>
-                 است.
+                <?php
+                if(strlen($dateKart)>0) {
+                    ?>
+                    زمان دریافت کارت این آزمون مورخ
+                    <?php echo $dateKart;
+                    if ($type==1){
+                    ?>
+                    است.
+                    <?php }
+                    else {
+                        ?>
+                        بود.
+                        <?php }
+                }else{
+                    ?>
+                    زمان دریافت کارت آزمون متعاقبا اعلام خواهد شد.
+                <?php
+                }
+                ?>
+
             </div>
         </div>
         <div class="item">
             <div id="bar_3" class="bar">زمان برگزاری آزمون<span class="bar_arrow"/> </div>
             <div class="bar_text hide">
-                 زمان برگزاری این آزمون مورخ
-                <?php echo $dateAzmun;?>
-                است.
+                <?php
+                if(strlen($dateKart)>0) {
+                    ?>
+                    زمان برگزاری این آزمون مورخ
+                    <?php echo $dateAzmun;
+                    if ($type==1){
+                        ?>
+                        است.
+                    <?php }
+                    else {
+                        ?>
+                        بود.
+                    <?php }
+                }else{
+                    ?>
+                    زمان برگزاری آزمون متعاقبا اعلام خواهد شد.
+                    <?php
+                }
+                ?>
             </div>
         </div>
         <div class="item">
             <div id="bar_4" class="bar">زمان اعلام نتایج<span class="bar_arrow" /></div>
             <div class="bar_text hide">
-                زمان اعلام نتایج این آزمون مورخ
-                <?php echo $dateNatayej;?>
-                 است.
+                <?php
+                if(strlen($dateKart)>0) {
+                    ?>
+                    زمان اعلام نتایج این آزمون مورخ
+                    <?php echo $dateNatayej;
+                    if ($type==1){
+                        ?>
+                        است.
+                    <?php }
+                    else {
+                        ?>
+                        بود.
+                    <?php }
+                }else{
+                    ?>
+                    زمان اعلام نتایج آزمون متعاقبا اعلام خواهد شد.
+                    <?php
+                }
+                ?>
             </div>
         </div>
     </div>

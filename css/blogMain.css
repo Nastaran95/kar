@@ -1,0 +1,108 @@
+
+.icon{
+    padding-right: 0;
+    padding-left: 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+}
+
+.icon img{
+    width: 60%;
+}
+
+.subj{
+    color: rgb(27,93,99);
+    padding-top: 10px;
+    padding-bottom: 50px;
+}
+
+.main{
+    padding: 0;
+    color: rgb(27,93,99);
+}
+
+.rightTop{
+    background-image: url("../images/1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center ;
+    margin: 0 auto;
+    min-height:100%;
+    position: relative;
+    margin: 0;
+    padding-top: 100px;
+    padding-bottom: 30px;
+}
+
+.button {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    background-color: white;
+    box-shadow: 5px 5px 10px #888888;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    margin: 20px;
+}
+
+.maghale{
+    /*background-color: whitesmoke;*/
+    border-radius: 10px;
+    height: 140px;
+    padding: 20px;
+    margin: 10px;
+    margin-left: 20px;
+    /*opacity: 10%;*/
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.rightMid{
+    background-color: rgb(27,93,99);
+    color: white;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.rightBut{
+    background-image: url("../images/2.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center ;
+    margin: 0 auto;
+    min-height:100%;
+    position: relative;
+    margin: 0;
+    padding-top: 100px;
+    padding-bottom: 30px;
+}
+
+.bio{
+    padding-top: 10px;
+    height: 140px;
+    border-bottom:  1px solid white;
+}
+
+hr{
+    margin-bottom: 0;
+}
+
+.circle{
+    background-color: white;
+    border-radius: 50%;
+    width: 130px;
+    height: 130px;
+    color: rgb(27,93,99);
+    text-align: center;
+    padding-top: 10px;
+    margin: 0;
+    float: right;
+}
+
+.circleIn{
+    font-size: 90px;
+    color:  rgb(27,93,99);
+
+}

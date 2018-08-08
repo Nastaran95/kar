@@ -15,16 +15,16 @@
         </div>
         <div class="col-md-2"></div>
         <div class="col-md-12">
-            <div class="col-md-2 col-sm-12 foot-box">
+            <div class="col-md-2 col-xs-12 foot-box">
                 برگزاری آزمون استخدامی
             </div>
-            <div class="col-md-2 col-sm-12 foot-box">
+            <div class="col-md-2 col-xs-12 foot-box">
                مصاحبه
             </div>
-            <div class="col-md-2 col-sm-12 foot-box">
+            <div class="col-md-2 col-xs-12 foot-box">
                 برگزاری مصاحبه روانشناختی
             </div>
-            <div class="col-md-2 col-sm-12 foot-box">
+            <div class="col-md-2 col-xs-12 foot-box">
               ثبت سفارش
             </div>
         </div>
@@ -44,11 +44,8 @@
             <div> برای عضویت در خبرنامه لطفا ایمیل خود را وارد نمایید:</div>
             <form action="">
                 <br>
-                <div class="col-md-1" ></div>
+                <input class="col-md-8 pull-right" type="email" name="email" size="30">
                 <input class="col-md-2" type="submit" value="ثبت">
-                <div class="col-md-1" ></div>
-                <input class="col-md-8" type="email" name="email" size="30">
-
             </form>
 
         </div>
