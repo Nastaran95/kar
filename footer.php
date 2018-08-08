@@ -15,16 +15,16 @@
         </div>
         <div class="col-md-2"></div>
         <div class="col-md-12">
-            <div class="col-md-2 foot-box">
+            <div class="col-md-2 col-sm-12 foot-box">
                 برگزاری آزمون استخدامی
             </div>
-            <div class="col-md-2 foot-box">
+            <div class="col-md-2 col-sm-12 foot-box">
                مصاحبه
             </div>
-            <div class="col-md-2 foot-box">
+            <div class="col-md-2 col-sm-12 foot-box">
                 برگزاری مصاحبه روانشناختی
             </div>
-            <div class="col-md-2 foot-box">
+            <div class="col-md-2 col-sm-12 foot-box">
               ثبت سفارش
             </div>
         </div>

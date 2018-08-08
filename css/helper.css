@@ -26,3 +26,7 @@
     content: "\f077";
     font-family: FontAwesome;
 }
+
+.bar_text{
+    text-align: justify;
+}
