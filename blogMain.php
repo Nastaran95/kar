@@ -59,18 +59,26 @@ include 'Header.php';
                 &#9673;
                 معرفی کتاب
             </h3>
-            <div>
-                <div class="col-md-12 bookImg">
-
+            <div class="col-md-12 book">
+                <div class="col-md-10 bookImg">
+                    <img src="">
                 </div>
-                <div class="col-md-12">
-
+                <div class="col-md-11">
+                    نام من سرخ
+                    <br>
+                    نویسنده: اورهان پاموک
+                    <br>
+                    مترجم: عین‌اله غریب
+                    <br>
+                    نشر چشمه
+                    <br>
+                    <br>
+                    
                 </div>
-                <div class="col-md-12 book">
+                <div class="col-md-12 bookBut">
                    در مورد این کتاب بیشتر بخوانید
                 </div>
             </div>
-
 
             <br>
 
