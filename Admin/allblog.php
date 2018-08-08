@@ -5,7 +5,7 @@
  * User: HamidReza
  */
 session_start();
-if (($_SESSION['type'] == 10) || ($_SESSION['type'] == 9)) {
+if (($_SESSION['type']>0)) {
     if (isset($_REQUEST['cat1']))
         $cat1 = true;
     else

@@ -1,3 +1,7 @@
+<?php
+session_start();
+if (($_SESSION['type']>0)) {
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,3 +45,8 @@
     <!-- /#wrapper -->
 </body>
 </html>
+<?php
+    }else{
+    header('Location:../');
+
+}
