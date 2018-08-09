@@ -106,21 +106,44 @@ include 'Header.php';
                 </div>
             </div>
         </div>
+
+
+
         <div class="col-md-8">
             <div class="col-md-12 rightTop">
-                <div class="col-md-11 maghale">
-                    عنوان مقاله
-                </div>
-                <div class="col-md-11 maghale">
-عنوان مقاله
-                </div>
-                <div class="col-md-11 maghale">
-                    عنوان مقاله
-                </div>
+
+                <?php
+                $query = "SELECT * FROM BLOG ;";
+                $result = $connection->query($query);
+                $x = 0;
+                while ( ($row=$result->fetch_assoc()) && ($x<3)) {
+                    $x++;
+                    $name=$row['topic'];
+                    $link = '/blog/'.$row['post_name'];
+                    $mokhtasar = $row['Mokhtasar'];
+                    ?>
+
+                    <a class="maghaleA" href="<?php echo $link ?>">
+                        <div class="col-md-11 maghale">
+                            <h2 class="h3size">
+                                <?php echo $name ; ?>
+                            </h2>
+                            <p>
+                                <?php echo $mokhtasar ; ?>
+                            </p>
+                        </div>
+                    </a>
+
+                    <?php
+                }
+                ?>
+
                 <div class="col-md-3 button">
                     تمام مقالات
                 </div>
+
             </div>
+
 
             <div class="col-md-12 rightMid">
                 <div class="col-md-12 bio">
@@ -171,15 +194,28 @@ include 'Header.php';
             </div>
 
             <div class="col-md-12 rightBut">
-                <div class="col-md-11 maghale">
-                    عنوان مقاله
-                </div>
-                <div class="col-md-11 maghale">
-                    عنوان مقاله
-                </div>
-                <div class="col-md-11 maghale">
-                    عنوان مقاله
-                </div>
+                <?php
+                while ( ($row=$result->fetch_assoc()) && ($x<6)) {
+                    $x++;
+                    $name=$row['topic'];
+                    $link = '/blog/'.$row['post_name'];
+                    $mokhtasar = $row['Mokhtasar'];
+                    ?>
+
+                    <a class="maghaleA" href="<?php echo $link ?>">
+                        <div class="col-md-11 maghale">
+                            <h2 class="h3size">
+                                <?php echo $name ; ?>
+                            </h2>
+                            <p>
+                                <?php echo $mokhtasar ; ?>
+                            </p>
+                        </div>
+                    </a>
+
+                    <?php
+                }
+                ?>
                 <div class="col-md-3 button">
                     تمام مقالات
                 </div>

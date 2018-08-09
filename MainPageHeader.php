@@ -14,7 +14,9 @@
                 <h2>پل ارتباطی بین کارجو و کارفرما</h2>
                 <img src="images/logo.png" class="logo">
             </div>
+            <a href="#main">
             <div class="cover_arrow" id="scroll"><i class="fa fa-angle-down"></i></div>
+            </a>
         </div>
         <div class="cover_menu menu">
             <ul class="dark_text">
