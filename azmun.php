@@ -65,7 +65,7 @@ if (isset($_GET['ID'])) {
         $dateKart = $row['dateKart'];
         $dateNatayej = $row['dateNatayej'];
         $xmlAdress = $row['xmlAdress'];
-        $type = $row['type'];
+        $type = $row['typ'];
         if (file_exists($xmlAdress)) {
             $XMLFile = simplexml_load_file($xmlAdress);
             $azmunDescription=$XMLFile->data;

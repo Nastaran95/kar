@@ -30,6 +30,7 @@ $(document).ready(function() {
         var text_length = $('#seodesc').val().length;
         var text_remaining = feedbackseodesc - text_length;
 
+
         $('#feedbackseodesc').html(text_remaining + ' کاراکتر باقی مانده ');
     });
 
