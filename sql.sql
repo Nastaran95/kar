@@ -113,6 +113,7 @@ INSERT INTO azmun(title, typ, ostan, state, dateAzmun, dateKart, dateNatayej,eng
 
 
 
+
 DROP TABLE Users;
 CREATE TABLE Users (ID int NOT NULL AUTO_INCREMENT,name NVARCHAR(32), family NVARCHAR(32),
                     Address NVARCHAR(300), phonenumber VARCHAR(11), mobile VARCHAR(22) UNIQUE, type int,
@@ -122,6 +123,40 @@ CREATE TABLE Users (ID int NOT NULL AUTO_INCREMENT,name NVARCHAR(32), family NVA
 INSERT INTO Users (shahr,name, family, Address,phonenumber,mobile,type,email,Postalcode,Password,money,verified,verificationcode,codetime,attempt,passwordtime)  VALUES ('تهران','ADMIN','ADMIN','CLUBRENTER','CLUBRENTER','ADMINALL',10,'clubrenter@gmail.com','1111111111','Sharif@1397#',0,1,'AAAAA',CURRENT_TIMESTAMP,1,CURRENT_TIMESTAMP);
 
 DROP table token;
-CREATE TABLE token(ID INT NOT NULL AUTO_INCREMENT,token VARCHAR(100),token2 VARCHAR(100),PRIMARY KEY (ID));
+CREATE TABLE token(ID INT NOT NULL AUTO_INCREMENT,token VARCHAR(100),token2 VARCHAR(100),PRIMARY KEY (ID)) DEFAULT CHARSET=utf8;
 DROP table BLOG;
-CREATE TABLE BLOG(ID int NOT NULL AUTO_INCREMENT,XMLNAME VARCHAR(300),topic VARCHAR(300),Mokhtasar VARCHAR(1000),image VARCHAR(1000),time TIMESTAMP,pishnevis INT DEFAULT 0,realtime VARCHAR(200),mahbobiat int DEFAULT 0,post_name VARCHAR(300) DEFAULT "",dastebandi VARCHAR(300),PRIMARY KEY (ID));
+
+CREATE TABLE BLOG(ID int NOT NULL AUTO_INCREMENT,
+  XMLNAME VARCHAR(300),
+  topic VARCHAR(300) CHARACTER SET utf8 COLLATE utf8_general_ci,
+  Mokhtasar VARCHAR(1000) CHARACTER SET utf8 COLLATE utf8_general_ci,
+  image VARCHAR(1000),
+  time TIMESTAMP,
+  pishnevis INT DEFAULT 0,
+  realtime VARCHAR(200),
+  mahbobiat int DEFAULT 0,
+  post_name VARCHAR(300) DEFAULT "",
+  dastebandi VARCHAR(300),
+  PRIMARY KEY (ID)) DEFAULT CHARSET=utf8;
+
+INSERT INTO BLOG(XMLNAME, topic, Mokhtasar, image, time, pishnevis, realtime, mahbobiat, post_name, dastebandi) VALUES
+  ('../XMLs/BlogXMLs/5b6c822166c555b6c822166c61.xml', 'کلاه قرمزی', 'کلاه‌قرمزی نام شخصیت عروسکی ایرانی است که توسط ایرج طهماسب و حمید جِبِلّی خلق شده‌است. فیلم‌های ساخته‌شده براساس این شخصیت از پرفروش‌ترین فیلم‌های...', '../images/blog/5b6c822166c93Image002(3).jpg', '2018-08-09 22:40:55', '0', '2018-08-09 22:40:55', '0', 'kolahqermezi', '!')
+
+DROP table BOOK;
+CREATE TABLE BOOK(ID int NOT NULL AUTO_INCREMENT,
+                  XMLNAME VARCHAR(300),
+                  topic VARCHAR(300) CHARACTER SET utf8 COLLATE utf8_general_ci,
+                  Mokhtasar VARCHAR(1000) CHARACTER SET utf8 COLLATE utf8_general_ci,
+                  image VARCHAR(1000),
+                  time TIMESTAMP,
+                  pishnevis INT DEFAULT 0,
+                  realtime VARCHAR(200),
+                  mahbobiat int DEFAULT 0,
+                  post_name VARCHAR(300) DEFAULT "",
+                  dastebandi VARCHAR(300),
+  PRIMARY KEY (ID)) DEFAULT CHARSET=utf8;
+
+INSERT INTO BOOK(XMLNAME, topic, Mokhtasar, image, time, pishnevis, realtime, mahbobiat, post_name, dastebandi) VALUES
+  ('../XMLs/BlogXMLs/5b6c822166c555b6c822166c61.xml', 'کلاه قرمزی', 'کلاه‌قرمزی نام شخصیت عروسکی ایرانی است که توسط ایرج طهماسب و حمید جِبِلّی خلق شده‌است. فیلم‌های ساخته‌شده براساس این شخصیت از پرفروش‌ترین فیلم‌های...', '../images/blog/5b6c822166c93Image002(3).jpg', '2018-08-09 22:40:55', '0', '2018-08-09 22:40:55', '0', 'kolahqermezi', '!');
+INSERT INTO BOOK(XMLNAME, topic, Mokhtasar, image, time, pishnevis, realtime, mahbobiat, post_name, dastebandi) VALUES
+  ('../XMLs/BookXMLs/5b6cb9134b23d5b6cb9134b254.xml','نام من سرخ','نام من سرخ (به ترکی استانبولی: Benim Adım Kırmızı) رمانی از اورهان پاموک است تحت تأثیر رمان مشهور ایتالیایی نام گل سرخ. نام من سرخ برنده جایزه نوبل..','../images/book/5b6cb9134b299MyNameIsRed.jpg','2018-08-09 22:40:55','0', '2018-08-09 22:40:55','0','namemansorkh','!');
