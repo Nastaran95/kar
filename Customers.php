@@ -39,7 +39,10 @@ if (file_exists($productXMLNAME)) {
 include "header.php";
 ?>
 <div class ="container grayColor main">
-    <h1 class="dark_text">مشتریان ما</h1>
+    <div class="row">
+        <br/>
+        <div class="col-md-12">
+    <h1 class="col-md-12 subj">مشتریان ما</h1>
 
     <div class="customers">
         <?php
@@ -77,7 +80,8 @@ include "header.php";
         <?php
         }
         ?>
-
+    </div>
+    </div>
     </div>
 </div>
 </body>

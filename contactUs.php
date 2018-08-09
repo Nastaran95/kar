@@ -21,9 +21,12 @@ include "header.php";
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
 </head>
 <body>
-<div class ="container grayColor main">
 
-    <h1 class="dark_text">تماس با ما</h1>
+<div class ="container grayColor main">
+    <div class="row">
+        <br/>
+        <div class="col-md-12">
+    <h1 class="col-md-12 subj">تماس با ما</h1>
     <p class="dark_text" style="margin: 70px 50px;">
         اگر کارفرما یا کارجو هستید، به صورت زیر با ما ارتباط برقرار کنید
     </p>
@@ -91,7 +94,8 @@ include "header.php";
     <div id="googleMap" style="width:100%;height:400px;"></div>
 
 </div>
-
+</div>
+</div>
 </body>
 
 <script>

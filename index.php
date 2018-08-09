@@ -48,9 +48,9 @@ if (file_exists($productXMLNAME)) {
 </head>
 <body>
 <?php
-include 'Header.php';
+include 'MainPageHeader.php';
 ?>
-<div class ="container grayColor main">
+<div class ="container grayColor main home_main">
     <div class="row">
         <br/>
         <div class="col-md-12">

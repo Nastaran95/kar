@@ -25,8 +25,10 @@
 include "header.php";
 ?>
 <div class ="container grayColor main" id="main">
-
-            <h1 class="dark_text">درباره ما</h1>
+<div class="row">
+    <br/>
+    <div class="col-md-12">
+            <h1 class="col-md-12 subj">درباره ما</h1>
             <p class="dark_text" style="margin: 70px 50px; text-align: center;">
                 گروه مدیریت تجاری و توسعه کسب و کار مرکز مطالعات تكنولوژي دانشگاه صنعتي شريف (کارآسا) به عنوان بازوی اجرایی مرکز مطالعات دانشگاه صنعتی شریف با بیش از ده سال سابقه مشاوره، آموزش و پژوهش در جهت کمک به تامین، جذب، آموزش و نگه داشت نیروی انسانی سازمان ها، نهادها، صنایع و شرکت ها، خدمات زیر را ارائه می دهد.
             </p>
@@ -55,7 +57,9 @@ include "header.php";
                         ارسال افراد تایید شده به همراه معرفی نامه از کارآسا</div>
                 </div>
             </div>
+            </div>
 
         </div>
+</div>
 
 </body>
