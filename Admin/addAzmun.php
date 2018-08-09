@@ -22,7 +22,7 @@ if ($_SESSION['type']>8) {
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>افزودن بلاگ</title>
+        <title>افزودن آزمون</title>
 
         <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
@@ -227,7 +227,7 @@ if ($_SESSION['type']>8) {
     ?>
     <div id="wrapper">
         <?php
-        $which=2;
+        $which=6;
         include 'adminmenue.php';
         $query = "SELECT * FROM blog WHERE ID='$product'";
         $result = $connection->query($query);

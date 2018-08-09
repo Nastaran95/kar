@@ -22,9 +22,9 @@
             <li class="<?php if ($which==2) echo "selected";?>"><a href="addblog.php"><i class="fa fa-tasks"></i> افزودن بلاگ </a></li>
             <li class="<?php if ($which==3) echo "selected";?>"><a href="allblog.php"><i class="fa fa-tasks"></i> همه بلاگ ها </a></li>
             <li class="<?php if ($which==4) echo "selected";?>"><a href="addbook.php"><i class="fa fa-globe"></i> افزودن کتاب </a></li>
-            <li class="<?php if ($which==5) echo "selected";?>"><a href="addbook.php"><i class="fa fa-globe"></i> همه کتاب ها </a></li>
-            <li class="<?php if ($which==6) echo "selected";?>"><a href="addblog.php"><i class="fa fa-list-ol"></i> افزون آزمون </a></li>
-            <li class="<?php if ($which==7) echo "selected";?>"><a href="addblog.php"><i class="fa fa-list-ol"></i> همه آزمون ها </a></li>
+            <li class="<?php if ($which==5) echo "selected";?>"><a href="allbook.php"><i class="fa fa-globe"></i> همه کتاب ها </a></li>
+            <li class="<?php if ($which==6) echo "selected";?>"><a href="addAzmun.php"><i class="fa fa-list-ol"></i> افزون آزمون </a></li>
+            <li class="<?php if ($which==7) echo "selected";?>"><a href="allAzmun.php"><i class="fa fa-list-ol"></i> همه آزمون ها </a></li>
             <li class="<?php if ($which==8) echo "selected";?>"><a href="addkhabar.php"><i class="fa fa-font"></i> افزودن خبر ویژه </a></li>
             <li class="<?php if ($which==9) echo "selected";?>"><a href="addkhabar.php"><i class="fa fa-font"></i> همه خبرهای ویژه </a></li>
             <li class="<?php if ($which==10) echo "selected";?>"><a href="addmosahebe.php"><i class="fa fa-font"></i> افزودن مصاحبه فردی </a></li>
