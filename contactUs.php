@@ -91,7 +91,12 @@ include "header.php";
         </div>
     </div>
 
-    <div id="googleMap" style="width:100%;height:400px;"></div>
+<!--    <div id="googleMap" style="width:100%;height:400px;"></div>-->
+            <div class="mapouter">
+                <div class="gmap_canvas">
+                    <iframe width="100%" height="100%" id="gmap_canvas" src="https://maps.google.com/maps?q=sharif%20university&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                </div>
+            </div>
 
 </div>
 </div>
