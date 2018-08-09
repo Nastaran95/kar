@@ -32,13 +32,9 @@ if(isset($_GET) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERV
         if ($dastebandi=='all'){
             if ($type == 1)
                 $results = $connection->query("SELECT COUNT(*) FROM blog");
-            else
-                $results = $connection->query("SELECT COUNT(*) FROM sitesafhe");
         }else{
             if ($type == 1)
                 $results = $connection->query("SELECT COUNT(*) FROM blog WHERE dastebandi='$dastebandi'");
-            else
-                $results = $connection->query("SELECT COUNT(*) FROM sitesafhe WHERE dastebandi='$dastebandi'");
         }
     }else {
         $D=0;
@@ -61,25 +57,17 @@ if(isset($_GET) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERV
             if ($dastebandi=='all') {
                 if ($type == 1)
                     $results = $connection->query("SELECT COUNT(*) FROM blog");
-                else
-                    $results = $connection->query("SELECT COUNT(*) FROM sitesafhe");
             }else{
                 if ($type == 1)
                     $results = $connection->query("SELECT COUNT(*) FROM blog WHERE dastebandi='$dastebandi'");
-                else
-                    $results = $connection->query("SELECT COUNT(*) FROM sitesafhe WHERE dastebandi='$dastebandi'");
             }
         }else {
             if ($dastebandi=='all') {
                 if ($type == 1)
                     $results = $connection->query("SELECT COUNT(*) FROM blog " . $command);
-                else
-                    $results = $connection->query("SELECT COUNT(*) FROM sitesafhe " . $command2);
             }else{
                 if ($type == 1)
                     $results = $connection->query("SELECT COUNT(*) FROM blog " . $command." and dastebandi='$dastebandi'");
-                else
-                    $results = $connection->query("SELECT COUNT(*) FROM sitesafhe " . $command2." and dastebandi='$dastebandi'");
             }
         }
     }
@@ -96,13 +84,9 @@ if(isset($_GET) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERV
         if ($dastebandi=='all') {
             if ($type == 1)
                 $results = $connection->query("SELECT * FROM blog ORDER BY ID DESC  LIMIT $page_position, $item_per_page ");
-            else
-                $results = $connection->query("SELECT * FROM sitesafhe ORDER BY ID DESC  LIMIT $page_position, $item_per_page ");
         }else{
             if ($type == 1)
                 $results = $connection->query("SELECT * FROM blog WHERE dastebandi='$dastebandi' ORDER BY ID DESC  LIMIT $page_position, $item_per_page ");
-            else
-                $results = $connection->query("SELECT * FROM sitesafhe WHERE dastebandi='$dastebandi' ORDER BY ID DESC  LIMIT $page_position, $item_per_page ");
         }
     }else {
         $command="WHERE";
@@ -124,25 +108,17 @@ if(isset($_GET) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERV
             if ($dastebandi=='all') {
                 if ($type == 1)
                     $results = $connection->query("SELECT * FROM blog ORDER BY ID DESC  LIMIT $page_position, $item_per_page ");
-                else
-                    $results = $connection->query("SELECT * FROM sitesafhe ORDER BY ID DESC  LIMIT $page_position, $item_per_page ");
             }else {
                 if ($type == 1)
                     $results = $connection->query("SELECT * FROM blog  WHERE dastebandi='$dastebandi' ORDER BY ID DESC  LIMIT $page_position, $item_per_page ");
-                else
-                    $results = $connection->query("SELECT * FROM sitesafhe  WHERE dastebandi='$dastebandi' ORDER BY ID DESC  LIMIT $page_position, $item_per_page ");
             }
         }else {
             if ($dastebandi=='all') {
                 if ($type == 1)
                     $results = $connection->query("SELECT * FROM blog " . $command . " ORDER BY ID DESC LIMIT $page_position, $item_per_page ");
-                else
-                    $results = $connection->query("SELECT * FROM sitesafhe " . $command2 . " ORDER BY ID DESC LIMIT $page_position, $item_per_page ");
             }else{
                 if ($type == 1)
                     $results = $connection->query("SELECT * FROM blog " . $command ."and dastebandi='$dastebandi'". " ORDER BY ID DESC LIMIT $page_position, $item_per_page ");
-                else
-                    $results = $connection->query("SELECT * FROM sitesafhe " . $command2 ."and dastebandi='$dastebandi'". " ORDER BY ID DESC LIMIT $page_position, $item_per_page ");
             }
         }
     }
@@ -160,19 +136,10 @@ if(isset($_GET) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERV
                                     <th><span>لینک</span></th>                                  
                                 </tr>
                                 </thead>';
-    else
-        echo '<table class="table user-list">
-                                <thead>
-                                <tr>
-                                    <th><input id="checkAll" type="checkbox"/></th>
-                                    <th><span>عنوان</span></th>                                    
-                                    <th><span>لینک</span></th>                                  
-                                </tr>
-                                </thead>';
     echo '<tbody>';
 
     while($row = $results->fetch_assoc()){ //fetch values
-
+//echo $row['topic'];
         $productXMLNAME = $row['XMLNAME'];
         if (file_exists($productXMLNAME)) {
             $produc = simplexml_load_file($productXMLNAME);

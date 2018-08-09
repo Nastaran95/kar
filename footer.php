@@ -7,7 +7,7 @@
  */
 ?>
 
-<div class="footer col-md-12 ">
+<div class="footer col-md-12 " ID="footer">
     <div class="container  text-center footCont">
         <div class="col-md-2"></div>
         <div class="col-md-8 foot-top-box">

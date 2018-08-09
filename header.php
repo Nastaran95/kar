@@ -6,7 +6,7 @@
  * Time: 7:54 PM
  */
 ?>
-<div class="header col-lg-12 col-md-12">
+<div class="header col-lg-12 col-md-12 headerfix">
     <div class="fixed">
         <a href="index.php"><div class="karasa dark light_text">
             <h1 class="title">کاراسا</h1>

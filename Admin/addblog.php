@@ -230,6 +230,9 @@ if ($_SESSION['type']>8) {
                 $stmt  = $connection->prepare("INSERT INTO BLOG (XMLNAME,topic, Mokhtasar,image,time,dastebandi,pishnevis,post_name,realtime)  VALUES (?,?,?,?,NOW(),?,?,?,?)");
                 $stmt->bind_param("ssssssss", $filename,$topic,$Mokhtasar,$imageURL,$dastebandi,$pishnevis,$englishtopic,$DATE);
             } else {
+
+                echo $topic;
+                die();
                 $stmt  = $connection->prepare("UPDATE BLOG SET pishnevis=?,XMLNAME=?,topic=?,dastebandi=?, Mokhtasar=?,image=?,post_name=?,realtime=? WHERE ID='$product'");
                 $stmt->bind_param("ssssssss", $pishnevis,$filename,$topic,$dastebandi,$Mokhtasar,$imageURL,$englishtopic,$DATE);
             }

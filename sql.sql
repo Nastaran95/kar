@@ -112,13 +112,16 @@ INSERT INTO azmun(title, typ, ostan, state, dateAzmun, dateKart, dateNatayej,eng
 INSERT INTO azmun(title, typ, ostan, state, dateAzmun, dateKart, dateNatayej,englishName) VALUES ('53', '2','تهران' , '1' , '1397/05/02' , '1397/05/02' , '1397/05/02' , 'fuladZarand');
 
 
+
+DROP TABLE Users;
 CREATE TABLE Users (ID int NOT NULL AUTO_INCREMENT,name NVARCHAR(32), family NVARCHAR(32),
                     Address NVARCHAR(300), phonenumber VARCHAR(11), mobile VARCHAR(22) UNIQUE, type int,
-                    email VARCHAR(100) ,Postalcode VARCHAR(10),Password NVARCHAR(100),money int,verified int,verificationcode VARCHAR(100),codetime TIMESTAMP,attempt int,attemptgetpassword int DEFAULT 1,passwordtime TIMESTAMP,shahr VARCHAR(100),ostan VARCHAR(100),pelak VARCHAR(100),tabaghe VARCHAR(100)
-  ,PRIMARY KEY (ID));
+                    email VARCHAR(100) ,Postalcode VARCHAR(10),Password NVARCHAR(100),money int,verified int,verificationcode VARCHAR(100),codetime TIMESTAMP,attempt int,attemptgetpassword int DEFAULT 1,passwordtime VARCHAR(300),shahr VARCHAR(100),ostan VARCHAR(100),pelak VARCHAR(100),tabaghe VARCHAR(100)
+  ,PRIMARY KEY (ID)) DEFAULT CHARSET=utf8;;
 
 INSERT INTO Users (shahr,name, family, Address,phonenumber,mobile,type,email,Postalcode,Password,money,verified,verificationcode,codetime,attempt,passwordtime)  VALUES ('تهران','ADMIN','ADMIN','CLUBRENTER','CLUBRENTER','ADMINALL',10,'clubrenter@gmail.com','1111111111','Sharif@1397#',0,1,'AAAAA',CURRENT_TIMESTAMP,1,CURRENT_TIMESTAMP);
 
+DROP table token;
 CREATE TABLE token(ID INT NOT NULL AUTO_INCREMENT,token VARCHAR(100),token2 VARCHAR(100),PRIMARY KEY (ID));
 DROP table BLOG;
 CREATE TABLE BLOG(ID int NOT NULL AUTO_INCREMENT,XMLNAME VARCHAR(300),topic VARCHAR(300),Mokhtasar VARCHAR(1000),image VARCHAR(1000),time TIMESTAMP,pishnevis INT DEFAULT 0,realtime VARCHAR(200),mahbobiat int DEFAULT 0,post_name VARCHAR(300) DEFAULT "",dastebandi VARCHAR(300),PRIMARY KEY (ID));

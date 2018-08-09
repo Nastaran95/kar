@@ -16,7 +16,7 @@ $(document).ready(function () {
             scrollTop: $("div#main").offset().top
         }, 100);
         $(".fixed").removeClass('hide');
-        $(".home_main").css('top', '200px');
+        $(".home_main").css('margin-top', '200px');
     });
 
     $(window).scroll(function() {
@@ -28,11 +28,13 @@ $(document).ready(function () {
         if((bottom_of_screen > top_of_element) && (top_of_screen < bottom_of_element)){
             // The element is visible, do something
             $(".fixed").addClass('hide');
-            $(".home_main").css('top', '100');
+            $(".home_main").css('margin-top', '100');
+            $(".header").removeClass('headerfix');
         }
         else {
             $(".fixed").removeClass('hide');
-            $(".home_main").css('top', '200px');
+            // $(".home_main").css('margin-top', '125px');
+            $(".header").addClass('headerfix');
         }
     });
 });
