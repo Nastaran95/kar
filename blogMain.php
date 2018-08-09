@@ -59,30 +59,46 @@ include 'Header.php';
                 &#9673;
                 معرفی کتاب
             </h3>
-            <div class="col-md-12 book">
-                <div class="col-md-10 bookImg">
-                    <img src="">
-                </div>
-                <div class="col-md-11 bookText pull-right">
-                    نام من سرخ
-                    <br>
-                    نویسنده: اورهان پاموک
-                    <br>
-                    مترجم: عین‌اله غریب
-                    <br>
-                    نشر چشمه
-                    <br>
-                    <br>
-                    رمان نام من سرخ در بستر بخشی از تاریخ امپراتوری عثمانی در زمان سلطان مراد سوم می‌گذرد. در این رمان، شیوهٔ چند صدایی یا پلی فونی روایتِ حوادث مختلف را توسط شخصیت‌های رمان ممکن کرده‌است.
-                    <br>
-                    پاموک در این رمان نقطه مشترک تاریخ عثمانی و ایران را در نظر داشته‌است. نویسنده به شرح عشق و قتل در این رمان پرداخته‌است.
-                </div>
-                <div class="col-md-12 bookBut">
-                   در مورد این کتاب بیشتر بخوانید
-                </div>
-            </div>
 
-            <br>
+            <?php
+            $query = "SELECT * FROM book ;";
+            $result1 = $connection->query($query);
+            $x = 0;
+            while ( ($row=$result1->fetch_assoc()) && ($x<2)) {
+                $x++;
+                $name = $row['topic'];
+                $link = '/book/' . $row['post_name'];
+                $mokhtasar = $row['Mokhtasar'];
+                $image = $row['image'];
+                $image = substr($image,3);
+                ?>
+
+                <div class="col-md-12 book">
+                    <div class="col-md-10 bookImg">
+                        <img src="<?php echo $image; ?>" width="100%" height="300">
+                    </div>
+
+                    <div class="col-md-11 bookText pull-right">
+                        <h2 class="h4size">
+                            <?php echo $name; ?>
+                        </h2>
+                        <p>
+                            <?php echo $mokhtasar; ?>
+                        </p>
+                    </div>
+                    <a href="<?php echo $link ?>">
+                        <div class="col-md-12 bookBut">
+                            در مورد این کتاب بیشتر بخوانید
+                        </div>
+                    </a>
+                </div>
+                <br>
+
+                <?php
+            }
+            ?>
+
+
             <div class="col-md-12 book">
                 <div class="col-md-10 bookImg">
                     <img src="">

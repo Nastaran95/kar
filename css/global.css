@@ -87,6 +87,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     background-color: rgb(38,48,54);
     color: white;
     padding: 0;
+    float: left;
 }
 
 .foot-box{
@@ -117,6 +118,15 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     padding-bottom: 10px;
 }
 
+.hr{
+    border-bottom: 1px solid white ;
+    width: 95%;
+    margin-left: 2.5%;
+    height: 1px;
+    float: left;
+
+}
+
 .footer input {
     background-color: rgb(38,48,54);
 }
@@ -125,6 +135,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     background-color : #192226;
     height: 40px;
     padding-top: 10px;
+    width: 100%;
 }
 
 .header{

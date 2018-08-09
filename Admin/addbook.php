@@ -22,7 +22,7 @@ if ($_SESSION['type']>8) {
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>افزودن بلاگ</title>
+        <title>افزودن کتاب</title>
 
         <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
@@ -67,9 +67,7 @@ if ($_SESSION['type']>8) {
             $name = (string)uniqid().uniqid();
         } else {
             if ($type == 1) {
-                $query = "SELECT * FROM blog WHERE ID='$product'";
-            } else {
-                $query = "SELECT * FROM sitesafhe WHERE ID='$product'";
+                $query = "SELECT * FROM BOOK WHERE ID='$product'";
             }
             $result = $connection->query($query);
             if ($result->num_rows > 0) {
@@ -85,7 +83,7 @@ if ($_SESSION['type']>8) {
         $writer->openMemory();
         $writer->setIndent(true);
         $writer->startDocument('1.0" encoding="UTF-8');
-        $writer->startElement('blog');
+        $writer->startElement('BOOK');
         $writer->writeElement('code', $name);
         $writer->writeElement('title', $_POST['topic']);
         $titleshould=$_POST['topic'];
@@ -96,7 +94,7 @@ if ($_SESSION['type']>8) {
         }else{
             $pishnevis=0;
         }
-        $filename = '../XMLs/BlogXMLs/' . $name . '.xml';
+        $filename = '../XMLs/BookXMLs/' . $name . '.xml';
         $writer->writeElement('Mokhtasar', $_POST['MOkhtasar']);
         $Mokhtasar = $_POST['MOkhtasar'];
         $dastebandi = $_POST['dastebandi'];
@@ -117,7 +115,7 @@ if ($_SESSION['type']>8) {
                 $TMPNAMESSS = $imagetempname;
             }
             if (strlen($NAMESSS) > 0) {
-                $target_dir = "../images/blog/";
+                $target_dir = "../images/book/";
                 $BBB = (string)uniqid();
                 $target_file = $target_dir . $BBB . basename($NAMESSS);
                 $uploadOk = 1;
@@ -227,13 +225,13 @@ if ($_SESSION['type']>8) {
             date_default_timezone_set("Iran");
             $DATE=date('Y-m-d H:i:s');
             if ($product === "all") {
-                $stmt  = $connection->prepare("INSERT INTO BLOG (XMLNAME,topic, Mokhtasar,image,time,dastebandi,pishnevis,post_name,realtime)  VALUES (?,?,?,?,NOW(),?,?,?,?)");
+                $stmt  = $connection->prepare("INSERT INTO BOOK (XMLNAME,topic, Mokhtasar,image,time,dastebandi,pishnevis,post_name,realtime)  VALUES (?,?,?,?,NOW(),?,?,?,?)");
                 $stmt->bind_param("ssssssss", $filename,$topic,$Mokhtasar,$imageURL,$dastebandi,$pishnevis,$englishtopic,$DATE);
             } else {
 
                 echo $topic;
                 die();
-                $stmt  = $connection->prepare("UPDATE BLOG SET pishnevis=?,XMLNAME=?,topic=?,dastebandi=?, Mokhtasar=?,image=?,post_name=?,realtime=? WHERE ID='$product'");
+                $stmt  = $connection->prepare("UPDATE BOOK SET pishnevis=?,XMLNAME=?,topic=?,dastebandi=?, Mokhtasar=?,image=?,post_name=?,realtime=? WHERE ID='$product'");
                 $stmt->bind_param("ssssssss", $pishnevis,$filename,$topic,$dastebandi,$Mokhtasar,$imageURL,$englishtopic,$DATE);
             }
             $result = $stmt->execute(); //execute() tries to fetch a result set. Returns true on succes, false on failure.
@@ -271,7 +269,7 @@ if ($_SESSION['type']>8) {
                 }
             }else{
                 echo "<script>alert('عملیات مورد نظر موفقیت آمیز بود.');</script>";
-                echo '<META HTTP-EQUIV="Refresh" Content="0; URL=addblog.php?product='.$product.'&type='.$type.'">';
+                echo '<META HTTP-EQUIV="Refresh" Content="0; URL=addbook.php?product='.$product.'&type='.$type.'">';
             }
         }
     } elseif ((isset($_POST['editor1'])) && (isset($_POST['topic'])) && (isset($_POST['MOkhtasar']))) {
@@ -306,28 +304,28 @@ if ($_SESSION['type']>8) {
     ?>
     <div id="wrapper">
         <?php
-        $which=2;
+        $which=4;
         include 'adminmenue.php';
-        $query = "SELECT * FROM blog WHERE ID='$product'";
+        $query = "SELECT * FROM BOOK WHERE ID='$product'";
         $result = $connection->query($query);
         if ($result->num_rows > 0) {
             $row = mysqli_fetch_assoc($result);
-            $BLOG = $row['post_name'];
+            $BOOK = $row['post_name'];
         }
         $tempvar = 0;
         $tempvar2 = 0;
         if ($product === "all") {
-            $URL = "addblog.php";
+            $URL = "addbook.php";
         } else {
-            $URL = "addblog.php?product=$product";
+            $URL = "addbook.php?product=$product";
         }
-        $URL2 = "allblogs.php?type=$type";
+        $URL2 = "allbooks.php?type=$type";
         $englishtopic="";
         if ($product=="namovafagh"){
 
         } else if ($product !== "all") {
             if ($type == 1) {
-                $query = "SELECT * FROM blog WHERE ID='$product'";
+                $query = "SELECT * FROM BOOK WHERE ID='$product'";
             }
             $result = $connection->query($query);
             if ($result->num_rows > 0) {

@@ -15,7 +15,7 @@
                 <img src="images/logo.png" class="logo">
             </div>
             <a href="#main">
-            <div class="cover_arrow" id="scroll"><i class="fa fa-angle-down"></i></div>
+            <div class="cover_arrow" id="scroll"><i class="fa fa-angle-down"></i> <span class="glyphicon glyphicon-menu-down"></span> </div>
             </a>
         </div>
         <div class="cover_menu menu">

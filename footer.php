@@ -8,7 +8,7 @@
 ?>
 
 <div class="footer col-md-12 " ID="footer">
-    <div class="container  text-center footCont">
+    <div class="container  text-center footCont ">
         <div class="col-md-2"></div>
         <div class="col-md-8 foot-top-box">
             کاراسا به عنوان بازوی اجرایی مرکز مطالعات دانشگاه صنعتی شریف در جهت کمک به تامین، جذب و آموزش نیروی انسانی برای سازمانهای مختلف اقدامات زیر را انجام می دهد:
@@ -30,7 +30,8 @@
         </div>
 
     </div>
-    <div class="col-md-12"><hr/></div>
+    <div class="hr">
+    </div>
     <div class="container">
 
         <div class="col-md-1 pull-left icon col-xs-1">
@@ -51,5 +52,5 @@
         </div>
 
     </div>
-    <div class="col-md-12 text-center footerDown"> کلیه حقوق مادی و معنوی کاراسا متعلق به مرکز مطالعات دانشگاه صنعتی شریف می باشد </div>
+    <div class="col-md-12 text-center footerDown pull-left"> کلیه حقوق مادی و معنوی کاراسا متعلق به مرکز مطالعات دانشگاه صنعتی شریف می باشد </div>
 </div>
