@@ -12,15 +12,17 @@ CREATE TABLE azmun (
   dateNatayej VARCHAR(300),
   englishName VARCHAR(300),
   xmlAdress VARCHAR(300),
+  realtime VARCHAR(200),
   PRIMARY KEY (ID)) DEFAULT CHARSET=utf8;
 
 DROP TABLE news;
 CREATE TABLE news (
   ID int NOT NULL AUTO_INCREMENT,
   title VARCHAR(1000) CHARACTER SET utf8 COLLATE utf8_general_ci,
-  date VARCHAR(300),
+  tarikh VARCHAR(300),
   englishName VARCHAR(300),
   xmlAdress VARCHAR(300),
+  realtime VARCHAR(200),
   PRIMARY KEY (ID)) DEFAULT CHARSET=utf8;
 
 INSERT INTO azmun(title, typ, ostan, state, dateAzmun, dateKart, dateNatayej,englishName,xmlAdress) VALUES ('دریافت کارت ورود به جلسه آزمون فولاد سیرجان ایرانیان', '1','تهران' , '1' , '1397/05/02' , '1397/05/02' , '1397/05/02' , 'fuladsirjan','azmun/test.xml');
@@ -28,10 +30,10 @@ INSERT INTO azmun(title, typ, ostan, state, dateAzmun, dateKart, dateNatayej,eng
 INSERT INTO azmun(title, typ, ostan, state, dateAzmun, dateKart, dateNatayej,englishName,xmlAdress) VALUES ('زمان اعلام نتایج آزمون آگهی جذب سرمایه انسانی شرکت فولاد سیرجان ایرانیان', '1','تهران' , '1' , '1397/05/02' , '1397/05/02' , '1397/05/02' , 'fuladSirjan2','azmun/test.xml');
 INSERT INTO azmun(title, typ, ostan, state, dateAzmun, dateKart, dateNatayej,englishName,xmlAdress) VALUES ('آگهی جذب نیروی انسانی شرکت فولاد زرند ایرانیان', '2','تهران' , '1' , '1397/05/02' , '1397/05/02' , '1397/05/02' , 'fuladZarand','azmun/test.xml');
 
-INSERT INTO news(title, date, englishName) VALUES ('دریافت کارت ورود به جلسه آزمون فولاد سیرجان ایرانیان','1397/05/02' , 'fuladSirjan');
-INSERT INTO news(title, date, englishName) VALUES ('دریافت کارت ورود به جلسه آزمون فولاد سیرجان ایرانیان','1397/05/02' , 'fuladSirjan');
-INSERT INTO news(title, date, englishName) VALUES ('دریافت کارت ورود به جلسه آزمون فولاد سیرجان ایرانیان','1397/05/02' , 'fuladSirjan');
-INSERT INTO news(title, date, englishName) VALUES ('دریافت کارت ورود به جلسه آزمون فولاد سیرجان ایرانیان','1397/05/02' , 'fuladSirjan');
+INSERT INTO news(title, tarikh, englishName) VALUES ('دریافت کارت ورود به جلسه آزمون فولاد سیرجان ایرانیان','1397/05/02' , 'fuladSirjan');
+INSERT INTO news(title, tarikh, englishName) VALUES ('دریافت کارت ورود به جلسه آزمون فولاد سیرجان ایرانیان','1397/05/02' , 'fuladSirjan');
+INSERT INTO news(title, tarikh, englishName) VALUES ('دریافت کارت ورود به جلسه آزمون فولاد سیرجان ایرانیان','1397/05/02' , 'fuladSirjan');
+INSERT INTO news(title, tarikh, englishName) VALUES ('دریافت کارت ورود به جلسه آزمون فولاد سیرجان ایرانیان','1397/05/02' , 'fuladSirjan');
 
 
 #
