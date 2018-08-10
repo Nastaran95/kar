@@ -22,7 +22,7 @@ if ($_SESSION['type']>8) {
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>افزودن آزمون</title>
+        <title>افزودن خبر</title>
 
         <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
@@ -48,10 +48,6 @@ if ($_SESSION['type']>8) {
         <link href="css/addblog.css" rel="stylesheet">
         <script src="js/addblog.js"></script>
         <script src="js/kamadatepicker.js"></script>
-        <style>
-            table{
-                color: #000000;}
-        </style>
     </head>
     <body dir="rtl">
     <?php
@@ -64,12 +60,11 @@ if ($_SESSION['type']>8) {
         $product = "all";
     }
     if ((isset($_POST['editor1'])) && (isset($_POST['topic'])) && (strlen($_POST['editor1']) > 0) && (strlen($_POST['topic']) > 0)) {
-//        echo "<script>window.alert('pr $product');</script>";
         $writer = new XMLWriter();
         if ($product === "all") {
             $name = (string)uniqid().uniqid();
         } else {
-            $query = "SELECT * FROM azmun WHERE ID='$product'";
+            $query = "SELECT * FROM news WHERE ID='$product'";
             $result = $connection->query($query);
             if ($result->num_rows > 0) {
                 $row = mysqli_fetch_assoc($result);
@@ -83,32 +78,19 @@ if ($_SESSION['type']>8) {
         $writer->openMemory();
         $writer->setIndent(true);
         $writer->startDocument('1.0" encoding="UTF-8');
-        $writer->startElement('azmun');
+        $writer->startElement('news');
         $writer->writeElement('code', $name);
-        $writer->writeElement('name', $_POST['topic']);
+        $writer->writeElement('title', $_POST['topic']);
         $titleshould=$_POST['topic'];
         $englishtopic = $_POST['englishtopic'];
         $englishtopic=str_replace(" ","-",$englishtopic);
 
-        $filename = '../XMLs/azmuns/' . $name . '.xml';
+        $filename = '../XMLs/news/' . $name . '.xml';
 
-        $uploadOk = 0;
         $URL = "";
         $writer->writeElement('data', $_POST['editor1']);
         $datashould=$_POST['editor1'];
 
-        if(isset($_POST['dateAzmun'])){
-            $dateAzmun = $_POST['dateAzmun'];
-        }
-        if(isset($_POST['dateKart'])){
-            $dateKart = $_POST['dateKart'];
-        }
-        if(isset($_POST['dateNatayej'])){
-            $dateNatayej = $_POST['dateNatayej'];
-        }
-        if(isset($_POST['state'])){
-            $state = (int)$_POST['state'];
-        }
         $description="";
         if (isset($_POST['seodesc'])) {
             $writer->writeElement('description', $_POST['seodesc']);
@@ -129,8 +111,6 @@ if ($_SESSION['type']>8) {
         $file = $writer->outputMemory();
         file_put_contents($filename, $file);
         $topic = $_POST['topic'];
-//        date_default_timezone_set("Iran");
-        $modified_time=date('Y-m-d H:i:s');
         // date_default_timezone_set('Asia/Tehran');
 
         $now = new DateTime();
@@ -143,30 +123,15 @@ if ($_SESSION['type']>8) {
             IntlDateFormatter::TRADITIONAL,
             "yyyy/MM/dd");
         $DATE= tr_num($formatter->format($now));
-        $x = explode("/",$DATE);
-        $y = explode("/",$dateAzmun);
-        if((int)$y[0]>=(int)$x[0]){
-            if((int)$y[1]>=(int)$x[1]){
-                if((int)$y[2]>=(int)$x[2]){
-                    $active=1;
-                }else{
-                    $active=2;
-                }
-            }else{
-                $active=2;
-            }
-        }else{
-            $active=2;
-        }
 
         if ($product === "all") {
 //            echo "<script>window.alert('insert db');</script>";
-            $stmt  = $connection->prepare("INSERT INTO azmun (xmlAdress,title, dateAzmun, dateKart, dateNatayej,englishName,typ, state, realtime)  VALUES (?,?,?,?,?,?,?,?,?)");
-            $stmt->bind_param("sssssssss", $filename,$topic,$dateAzmun,$dateKart,$dateNatayej,$englishtopic,$active,$state, $modified_time);
+            $stmt  = $connection->prepare("INSERT INTO news (xmlAdress,title,englishName,tarikh)  VALUES (?,?,?,?)");
+            $stmt->bind_param("ssss", $filename,$topic,$englishtopic,$DATE);
         } else {
 //            echo "<script>window.alert('update db');</script>";
-            $stmt  = $connection->prepare("UPDATE azmun SET xmlAdress=?,title=?,dateAzmun=?, dateKart=?,dateNatayej=?,englishName=?,typ=?,state=?,realtime=? WHERE ID='$product'");
-            $stmt->bind_param("sssssssss", $filename,$topic,$dateAzmun,$dateKart,$dateNatayej,$englishtopic,$active,$state,$modified_time);
+            $stmt  = $connection->prepare("UPDATE news SET xmlAdress=?,title=?,englishName=?,tarikh=? WHERE ID='$product'");
+            $stmt->bind_param("ssss", $filename,$topic,$englishtopic,$DATE);
         }
         $result = $stmt->execute(); //execute() tries to fetch a result set. Returns true on succes, false on failure.
         $stmt->store_result();
@@ -197,7 +162,7 @@ if ($_SESSION['type']>8) {
             }
         }else{
             echo "<script>alert('عملیات مورد نظر موفقیت آمیز بود.');</script>";
-            echo '<META HTTP-EQUIV="Refresh" Content="0; URL=addAzmun.php?product='.$product.'&type='.$type.'">';
+            echo '<META HTTP-EQUIV="Refresh" Content="0; URL=addNews.php?product='.$product.'&type='.$type.'">';
         }
     } elseif ((isset($_POST['editor1'])) && (isset($_POST['topic'])) ) {
 //        echo "<script>window.alert('2');</script>";
@@ -229,7 +194,7 @@ if ($_SESSION['type']>8) {
         <?php
         $which=6;
         include 'adminmenue.php';
-        $query = "SELECT * FROM azmun WHERE ID='$product'";
+        $query = "SELECT * FROM news WHERE ID='$product'";
         $result = $connection->query($query);
         if ($result->num_rows > 0) {
             $row = mysqli_fetch_assoc($result);
@@ -237,18 +202,18 @@ if ($_SESSION['type']>8) {
         $tempvar = 0;
         $tempvar2 = 0;
         if ($product === "all") {
-            $URL = "addAzmun.php";
+            $URL = "addNews.php";
         } else {
-            $URL = "addAzmun.php?product=$product";
+            $URL = "addNews.php?product=$product";
         }
-        $URL2 = "allAzmun.php?type=$type";
+        $URL2 = "allNews.php?type=$type";
         $englishtopic="";
         if ($product=="namovafagh"){
 
 //            echo "<script>window.alert('set1');</script>";
         } else if ($product !== "all") {
 //            echo "<script>window.alert('set2');</script>";
-            $query = "SELECT * FROM azmun WHERE ID='$product'";
+            $query = "SELECT * FROM news WHERE ID='$product'";
             $result = $connection->query($query);
             if ($result->num_rows > 0) {
                 $row = mysqli_fetch_assoc($result);
@@ -299,42 +264,9 @@ if ($_SESSION['type']>8) {
                                 <input type="text" name="hiddentopic" id="hiddentopic" hidden value="<?php echo $englishtopic; ?>">
                             </div>
                         </div>
-                        <div class="block">
-                            <div class="">
-                                <br/>
-                                <div class="">زمان برگزاری آزمون</div>
-                                <input id="tarikhAzmun" name="dateAzmun" type="text" maxlength="300" class="inlineblock"/>
-
-                            </div>
-                        </div>
-                        <div class="block">
-                            <div class="">
-                                <br/>
-                                <div class="">زمان دریافت کارت</div>
-                                <input id="tarikhKart" name="dateKart" type="text" maxlength="300" class="inlineblock"/>
-
-                            </div>
-                        </div>
-                        <div class="block">
-                            <div class="">
-                                <br/>
-                                <div class="">زمان اعلام نتایج</div>
-                                <input id="tarikhNatayej" name="dateNatayej" type="text" maxlength="300" class="inlineblock"/>
-
-                            </div>
-                        </div>
-                        <div class="block">
-                            <div class="">
-                                <br/>
-                                <div class="">نوع آزمون</div>
-                                <input id="stateAzmun" name="state" value="1" type="radio" maxlength="300" class="inlineblock"/>فعال
-                                <input id="stateAzmun" name="state" value="2" type="radio" maxlength="300" class="inlineblock"/>غیرفعال
-
-                            </div>
-                        </div>
                     </div>
                 </div>
-                <div id="getred" class="marginright">محتوای اصلی سایت:</div>
+                <div id="getred" class="marginright">متن اصلی خبر:</div>
                 <div id="editor pull-right">
                     <div id='edit' style="margin-top: 30px;"><?php echo $datashould; ?></div>
                 </div>
@@ -551,25 +483,6 @@ if ($_SESSION['type']>8) {
         });
     </script>
     </body>
-    <script>
-        var customOptions = {
-            placeholder: "روز / ماه / سال"
-            , twodigit: false
-            , closeAfterSelect: true
-            , nextButtonIcon: "fa fa-arrow-circle-right"
-            , previousButtonIcon: "fa fa-arrow-circle-left"
-            , buttonsColor: "black"
-            , forceFarsiDigits: true
-            , markToday: true
-            , markHolidays: true
-            , highlightSelectedDay: true
-            , sync: true
-            , gotoToday: true
-        };
-        kamaDatepicker('tarikhAzmun', customOptions);
-        kamaDatepicker('tarikhKart', customOptions);
-        kamaDatepicker('tarikhNatayej', customOptions);
-    </script>
     </html>
     <?php
 }else{
