@@ -186,7 +186,7 @@ if ($_SESSION['type']>0) {
                 $uploadOk = 0;
             }
         }
-        
+
         if ($type == 1) {
             if (isset($_POST['dastebandi'])){
                 $writer->writeElement('dastebandi', $_POST['dastebandi']);
