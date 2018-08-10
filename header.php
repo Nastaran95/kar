@@ -6,7 +6,7 @@
  * Time: 7:54 PM
  */
 ?>
-<div class="header col-lg-12 col-md-12 headerfix hidden-xs hidden-sm">
+<div class="header col-lg-12 col-md-12 headerfix hidden-xs hidden-sm ">
     <div class="fixed">
         <a href="index.php"><div class="karasa dark light_text">
             <h1 class="title">کاراسا</h1>
@@ -26,7 +26,7 @@
         </div>
     </div>
 </div>
-<div class="header col-lg-12 col-md-12 headerfix hidden-lg">
+<div class="header col-lg-12 col-md-12 headerfix hidden-md hidden-lg">
     <div class="fixed">
         <div class="karasa dark light_text">
             <i class="fa fa-bars show_side_menu side_menu_icon"></i>
