@@ -67,6 +67,9 @@ include 'Header.php';
             while ( ($row=$result1->fetch_assoc()) && ($x<2)) {
                 $x++;
                 $name = $row['topic'];
+                $writer = $row['writer'];
+                $motarjem = $row['motarjem'];
+                $nashr = $row['nashr'];
                 $link = '/book/' . $row['post_name'];
                 $mokhtasar = $row['Mokhtasar'];
                 $image = $row['image'];
@@ -82,6 +85,14 @@ include 'Header.php';
                         <h2 class="h4size">
                             <?php echo $name; ?>
                         </h2>
+                        نویسنده:
+                        <?php echo $writer; ?>
+                        <br>
+                        مترجم:
+                        <?php echo $motarjem; ?>
+                        <br>
+                        <?php echo $nashr; ?>
+                        <br><br>
                         <p>
                             <?php echo $mokhtasar; ?>
                         </p>
@@ -98,29 +109,6 @@ include 'Header.php';
             }
             ?>
 
-
-            <div class="col-md-12 book">
-                <div class="col-md-10 bookImg">
-                    <img src="">
-                </div>
-                <div class="col-md-11 bookText pull-right">
-                    نام من سرخ
-                    <br>
-                    نویسنده: اورهان پاموک
-                    <br>
-                    مترجم: عین‌اله غریب
-                    <br>
-                    نشر چشمه
-                    <br>
-                    <br>
-                    رمان نام من سرخ در بستر بخشی از تاریخ امپراتوری عثمانی در زمان سلطان مراد سوم می‌گذرد. در این رمان، شیوهٔ چند صدایی یا پلی فونی روایتِ حوادث مختلف را توسط شخصیت‌های رمان ممکن کرده‌است.
-                    <br>
-                    پاموک در این رمان نقطه مشترک تاریخ عثمانی و ایران را در نظر داشته‌است. نویسنده به شرح عشق و قتل در این رمان پرداخته‌است.
-                </div>
-                <div class="col-md-12 bookBut">
-                    در مورد این کتاب بیشتر بخوانید
-                </div>
-            </div>
         </div>
 
 

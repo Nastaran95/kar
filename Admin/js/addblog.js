@@ -73,7 +73,7 @@ function countChar(val) {
     }
 };
 
-function validateFormdata(){
+function validateFormdata(tab){
     var time=0;
     if(document.getElementById("topic").value.length===0){
         $("#topic").addClass( "BORDERCOLOR" );
@@ -100,7 +100,7 @@ function validateFormdata(){
                         $("#englishtopic").removeClass( "BORDERCOLOR");
                     }
                 },
-                data: {ID:SETTOPIC},
+                data: {ID:SETTOPIC , Table:tab},
                 async: false
             });
         }else {

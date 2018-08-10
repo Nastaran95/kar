@@ -56,7 +56,7 @@ include 'MainPageHeader.php';
         <div class="col-md-12">
 
             <?php
-            $query = "SELECT * FROM azmun WHERE type='1' and state='1';";
+            $query = "SELECT * FROM azmun WHERE typ='1' and state='1';";
             $result = $connection->query($query);
 
             while ($row=$result->fetch_assoc()) {
@@ -97,7 +97,7 @@ include 'MainPageHeader.php';
                     </div>
                     <?php
                 }
-                $query = "SELECT * FROM azmun WHERE (type='2' and state='1')" ;
+                $query = "SELECT * FROM azmun WHERE (typ='2' and state='1')" ;
                 $result = $connection->query($query);
                 $pagenum = $result->num_rows;
                 ?>

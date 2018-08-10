@@ -49,7 +49,7 @@ if (file_exists($productXMLNAME)) {
     <link rel="stylesheet" href="css/helper.css"/>
     <script src="js/helper.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link rel="stylesheet" href="froala/css/froala_style.css">
 </head>
 <body>
 <?php
@@ -60,6 +60,10 @@ if (isset($_GET['ID'])) {
     $result = $connection->query($query);
     if ($row = $result->fetch_assoc()) {
         $name = $row['topic'];
+        $writer = $row['writer'];
+        $motarjem = $row['motarjem'];
+        $nashr = $row['nashr'];
+        $mokhtasar = $row['Mokhtasar'];
         $imageAdd = $row['image'];
         $xmlAdress = $row['XMLNAME'];
         $xmlAdress = substr($xmlAdress,3);
@@ -86,11 +90,29 @@ if (isset($_GET['ID'])) {
         <span class="glyphicon glyphicon-book"></span>
         <?php echo $name;?>
     </h2>
-    <img src="<?php echo $image; ?>" width="200" height="300">
-    <br><br>
-    <div class="text-justify">
-            <?php echo $blogDescription;?>
+    <div class="col-md-12">
+        <img class="pull-right col-md-3" src="<?php echo $image; ?>">
+        <div class="col-md-9">
+            نویسنده:
+            <?php echo $writer; ?>
+            <br>
+            مترجم:
+            <?php echo $motarjem; ?>
+            <br>
+            <?php echo $nashr; ?>
+            <br>
+            <?php echo $mokhtasar; ?>
 
+        </div>
+
+    </div>
+
+
+    <div class="col-md-12">
+        <div class="fr-element fr-view">
+        <br><br>
+            <?php echo $blogDescription;?>
+        </div>
     </div>
 
 </div>

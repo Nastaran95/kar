@@ -6,8 +6,7 @@
  */
 session_start();
 include '../Settings.php';
-if ($_SESSION['type']>8) {
-
+if ($_SESSION['type']>0) {
     if (isset($_GET['type'])) {
         $type = $_GET['type'];
     } elseif (isset($_POST['type'])) {
@@ -86,7 +85,13 @@ if ($_SESSION['type']>8) {
         $writer->startElement('BOOK');
         $writer->writeElement('code', $name);
         $writer->writeElement('title', $_POST['topic']);
+        $writer->writeElement('writer', $_POST['writer']);
+        $writer->writeElement('motarjem', $_POST['motarjem']);
+        $writer->writeElement('nashr', $_POST['nashr']);
         $titleshould=$_POST['topic'];
+        $writershould=$_POST['writer'];
+        $motarjemshould=$_POST['motarjem'];
+        $nashrshould=$_POST['nashr'];
         $englishtopic = $_POST['englishtopic'];
         $englishtopic=str_replace(" ","-",$englishtopic);
         if (isset($_POST['pishnevis'])){
@@ -222,18 +227,19 @@ if ($_SESSION['type']>8) {
             $file = $writer->outputMemory();
             file_put_contents($filename, $file);
             $topic = $_POST['topic'];
+            $writer = $_POST['writer'];
+            $motarjem = $_POST['motarjem'];
+            $nashr = $_POST['nashr'];
             date_default_timezone_set("Iran");
             $DATE=date('Y-m-d H:i:s');
             if ($product === "all") {
-                $stmt  = $connection->prepare("INSERT INTO BOOK (XMLNAME,topic, Mokhtasar,image,time,dastebandi,pishnevis,post_name,realtime)  VALUES (?,?,?,?,NOW(),?,?,?,?)");
-                $stmt->bind_param("ssssssss", $filename,$topic,$Mokhtasar,$imageURL,$dastebandi,$pishnevis,$englishtopic,$DATE);
+                $stmt  = $connection->prepare("INSERT INTO BOOK (XMLNAME,topic,writer,motarjem,nashr ,Mokhtasar,image,time,dastebandi,pishnevis,post_name,realtime)  VALUES (?,?,?,?,?,?,?,NOW(),?,?,?,?)");
+                $stmt->bind_param("sssssssssss", $filename,$topic,$writer,$motarjem,$nashr,$Mokhtasar,$imageURL,$dastebandi,$pishnevis,$englishtopic,$DATE);
             } else {
-
-                echo $topic;
-                die();
-                $stmt  = $connection->prepare("UPDATE BOOK SET pishnevis=?,XMLNAME=?,topic=?,dastebandi=?, Mokhtasar=?,image=?,post_name=?,realtime=? WHERE ID='$product'");
-                $stmt->bind_param("ssssssss", $pishnevis,$filename,$topic,$dastebandi,$Mokhtasar,$imageURL,$englishtopic,$DATE);
+                $stmt  = $connection->prepare("UPDATE BOOK SET pishnevis=?,XMLNAME=?,topic=?,writer=?,motarjem=?,nashr=?,dastebandi=?, Mokhtasar=?,image=?,post_name=?,realtime=? WHERE ID='$product'");
+                $stmt->bind_param("sssssssssss", $pishnevis,$filename,$topic,$writer,$motarjem,$nashr,$dastebandi,$Mokhtasar,$imageURL,$englishtopic,$DATE);
             }
+            echo 'ok';
             $result = $stmt->execute(); //execute() tries to fetch a result set. Returns true on succes, false on failure.
             $stmt->store_result();
             $result = $stmt->get_result();
@@ -247,6 +253,15 @@ if ($_SESSION['type']>8) {
                 $product="namovafagh";
                 if (isset($_POST['topic'])){
                     $titleshould=$_POST['topic'];
+                }
+                if (isset($_POST['writer'])){
+                    $writershould=$_POST['writer'];
+                }
+                if (isset($_POST['motarjem'])){
+                    $motarjemshould=$_POST['motarjem'];
+                }
+                if (isset($_POST['nashr'])){
+                    $nashrshould=$_POST['nashr'];
                 }
                 if (isset($_POST['MOkhtasar'])){
                     $Mokhtasar = $_POST['MOkhtasar'];
@@ -277,6 +292,15 @@ if ($_SESSION['type']>8) {
         $product="namovafagh";
         if (isset($_POST['topic'])){
             $titleshould=$_POST['topic'];
+        }
+        if (isset($_POST['writer'])){
+            $writershould=$_POST['writer'];
+        }
+        if (isset($_POST['motarjem'])){
+            $motarjemshould=$_POST['motarjem'];
+        }
+        if (isset($_POST['nashr'])){
+            $nashrshould=$_POST['nashr'];
         }
         if (isset($_POST['MOkhtasar'])){
             $Mokhtasar = $_POST['MOkhtasar'];
@@ -337,6 +361,9 @@ if ($_SESSION['type']>8) {
                 $produc = simplexml_load_file($productXMLNAME);
                 $name = $produc->code;
                 $titleshould = $produc->title;
+                $writershould = $produc->writer;
+                $motarjemshould = $produc->motarjem;
+                $nashrshould = $produc->nashr;
                 $datashould = $produc->data;
                 $dastebandi = $produc->dastebandi;
                 $description = $produc->description;
@@ -352,6 +379,9 @@ if ($_SESSION['type']>8) {
             $pishnevis=0;
             $imageURL = "";
             $titleshould = "";
+            $writershould = "";
+            $motarjemshould = "";
+            $nashrshould = "";
             $datashould = "";
             if ($type == 1) {
                 $Mokhtasar = "";
@@ -363,7 +393,7 @@ if ($_SESSION['type']>8) {
         }
         ?>
 
-        <form action="<?php echo $URL ?>" method="post" enctype="multipart/form-data" onsubmit="return validateFormdata()">
+        <form action="<?php echo $URL ?>" method="post" enctype="multipart/form-data" onsubmit="return validateFormdata(2)">
 
             <div id="X-wrapper">
                 <div class="container2">
@@ -377,6 +407,37 @@ if ($_SESSION['type']>8) {
                                        value="<?php echo $titleshould; ?>"/>
                             </div>
                         </div>
+
+                        <br>
+                        <div class="block">
+                            <div class="">
+                                <div class="">نویسنده: (حداکثر 300 کاراکتر)</div>
+                                <br/>
+                                <input id="writer" name="writer" type="text" class="width700" placeholder="نویسنده" maxlength="300" class="inlineblock"
+                                       value="<?php echo $writershould; ?>"/>
+                            </div>
+                        </div>
+
+                        <br>
+                        <div class="block">
+                            <div class="">
+                                <div class="">مترجم: (حداکثر 300 کاراکتر)</div>
+                                <br/>
+                                <input id="motarjem" name="motarjem" type="text" class="width700" placeholder="مترجم" maxlength="300" class="inlineblock"
+                                       value="<?php echo $motarjemshould; ?>"/>
+                            </div>
+                        </div>
+
+                        <br>
+                        <div class="block">
+                            <div class="">
+                                <div class="">انتشارات: (حداکثر 300 کاراکتر)</div>
+                                <br/>
+                                <input id="nashr" name="nashr" type="text" class="width700" placeholder="انتشارات" maxlength="300" class="inlineblock"
+                                       value="<?php echo $nashrshould; ?>"/>
+                            </div>
+                        </div>
+
                         <div class="block">
                             <div class="">
                                 <br/>

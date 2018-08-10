@@ -146,6 +146,9 @@ DROP table BOOK;
 CREATE TABLE BOOK(ID int NOT NULL AUTO_INCREMENT,
                   XMLNAME VARCHAR(300),
                   topic VARCHAR(300) CHARACTER SET utf8 COLLATE utf8_general_ci,
+                  writer VARCHAR(300) CHARACTER SET utf8 COLLATE utf8_general_ci,
+                  motarjem VARCHAR(300) CHARACTER SET utf8 COLLATE utf8_general_ci,
+                  nashr VARCHAR(300) CHARACTER SET utf8 COLLATE utf8_general_ci,
                   Mokhtasar VARCHAR(1000) CHARACTER SET utf8 COLLATE utf8_general_ci,
                   image VARCHAR(1000),
                   time TIMESTAMP,
@@ -156,7 +159,6 @@ CREATE TABLE BOOK(ID int NOT NULL AUTO_INCREMENT,
                   dastebandi VARCHAR(300),
   PRIMARY KEY (ID)) DEFAULT CHARSET=utf8;
 
-INSERT INTO BOOK(XMLNAME, topic, Mokhtasar, image, time, pishnevis, realtime, mahbobiat, post_name, dastebandi) VALUES
-  ('../XMLs/BlogXMLs/5b6c822166c555b6c822166c61.xml', 'کلاه قرمزی', 'کلاه‌قرمزی نام شخصیت عروسکی ایرانی است که توسط ایرج طهماسب و حمید جِبِلّی خلق شده‌است. فیلم‌های ساخته‌شده براساس این شخصیت از پرفروش‌ترین فیلم‌های...', '../images/blog/5b6c822166c93Image002(3).jpg', '2018-08-09 22:40:55', '0', '2018-08-09 22:40:55', '0', 'kolahqermezi', '!');
-INSERT INTO BOOK(XMLNAME, topic, Mokhtasar, image, time, pishnevis, realtime, mahbobiat, post_name, dastebandi) VALUES
-  ('../XMLs/BookXMLs/5b6cb9134b23d5b6cb9134b254.xml','نام من سرخ','نام من سرخ (به ترکی استانبولی: Benim Adım Kırmızı) رمانی از اورهان پاموک است تحت تأثیر رمان مشهور ایتالیایی نام گل سرخ. نام من سرخ برنده جایزه نوبل..','../images/book/5b6cb9134b299MyNameIsRed.jpg','2018-08-09 22:40:55','0', '2018-08-09 22:40:55','0','namemansorkh','!');
+
+INSERT INTO BOOK(XMLNAME, topic,writer,motarjem,nashr, Mokhtasar, image, time, pishnevis, realtime, mahbobiat, post_name, dastebandi) VALUES
+  ('../XMLs/BookXMLs/5b6d405a9a1fd5b6d405a9a222.xml','نام من سرخ','اورهان پاموک','عین‌اله غریب' , 'نشر چشمه','نام من سرخ (به ترکی استانبولی: Benim Adım Kırmızı) رمانی از اورهان پاموک است تحت تأثیر رمان مشهور ایتالیایی نام گل سرخ. نام من سرخ برنده جایزه نوبل..','../images/book/5b6cb9134b299MyNameIsRed.jpg','2018-08-09 22:40:55','0', '2018-08-09 22:40:55','0','namemansorkh','!');

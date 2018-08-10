@@ -49,7 +49,7 @@ if (file_exists($productXMLNAME)) {
     <link rel="stylesheet" href="css/helper.css"/>
     <script src="js/helper.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link rel="stylesheet" href="froala/css/froala_style.css">
 </head>
 <body>
 <?php
@@ -95,7 +95,9 @@ if (isset($_GET['ID'])) {
         <div class="item">
             <div id="bar_1" class="bar"> آگهی استخدام<span id="arrow_1" class="bar_arrow opened"></span></div>
             <div id="text_1" class="bar_text">
-                <?php echo $azmunDescription;?>
+                <div class="fr-element fr-view">
+                    <?php echo $azmunDescription;?>
+                </div>
             </div>
         </div>
         <div class="item">
