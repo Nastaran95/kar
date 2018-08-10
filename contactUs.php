@@ -6,6 +6,71 @@
  * Time: 11:53 AM
  */
 include "header.php";
+
+include "Settings.php";
+if (isset($_GET['request']) && !isset($_GET['type']))
+    if($_GET['request']=='karfarma') {
+        if(isset($_POST['company']) && isset($_POST['subject']) && isset($_POST['matn']) && strlen($_POST['matn'])>0 ){
+            $company = $_POST['company'];
+            $subject = $_POST['subject'];
+            if(isset($_POST['email'])){
+                $mail = $_POST['email'];
+            }
+            if(isset($_POST['phone'])){
+                $phone = $_POST['phone'];
+            }
+            if(isset($_POST['mobile'])){
+                $mobile = $_POST['mobile'];
+            }
+            $matn = $_POST['matn'];
+            $stmt  = $connection->prepare("INSERT INTO karfarma_request (company,subject,email,phone,mobile ,matn)  VALUES (?,?,?,?,?,?)");
+            $stmt->bind_param("ssssss", $company, $subject, $mail, $phone, $mobile, $matn);
+            $result = $stmt->execute();
+            $stmt->store_result();
+            $result = $stmt->get_result();
+            if ($connection->error) {
+                echo '<META HTTP-EQUIV="Refresh" Content="0; URL=contactUs.php?request=karfarma&type=namovafagh">';
+            }
+        }
+        else{
+            echo "<script>alert('به موارد الزامی دقت کنید.');</script>";
+            echo '<META HTTP-EQUIV="Refresh" Content="0; URL=contactUs.php?request=karfarma&type=namovafagh">';
+        }
+    }else if($_GET['request']=='karjoo'){
+        echo "<script>alert('joo');</script>";
+        if(isset($_POST['name']) && isset($_POST['azmun']) && isset($_POST['matn']) && strlen($_POST['matn'])>0 ){
+            $name = $_POST['name'];
+            $azmun = $_POST['azmun'];
+            if(isset($_POST['email'])){
+                $mail = $_POST['email'];
+            }
+            if(isset($_POST['phone'])){
+                $phone = $_POST['phone'];
+            }
+            if(isset($_POST['personalID'])){
+                $personal = $_POST['id'];
+            }
+            $matn = $_POST['matn'];
+            $stmt  = $connection->prepare("INSERT INTO karjoo_request (name,azmun,email,phone,personalID ,matn)  VALUES (?,?,?,?,?,?)");
+            $stmt->bind_param("ssssss", $name, $azmun, $mail, $phone, $personal, $matn);
+            $result = $stmt->execute();
+            $stmt->store_result();
+            $result = $stmt->get_result();
+            if ($connection->error) {
+                echo '<META HTTP-EQUIV="Refresh" Content="0; URL=contactUs.php?request=karjoo&type=namovafagh">';
+            }
+        }else{
+            echo "<script>alert('به موارد الزامی دقت کنید.');</script>";
+//            echo "<script>window.location='contactUs.php?request=karjoo&type=namovafagh'</script>";
+            echo '<META HTTP-EQUIV="Refresh" Content="0; URL=contactUs.php?request=karjoo&type=namovafagh">';
+        }
+    }else{
+        // invalid
+    }
+
+if(isset($_GET['type'])){
+        var_dump($_POST);
+}
 ?>
 
 <!DOCTYPE html>
@@ -38,25 +103,25 @@ include "header.php";
     </div>
 
     <div class="karfarma_register hide">
-        <form id="karfarma">
-            <input type="text" name="name" placeholder="نام و نام خانوادگی">
-            <div><input type="number" name="id" placeholder="کد ملی">
-            <input type="text" name="exam" placeholder="نام آزمون"></div>
-            <div><input type="number" name="phone" placeholder="تلفن تماس">
-            <input type="email" name="email" placeholder="ایمیل"></div>
-            <textarea form="karfarma" rows="10" placeholder="متن شکایت و نظر"></textarea>
-            <input type="submit" value="ارسال">
-        </form>
-    </div>
-
-    <div class="karjoo_register hide">
-        <form id="karjoo">
+        <form id="karfarma" action="contactUs.php?request=karfarma" method="post">
             <input type="text" name="company" placeholder="نام شرکت">
             <div><input type="text" name="subject" placeholder="موضوع درخواست">
                 <input type="email" name="email" placeholder="ایمیل"></div>
             <div><input type="number" name="phone" placeholder="شماره تلفن">
                 <input type="number" name="mobile" placeholder="شماره موبایل"></div>
-            <textarea form="karjoo" rows="10" placeholder="متن درخواست"></textarea>
+            <textarea rows="10" name="matn" placeholder="متن درخواست"></textarea>
+            <input type="submit" value="ارسال">
+        </form>
+    </div>
+
+    <div class="karjoo_register hide">
+        <form id="karjoo" action="contactUs.php?request=karjoo" method="post">
+            <input type="text" name="name" placeholder="نام و نام خانوادگی">
+            <div><input type="number" name="id" placeholder="کد ملی">
+                <input type="text" name="azmun" placeholder="نام آزمون"></div>
+            <div><input type="number" name="phone" placeholder="تلفن تماس">
+                <input type="email" name="email" placeholder="ایمیل"></div>
+            <textarea rows="10" name="matn" placeholder="متن شکایت و نظر"></textarea>
             <input type="submit" value="ارسال">
         </form>
     </div>

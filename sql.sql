@@ -36,6 +36,28 @@ CREATE TABLE customers (
   realtime VARCHAR(200),
   PRIMARY KEY (ID)) DEFAULT CHARSET=utf8;
 
+DROP TABLE karfarma_request;
+CREATE TABLE karfarma_request(
+  ID int NOT NULL AUTO_INCREMENT,
+  company VARCHAR(300) CHARACTER SET utf8 COLLATE utf8_general_ci,
+  subject VARCHAR(300) CHARACTER SET utf8 COLLATE utf8_general_ci,
+  matn VARCHAR(1000) CHARACTER SET utf8 COLLATE utf8_general_ci,
+  email VARCHAR(100),
+  phone  VARCHAR(10),
+  mobile VARCHAR(10),
+  PRIMARY KEY (ID)) DEFAULT CHARSET=utf8;
+
+DROP TABLE karjoo_request;
+CREATE TABLE karjoo_request(
+  ID int NOT NULL AUTO_INCREMENT,
+  name VARCHAR(1000) CHARACTER SET utf8 COLLATE utf8_general_ci,
+  personalID VARCHAR(50),
+  azmun VARCHAR(300) CHARACTER SET utf8 COLLATE utf8_general_ci,
+  matn VARCHAR(1000) CHARACTER SET utf8 COLLATE utf8_general_ci,
+  email VARCHAR(100),
+  phone  VARCHAR(10),
+  PRIMARY KEY (ID)) DEFAULT CHARSET=utf8;
+
 INSERT INTO azmun(title, typ, ostan, state, dateAzmun, dateKart, dateNatayej,englishName,xmlAdress) VALUES ('دریافت کارت ورود به جلسه آزمون فولاد سیرجان ایرانیان', '1','تهران' , '1' , '1397/05/02' , '1397/05/02' , '1397/05/02' , 'fuladsirjan','azmun/test.xml');
 INSERT INTO azmun(title, typ, ostan, state, dateAzmun, dateKart, dateNatayej,englishName,xmlAdress) VALUES ('زمان اعلام نتایج آزمون آگهی جذب سرمایه انسانی شرکت فولاد بوتیای ایرانیان', '1','تهران' , '1' , '1397/05/02' , '1397/05/02' , '1397/05/02' , 'bootia','azmun/test.xml');
 INSERT INTO azmun(title, typ, ostan, state, dateAzmun, dateKart, dateNatayej,englishName,xmlAdress) VALUES ('زمان اعلام نتایج آزمون آگهی جذب سرمایه انسانی شرکت فولاد سیرجان ایرانیان', '1','تهران' , '1' , '1397/05/02' , '1397/05/02' , '1397/05/02' , 'fuladSirjan2','azmun/test.xml');
