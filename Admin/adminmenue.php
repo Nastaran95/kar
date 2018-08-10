@@ -27,6 +27,8 @@
             <li class="<?php if ($which==7) echo "selected";?>"><a href="allAzmun.php"><i class="fa fa-list-ol"></i> همه آزمون ها </a></li>
             <li class="<?php if ($which==8) echo "selected";?>"><a href="addNews.php"><i class="fa fa-list-alt"></i> افزودن خبر ویژه </a></li>
             <li class="<?php if ($which==9) echo "selected";?>"><a href="allNews.php"><i class="fa fa-list-alt"></i> همه خبرهای ویژه </a></li>
+            <li class="<?php if ($which==12) echo "selected";?>"><a href="addCustomer.php"><i class="fa fa-file"></i> افزودن مشتری </a></li>
+            <li class="<?php if ($which==13) echo "selected";?>"><a href="allCustomer.php"><i class="fa fa-file"></i> همه مشتری ها </a></li>
             <li class="<?php if ($which==10) echo "selected";?>"><a href="addmosahebe.php"><i class="fa fa-dedent"></i> افزودن مصاحبه فردی </a></li>
             <li class="<?php if ($which==11) echo "selected";?>"><a href="allmosahebe.php"><i class="fa fa-dedent"></i> همه مصاحبه های فردی </a></li>
         </ul>

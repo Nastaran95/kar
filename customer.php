@@ -61,16 +61,16 @@ if (isset($_GET['ID'])) {
     $query = "SELECT * FROM customers WHERE englishName='$ID';";
     $result = $connection->query($query);
     if ($row = $result->fetch_assoc()) {
-        $name = $row['name'];
+        $name = $row['title'];
         $mokhtasar = $row['Mokhtasar'];
         $imageAdd = $row['image'];
         $xmlAdress = $row['xmlAdress'];
-//        $xmlAdress = substr($xmlAdress,3);
+        $xmlAdress = substr($xmlAdress,3);
         $image = $row['image'];
-//        $image = substr($image,3);
+        $image = substr($image,3);
         if (file_exists($xmlAdress)) {
             $XMLFile = simplexml_load_file($xmlAdress);
-            $blogDescription=$XMLFile->description;
+            $blogDescription=$XMLFile->data;
         }else{
             $blogDescription="";
         }

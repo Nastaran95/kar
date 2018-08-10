@@ -28,11 +28,12 @@ CREATE TABLE news (
 DROP TABLE customers;
 CREATE TABLE customers (
   ID int NOT NULL AUTO_INCREMENT,
-  name VARCHAR(1000) CHARACTER SET utf8 COLLATE utf8_general_ci,
+  title VARCHAR(1000) CHARACTER SET utf8 COLLATE utf8_general_ci,
   englishName VARCHAR(300),
   xmlAdress VARCHAR(300),
   image VARCHAR(1000),
   Mokhtasar VARCHAR(1000) CHARACTER SET utf8 COLLATE utf8_general_ci,
+  realtime VARCHAR(200),
   PRIMARY KEY (ID)) DEFAULT CHARSET=utf8;
 
 INSERT INTO azmun(title, typ, ostan, state, dateAzmun, dateKart, dateNatayej,englishName,xmlAdress) VALUES ('دریافت کارت ورود به جلسه آزمون فولاد سیرجان ایرانیان', '1','تهران' , '1' , '1397/05/02' , '1397/05/02' , '1397/05/02' , 'fuladsirjan','azmun/test.xml');
@@ -45,8 +46,8 @@ INSERT INTO news(title, tarikh, englishName) VALUES ('دریافت کارت ور
 INSERT INTO news(title, tarikh, englishName) VALUES ('دریافت کارت ورود به جلسه آزمون فولاد سیرجان ایرانیان','1397/05/02' , 'fuladSirjan');
 INSERT INTO news(title, tarikh, englishName) VALUES ('دریافت کارت ورود به جلسه آزمون فولاد سیرجان ایرانیان','1397/05/02' , 'fuladSirjan');
 
-INSERT INTO customers(name, englishName, xmlAdress, image, Mokhtasar) VALUES ('شرکت ملی فولاد', 'customer', 'XMLs/customerXMLs/customers.xml','images/fax.png', 'متن مختصر متن مختصر متن مختصر');
-INSERT INTO customers(name, englishName, xmlAdress, image) VALUES ('شرکت ملی فولاد', 'customer1', 'XMLs/customerXMLs/customer_1.xml','images/fax.png');
+# INSERT INTO customers(title, englishName, xmlAdress, image, Mokhtasar) VALUES ('شرکت ملی فولاد', 'customer', 'XMLs/customerXMLs/customers.xml','images/fax.png', 'متن مختصر متن مختصر متن مختصر');
+# INSERT INTO customers(title, englishName, xmlAdress, image) VALUES ('شرکت ملی فولاد', 'customer1', 'XMLs/customerXMLs/customer_1.xml','images/fax.png');
 
 #
 # INSERT INTO azmun(title, type, ostan, state, dateAzmun, dateKart, dateNatayej,englishName) VALUES ('دریافت کارت ورود به جلسه آزمون فولاد سیرجان ایرانیان', '2','تهران' , '1' , '1397/05/02' , '1397/05/02' , '1397/05/02' , 'fuladSirjan');

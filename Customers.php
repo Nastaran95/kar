@@ -50,14 +50,15 @@ include "header.php";
         $result = $connection->query($query);
         //    echo $connection->error;
         while ($row = $result->fetch_assoc()) {
-            $name = $row['name'];
+            $name = $row['title'];
             $uniqueName = $row['englishName'];
             $xmlAdress = $row['xmlAdress'];
+            $xmlAdress = substr($xmlAdress,3);
             if (file_exists($xmlAdress)) {
                 $XMLFile = simplexml_load_file($xmlAdress);
                 $customerName = $XMLFile->name;
-                $customerLogo = $XMLFile->logo;
-                $customerDescription = $XMLFile->description;
+                $customerLogo = $XMLFile->image;
+                $customerDescription = $XMLFile->Mokhtasar;
             }
             else{
                 $customerName = "";
