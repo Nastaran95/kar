@@ -109,6 +109,10 @@ if ($_SESSION['type']>8) {
         if(isset($_POST['state'])){
             $state = (int)$_POST['state'];
         }
+        if(isset($_POST['typeAzmun'])){
+            $azmuntype = (int)$_POST['typeAzmun'];
+        }
+
         $description="";
         if (isset($_POST['seodesc'])) {
             $writer->writeElement('description', $_POST['seodesc']);
@@ -133,40 +137,40 @@ if ($_SESSION['type']>8) {
         $modified_time=date('Y-m-d H:i:s');
         // date_default_timezone_set('Asia/Tehran');
 
-        $now = new DateTime();
-
-        $formatter = new IntlDateFormatter(
-            "fa_IR@calendar=persian",
-            IntlDateFormatter::FULL,
-            IntlDateFormatter::FULL,
-            'Asia/Tehran',
-            IntlDateFormatter::TRADITIONAL,
-            "yyyy/MM/dd");
-        $DATE= tr_num($formatter->format($now));
-        $x = explode("/",$DATE);
-        $y = explode("/",$dateAzmun);
-        if((int)$y[0]>=(int)$x[0]){
-            if((int)$y[1]>=(int)$x[1]){
-                if((int)$y[2]>=(int)$x[2]){
-                    $active=1;
-                }else{
-                    $active=2;
-                }
-            }else{
-                $active=2;
-            }
-        }else{
-            $active=2;
-        }
+//        $now = new DateTime();
+//
+//        $formatter = new IntlDateFormatter(
+//            "fa_IR@calendar=persian",
+//            IntlDateFormatter::FULL,
+//            IntlDateFormatter::FULL,
+//            'Asia/Tehran',
+//            IntlDateFormatter::TRADITIONAL,
+//            "yyyy/MM/dd");
+//        $DATE= tr_num($formatter->format($now));
+//        $x = explode("/",$DATE);
+//        $y = explode("/",$dateAzmun);
+//        if((int)$y[0]>=(int)$x[0]){
+//            if((int)$y[1]>=(int)$x[1]){
+//                if((int)$y[2]>=(int)$x[2]){
+//                    $active=1;
+//                }else{
+//                    $active=2;
+//                }
+//            }else{
+//                $active=2;
+//            }
+//        }else{
+//            $active=2;
+//        }
 
         if ($product === "all") {
 //            echo "<script>window.alert('insert db');</script>";
             $stmt  = $connection->prepare("INSERT INTO azmun (xmlAdress,title, dateAzmun, dateKart, dateNatayej,englishName,typ, state, realtime)  VALUES (?,?,?,?,?,?,?,?,?)");
-            $stmt->bind_param("sssssssss", $filename,$topic,$dateAzmun,$dateKart,$dateNatayej,$englishtopic,$active,$state, $modified_time);
+            $stmt->bind_param("sssssssss", $filename,$topic,$dateAzmun,$dateKart,$dateNatayej,$englishtopic,$azmuntype,$state, $modified_time);
         } else {
 //            echo "<script>window.alert('update db');</script>";
             $stmt  = $connection->prepare("UPDATE azmun SET xmlAdress=?,title=?,dateAzmun=?, dateKart=?,dateNatayej=?,englishName=?,typ=?,state=?,realtime=? WHERE ID='$product'");
-            $stmt->bind_param("sssssssss", $filename,$topic,$dateAzmun,$dateKart,$dateNatayej,$englishtopic,$active,$state,$modified_time);
+            $stmt->bind_param("sssssssss", $filename,$topic,$dateAzmun,$dateKart,$dateNatayej,$englishtopic,$azmuntype,$state,$modified_time);
         }
         $result = $stmt->execute(); //execute() tries to fetch a result set. Returns true on succes, false on failure.
         $stmt->store_result();
@@ -329,6 +333,15 @@ if ($_SESSION['type']>8) {
                                 <div class="">نوع آزمون</div>
                                 <input id="stateAzmun" name="state" value="1" type="radio" maxlength="300" class="inlineblock"/>فعال
                                 <input id="stateAzmun" name="state" value="2" type="radio" maxlength="300" class="inlineblock"/>غیرفعال
+
+                            </div>
+                        </div>
+                        <div class="block">
+                            <div class="">
+                                <br/>
+                                <div class="">نوع آزمون</div>
+                                <input id="typeAzmun" name="typeAzmun" value="1" type="radio" maxlength="300" class="inlineblock"/>جاری
+                                <input id="typeAzmun" name="typeAzmun" value="2" type="radio" maxlength="300" class="inlineblock"/>گذشته
 
                             </div>
                         </div>

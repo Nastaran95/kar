@@ -51,6 +51,7 @@ include "header.php";
         //    echo $connection->error;
         while ($row = $result->fetch_assoc()) {
             $name = $row['name'];
+            $uniqueName = $row['englishName'];
             $xmlAdress = $row['xmlAdress'];
             if (file_exists($xmlAdress)) {
                 $XMLFile = simplexml_load_file($xmlAdress);
@@ -65,6 +66,7 @@ include "header.php";
             }
             ?>
             <div class="customer">
+                <a href="http://localhost:63342/karasa/customer/<?php echo $uniqueName; ?> ">
                 <div class="customer_name">
                     <i class="fa fa-circle"></i>
                     <h2><?php echo $customerName ?></h2>
@@ -75,6 +77,7 @@ include "header.php";
                     </div>
                     <p class="customer_description"><?php echo $customerDescription ?></p>
                 </div>
+                </a>
             </div>
 
         <?php

@@ -131,6 +131,7 @@ if(isset($_GET) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERV
                                     <th><input id="checkAll" type="checkbox"/></th>
                                     <th><span>عنوان</span></th>
                                     <th><span>زمان برگزاری</span></th>
+                                    <th><span>نوع آزمون</span></th>
                                     <th><span>زمان آخرین تغییرات</span></th>                                    
                                     <th><span>لینک</span></th>                                  
                                 </tr>
@@ -160,6 +161,19 @@ if(isset($_GET) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERV
             echo "   
                                     <td>                                                                                                               
                                         <span>".$row['dateAzmun']."</span>
+                                    </td>";
+            if ($row['state']==1){
+                $tp = "آزمون فعال ";
+            }else{
+                $tp = "آزمون غیرفعال ";
+            }
+            if ($row['typ']==1){
+                                    $tp = $tp. "جاری";
+            }else{
+                $tp = $tp."گذشته";
+            }
+            echo "<td dir='ltr'>                                                                                                               
+                                        <span>".$tp."</span>
                                     </td>";
             echo "<td dir='ltr'>                                                                                                               
                                         <span>".$row['realtime']."</span>
