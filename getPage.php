@@ -10,14 +10,14 @@ include "Settings.php";
 $page = $_GET['page'];
 if ($page==-1)
     $page = 1;
-$query = "SELECT * FROM azmun WHERE (type='2' and state='1')" ;
+$query = "SELECT * FROM azmun WHERE (typ='2' and state='1')" ;
 $result = $connection->query($query);
 $pagenum = $result->num_rows;
 if ($page==-2)
     $page = floor(($pagenum+4) / 5);
 
 $a = ($page-1)*5;
-$query = "SELECT * FROM azmun WHERE (type='2' and state='1') LIMIT $a , 5;";
+$query = "SELECT * FROM azmun WHERE (typ='2' and state='1') LIMIT $a , 5;";
 $result = $connection->query($query);
 
 while ($row=$result->fetch_assoc()) {
