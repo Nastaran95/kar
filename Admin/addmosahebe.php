@@ -21,7 +21,7 @@ if ($_SESSION['type']>0) {
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>افزودن کتاب</title>
+        <title>افزودن مصاحبه</title>
 
         <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
@@ -66,7 +66,7 @@ if ($_SESSION['type']>0) {
             $name = (string)uniqid().uniqid();
         } else {
             if ($type == 1) {
-                $query = "SELECT * FROM BOOK WHERE ID='$product'";
+                $query = "SELECT * FROM mosahebe WHERE ID='$product'";
             }
             $result = $connection->query($query);
             if ($result->num_rows > 0) {
@@ -82,16 +82,12 @@ if ($_SESSION['type']>0) {
         $writer->openMemory();
         $writer->setIndent(true);
         $writer->startDocument('1.0" encoding="UTF-8');
-        $writer->startElement('BOOK');
+        $writer->startElement('mosahebe');
         $writer->writeElement('code', $name);
         $writer->writeElement('title', $_POST['topic']);
-        $writer->writeElement('writer', $_POST['writer']);
-        $writer->writeElement('motarjem', $_POST['motarjem']);
-        $writer->writeElement('nashr', $_POST['nashr']);
+        $writer->writeElement('birthday', $_POST['birthday']);
         $titleshould=$_POST['topic'];
-        $writershould=$_POST['writer'];
-        $motarjemshould=$_POST['motarjem'];
-        $nashrshould=$_POST['nashr'];
+        $birthdayshould=$_POST['birthday'];
         $englishtopic = $_POST['englishtopic'];
         $englishtopic=str_replace(" ","-",$englishtopic);
         if (isset($_POST['pishnevis'])){
@@ -99,7 +95,7 @@ if ($_SESSION['type']>0) {
         }else{
             $pishnevis=0;
         }
-        $filename = '../XMLs/BookXMLs/' . $name . '.xml';
+        $filename = '../XMLs/mosahebeXMLs/' . $name . '.xml';
         $writer->writeElement('Mokhtasar', $_POST['MOkhtasar']);
         $Mokhtasar = $_POST['MOkhtasar'];
         $dastebandi = $_POST['dastebandi'];
@@ -120,7 +116,7 @@ if ($_SESSION['type']>0) {
                 $TMPNAMESSS = $imagetempname;
             }
             if (strlen($NAMESSS) > 0) {
-                $target_dir = "../images/book/";
+                $target_dir = "../images/mosahebe/";
                 $BBB = (string)uniqid();
                 $target_file = $target_dir . $BBB . basename($NAMESSS);
                 $uploadOk = 1;
@@ -227,17 +223,15 @@ if ($_SESSION['type']>0) {
             $file = $writer->outputMemory();
             file_put_contents($filename, $file);
             $topic = $_POST['topic'];
-            $writer = $_POST['writer'];
-            $motarjem = $_POST['motarjem'];
-            $nashr = $_POST['nashr'];
+            $birthday = $_POST['birthday'];
             date_default_timezone_set("Iran");
             $DATE=date('Y-m-d H:i:s');
             if ($product === "all") {
-                $stmt  = $connection->prepare("INSERT INTO BOOK (XMLNAME,topic,writer,motarjem,nashr ,Mokhtasar,image,time,dastebandi,pishnevis,post_name,realtime)  VALUES (?,?,?,?,?,?,?,NOW(),?,?,?,?)");
-                $stmt->bind_param("sssssssssss", $filename,$topic,$writer,$motarjem,$nashr,$Mokhtasar,$imageURL,$dastebandi,$pishnevis,$englishtopic,$DATE);
+                $stmt  = $connection->prepare("INSERT INTO mosahebe (XMLNAME,topic,birthday ,Mokhtasar,image,time,dastebandi,pishnevis,post_name,realtime)  VALUES (?,?,?,?,?,NOW(),?,?,?,?)");
+                $stmt->bind_param("sssssssss", $filename,$topic,$birthday,$Mokhtasar,$imageURL,$dastebandi,$pishnevis,$englishtopic,$DATE);
             } else {
-                $stmt  = $connection->prepare("UPDATE BOOK SET pishnevis=?,XMLNAME=?,topic=?,writer=?,motarjem=?,nashr=?,dastebandi=?, Mokhtasar=?,image=?,post_name=?,realtime=? WHERE ID='$product'");
-                $stmt->bind_param("sssssssssss", $pishnevis,$filename,$topic,$writer,$motarjem,$nashr,$dastebandi,$Mokhtasar,$imageURL,$englishtopic,$DATE);
+                $stmt  = $connection->prepare("UPDATE mosahebe SET pishnevis=?,XMLNAME=?,topic=?,birthday=?,dastebandi=?, Mokhtasar=?,image=?,post_name=?,realtime=? WHERE ID='$product'");
+                $stmt->bind_param("sssssssss", $pishnevis,$filename,$topic,$birthday,$dastebandi,$Mokhtasar,$imageURL,$englishtopic,$DATE);
             }
             echo 'ok';
             $result = $stmt->execute(); //execute() tries to fetch a result set. Returns true on succes, false on failure.
@@ -254,14 +248,8 @@ if ($_SESSION['type']>0) {
                 if (isset($_POST['topic'])){
                     $titleshould=$_POST['topic'];
                 }
-                if (isset($_POST['writer'])){
-                    $writershould=$_POST['writer'];
-                }
-                if (isset($_POST['motarjem'])){
-                    $motarjemshould=$_POST['motarjem'];
-                }
-                if (isset($_POST['nashr'])){
-                    $nashrshould=$_POST['nashr'];
+                if (isset($_POST['birthday'])){
+                    $birthdayshould=$_POST['birthday'];
                 }
                 if (isset($_POST['MOkhtasar'])){
                     $Mokhtasar = $_POST['MOkhtasar'];
@@ -284,7 +272,7 @@ if ($_SESSION['type']>0) {
                 }
             }else{
                 echo "<script>alert('عملیات مورد نظر موفقیت آمیز بود.');</script>";
-                echo '<META HTTP-EQUIV="Refresh" Content="0; URL=addbook.php?product='.$product.'&type='.$type.'">';
+                echo '<META HTTP-EQUIV="Refresh" Content="0; URL=addmosahebe.php?product='.$product.'&type='.$type.'">';
             }
         }
     } elseif ((isset($_POST['editor1'])) && (isset($_POST['topic'])) && (isset($_POST['MOkhtasar']))) {
@@ -293,14 +281,8 @@ if ($_SESSION['type']>0) {
         if (isset($_POST['topic'])){
             $titleshould=$_POST['topic'];
         }
-        if (isset($_POST['writer'])){
-            $writershould=$_POST['writer'];
-        }
-        if (isset($_POST['motarjem'])){
-            $motarjemshould=$_POST['motarjem'];
-        }
-        if (isset($_POST['nashr'])){
-            $nashrshould=$_POST['nashr'];
+        if (isset($_POST['birthday'])){
+            $birthdayshould=$_POST['birthday'];
         }
         if (isset($_POST['MOkhtasar'])){
             $Mokhtasar = $_POST['MOkhtasar'];
@@ -330,26 +312,26 @@ if ($_SESSION['type']>0) {
         <?php
         $which=10;
         include 'adminmenue.php';
-        $query = "SELECT * FROM BOOK WHERE ID='$product'";
+        $query = "SELECT * FROM mosahebe WHERE ID='$product'";
         $result = $connection->query($query);
         if ($result->num_rows > 0) {
             $row = mysqli_fetch_assoc($result);
-            $BOOK = $row['post_name'];
+            $mosahebe = $row['post_name'];
         }
         $tempvar = 0;
         $tempvar2 = 0;
         if ($product === "all") {
-            $URL = "addbook.php";
+            $URL = "addmosahebe.php";
         } else {
-            $URL = "addbook.php?product=$product";
+            $URL = "addmosahebe.php?product=$product";
         }
-        $URL2 = "allbooks.php?type=$type";
+        $URL2 = "allmosahebes.php?type=$type";
         $englishtopic="";
         if ($product=="namovafagh"){
 
         } else if ($product !== "all") {
             if ($type == 1) {
-                $query = "SELECT * FROM BOOK WHERE ID='$product'";
+                $query = "SELECT * FROM mosahebe WHERE ID='$product'";
             }
             $result = $connection->query($query);
             if ($result->num_rows > 0) {
@@ -361,9 +343,7 @@ if ($_SESSION['type']>0) {
                 $produc = simplexml_load_file($productXMLNAME);
                 $name = $produc->code;
                 $titleshould = $produc->title;
-                $writershould = $produc->writer;
-                $motarjemshould = $produc->motarjem;
-                $nashrshould = $produc->nashr;
+                $birthdayshould = $produc->birthday;
                 $datashould = $produc->data;
                 $dastebandi = $produc->dastebandi;
                 $description = $produc->description;
@@ -379,9 +359,7 @@ if ($_SESSION['type']>0) {
             $pishnevis=0;
             $imageURL = "";
             $titleshould = "";
-            $writershould = "";
-            $motarjemshould = "";
-            $nashrshould = "";
+            $birthdayshould = "";
             $datashould = "";
             if ($type == 1) {
                 $Mokhtasar = "";
@@ -411,32 +389,14 @@ if ($_SESSION['type']>0) {
                         <br>
                         <div class="block">
                             <div class="">
-                                <div class="">نویسنده: (حداکثر 300 کاراکتر)</div>
+                                <div class="">تولد: (حداکثر 300 کاراکتر)</div>
                                 <br/>
-                                <input id="writer" name="writer" type="text" class="width700" placeholder="نویسنده" maxlength="300" class="inlineblock"
-                                       value="<?php echo $writershould; ?>"/>
+                                <input id="birthday" name="birthday" type="text" class="width700" placeholder="تولد" maxlength="300" class="inlineblock"
+                                       value="<?php echo $birthdayshould; ?>"/>
                             </div>
                         </div>
 
                         <br>
-                        <div class="block">
-                            <div class="">
-                                <div class="">مترجم: (حداکثر 300 کاراکتر)</div>
-                                <br/>
-                                <input id="motarjem" name="motarjem" type="text" class="width700" placeholder="مترجم" maxlength="300" class="inlineblock"
-                                       value="<?php echo $motarjemshould; ?>"/>
-                            </div>
-                        </div>
-
-                        <br>
-                        <div class="block">
-                            <div class="">
-                                <div class="">انتشارات: (حداکثر 300 کاراکتر)</div>
-                                <br/>
-                                <input id="nashr" name="nashr" type="text" class="width700" placeholder="انتشارات" maxlength="300" class="inlineblock"
-                                       value="<?php echo $nashrshould; ?>"/>
-                            </div>
-                        </div>
 
                         <div class="block">
                             <div class="">
