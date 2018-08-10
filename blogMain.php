@@ -63,9 +63,9 @@ include 'Header.php';
             <?php
             $query = "SELECT * FROM book ;";
             $result1 = $connection->query($query);
-            $x = 0;
-            while ( ($row=$result1->fetch_assoc()) && ($x<2)) {
-                $x++;
+            $y = 0;
+            while ( ($row=$result1->fetch_assoc()) && ($y<2)) {
+                $y++;
                 $name = $row['topic'];
                 $writer = $row['writer'];
                 $motarjem = $row['motarjem'];
@@ -150,50 +150,160 @@ include 'Header.php';
 
 
             <div class="col-md-12 rightMid">
-                <div class="col-md-12 bio">
-                    <div class="col-md-9">
-                        <h4>علی محمدزاده</h4>
-                        <h5> متولد ۱۶ آذر ۱۳۶۵</h5>
-                        <p>پس از اتمام درخواست تامین وسایل،کارشناسان بخش تامین قسطی کلاب با شما جهت انعقاد قرارداد حضوری دعوت می نمایند، و یا درصورت عدم امکان حضور، به صورت غیر حضوری قرارداد منعقد می شود.</p>
-                        <div class="col-md-4 button">
-                            بیشتر بخوانید
+
+                <?php
+                $query = "SELECT * FROM mosahebe ;";
+                $result3 = $connection->query($query);
+                if ( ($row=$result3->fetch_assoc())) {
+                    $name=$row['topic'];
+                    $birthday=$row['birthday'];
+                    $image = $row['image'];
+                    $image = substr($image,3);
+                    $link = '/mosahebe/'.$row['post_name'];
+                    $mokhtasar = $row['Mokhtasar'];
+                    ?>
+
+                    <div class="col-md-12 bio">
+                        <div class="col-md-9">
+                            <h2 class="h4size">
+                                <?php echo $name ; ?>
+                            </h2>
+                            <h5 class="h5size">
+                                متولد
+                                <?php echo $birthday ; ?>
+                            </h5>
+                            <p class="text-justify">
+                                <?php echo $mokhtasar ; ?>
+                            </p>
+                            <a href="<?php echo $link ?>">
+                                <div class="col-md-4 button">
+
+                                    بیشتر بخوانید
+                                </div>
+                            </a>
                         </div>
-                    </div>
-                    <div class="col-md-3 circle">
-                        <span class="glyphicon glyphicon-user circleIn"></span>
+                        <?php
+                        if (strlen($image)>0){
+                            ?>
+                            <img src="<?php echo $image ?>" width="50" height="50" class="circle circleIn">
+                        <?php
+                        }
+                        else{ ?>
+                            <div class="col-md-3 circle">
+                                <span class="glyphicon glyphicon-user circleIn"></span>
+                            </div>
+                        <?php }
+                        ?>
+
                     </div>
 
-                </div>
-                <div class="col-md-12 bio">
-                    <div class="col-md-3 circle pull-left">
-                        <span class="glyphicon glyphicon-user circleIn"></span>
-                    </div>
-                    <div class="col-md-9">
-                        <h4>علی محمدزاده</h4>
-                        <h5> متولد ۱۶ آذر ۱۳۶۵</h5>
-                        <p>پس از اتمام درخواست تامین وسایل،کارشناسان بخش تامین قسطی کلاب با شما جهت انعقاد قرارداد حضوری دعوت می نمایند، و یا درصورت عدم امکان حضور، به صورت غیر حضوری قرارداد منعقد می شود.</p>
 
-                        <div class="col-md-4 button">
-                            بیشتر بخوانید
+
+                    <?php
+                }
+
+                if ( ($row=$result3->fetch_assoc())) {
+                    $name=$row['topic'];
+                    $birthday=$row['birthday'];
+                    $image = $row['image'];
+                    $image = substr($image,3);
+                    $link = '/mosahebe/'.$row['post_name'];
+                    $mokhtasar = $row['Mokhtasar'];
+                    ?>
+
+                    <div class="col-md-12 bio">
+
+                        <?php
+                        if (strlen($image)>0){
+                            ?>
+                            <img src="<?php echo $image ?>" width="50" height="50" class="circle circleIn pull-left">
+                            <?php
+                        }
+                        else{ ?>
+                            <div class="col-md-3 circle pull-left">
+                                <span class="glyphicon glyphicon-user circleIn"></span>
+                            </div>
+                        <?php }
+                        ?>
+
+                        <div class="col-md-9">
+                            <h2 class="h4size">
+                                <?php echo $name ; ?>
+                            </h2>
+                            <h5 class="h5size">
+                                متولد
+                                <?php echo $birthday ; ?>
+                            </h5>
+                            <p class="text-justify">
+                                <?php echo $mokhtasar ; ?>
+                            </p>
+                            <a href="<?php echo $link ?>">
+                                <div class="col-md-4 button">
+
+                                    بیشتر بخوانید
+                                </div>
+                            </a>
                         </div>
+
+
                     </div>
 
 
-                </div>
-                <div class="col-md-12 bio">
-                    <div class="col-md-9">
-                        <h4>علی محمدزاده</h4>
-                        <h5> متولد ۱۶ آذر ۱۳۶۵</h5>
-                        <p>پس از اتمام درخواست تامین وسایل،کارشناسان بخش تامین قسطی کلاب با شما جهت انعقاد قرارداد حضوری دعوت می نمایند، و یا درصورت عدم امکان حضور، به صورت غیر حضوری قرارداد منعقد می شود.</p>
-                        <div class="col-md-3 button">
-                            بیشتر بخوانید
+
+                    <?php
+                }
+                if ( ($row=$result3->fetch_assoc())) {
+                    $name=$row['topic'];
+                    $birthday=$row['birthday'];
+                    $image = $row['image'];
+                    $image = substr($image,3);
+                    $link = '/mosahebe/'.$row['post_name'];
+                    $mokhtasar = $row['Mokhtasar'];
+                    ?>
+
+                    <div class="col-md-12 bio">
+                        <div class="col-md-9">
+                            <h2 class="h4size">
+                                <?php echo $name ; ?>
+                            </h2>
+                            <h5 class="h5size">
+                                متولد
+                                <?php echo $birthday ; ?>
+                            </h5>
+                            <p class="text-justify">
+                                <?php echo $mokhtasar ; ?>
+                            </p>
+                            <a href="<?php echo $link ?>">
+                                <div class="col-md-4 button">
+
+                                    بیشتر بخوانید
+                                </div>
+                            </a>
                         </div>
-                    </div>
-                    <div class="col-md-4 circle">
-                        <span class="glyphicon glyphicon-user circleIn"></span>
+                        <?php
+                        if (strlen($image)>0){
+                            ?>
+                            <img src="<?php echo $image ?>" width="50" height="50" class="circle circleIn">
+                            <?php
+                        }
+                        else{ ?>
+                            <div class="col-md-3 circle">
+                                <span class="glyphicon glyphicon-user circleIn"></span>
+                            </div>
+                        <?php }
+                        ?>
+
                     </div>
 
-                </div>
+
+
+                    <?php
+                }
+
+                ?>
+
+
+
 
             </div>
 

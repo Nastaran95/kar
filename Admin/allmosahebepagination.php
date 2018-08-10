@@ -10,7 +10,6 @@ include '../Settings.php';
 
 //continue only if $_POST is set and it is a Ajax request
 if(isset($_GET) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'){
-    
     //Get page number from Ajax POST
     $page_number=0;
     $item_per_page = $_GET["limit"];
@@ -31,10 +30,10 @@ if(isset($_GET) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERV
     if ($query==="=====+++=====") {
         if ($dastebandi=='all'){
             if ($type == 1)
-                $results = $connection->query("SELECT COUNT(*) FROM book");
+                $results = $connection->query("SELECT COUNT(*) FROM mosahebe");
         }else{
             if ($type == 1)
-                $results = $connection->query("SELECT COUNT(*) FROM book WHERE dastebandi='$dastebandi'");
+                $results = $connection->query("SELECT COUNT(*) FROM mosahebe WHERE dastebandi='$dastebandi'");
         }
     }else {
         $D=0;
@@ -56,18 +55,18 @@ if(isset($_GET) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERV
         if ($D===0){
             if ($dastebandi=='all') {
                 if ($type == 1)
-                    $results = $connection->query("SELECT COUNT(*) FROM book");
+                    $results = $connection->query("SELECT COUNT(*) FROM mosahebe");
             }else{
                 if ($type == 1)
-                    $results = $connection->query("SELECT COUNT(*) FROM book WHERE dastebandi='$dastebandi'");
+                    $results = $connection->query("SELECT COUNT(*) FROM mosahebe WHERE dastebandi='$dastebandi'");
             }
         }else {
             if ($dastebandi=='all') {
                 if ($type == 1)
-                    $results = $connection->query("SELECT COUNT(*) FROM book " . $command);
+                    $results = $connection->query("SELECT COUNT(*) FROM mosahebe " . $command);
             }else{
                 if ($type == 1)
-                    $results = $connection->query("SELECT COUNT(*) FROM book " . $command." and dastebandi='$dastebandi'");
+                    $results = $connection->query("SELECT COUNT(*) FROM mosahebe " . $command." and dastebandi='$dastebandi'");
             }
         }
     }
@@ -83,10 +82,10 @@ if(isset($_GET) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERV
         $D=1;
         if ($dastebandi=='all') {
             if ($type == 1)
-                $results = $connection->query("SELECT * FROM book ORDER BY ID DESC  LIMIT $page_position, $item_per_page ");
+                $results = $connection->query("SELECT * FROM mosahebe ORDER BY ID DESC  LIMIT $page_position, $item_per_page ");
         }else{
             if ($type == 1)
-                $results = $connection->query("SELECT * FROM book WHERE dastebandi='$dastebandi' ORDER BY ID DESC  LIMIT $page_position, $item_per_page ");
+                $results = $connection->query("SELECT * FROM mosahebe WHERE dastebandi='$dastebandi' ORDER BY ID DESC  LIMIT $page_position, $item_per_page ");
         }
     }else {
         $command="WHERE";
@@ -107,18 +106,18 @@ if(isset($_GET) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERV
         if ($D===0){
             if ($dastebandi=='all') {
                 if ($type == 1)
-                    $results = $connection->query("SELECT * FROM book ORDER BY ID DESC  LIMIT $page_position, $item_per_page ");
+                    $results = $connection->query("SELECT * FROM mosahebe ORDER BY ID DESC  LIMIT $page_position, $item_per_page ");
             }else {
                 if ($type == 1)
-                    $results = $connection->query("SELECT * FROM book  WHERE dastebandi='$dastebandi' ORDER BY ID DESC  LIMIT $page_position, $item_per_page ");
+                    $results = $connection->query("SELECT * FROM mosahebe  WHERE dastebandi='$dastebandi' ORDER BY ID DESC  LIMIT $page_position, $item_per_page ");
             }
         }else {
             if ($dastebandi=='all') {
                 if ($type == 1)
-                    $results = $connection->query("SELECT * FROM book " . $command . " ORDER BY ID DESC LIMIT $page_position, $item_per_page ");
+                    $results = $connection->query("SELECT * FROM mosahebe " . $command . " ORDER BY ID DESC LIMIT $page_position, $item_per_page ");
             }else{
                 if ($type == 1)
-                    $results = $connection->query("SELECT * FROM book " . $command ."and dastebandi='$dastebandi'". " ORDER BY ID DESC LIMIT $page_position, $item_per_page ");
+                    $results = $connection->query("SELECT * FROM mosahebe " . $command ."and dastebandi='$dastebandi'". " ORDER BY ID DESC LIMIT $page_position, $item_per_page ");
             }
         }
     }
@@ -162,7 +161,7 @@ if(isset($_GET) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERV
                                     <td>
                                         <img src=\"$producimage\" alt=\"$NEWNAME\">
                                         <div class=\"info\">
-                                            <a target='_blank' href=\"/book/".$IDOA."/$NEWNAME\" class=\"user-link\">".$row['topic']."</a>
+                                            <a target='_blank' href=\"/mosahebe/".$IDOA."/$NEWNAME\" class=\"user-link\">".$row['topic']."</a>
                                         </div>
                                     </td>";
             echo "   
@@ -185,18 +184,18 @@ if(isset($_GET) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERV
                                     </td>";
             echo "   
                                     <td dir='ltr'>                                                                                                               
-                                        <span>/book/".$IDOA."/$NEWNAME</span>
+                                        <span>/mosahebe/".$IDOA."/$NEWNAME</span>
                                     </td>";
         }
         echo "                                                                      
                                     <td style=\"width: 20%;\">
-                                        <a  target='_blank' href='addbook.php?type=$type&product=".$row['ID']."' class=\"table-link\">
+                                        <a  target='_blank' href='addmosahebe.php?type=$type&product=".$row['ID']."' class=\"table-link\">
                                             <span class=\"fa-stack\">
                                                 <i class=\"fa fa-square fa-stack-2x\"></i>
                                                 <i class=\"fa fa-pencil fa-stack-1x fa-inverse bluecolor\"></i>
                                             </span>
                                         </a>
-                                        <a onClick=\"return confirming();\"  href='deletebook.php?type=$type&product=".$row['ID']."' class=\"table-link danger\">
+                                        <a onClick=\"return confirming();\"  href='deletemosahebe.php?type=$type&product=".$row['ID']."' class=\"table-link danger\">
                                             <span class=\"fa-stack\">
                                                 <i class=\"fa fa-square fa-stack-2x\"></i>
                                                 <i class=\"fa fa-trash-o fa-stack-1x fa-inverse\"></i>

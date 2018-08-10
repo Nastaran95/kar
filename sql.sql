@@ -1,4 +1,4 @@
-create DATABASE karasa;
+# create DATABASE karasa;
 use karasa;
 DROP TABLE azmun;
 CREATE TABLE azmun (
@@ -142,16 +142,16 @@ CREATE TABLE token(ID INT NOT NULL AUTO_INCREMENT,token VARCHAR(100),token2 VARC
 DROP table BLOG;
 
 CREATE TABLE BLOG(ID int NOT NULL AUTO_INCREMENT,
-  XMLNAME VARCHAR(300),
-  topic VARCHAR(300) CHARACTER SET utf8 COLLATE utf8_general_ci,
-  Mokhtasar VARCHAR(1000) CHARACTER SET utf8 COLLATE utf8_general_ci,
-  image VARCHAR(1000),
-  time TIMESTAMP,
-  pishnevis INT DEFAULT 0,
-  realtime VARCHAR(200),
-  mahbobiat int DEFAULT 0,
-  post_name VARCHAR(300) DEFAULT "",
-  dastebandi VARCHAR(300),
+                  XMLNAME VARCHAR(300),
+                  topic VARCHAR(300) CHARACTER SET utf8 COLLATE utf8_general_ci,
+                  Mokhtasar VARCHAR(1000) CHARACTER SET utf8 COLLATE utf8_general_ci,
+                  image VARCHAR(1000),
+                  time TIMESTAMP,
+                  pishnevis INT DEFAULT 0,
+                  realtime VARCHAR(200),
+                  mahbobiat int DEFAULT 0,
+                  post_name VARCHAR(300) DEFAULT "",
+                  dastebandi VARCHAR(300),
   PRIMARY KEY (ID)) DEFAULT CHARSET=utf8;
 
 INSERT INTO BLOG(XMLNAME, topic, Mokhtasar, image, time, pishnevis, realtime, mahbobiat, post_name, dastebandi) VALUES
@@ -179,22 +179,30 @@ INSERT INTO BOOK(XMLNAME, topic,writer,motarjem,nashr, Mokhtasar, image, time, p
   ('../XMLs/BookXMLs/5b6d405a9a1fd5b6d405a9a222.xml','نام من سرخ','اورهان پاموک','عین‌اله غریب' , 'نشر چشمه','نام من سرخ (به ترکی استانبولی: Benim Adım Kırmızı) رمانی از اورهان پاموک است تحت تأثیر رمان مشهور ایتالیایی نام گل سرخ. نام من سرخ برنده جایزه نوبل..','../images/book/5b6cb9134b299MyNameIsRed.jpg','2018-08-09 22:40:55','0', '2018-08-09 22:40:55','0','namemansorkh','!');
 
 
-# DROP table mosahebe;
-# CREATE TABLE mosahebe(ID int NOT NULL AUTO_INCREMENT,
-#                       XMLNAME VARCHAR(300),
-#                       topic VARCHAR(300) CHARACTER SET utf8 COLLATE utf8_general_ci,
-#                       motarjem VARCHAR(300) CHARACTER SET utf8 COLLATE utf8_general_ci,
-#                       nashr VARCHAR(300) CHARACTER SET utf8 COLLATE utf8_general_ci,
-#                       Mokhtasar VARCHAR(1000) CHARACTER SET utf8 COLLATE utf8_general_ci,
-#                       image VARCHAR(1000),
-#                       time TIMESTAMP,
-#                       pishnevis INT DEFAULT 0,
-#                       realtime VARCHAR(200),
-#                       mahbobiat int DEFAULT 0,
-#                       post_name VARCHAR(300) DEFAULT "",
-#                       dastebandi VARCHAR(300),
-#   PRIMARY KEY (ID)) DEFAULT CHARSET=utf8;
-#
-#
-# INSERT INTO mosahebe(XMLNAME, topic,writer,motarjem,nashr, Mokhtasar, image, time, pishnevis, realtime, mahbobiat, post_name, dastebandi) VALUES
-#   ('../XMLs/BookXMLs/5b6d405a9a1fd5b6d405a9a222.xml','نام من سرخ','اورهان پاموک','عین‌اله غریب' , 'نشر چشمه','نام من سرخ (به ترکی استانبولی: Benim Adım Kırmızı) رمانی از اورهان پاموک است تحت تأثیر رمان مشهور ایتالیایی نام گل سرخ. نام من سرخ برنده جایزه نوبل..','../images/book/5b6cb9134b299MyNameIsRed.jpg','2018-08-09 22:40:55','0', '2018-08-09 22:40:55','0','namemansorkh','!');
+DROP table mosahebe;
+CREATE TABLE mosahebe(ID int NOT NULL AUTO_INCREMENT,
+                      XMLNAME VARCHAR(300),
+                      topic VARCHAR(300) CHARACTER SET utf8 COLLATE utf8_general_ci,
+                      birthday VARCHAR(300) CHARACTER SET utf8 COLLATE utf8_general_ci,
+                      Mokhtasar VARCHAR(1000) CHARACTER SET utf8 COLLATE utf8_general_ci,
+                      image VARCHAR(1000),
+                      time TIMESTAMP,
+                      pishnevis INT DEFAULT 0,
+                      realtime VARCHAR(200),
+                      mahbobiat int DEFAULT 0,
+                      post_name VARCHAR(300) DEFAULT "",
+                      dastebandi VARCHAR(300),
+  PRIMARY KEY (ID)) DEFAULT CHARSET=utf8;
+
+
+INSERT INTO mosahebe(XMLNAME, topic,birthday,Mokhtasar, image, time, pishnevis, realtime, mahbobiat, post_name, dastebandi) VALUES
+  ('../XMLs/mosahebeXMLs/5b6dbdc53eb695b6dbdc53ee75.xml',
+    'علی محمد زاده',
+    '۱۶ آذر ۱۳۶۵',
+    'رئیس مرکز تحقیقات سیاستگذاری اقتصاد سلامت دانشگاه علوم پزشکی آزاد اسلامی تهران با تاکید بر اینکه عوارض ناشی از سوختگی برای فرد و جامعه کمرشکن،.......',
+    '../images/mosahebe/1.jpg',
+    '2018-08-09 22:40:55',
+    '0',
+    '2018-08-09 22:40:55',
+    '0','aliMohamadZadeh',
+    'آزاد');
