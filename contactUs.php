@@ -28,13 +28,13 @@ include "header.php";
         <br/>
         <div class="col-md-12">
     <h1 class="col-md-12 subj">تماس با ما</h1>
-    <p class="dark_text" style="margin: 70px 50px;">
+    <p class="dark_text instyle" >
         اگر کارفرما یا کارجو هستید، به صورت زیر با ما ارتباط برقرار کنید
     </p>
 
     <div class="buttons">
-        <span id="karfarma" class="button light_text col-md-4">کارفرما</span>
-        <span id="karjoo" class="button light_text col-md-4">کارجو</span>
+        <span id="karfarma" class="button light_text col-md-4 col-xs-12">کارفرما</span>
+        <span id="karjoo" class="button light_text col-md-4 col-xs-12">کارجو</span>
     </div>
 
     <div class="karfarma_register hide">
@@ -45,7 +45,7 @@ include "header.php";
             <div><input type="number" name="phone" placeholder="تلفن تماس">
             <input type="email" name="email" placeholder="ایمیل"></div>
             <textarea form="karfarma" rows="10" placeholder="متن شکایت و نظر"></textarea>
-            <input type="submit" value="ارسال">
+            <input type="submit" value="ارسال" class="contactBut">
         </form>
     </div>
 
@@ -57,7 +57,7 @@ include "header.php";
             <div><input type="number" name="phone" placeholder="شماره تلفن">
                 <input type="number" name="mobile" placeholder="شماره موبایل"></div>
             <textarea form="karjoo" rows="10" placeholder="متن درخواست"></textarea>
-            <input type="submit" value="ارسال">
+            <input type="submit" value="ارسال" class="contactBut">
         </form>
     </div>
 

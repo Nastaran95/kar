@@ -1,18 +1,24 @@
 .buttons {
     display: flex;
     justify-content: space-between;
-    padding: 100px 120px;
+    padding: 40px 120px;
 
 }
+
+.instyle{
+    margin: 20px 50px;
+}
+
+
 .buttons .button{
     background-color: #24646a;
     box-shadow: 5px 5px 10px #888888;
-    font-size: 40px;
+    font-size: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 270px;
-    height: 150px;
+    /*width: 170px;*/
+    height: 15%;
 }
 .communication_ways{
     display: flex;
@@ -43,27 +49,27 @@
 .communication_ways .item .info .data{
     display: block;
 }
-form{
+#karjoo , #karfarma{
     padding: 0 120px;
 }
-form *{
+#karjoo * , #karfarma *{
     width:100%;
     display: block;
     margin-bottom: 10px;
     padding:10px 15px;
     border: 1px solid #24646a;
 }
-form div{
+#karjoo div , #karfarma div{
     display: inline-flex;
     justify-content: space-between;
     margin:0;
     padding: 0;
     border: none;
 }
-form div *{
+#karjoo div * , #karfarma div *{
     max-width: 48%;
 }
-form input[type="submit"]{
+.contactBut{
     background-color: #24646a;
     color: #fff;
     font-size: 20px;
