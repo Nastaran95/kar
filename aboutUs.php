@@ -15,7 +15,7 @@
 <head>
     <link rel="stylesheet" href="css/bootstrap.css"/>
     <link rel="stylesheet" href="css/global.css"/>
-    <link rel="stylesheet" href="css/home.css"
+    <link rel="stylesheet" href="css/home.css"/>
     <link rel="stylesheet" href="css/helper.css"/>
     <script src="js/jQuery.js" ></script>
     <script src="js/helper.js"></script>
