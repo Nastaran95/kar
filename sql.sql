@@ -164,3 +164,24 @@ CREATE TABLE BOOK(ID int NOT NULL AUTO_INCREMENT,
 
 INSERT INTO BOOK(XMLNAME, topic,writer,motarjem,nashr, Mokhtasar, image, time, pishnevis, realtime, mahbobiat, post_name, dastebandi) VALUES
   ('../XMLs/BookXMLs/5b6d405a9a1fd5b6d405a9a222.xml','نام من سرخ','اورهان پاموک','عین‌اله غریب' , 'نشر چشمه','نام من سرخ (به ترکی استانبولی: Benim Adım Kırmızı) رمانی از اورهان پاموک است تحت تأثیر رمان مشهور ایتالیایی نام گل سرخ. نام من سرخ برنده جایزه نوبل..','../images/book/5b6cb9134b299MyNameIsRed.jpg','2018-08-09 22:40:55','0', '2018-08-09 22:40:55','0','namemansorkh','!');
+
+
+# DROP table mosahebe;
+# CREATE TABLE mosahebe(ID int NOT NULL AUTO_INCREMENT,
+#                       XMLNAME VARCHAR(300),
+#                       topic VARCHAR(300) CHARACTER SET utf8 COLLATE utf8_general_ci,
+#                       motarjem VARCHAR(300) CHARACTER SET utf8 COLLATE utf8_general_ci,
+#                       nashr VARCHAR(300) CHARACTER SET utf8 COLLATE utf8_general_ci,
+#                       Mokhtasar VARCHAR(1000) CHARACTER SET utf8 COLLATE utf8_general_ci,
+#                       image VARCHAR(1000),
+#                       time TIMESTAMP,
+#                       pishnevis INT DEFAULT 0,
+#                       realtime VARCHAR(200),
+#                       mahbobiat int DEFAULT 0,
+#                       post_name VARCHAR(300) DEFAULT "",
+#                       dastebandi VARCHAR(300),
+#   PRIMARY KEY (ID)) DEFAULT CHARSET=utf8;
+#
+#
+# INSERT INTO mosahebe(XMLNAME, topic,writer,motarjem,nashr, Mokhtasar, image, time, pishnevis, realtime, mahbobiat, post_name, dastebandi) VALUES
+#   ('../XMLs/BookXMLs/5b6d405a9a1fd5b6d405a9a222.xml','نام من سرخ','اورهان پاموک','عین‌اله غریب' , 'نشر چشمه','نام من سرخ (به ترکی استانبولی: Benim Adım Kırmızı) رمانی از اورهان پاموک است تحت تأثیر رمان مشهور ایتالیایی نام گل سرخ. نام من سرخ برنده جایزه نوبل..','../images/book/5b6cb9134b299MyNameIsRed.jpg','2018-08-09 22:40:55','0', '2018-08-09 22:40:55','0','namemansorkh','!');
