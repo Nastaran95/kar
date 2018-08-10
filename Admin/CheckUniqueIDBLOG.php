@@ -14,6 +14,8 @@ if($tab==1)
     $query="SELECT * from blog where post_name='$ID'";
 else if($tab==2)
     $query="SELECT * from book where post_name='$ID'";
+else if($tab==3)
+    $query="SELECT * from mosahebe where post_name='$ID'";
 $result = $connection->query($query);
 if ($result->num_rows>0){
     echo "0";

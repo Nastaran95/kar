@@ -186,95 +186,93 @@ if ($_SESSION['type']>0) {
                 $uploadOk = 0;
             }
         }
-        if (($uploadOk === 0) && ($imageURL == "")) {
-            $movafagh = 'عملیات مورد نظر موفق نبود. وارد کردن تصویر اصلی الزامی است.';
-        } else {
-            if ($type == 1) {
-                if (isset($_POST['dastebandi'])){
-                    $writer->writeElement('dastebandi', $_POST['dastebandi']);
-                    $dastebandi=$_POST['dastebandi'];
-                }else {
-                    $dastebandi="";
-                }
-            }
-            if ($type == 1) {
-                $writer->writeElement('image', $imageURL);
-            }
-            $writer->writeElement('data', $_POST['editor1']);
-            $datashould=$_POST['editor1'];
 
-            $description="";
-            if (isset($_POST['seodesc'])) {
-                $writer->writeElement('description', $_POST['seodesc']);
-                $description=$_POST['seodesc'];
-            }
-            $kewords="";
-            if (isset($_POST['seokeyword'])) {
-                $writer->writeElement('kewords', $_POST['seokeyword']);
-                $kewords=$_POST['seokeyword'];
-            }
-            $titleseo="";
-            if (isset($_POST['seotitle'])) {
-                $writer->writeElement('seotitle', $_POST['seotitle']);
-                $titleseo=$_POST['seotitle'];
-            }
-            $writer->endElement();
-            $writer->endDocument();
-            $file = $writer->outputMemory();
-            file_put_contents($filename, $file);
-            $topic = $_POST['topic'];
-            $birthday = $_POST['birthday'];
-            date_default_timezone_set("Iran");
-            $DATE=date('Y-m-d H:i:s');
-            if ($product === "all") {
-                $stmt  = $connection->prepare("INSERT INTO mosahebe (XMLNAME,topic,birthday ,Mokhtasar,image,time,dastebandi,pishnevis,post_name,realtime)  VALUES (?,?,?,?,?,NOW(),?,?,?,?)");
-                $stmt->bind_param("sssssssss", $filename,$topic,$birthday,$Mokhtasar,$imageURL,$dastebandi,$pishnevis,$englishtopic,$DATE);
-            } else {
-                $stmt  = $connection->prepare("UPDATE mosahebe SET pishnevis=?,XMLNAME=?,topic=?,birthday=?,dastebandi=?, Mokhtasar=?,image=?,post_name=?,realtime=? WHERE ID='$product'");
-                $stmt->bind_param("sssssssss", $pishnevis,$filename,$topic,$birthday,$dastebandi,$Mokhtasar,$imageURL,$englishtopic,$DATE);
-            }
-            echo 'ok';
-            $result = $stmt->execute(); //execute() tries to fetch a result set. Returns true on succes, false on failure.
-            $stmt->store_result();
-            $result = $stmt->get_result();
-            if ($product === "all") {
-                $product =$connection->insert_id;
-            }
-            $movafagh = 'عملیات مورد نظر با موفقیت انجام شد.';
-
-            if ($connection->error) {
-                $movafagh = 'عملیات مورد نظر موفق نبود. وارد کردن تمامی موارد الزامی است.';
-                $product="namovafagh";
-                if (isset($_POST['topic'])){
-                    $titleshould=$_POST['topic'];
-                }
-                if (isset($_POST['birthday'])){
-                    $birthdayshould=$_POST['birthday'];
-                }
-                if (isset($_POST['MOkhtasar'])){
-                    $Mokhtasar = $_POST['MOkhtasar'];
-                }
-                if (isset($_POST['dastebandi'])){
-                    $dastebandi = $_POST['dastebandi'];
-                }
-                if (isset($_POST['editor1'])){
-                    $datashould=$_POST['editor1'];
-                }
-
-                if (isset($_POST['seodesc'])){
-                    $description=$_POST['seodesc'];
-                }
-                if (isset($_POST['seotitle'])){
-                    $titleseo=$_POST['seotitle'];
-                }
-                if (isset($_POST['seokeyword'])){
-                    $kewords=$_POST['seokeyword'];
-                }
-            }else{
-                echo "<script>alert('عملیات مورد نظر موفقیت آمیز بود.');</script>";
-                echo '<META HTTP-EQUIV="Refresh" Content="0; URL=addmosahebe.php?product='.$product.'&type='.$type.'">';
+        if ($type == 1) {
+            if (isset($_POST['dastebandi'])){
+                $writer->writeElement('dastebandi', $_POST['dastebandi']);
+                $dastebandi=$_POST['dastebandi'];
+            }else {
+                $dastebandi="";
             }
         }
+        if ($type == 1) {
+            $writer->writeElement('image', $imageURL);
+        }
+        $writer->writeElement('data', $_POST['editor1']);
+        $datashould=$_POST['editor1'];
+
+        $description="";
+        if (isset($_POST['seodesc'])) {
+            $writer->writeElement('description', $_POST['seodesc']);
+            $description=$_POST['seodesc'];
+        }
+        $kewords="";
+        if (isset($_POST['seokeyword'])) {
+            $writer->writeElement('kewords', $_POST['seokeyword']);
+            $kewords=$_POST['seokeyword'];
+        }
+        $titleseo="";
+        if (isset($_POST['seotitle'])) {
+            $writer->writeElement('seotitle', $_POST['seotitle']);
+            $titleseo=$_POST['seotitle'];
+        }
+        $writer->endElement();
+        $writer->endDocument();
+        $file = $writer->outputMemory();
+        file_put_contents($filename, $file);
+        $topic = $_POST['topic'];
+        $birthday = $_POST['birthday'];
+        date_default_timezone_set("Iran");
+        $DATE=date('Y-m-d H:i:s');
+        if ($product === "all") {
+            $stmt  = $connection->prepare("INSERT INTO mosahebe (XMLNAME,topic,birthday ,Mokhtasar,image,time,dastebandi,pishnevis,post_name,realtime)  VALUES (?,?,?,?,?,NOW(),?,?,?,?)");
+            $stmt->bind_param("sssssssss", $filename,$topic,$birthday,$Mokhtasar,$imageURL,$dastebandi,$pishnevis,$englishtopic,$DATE);
+        } else {
+            $stmt  = $connection->prepare("UPDATE mosahebe SET pishnevis=?,XMLNAME=?,topic=?,birthday=?,dastebandi=?, Mokhtasar=?,image=?,post_name=?,realtime=? WHERE ID='$product'");
+            $stmt->bind_param("sssssssss", $pishnevis,$filename,$topic,$birthday,$dastebandi,$Mokhtasar,$imageURL,$englishtopic,$DATE);
+        }
+        echo 'ok';
+        $result = $stmt->execute(); //execute() tries to fetch a result set. Returns true on succes, false on failure.
+        $stmt->store_result();
+        $result = $stmt->get_result();
+        if ($product === "all") {
+            $product =$connection->insert_id;
+        }
+        $movafagh = 'عملیات مورد نظر با موفقیت انجام شد.';
+
+        if ($connection->error) {
+            $movafagh = 'عملیات مورد نظر موفق نبود. وارد کردن تمامی موارد الزامی است.';
+            $product="namovafagh";
+            if (isset($_POST['topic'])){
+                $titleshould=$_POST['topic'];
+            }
+            if (isset($_POST['birthday'])){
+                $birthdayshould=$_POST['birthday'];
+            }
+            if (isset($_POST['MOkhtasar'])){
+                $Mokhtasar = $_POST['MOkhtasar'];
+            }
+            if (isset($_POST['dastebandi'])){
+                $dastebandi = $_POST['dastebandi'];
+            }
+            if (isset($_POST['editor1'])){
+                $datashould=$_POST['editor1'];
+            }
+
+            if (isset($_POST['seodesc'])){
+                $description=$_POST['seodesc'];
+            }
+            if (isset($_POST['seotitle'])){
+                $titleseo=$_POST['seotitle'];
+            }
+            if (isset($_POST['seokeyword'])){
+                $kewords=$_POST['seokeyword'];
+            }
+        }else{
+            echo "<script>alert('عملیات مورد نظر موفقیت آمیز بود.');</script>";
+            echo '<META HTTP-EQUIV="Refresh" Content="0; URL=addmosahebe.php?product='.$product.'&type='.$type.'">';
+        }
+
     } elseif ((isset($_POST['editor1'])) && (isset($_POST['topic'])) && (isset($_POST['MOkhtasar']))) {
         $movafagh = 'عملیات مورد نظر موفق نبود. وارد کردن تمامی موارد الزامی است.';
         $product="namovafagh";
@@ -371,7 +369,7 @@ if ($_SESSION['type']>0) {
         }
         ?>
 
-        <form action="<?php echo $URL ?>" method="post" enctype="multipart/form-data" onsubmit="return validateFormdata(2)">
+        <form action="<?php echo $URL ?>" method="post" enctype="multipart/form-data" onsubmit="return validateFormdata(3)">
 
             <div id="X-wrapper">
                 <div class="container2">

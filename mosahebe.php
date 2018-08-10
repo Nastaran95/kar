@@ -8,7 +8,7 @@
 session_start();
 
 include 'Settings.php'; //harja khasti DB estefade koni ino bezan faghat
-$productXMLNAME = "XMLs/book.xml";
+$productXMLNAME = "XMLs/mosahebe.xml";
 if (file_exists($productXMLNAME)) {
     $XMLFile = simplexml_load_file($productXMLNAME);
     $SEOdescription=$XMLFile->description;
@@ -46,7 +46,6 @@ if (file_exists($productXMLNAME)) {
     <link rel="canonical" href="https://www.karasa.ir/">
     <link rel="alternate" href="https://www.karasa.ir/" hreflang="fa-IR" />
 
-    <link rel="stylesheet" href="css/helper.css"/>
     <script src="js/helper.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="froala/css/froala_style.css">
@@ -56,15 +55,12 @@ if (file_exists($productXMLNAME)) {
 include 'Header.php';
 if (isset($_GET['ID'])) {
     $ID = $_GET['ID'];
-    $query = "SELECT * FROM book WHERE post_name='$ID';";
+    $query = "SELECT * FROM mosahebe WHERE post_name='$ID';";
     $result = $connection->query($query);
     if ($row = $result->fetch_assoc()) {
         $name = $row['topic'];
-        $writer = $row['writer'];
-        $motarjem = $row['motarjem'];
-        $nashr = $row['nashr'];
+        $birthday = $row['birthday'];
         $mokhtasar = $row['Mokhtasar'];
-        $imageAdd = $row['image'];
         $xmlAdress = $row['XMLNAME'];
         $xmlAdress = substr($xmlAdress,3);
         $image = $row['image'];
@@ -91,15 +87,25 @@ if (isset($_GET['ID'])) {
         <?php echo $name;?>
     </h2>
     <div class="col-md-12">
-        <img class="pull-right col-md-3" src="<?php echo $image; ?>">
+
+        <?php
+        if (strlen($image)>0){
+        ?>
+            <img class="pull-right col-md-3" src="<?php echo $image; ?>" >
+        <?php
+        }
+        else{ ?>
+            <div class="col-md-3 pull-right nopic text-center">
+                <span class="glyphicon glyphicon-user"></span>
+            </div>
+        <?php }
+        ?>
+
         <div class="col-md-9">
-            نویسنده:
-            <?php echo $writer; ?>
+            متولد
+            <?php echo $birthday; ?>
             <br>
-            مترجم:
-            <?php echo $motarjem; ?>
-            <br>
-            <?php echo $nashr; ?>
+
             <br>
             <?php echo $mokhtasar; ?>
 
@@ -110,7 +116,7 @@ if (isset($_GET['ID'])) {
 
     <div class="col-md-12">
         <div class="fr-element fr-view">
-        <br><br>
+        <br>
             <?php echo $blogDescription;?>
         </div>
     </div>

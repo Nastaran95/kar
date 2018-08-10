@@ -120,7 +120,7 @@ function validateFormdata(tab){
     }else{
         $("#getred").removeClass( "BORDERCOLOR" );
     }
-    if (document.getElementById("files").files.length == 0){
+    if ((tab!=3) && (document.getElementById("files").files.length == 0)){
         var myElem = document.getElementById('forcheck');
         if (myElem!=null){
             if (document.getElementById("forcheck").src.length==0){
