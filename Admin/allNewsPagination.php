@@ -162,7 +162,7 @@ if(isset($_GET) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERV
                                     </td>";
             echo "   
                                     <td dir='ltr'>                                                                                                               
-                                        <span>/azmun/".$row['englishName']."</span>
+                                        <span>/news/".$row['englishName']."</span>
                                     </td>";
         }
         echo "                                                                      

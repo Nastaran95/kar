@@ -23,7 +23,10 @@ body {
     font-weight: normal;
     src: url('../fonts/IRANSansWeb.woff') format('woff');  /* All Major Browsers */
 }
-
+a:hover {
+    text-decoration: none;
+    color: inherit;
+}
 .grayColor{
     background-color : rgb(247,247,247);
 }
@@ -165,6 +168,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     flex-direction: row;
     justify-content: flex-start;
     padding: 10px 15px;
+    font-size: 18px;
+    color: #1c4e75;
 }
 .header .menu a{
     padding:0;
@@ -247,7 +252,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 .dark_text {
     color: #1c4e75;
 }
-
+.tozih{
+    padding:0 50px 30px 50px;
+    text-align: justify;
+}
 .light_text{
     color: #fff;
 }
@@ -262,5 +270,14 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 @media (max-width: 1100px) {
     .foot-box{
         margin: 20px;
+    }
+    .tozih{
+        padding:0 20px 30px 20px;
+    }
+}
+/*mobile*/
+@media (max-width: 768px) {
+    .tozih{
+        padding:0 15px 20px 15px;
     }
 }

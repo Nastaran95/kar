@@ -28,7 +28,7 @@ include "header.php";
         <br/>
         <div class="col-md-12">
     <h1 class="col-md-12 subj">تماس با ما</h1>
-    <p class="dark_text" style="margin: 70px 50px;">
+    <p class="dark_text tozih">
         اگر کارفرما یا کارجو هستید، به صورت زیر با ما ارتباط برقرار کنید
     </p>
 

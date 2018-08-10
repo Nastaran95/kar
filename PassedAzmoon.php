@@ -46,6 +46,7 @@ if (file_exists($productXMLNAME)) {
     <link rel="stylesheet" href="css/home.css"/>
     <link rel="canonical" href="https://www.karasa.ir/">
     <link rel="alternate" href="https://www.karasa.ir/" hreflang="fa-IR" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 <?php
