@@ -192,7 +192,7 @@ if ($_SESSION['type']>8) {
     ?>
     <div id="wrapper">
         <?php
-        $which=6;
+        $which=8;
         include 'adminmenue.php';
         $query = "SELECT * FROM news WHERE ID='$product'";
         $result = $connection->query($query);

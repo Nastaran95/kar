@@ -38,7 +38,7 @@ if (($_SESSION['type']>0)) {
     <body dir="rtl">
     <div id="wrapper">
         <?php
-        $which=3;
+        $which=11;
         include 'adminmenue.php';
         ?>
         <div id="page-wrapper">

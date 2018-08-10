@@ -328,7 +328,7 @@ if ($_SESSION['type']>0) {
     ?>
     <div id="wrapper">
         <?php
-        $which=4;
+        $which=10;
         include 'adminmenue.php';
         $query = "SELECT * FROM BOOK WHERE ID='$product'";
         $result = $connection->query($query);

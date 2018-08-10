@@ -40,7 +40,7 @@ if (($_SESSION['type']>0)) {
     <body dir="rtl">
     <div id="wrapper">
         <?php
-        $which=3;
+        $which=7;
         include 'adminmenue.php';
         ?>
         <div id="page-wrapper">

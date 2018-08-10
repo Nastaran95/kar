@@ -25,10 +25,10 @@
             <li class="<?php if ($which==5) echo "selected";?>"><a href="allbook.php"><i class="fa fa-globe"></i> همه کتاب ها </a></li>
             <li class="<?php if ($which==6) echo "selected";?>"><a href="addAzmun.php"><i class="fa fa-list-ol"></i> افزون آزمون </a></li>
             <li class="<?php if ($which==7) echo "selected";?>"><a href="allAzmun.php"><i class="fa fa-list-ol"></i> همه آزمون ها </a></li>
-            <li class="<?php if ($which==8) echo "selected";?>"><a href="addNews.php"><i class="fa fa-font"></i> افزودن خبر ویژه </a></li>
-            <li class="<?php if ($which==9) echo "selected";?>"><a href="allNews.php"><i class="fa fa-font"></i> همه خبرهای ویژه </a></li>
-            <li class="<?php if ($which==10) echo "selected";?>"><a href="addmosahebe.php"><i class="fa fa-font"></i> افزودن مصاحبه فردی </a></li>
-            <li class="<?php if ($which==11) echo "selected";?>"><a href="addmosahebe.php"><i class="fa fa-font"></i> همه مصاحبه های فردی </a></li>
+            <li class="<?php if ($which==8) echo "selected";?>"><a href="addNews.php"><i class="fa fa-list-alt"></i> افزودن خبر ویژه </a></li>
+            <li class="<?php if ($which==9) echo "selected";?>"><a href="allNews.php"><i class="fa fa-list-alt"></i> همه خبرهای ویژه </a></li>
+            <li class="<?php if ($which==10) echo "selected";?>"><a href="addmosahebe.php"><i class="fa fa-dedent"></i> افزودن مصاحبه فردی </a></li>
+            <li class="<?php if ($which==11) echo "selected";?>"><a href="allmosahebe.php"><i class="fa fa-dedent"></i> همه مصاحبه های فردی </a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right navbar-user">
             <li class="dropdown user-dropdown">
