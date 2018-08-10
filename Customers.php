@@ -28,11 +28,11 @@ if (file_exists($productXMLNAME)) {
 <head>
     <link rel="stylesheet" href="css/bootstrap.css"/>
     <link rel="stylesheet" href="css/global.css"/>
+    <link rel="stylesheet" href="css/home.css"/>
     <link rel="stylesheet" href="css/customers.css"/>
     <script src="js/jQuery.js" ></script>
     <script src="js/helper.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
 </head>
 <body>
 <?php
@@ -83,5 +83,10 @@ include "header.php";
     </div>
     </div>
     </div>
+
 </div>
+<?php
+include 'Footer.php';
+?>
 </body>
+</html>
