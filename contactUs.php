@@ -14,6 +14,7 @@ include "header.php";
 <head>
     <link rel="stylesheet" href="css/bootstrap.css"/>
     <link rel="stylesheet" href="css/global.css"/>
+    <link rel="stylesheet" href="css/home.css"/>
     <link rel="stylesheet" href="css/contact.css"/>
     <script src="js/jQuery.js" ></script>
     <script src="js/helper.js"></script>
@@ -101,6 +102,10 @@ include "header.php";
 </div>
 </div>
 </div>
+
+<?php
+include 'Footer.php';
+?>
 </body>
 
 <script>
@@ -112,3 +117,4 @@ include "header.php";
         var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
     }
 </script>
+</html>

@@ -41,10 +41,12 @@ if (file_exists($productXMLNAME)) {
     <script src="js/jQuery.js" ></script>
     <script src="js/bootstrap.js" ></script>
     <script src="js/home.js" ></script>
+    <script src="js/helper.js" ></script>
     <link rel="stylesheet" href="css/global.css"/>
     <link rel="stylesheet" href="css/home.css"/>
     <link rel="canonical" href="https://www.karasa.ir/">
     <link rel="alternate" href="https://www.karasa.ir/" hreflang="fa-IR" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 <?php
@@ -78,7 +80,7 @@ include 'MainPageHeader.php';
                 <?php
                 $page = 1;
                 $a = ($page-1)*5;
-                $query = "SELECT * FROM azmun WHERE (type='2' and state='1') LIMIT $a , 5;";
+                $query = "SELECT * FROM azmun WHERE (typ='2' and state='1') LIMIT $a , 5;";
                 $result = $connection->query($query);
 
                 while ($row=$result->fetch_assoc()) {
