@@ -31,6 +31,8 @@
             <li class="<?php if ($which==13) echo "selected";?>"><a href="allCustomer.php"><i class="fa fa-file"></i> همه مشتری ها </a></li>
             <li class="<?php if ($which==10) echo "selected";?>"><a href="addmosahebe.php"><i class="fa fa-dedent"></i> افزودن مصاحبه فردی </a></li>
             <li class="<?php if ($which==11) echo "selected";?>"><a href="allmosahebe.php"><i class="fa fa-dedent"></i> همه مصاحبه های فردی </a></li>
+            <li class="<?php if ($which==14) echo "selected";?>"><a href="allKarfarmaRequest.php"><i class="fa fa-dedent"></i> همه درخواست های کارفرمایان </a></li>
+            <li class="<?php if ($which==15) echo "selected";?>"><a href="allKarjooRequest.php"><i class="fa fa-dedent"></i> همه نظرات کارجویان </a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right navbar-user">
             <li class="dropdown user-dropdown">

@@ -29,12 +29,16 @@ if (isset($_GET['request']) && !isset($_GET['type']))
             $stmt->store_result();
             $result = $stmt->get_result();
             if ($connection->error) {
-                echo '<META HTTP-EQUIV="Refresh" Content="0; URL=contactUs.php?request=karfarma&type=namovafagh">';
+                echo "<script>alert('عملیات موفقیت آمیز نبود. لطفا دوباره امتحان کنید.');</script>";
+//                echo '<META HTTP-EQUIV="Refresh" Content="0; URL=contactUs.php?request=karfarma&type=namovafagh">';
+            }else{
+                echo "<script>alert('درخواست شما با موفقیت ثبت شد.');</script>";
+//                echo '<META HTTP-EQUIV="Refresh" Content="0; URL=contactUs.php?request=karfarma&type=movafagh">';
             }
         }
         else{
             echo "<script>alert('به موارد الزامی دقت کنید.');</script>";
-            echo '<META HTTP-EQUIV="Refresh" Content="0; URL=contactUs.php?request=karfarma&type=namovafagh">';
+//            echo '<META HTTP-EQUIV="Refresh" Content="0; URL=contactUs.php?request=karfarma&type=namovafagh">';
         }
     }else if($_GET['request']=='karjoo'){
         echo "<script>alert('joo');</script>";
@@ -57,12 +61,15 @@ if (isset($_GET['request']) && !isset($_GET['type']))
             $stmt->store_result();
             $result = $stmt->get_result();
             if ($connection->error) {
-                echo '<META HTTP-EQUIV="Refresh" Content="0; URL=contactUs.php?request=karjoo&type=namovafagh">';
+                echo "<script>alert('عملیات موفقیت آمیز نبود. لطفا دوباره امتحان کنید.');</script>";
+//                echo '<META HTTP-EQUIV="Refresh" Content="0; URL=contactUs.php?request=karjoo&type=namovafagh">';
+            }else{
+                echo "<script>alert('نظر شما با موفقیت ثبت شد.');</script>";
+//                echo '<META HTTP-EQUIV="Refresh" Content="0; URL=contactUs.php?request=karfarma&type=movafagh">';
             }
         }else{
             echo "<script>alert('به موارد الزامی دقت کنید.');</script>";
-//            echo "<script>window.location='contactUs.php?request=karjoo&type=namovafagh'</script>";
-            echo '<META HTTP-EQUIV="Refresh" Content="0; URL=contactUs.php?request=karjoo&type=namovafagh">';
+//            echo '<META HTTP-EQUIV="Refresh" Content="0; URL=contactUs.php?request=karjoo&type=namovafagh">';
         }
     }else{
         // invalid
