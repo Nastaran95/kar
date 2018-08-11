@@ -8,7 +8,7 @@
 include "header.php";
 
 include "Settings.php";
-if (isset($_GET['request']) && !isset($_GET['type']))
+if (isset($_GET['request']))
     if($_GET['request']=='karfarma') {
         if(isset($_POST['company']) && isset($_POST['subject']) && isset($_POST['matn']) && strlen($_POST['matn'])>0 ){
             $company = $_POST['company'];
@@ -29,19 +29,18 @@ if (isset($_GET['request']) && !isset($_GET['type']))
             $stmt->store_result();
             $result = $stmt->get_result();
             if ($connection->error) {
-                echo "<script>alert('عملیات موفقیت آمیز نبود. لطفا دوباره امتحان کنید.');</script>";
-//                echo '<META HTTP-EQUIV="Refresh" Content="0; URL=contactUs.php?request=karfarma&type=namovafagh">';
+//                echo "<script>alert('عملیات موفقیت آمیز نبود. لطفا دوباره امتحان کنید.');</script>";
+                echo '<META HTTP-EQUIV="Refresh" Content="0; URL=contactUs.php?result=namovafagh">';
             }else{
-                echo "<script>alert('درخواست شما با موفقیت ثبت شد.');</script>";
-//                echo '<META HTTP-EQUIV="Refresh" Content="0; URL=contactUs.php?request=karfarma&type=movafagh">';
+//                echo "<script>alert('درخواست شما با موفقیت ثبت شد.');</script>";
+                echo '<META HTTP-EQUIV="Refresh" Content="0; URL=contactUs.php?result=movafagh">';
             }
         }
         else{
-            echo "<script>alert('به موارد الزامی دقت کنید.');</script>";
-//            echo '<META HTTP-EQUIV="Refresh" Content="0; URL=contactUs.php?request=karfarma&type=namovafagh">';
+//            echo "<script>alert('به موارد الزامی دقت کنید.');</script>";
+            echo '<META HTTP-EQUIV="Refresh" Content="0; URL=contactUs.php?result=namovafagh">';
         }
     }else if($_GET['request']=='karjoo'){
-        echo "<script>alert('joo');</script>";
         if(isset($_POST['name']) && isset($_POST['azmun']) && isset($_POST['matn']) && strlen($_POST['matn'])>0 ){
             $name = $_POST['name'];
             $azmun = $_POST['azmun'];
@@ -61,23 +60,20 @@ if (isset($_GET['request']) && !isset($_GET['type']))
             $stmt->store_result();
             $result = $stmt->get_result();
             if ($connection->error) {
-                echo "<script>alert('عملیات موفقیت آمیز نبود. لطفا دوباره امتحان کنید.');</script>";
-//                echo '<META HTTP-EQUIV="Refresh" Content="0; URL=contactUs.php?request=karjoo&type=namovafagh">';
+//                echo "<script>alert('عملیات موفقیت آمیز نبود. لطفا دوباره امتحان کنید.');</script>";
+                echo '<META HTTP-EQUIV="Refresh" Content="0; URL=contactUs.php?result=namovafagh">';
             }else{
-                echo "<script>alert('نظر شما با موفقیت ثبت شد.');</script>";
-//                echo '<META HTTP-EQUIV="Refresh" Content="0; URL=contactUs.php?request=karfarma&type=movafagh">';
+//                echo "<script>alert('نظر شما با موفقیت ثبت شد.');</script>";
+                echo '<META HTTP-EQUIV="Refresh" Content="0; URL=contactUs.php?result=movafagh">';
             }
         }else{
-            echo "<script>alert('به موارد الزامی دقت کنید.');</script>";
-//            echo '<META HTTP-EQUIV="Refresh" Content="0; URL=contactUs.php?request=karjoo&type=namovafagh">';
+//            echo "<script>alert('به موارد الزامی دقت کنید.');</script>";
+            echo '<META HTTP-EQUIV="Refresh" Content="0; URL=contactUs.php?result=namovafagh">';
         }
     }else{
         // invalid
     }
 
-if(isset($_GET['type'])){
-        var_dump($_POST);
-}
 ?>
 
 <!DOCTYPE html>
@@ -90,11 +86,23 @@ if(isset($_GET['type'])){
     <link rel="stylesheet" href="css/contact.css"/>
     <script src="js/jQuery.js" ></script>
     <script src="js/helper.js"></script>
+    <script src="js/contact.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
 </head>
 <body>
 
+<?php
+
+if(isset($_GET['result'])){
+    if ($_GET['result'] == 'movafagh'){
+        echo "<script>alert('نظر شما با موفقیت ثبت شد.');</script>";
+    }else{
+        echo "<script>alert('عملیات موفقیت آمیز نبود. لطفا دوباره امتحان کنید.');</script>";
+    }
+}
+
+?>
 <div class ="container grayColor main">
     <div class="row">
         <br/>
@@ -110,25 +118,25 @@ if(isset($_GET['type'])){
     </div>
 
     <div class="karfarma_register hide">
-        <form id="karfarma" action="contactUs.php?request=karfarma" method="post">
-            <input type="text" name="company" placeholder="نام شرکت">
-            <div><input type="text" name="subject" placeholder="موضوع درخواست">
-                <input type="email" name="email" placeholder="ایمیل"></div>
-            <div><input type="number" name="phone" placeholder="شماره تلفن">
-                <input type="number" name="mobile" placeholder="شماره موبایل"></div>
-            <textarea rows="10" name="matn" placeholder="متن درخواست"></textarea>
+        <form id="karfarma" action="contactUs.php?request=karfarma" method="post" onsubmit="return validateForm_karfarma()">
+            <input type="text" id="company_farma" name="company" placeholder="نام شرکت">
+            <div><input type="text" id="subject_farma" name="subject" placeholder="موضوع درخواست">
+                <input type="email" id="mail_farma" name="email" placeholder="ایمیل"></div>
+            <div><input type="number" id="phone_farma" name="phone" placeholder="شماره تلفن">
+                <input type="number" id="mobile_farma" name="mobile" placeholder="شماره موبایل"></div>
+            <textarea rows="10" id="matn_farma" name="matn" placeholder="متن درخواست"></textarea>
             <input type="submit" value="ارسال">
         </form>
     </div>
 
     <div class="karjoo_register hide">
-        <form id="karjoo" action="contactUs.php?request=karjoo" method="post">
-            <input type="text" name="name" placeholder="نام و نام خانوادگی">
-            <div><input type="number" name="id" placeholder="کد ملی">
-                <input type="text" name="azmun" placeholder="نام آزمون"></div>
-            <div><input type="number" name="phone" placeholder="تلفن تماس">
-                <input type="email" name="email" placeholder="ایمیل"></div>
-            <textarea rows="10" name="matn" placeholder="متن شکایت و نظر"></textarea>
+        <form id="karjoo" action="contactUs.php?request=karjoo" method="post" onsubmit="return validateForm_karjoo()">
+            <input type="text" id="name_joo" name="name" placeholder="نام و نام خانوادگی">
+            <div><input type="number" id="id_joo" name="id" placeholder="کد ملی">
+                <input type="text" id="azmun_joo" name="azmun" placeholder="نام آزمون"></div>
+            <div><input type="number" id="phone_joo" name="phone" placeholder="تلفن تماس">
+                <input type="email" id="mail_joo" name="email" placeholder="ایمیل"></div>
+            <textarea rows="10" id="matn_joo" name="matn" placeholder="متن شکایت و نظر"></textarea>
             <input type="submit" value="ارسال">
         </form>
     </div>
