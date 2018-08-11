@@ -9,11 +9,11 @@
 
 <div class="footer col-md-12 " ID="footer">
     <div class="container  text-center footCont ">
-        <div class="col-md-2"></div>
-        <div class="col-md-8 foot-top-box">
+        <div class="col-md-2 col-xs-1"></div>
+        <div class="col-md-8 col-xs-10 foot-top-box">
             کاراسا به عنوان بازوی اجرایی مرکز مطالعات دانشگاه صنعتی شریف در جهت کمک به تامین، جذب و آموزش نیروی انسانی برای سازمانهای مختلف اقدامات زیر را انجام می دهد:
         </div>
-        <div class="col-md-2"></div>
+        <div class="col-md-2 col-xs-1"></div>
         <div class="col-md-12">
             <div class="col-md-2 col-xs-12 foot-box">
                 برگزاری آزمون استخدامی
