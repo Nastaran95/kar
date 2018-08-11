@@ -1,3 +1,16 @@
+$(document).ready(function () {
+
+    $(document).on('click', ".button", function (event) {
+        form_name = $(this).attr('id');
+        form_name = form_name + '_register';
+        $("div.karfarma_register").addClass('hide');
+        $("div.karjoo_register").addClass('hide');
+        $("div." + form_name).removeClass('hide');
+        $(".colorBorder").removeClass('colorBorder');
+        $(".show_res").addClass('hide');
+    });
+});
+
 function validateForm_karfarma(){
     flag = false;
     if(document.getElementById('company_farma').value.length==0){
@@ -30,6 +43,7 @@ function validateForm_karfarma(){
 
     if(flag){
         $(".karfarma_register").removeClass('hide');
+        $(".show_res").removeClass('hide');
     }
     return !flag;
 }
@@ -66,6 +80,7 @@ function validateForm_karjoo(){
 
     if(flag){
         $(".karjoo_register").removeClass('hide');
+        $(".show_res").removeClass('hide');
     }
     return !flag;
 }
