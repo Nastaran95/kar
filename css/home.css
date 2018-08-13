@@ -7,7 +7,7 @@
     /*width: 80%;*/
     margin:auto;
     background-image: url(../images/header.jpg);
-    background-size:  1600px 100%;
+    background-size:  100% 100%;
     background-repeat: no-repeat;
     background-position: center center;
     height:100vh;
@@ -154,6 +154,34 @@ hr{
         padding-bottom: 5px;
     }
 }
+@media (min-width: 1700px) {
+    .header .cover{
+        height:90vh;
+    }
+}
+
+@media (min-width: 1900px) {
+    .header .cover{
+        height:75vh;
+    }
+}
+
+@media (min-width: 2000px) {
+    .header .cover{
+        height:65vh;
+    }
+}
+@media (min-width: 2200px) {
+    .header .cover{
+        height:50vh;
+    }
+}
+@media (min-width: 2400px) {
+    .header .cover{
+        height:40vh;
+    }
+}
+
 /*mobile*/
 @media (max-width: 768px) {
     .icon img{
