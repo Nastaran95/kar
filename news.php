@@ -77,7 +77,7 @@ include 'Header.php';
                         <div class="col-md-11 col-xs-11">
                             <a class="navnavbarlink" href="<?php echo $link?>"> <?php echo $name?> </a>
                             <p></p>
-                            <a class="navnavbarlink pull-left" href=""> <?php echo $row['tarikh']?></a>
+                            <a class="navnavbarlink pull-left" href="<?php echo $link?>"> <?php echo $row['tarikh']?></a>
                         </div>
                     </div>
                     <?php
