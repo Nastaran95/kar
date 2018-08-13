@@ -14,17 +14,17 @@
             کاراسا به عنوان بازوی اجرایی مرکز مطالعات دانشگاه صنعتی شریف در جهت کمک به تامین، جذب و آموزش نیروی انسانی برای سازمانهای مختلف اقدامات زیر را انجام می دهد:
         </div>
         <div class="col-md-2 col-xs-1"></div>
-        <div class="col-md-12">
-            <div class="col-md-2 col-xs-12 foot-box">
+        <div class="col-md-12 col-md-offset-0 col-xs-8 col-xs-offset-2 foot-box-par">
+            <div class="col-md-2 col-xs-12 foot-box pull-right cls1 col-md-offset-1">
                 برگزاری آزمون استخدامی
             </div>
-            <div class="col-md-2 col-xs-12 foot-box">
+            <div class="col-md-2 col-xs-12 foot-box pull-right cls2 col-md-offset-1">
                مصاحبه
             </div>
-            <div class="col-md-2 col-xs-12 foot-box">
+            <div class="col-md-2 col-xs-12 foot-box pull-right cls3 col-md-offset-1">
                 برگزاری مصاحبه روانشناختی
             </div>
-            <div class="col-md-2 col-xs-12 foot-box">
+            <div class="col-md-2 col-xs-12 foot-box pull-right cls4 col-md-offset-1">
               ثبت سفارش
             </div>
         </div>

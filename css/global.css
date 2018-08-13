@@ -93,15 +93,32 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     float: left;
 }
 
-.foot-box{
-    /*width: 130px;*/
-    height: 70px;
-    border: 2px solid white;
-    display: table;
-    margin: 30px;
-    margin-bottom: 50px;
-    padding-top: 15px;
+.foot-box-par{
+    padding-right: 10%;
 }
+
+.foot-box{
+    height: 84px;
+    border: 2px solid white;
+    /*margin: 30px;*/
+    margin-bottom: 50px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.cls1{
+    padding: 25px 10px;
+}
+
+.cls3{
+    padding: 20px 15px;
+}
+
+
+.cls2 , .cls4{
+    padding: 25px;
+}
+
 
 .foot-top-box{
     /*margin-top: 60px;*/
@@ -119,6 +136,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 .footCont{
     padding-bottom: 10px;
+    width: 100%;
+    margin: 0;
 }
 
 .hr{
@@ -267,14 +286,42 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     margin-bottom: 125px;
 }
 /*tablet*/
-@media (max-width: 1100px) {
-    .foot-box{
-        margin: 20px;
+
+@media (max-width: 1300px) {
+
+    .cls2 , .cls4{
+        padding: 26px 0px;
     }
+
+}
+
+@media (max-width: 1100px) {
+
     .tozih{
         padding:0 20px 30px 20px;
     }
+    .cls1{
+        padding: 20px 2px;
+    }
+    .cls3{
+        padding: 20px 0px;
+    }
+
+    .cls2 , .cls4{
+        padding: 28px 0px;
+    }
+
 }
+
+@media (max-width: 1000px) {
+    .foot-box{
+        padding: 25px 0px;
+    }
+    .foot-box-par{
+        padding-right: 0;
+    }
+}
+
 /*mobile*/
 @media (max-width: 768px) {
     .tozih{

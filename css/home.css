@@ -145,6 +145,12 @@ hr{
 }
 
 /*tablet*/
+@media (min-width: 1800px) {
+    .header .cover{
+        height: 50vh;
+    }
+
+}
 @media (max-width: 900px) {
     .icon img{
         width: 80%;
