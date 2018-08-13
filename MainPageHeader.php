@@ -11,7 +11,7 @@
         <div class="cover_photo">
             <div class="cover_text">
                 <h1 class="title">کاراسا</h1>
-                <h2>پل ارتباطی بین کارجو و کارفرما</h2>
+                <h2 class="h3size">پل ارتباطی بین کارجو و کارفرما</h2>
                 <img src="images/logo.png" class="logo">
             </div>
             <a href="#main">
@@ -31,7 +31,7 @@
         </div>
     </div>
     <div class="fixed hide">
-        <div class="hidden-sm hidden-xs">
+        <div class=" hiddenme">
         <a href="index.php"><div class="karasa dark light_text">
                 <h1 class="title">کاراسا</h1>
                 <h2>پل ارتباطی بین کارجو و کارفرما</h2>
@@ -49,7 +49,7 @@
             <img id="logo" src="images/logo.png">
         </div>
         </div>
-        <div class="hidden-lg">
+        <div class="showme">
             <div class="fixed">
                 <div class="karasa dark light_text">
                     <i class="fa fa-bars show_side_menu side_menu_icon"></i>

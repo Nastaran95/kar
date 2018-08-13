@@ -140,6 +140,11 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     margin: 0;
 }
 
+.telegram{
+    display: table;
+    margin: 0 auto;
+}
+
 .hr{
     border-bottom: 1px solid white ;
     width: 95%;
@@ -151,6 +156,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 .footer input {
     background-color: rgb(38,48,54);
+    margin: 5px 0px ;
 }
 
 .footerDown{
@@ -217,8 +223,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 .header .karasa .title{
-    font-size: 30px;
-    margin: 10px 30px;
+    font-size: 20px;
+    margin: 4px 10px;
 }
 .header .side_menu{
     position: fixed;
@@ -231,7 +237,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 .header .side_menu_icon{
     margin:10px 20px 10px 0;
-    font-size: 23px;
+    font-size: 18px;
 }
 .header .side_menu .collapsed_menu{
     max-width:100%;
@@ -313,6 +319,13 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 }
 
+.hiddenme{
+    display: block;
+}
+.showme{
+    display: none;
+}
+
 @media (max-width: 1000px) {
     .foot-box{
         padding: 25px 0px;
@@ -323,6 +336,15 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 /*mobile*/
+@media (max-width: 992px) {
+    .hiddenme{
+        display: none;
+    }
+    .showme{
+        display: block;
+    }
+}
+
 @media (max-width: 768px) {
     .tozih{
         padding:0 15px 20px 15px;
@@ -330,5 +352,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     .footCont{
         margin-left: 0;
         margin-right: 0;
+        padding: 20px 0;
+
     }
 }
