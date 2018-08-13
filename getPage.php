@@ -39,7 +39,7 @@ while ($row=$result->fetch_assoc()) {
 
 <div class="pagination-container pull-left">
     <ul class="pagination">
-        <li id="-1" class="PagedList-skipToNext" rel="prev"> >> </li>
+        <li id="-1" class="PagedList-skipToNext paginationold" rel="prev"> >> </li>
         <li id="1" class="paginationold <?php if (1==$page) echo "active" ?>">1</li>
         <?php
         if($page>3)
@@ -51,9 +51,10 @@ while ($row=$result->fetch_assoc()) {
             <?php
         }
         $i--;
-        if ($i<max(1,floor($x))) {
+        if ($i<max(1,floor($x)-1))
             echo "<li>...</li>";
-            ?>
+        if ($i<max(1,floor($x))){
+        ?>
         <li id="<?php echo floor($x)?>" class="paginationold"><?php echo floor($x)?></li>
         <?php
         }
@@ -61,7 +62,7 @@ while ($row=$result->fetch_assoc()) {
 
 
 
-        <li id="-2" class="PagedList-skipToNext" rel="next"> << </li>
+        <li id="-2" class="PagedList-skipToNext paginationold" rel="next"> << </li>
     </ul>
 
 </div>

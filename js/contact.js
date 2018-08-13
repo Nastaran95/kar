@@ -41,6 +41,20 @@ function validateForm_karfarma(){
         $("#matn_farma").removeClass('colorBorder');
     }
 
+    if(document.getElementById('phone_farma').value.length==0){
+        $("#phone_farma").addClass('colorBorder');
+        flag=true;
+    }else{
+        $("#phone_farma").removeClass('colorBorder');
+    }
+
+    if(document.getElementById('mobile_farma').value.length==0){
+        $("#mobile_farma").addClass('colorBorder');
+        flag=true;
+    }else{
+        $("#mobile_farma").removeClass('colorBorder');
+    }
+
     if(flag){
         $(".karfarma_register").removeClass('hide');
         $(".show_res").removeClass('hide');
@@ -76,6 +90,20 @@ function validateForm_karjoo(){
         flag=true;
     }else{
         $("#matn_joo").removeClass('colorBorder');
+    }
+
+    if(document.getElementById('id_joo').value.length==0){
+        $("#id_joo").addClass('colorBorder');
+        flag=true;
+    }else{
+        $("#id_joo").removeClass('colorBorder');
+    }
+
+    if(document.getElementById('phone_joo').value.length==0){
+        $("#phone_joo").addClass('colorBorder');
+        flag=true;
+    }else{
+        $("#phone_joo").removeClass('colorBorder');
     }
 
     if(flag){

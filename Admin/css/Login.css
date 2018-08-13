@@ -124,19 +124,19 @@ display: none;
     margin: 0 auto;
 }
 .btn-succe{
-    background-color: #0078D7;
+    background-color: rgb(27,93,99);
     color: white;
 }
 
 .btn-succe:hover{
-    border-color: #0078D7;
+    border-color: rgb(27,93,99);
     background-color: white;
     color: black;
 }
-.btn-succe:active {
-    border-color: #0078D7;
-    color: black;
-}
+/*.btn-succe:active {*/
+    /*border-color: rgb(27,93,99);*/
+    /*color: white;*/
+/*}*/
 .marginbottom{
     margin-bottom: 35px;
 }

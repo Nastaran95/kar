@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $(document).on('click',$(".paginationold"),function (event) {
+    $(document).on('click',".paginationold",function (event) {
         // alert(event.target.id);
         page=event.target.id;
         $.get("getPage.php", {page:page}, function (res) {

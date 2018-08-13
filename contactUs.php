@@ -126,7 +126,7 @@ if(isset($_GET['result'])){
             <div><input type="number" id="phone_farma" name="phone" placeholder="شماره تلفن">
                 <input type="number" id="mobile_farma" name="mobile" placeholder="شماره موبایل"></div>
             <textarea rows="10" id="matn_farma" name="matn" placeholder="متن درخواست"></textarea>
-            <input type="submit" value="ارسال">
+            <input type="submit" value="ارسال" class="cntct">
         </form>
     </div>
 
@@ -139,7 +139,7 @@ if(isset($_GET['result'])){
             <div><input type="number" id="phone_joo" name="phone" placeholder="تلفن تماس">
                 <input type="email" id="mail_joo" name="email" placeholder="ایمیل"></div>
             <textarea rows="10" id="matn_joo" name="matn" placeholder="متن شکایت و نظر"></textarea>
-            <input type="submit" value="ارسال">
+            <input type="submit" value="ارسال" class="cntct">
         </form>
     </div>
 

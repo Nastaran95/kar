@@ -107,7 +107,7 @@ include 'MainPageHeader.php';
 
                 <div class="pagination-container pull-left">
                     <ul class="pagination">
-                        <li id="-1" class="PagedList-skipToNext" rel="prev"> >> </li>
+                        <li id="-1" class="PagedList-skipToNext paginationold" rel="prev"> >> </li>
                         <?php
                             $x = ($pagenum+4) / 5 ;
                             for ($i=1 ; $i <= min($x,2) ; $i++){
@@ -125,7 +125,7 @@ include 'MainPageHeader.php';
                             }
                         ?>
 
-                        <li id="-2" PagedList-skipToNext" rel="next"> << </li>
+                        <li id="-2" class="PagedList-skipToNext paginationold" rel="next" > << </li>
                     </ul>
 
                 </div>
