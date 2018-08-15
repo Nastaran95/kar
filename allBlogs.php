@@ -3,13 +3,13 @@
  * Created by PhpStorm.
  * User: Nastaran
  * Date: 8/7/18
- * Time: 11:47 PM
+ * Time: 11:12 PM
  */
 
 session_start();
 
 include 'Settings.php'; //harja khasti DB estefade koni ino bezan faghat
-$productXMLNAME = "XMLs/news.xml";
+$productXMLNAME = "XMLs/PassedAzmoon.xml";
 if (file_exists($productXMLNAME)) {
     $XMLFile = simplexml_load_file($productXMLNAME);
     $SEOdescription=$XMLFile->description;
@@ -42,10 +42,14 @@ if (file_exists($productXMLNAME)) {
     <script src="js/jQuery.js" ></script>
     <script src="js/bootstrap.js" ></script>
     <script src="js/home.js" ></script>
+
     <link rel="stylesheet" href="css/global.css"/>
     <link rel="stylesheet" href="css/home.css"/>
+    <link rel="stylesheet" href="css/blogMain.css"/>
+    <link rel="stylesheet" href="css/allBlogs.css"/>
     <link rel="canonical" href="https://www.karasa.ir/">
     <link rel="alternate" href="https://www.karasa.ir/" hreflang="fa-IR" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 <?php
@@ -55,59 +59,60 @@ include 'Header.php';
     <div class="row">
         <br/>
         <div class="col-md-12">
-            <div class="col-md-12 subj">
-                اخبار ویژه
-            </div>
 
             <div id="replacepagination">
+
                 <?php
                 $page = 1;
                 $a = ($page-1)*5;
-                $query = "SELECT * FROM news LIMIT $a , 5;";
+                $query = "SELECT * FROM blog LIMIT $a , 5;";
                 $result = $connection->query($query);
 
                 while ($row=$result->fetch_assoc()) {
-                    $name=$row['title'];
-                    $link = '/news/'.$row['englishName']
+                    $name=$row['topic'];
+                    $link = '/blog/'.$row['post_name'];
+                    $mokhtasar = $row['Mokhtasar'];
                     ?>
 
 
-                    <div class="col-md-12 colorWhite ">
-                        <div class="col-md-1 pull-right icon col-xs-1"><img src="images/pre-news.png" ></div>
-                        <div class="col-md-11 col-xs-11">
-                            <a class="navnavbarlink" href="<?php echo $link?>"> <?php echo $name?> </a>
-                            <p></p>
-                            <a class="navnavbarlink pull-left" href="<?php echo $link?>"> <?php echo $row['tarikh']?></a>
+                    <a class="maghaleA" href="<?php echo $link ?>">
+                        <div class="col-md-12 maghale">
+                            <h2 class="h3size">
+                                <?php echo $name ; ?>
+                            </h2>
+                            <p class="text-justify">
+                                <?php echo $mokhtasar ; ?>
+                            </p>
                         </div>
-                    </div>
+                    </a>
                     <?php
                 }
-                $query = "SELECT * FROM news" ;
+                $query = "SELECT * FROM blog;" ;
                 $result = $connection->query($query);
                 $pagenum = $result->num_rows;
                 ?>
 
                 <div class="pagination-container pull-left">
                     <ul class="pagination">
-                        <li id="-1" class="PagedList-skipToNext paginationoldNews" rel="prev"> >> </li>
+                        <li id="-1" class="PagedList-skipToNext paginationoldBlogs" rel="prev"> >> </li>
                         <?php
                         $x = ($pagenum+4) / 5 ;
                         for ($i=1 ; $i <= min($x,2) ; $i++){
                             ?>
-                            <li id="<?php echo $i?>" class="paginationoldNews <?php if ($i==1) echo "active" ?> "><?php echo $i?></li>
+                            <li id="<?php echo $i?>" class="paginationoldBlogs <?php if ($i==1) echo "active" ?> "><?php echo $i?></li>
                             <?php
 
                         }
                         if ($i<max(1,$x)) {
                             ?>
                             <li>...</li>
-                            <li id="<?php echo floor($x) ?>" class="paginationoldNews"><?php echo floor($x) ?></li>
+                            <li id="<?php echo floor($x) ?>" class="paginationoldBlogs"><?php echo floor($x) ?></li>
 
                             <?php
                         }
                         ?>
 
-                        <li id="-2" class="PagedList-skipToNext paginationoldNews" rel="next"> << </li>
+                        <li id="-2" class="PagedList-skipToNext paginationoldBlogs" rel="next"> << </li>
                     </ul>
 
                 </div>

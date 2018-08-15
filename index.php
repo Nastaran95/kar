@@ -107,25 +107,25 @@ include 'MainPageHeader.php';
 
                 <div class="pagination-container pull-left">
                     <ul class="pagination">
-                        <li id="-1" class="PagedList-skipToNext paginationold" rel="prev"> >> </li>
+                        <li id="-1" class="PagedList-skipToNext paginationoldAzmun" rel="prev"> >> </li>
                         <?php
                             $x = ($pagenum+4) / 5 ;
                             for ($i=1 ; $i <= min($x,2) ; $i++){
                                  ?>
-                                <li id="<?php echo $i?>" class="paginationold <?php if ($i==1) echo "active" ?> "><?php echo $i?></li>
+                                <li id="<?php echo $i?>" class="paginationoldAzmun <?php if ($i==1) echo "active" ?> "><?php echo $i?></li>
                         <?php
 
                             }
                             if ($i<max(1,$x)) {
                                 ?>
                                 <li>...</li>
-                                <li id="<?php echo floor($x) ?>" class="paginationold"><?php echo floor($x) ?></li>
+                                <li id="<?php echo floor($x) ?>" class="paginationoldAzmun"><?php echo floor($x) ?></li>
 
                                 <?php
                             }
                         ?>
 
-                        <li id="-2" class="PagedList-skipToNext paginationold" rel="next" > << </li>
+                        <li id="-2" class="PagedList-skipToNext paginationoldAzmun" rel="next" > << </li>
                     </ul>
 
                 </div>

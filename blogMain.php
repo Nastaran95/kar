@@ -128,7 +128,7 @@ include 'Header.php';
                     ?>
 
                     <a class="maghaleA" href="<?php echo $link ?>">
-                        <div class="col-md-11 maghale">
+                        <div class="col-md-10 col-md-offset-1  maghale">
                             <h2 class="h3size">
                                 <?php echo $name ; ?>
                             </h2>
@@ -143,7 +143,9 @@ include 'Header.php';
                 ?>
 
                 <div class="col-md-3 button">
+                    <a href="allBlogs.php">
                     تمام مقالات
+                    </a>
                 </div>
 
             </div>
@@ -317,7 +319,7 @@ include 'Header.php';
                     ?>
 
                     <a class="maghaleA" href="<?php echo $link ?>">
-                        <div class="col-md-11 maghale">
+                        <div class="col-md-10 col-md-offset-1 maghale">
                             <h2 class="h3size">
                                 <?php echo $name ; ?>
                             </h2>
@@ -331,7 +333,9 @@ include 'Header.php';
                 }
                 ?>
                 <div class="col-md-3 button">
+                    <a href="allBlogs.php">
                     تمام مقالات
+                    </a>
                 </div>
             </div>
 
