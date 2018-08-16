@@ -294,9 +294,11 @@ include 'Header.php';
                             </div>
                         <?php }
                         ?>
+                        <a href="allInterviws.php" class="col-md-11 col-md-offset-1 more text-left">
+                            تمام مصاحبه‌ها ...
+                        </a>
 
                     </div>
-
 
 
                     <?php

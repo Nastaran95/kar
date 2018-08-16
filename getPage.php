@@ -173,7 +173,7 @@ else if($typ==3){
     <div class="pagination-container pull-left">
         <ul class="pagination">
             <li id="-1" class="PagedList-skipToNext paginationoldBlogs" rel="prev"> >> </li>
-            <li id="1" class="paginationoldNews <?php if (1==$page) echo "active" ?>">1</li>
+            <li id="1" class="paginationoldBlogs <?php if (1==$page) echo "active" ?>">1</li>
             <?php
             if($page>3)
                 echo "<li>...</li>";
@@ -196,6 +196,102 @@ else if($typ==3){
 
 
             <li id="-2" class="PagedList-skipToNext paginationoldBlogs" rel="next"> << </li>
+        </ul>
+
+    </div>
+    <?php
+}
+
+else if($typ==4){
+    if ($page==-1)
+        $page = 1;
+    $query = "SELECT * FROM mosahebe " ;
+    $result = $connection->query($query);
+    $pagenum = $result->num_rows;
+    if ($page==-2)
+        $page = floor(($pagenum+4) / 5);
+
+    $a = ($page-1)*5;
+    $query = "SELECT * FROM mosahebe LIMIT $a , 5;";
+    $result = $connection->query($query);
+
+
+    while ($row=$result->fetch_assoc()) {
+        $name=$row['topic'];
+        $birthday=$row['birthday'];
+        $image = $row['image'];
+        $image = substr($image,3);
+        $link = '/mosahebe/'.$row['post_name'];
+        $mokhtasar = $row['Mokhtasar'];
+        ?>
+
+        <div class="col-md-12 bio">
+            <div class="col-md-9">
+                <h2 class="h4size">
+                    <?php echo $name ; ?>
+                </h2>
+                <h5 class="h5size">
+                    متولد
+                    <?php echo $birthday ; ?>
+                </h5>
+                <p class="text-justify">
+                    <?php echo $mokhtasar ; ?>
+                </p>
+                <a href="<?php echo $link ?>">
+                    <div class="col-md-4 button">
+
+                        بیشتر بخوانید
+                    </div>
+                </a>
+            </div>
+            <?php
+            if (strlen($image)>0){
+                ?>
+                <img src="<?php echo $image ?>" width="50" height="50" class="circle circleIn">
+                <?php
+            }
+            else{ ?>
+                <div class="col-md-3 circle">
+                    <span class="glyphicon glyphicon-user circleIn"></span>
+                </div>
+            <?php }
+            ?>
+
+        </div>
+
+
+
+        <?php
+    }
+
+    ?>
+
+    <div class="pagination-container pull-left">
+        <ul class="pagination">
+            <li id="-1" class="PagedList-skipToNext paginationoldInterviews" rel="prev"> >> </li>
+            <li id="1" class="paginationoldInterviews <?php if (1==$page) echo "active" ?>">1</li>
+            <?php
+            if($page>3)
+                echo "<li>...</li>";
+            $x = ($pagenum+4) / 5 ;
+            for ($i=max(2,$page-1) ; $i <= min($page+1,$x) ; $i++){
+                ?>
+                <li id="<?php echo $i?>" class="paginationoldInterviews <?php if ($i==$page) echo "active" ?>"><?php echo $i?></li>
+                <?php
+            }
+            $i--;
+            if ($i<max(1,floor($x)-1))
+                echo "<li>...</li>";
+            if ($i<max(1,floor($x))){
+                ?>
+                <li id="<?php echo floor($x)?>" class="paginationoldInterviews"><?php echo floor($x)?></li>
+                <?php
+            }
+            ?>
+
+
+
+            <li id="-2" class="PagedList-skipToNext paginationoldInterviews" rel="next"> << </li>
         </ul>
 
     </div>
