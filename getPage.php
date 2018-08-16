@@ -220,25 +220,33 @@ else if($typ==4){
         $name=$row['topic'];
         $birthday=$row['birthday'];
         $image = $row['image'];
-        $image = substr($image,3);
+        if(strlen($image)>0)
+            $image = substr($image,3);
         $link = '/mosahebe/'.$row['post_name'];
         $mokhtasar = $row['Mokhtasar'];
         ?>
 
-        <div class="col-md-12 bio">
-            <div class="col-md-9">
+        <div class="col-md-12 bio col-xs-12">
+            <div class="col-md-9 col-sm-9 col-xs-9">
                 <h2 class="h4size">
                     <?php echo $name ; ?>
                 </h2>
-                <h5 class="h5size">
-                    متولد
-                    <?php echo $birthday ; ?>
-                </h5>
+                <?php
+                if(strlen($birthday)>0){
+                    ?>
+                    <h5 class="h5size">
+                        متولد
+                        <?php echo $birthday ; ?>
+                    </h5>
+                    <?php
+                }
+                ?>
+
                 <p class="text-justify">
                     <?php echo $mokhtasar ; ?>
                 </p>
                 <a href="<?php echo $link ?>">
-                    <div class="col-md-4 button">
+                    <div class="col-md-4 button col-sm-12 col-xs-12">
 
                         بیشتر بخوانید
                     </div>
@@ -247,12 +255,16 @@ else if($typ==4){
             <?php
             if (strlen($image)>0){
                 ?>
-                <img src="<?php echo $image ?>" width="50" height="50" class="circle circleIn">
+                <div class=" col-md-3 col-sm-3 col-xs-3 parimg">
+                    <img src="<?php echo $image ?>" class="circle circleIn">
+                </div>
                 <?php
             }
             else{ ?>
-                <div class="col-md-3 circle">
-                    <span class="glyphicon glyphicon-user circleIn"></span>
+                <div class=" col-md-3 col-sm-3 col-xs-3 parimg">
+                    <div class="noImg ">
+                        <span class="glyphicon glyphicon-user circleIn"></span>
+                    </div>
                 </div>
             <?php }
             ?>

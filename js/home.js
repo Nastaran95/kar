@@ -36,9 +36,4 @@ $(document).ready(function () {
     });
 
 
-
-    // $(".paginationold").on('click',function (){
-    //
-    // });
-
 });

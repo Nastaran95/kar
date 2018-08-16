@@ -2,3 +2,8 @@
     background-color: #24646a;
     padding: 5%;
 }
+
+.pagination li{
+    background-color:darkcyan;
+    color: white;
+}

@@ -50,14 +50,10 @@
 }
 
 .maghale{
-    /*background-color: whitesmoke;*/
     border-radius: 10px;
-    height: 140px;
     padding: 20px;
     margin-bottom: 10px;
     margin-top: 10px;
-    /*margin-left: 0;*/
-    /*opacity: 10%;*/
     padding-top: 5px;
     background: rgba(255, 255, 255, 0.8);
 }
@@ -100,16 +96,30 @@ hr{
     margin-bottom: 0;
 }
 
+.parimg{
+    padding: 0;
+    margin-top: 4%;
+}
+
 .circle{
     background-color: white;
     border-radius: 50%;
-    width: 120px;
-    height: 120px;
+    width: 60%;
+    height: 60%;
+    margin-right: 20%;
     color: rgb(27,93,99);
     text-align: center;
-    padding-top: 15px;
-    margin: 10px;
     float: right;
+}
+
+.noImg{
+    background-color: white;
+    border-radius: 50%;
+    text-align: center;
+    width: 60%;
+    height: 120px;
+    margin-right: 20%;
+    padding-top: 15px;
 }
 
 .circleIn{
@@ -120,10 +130,10 @@ hr{
 
 /*tablet*/
 @media (max-width: 1100px) {
-    .circle{
-        width: 90px;
-        height: 90px;
-    }
+    /*.circle{*/
+        /*width: 90px;*/
+        /*height: 90px;*/
+    /*}*/
     .circleIn{
         font-size: 50px;
     }

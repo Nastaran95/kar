@@ -10,10 +10,6 @@
     color: white;
 }
 
-.active{
-    color: white; !important;
-}
-
 .bio{
     border-bottom: 0px ;
     border-top: 1px solid white;
