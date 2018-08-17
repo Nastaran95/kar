@@ -174,3 +174,12 @@ hr{
 .more:hover{
     color: papayawhip;
 }
+
+.morebooks{
+    color: rgb(27,93,99);;
+    font-size: 18px;
+}
+
+.morebooks:hover{
+    color: lightseagreen;
+}

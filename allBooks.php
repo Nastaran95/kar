@@ -5,11 +5,9 @@
  * Date: 8/7/18
  * Time: 11:12 PM
  */
-
 session_start();
-
 include 'Settings.php'; //harja khasti DB estefade koni ino bezan faghat
-$productXMLNAME = "XMLs/allBlogs.xml";
+$productXMLNAME = "XMLs/allBooks.xml";
 if (file_exists($productXMLNAME)) {
     $XMLFile = simplexml_load_file($productXMLNAME);
     $SEOdescription=$XMLFile->description;
@@ -46,7 +44,7 @@ if (file_exists($productXMLNAME)) {
     <link rel="stylesheet" href="css/global.css"/>
     <link rel="stylesheet" href="css/home.css"/>
     <link rel="stylesheet" href="css/blogMain.css"/>
-    <link rel="stylesheet" href="css/allBlogs.css"/>
+    <link rel="stylesheet" href="css/allBooks.css"/>
     <link rel="canonical" href="https://www.karasa.ir/">
     <link rel="alternate" href="https://www.karasa.ir/" hreflang="fa-IR" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -55,9 +53,8 @@ if (file_exists($productXMLNAME)) {
 <?php
 include 'Header.php';
 ?>
-<div class ="container grayColor main">
+<div class ="container main">
     <div class="row">
-        <br/>
         <div class="col-md-12">
 
             <div id="replacepagination">
@@ -65,54 +62,78 @@ include 'Header.php';
                 <?php
                 $page = 1;
                 $a = ($page-1)*5;
-                $query = "SELECT * FROM blog LIMIT $a , 5;";
+                $query = "SELECT * FROM BOOK LIMIT $a , 5;";
                 $result = $connection->query($query);
-
                 while ($row=$result->fetch_assoc()) {
-                    $name=$row['topic'];
-                    $link = '/blog/'.$row['post_name'];
+                    $name = $row['topic'];
+                    $writer = $row['writer'];
+                    $motarjem = $row['motarjem'];
+                    $nashr = $row['nashr'];
+                    $link = '/book/'.$row['post_name'];
                     $mokhtasar = $row['Mokhtasar'];
+                    $image = $row['image'];
+                    $image = substr($image,3);
                     ?>
 
+                    <div class="col-md-12 bookdiv col-xs-12">
+                        <div class="col-md-3 pull-right ">
+                            <img src="<?php echo $image; ?>" width="100%" height="300">
+                        </div>
 
-                    <a class="maghaleA" href="<?php echo $link ?>">
-                        <div class="col-md-12 maghale">
-                            <h2 class="h3size">
-                                <?php echo $name ; ?>
+                        <div class="col-md-9 bookText pull-right col-xs-12">
+                            <h2 class="h4size">
+                                <?php echo $name; ?>
                             </h2>
-                            <p class="text-justify">
-                                <?php echo $mokhtasar ; ?>
+                            نویسنده:
+                            <?php echo $writer; ?>
+                            <br>
+                            مترجم:
+                            <?php echo $motarjem; ?>
+                            <br>
+                            <?php echo $nashr; ?>
+                            <br><br>
+                            <p>
+                                <?php echo $mokhtasar; ?>
                             </p>
                         </div>
-                    </a>
+                        <a href="<?php echo $link ?>">
+                            <div class="col-md-4 pull-left bookBut">
+                                در مورد این کتاب بیشتر بخوانید
+                            </div>
+                        </a>
+                    </div>
+                    <br>
+
                     <?php
                 }
-                $query = "SELECT * FROM blog;" ;
+                $query = "SELECT * FROM book;" ;
                 $result = $connection->query($query);
                 $pagenum = $result->num_rows;
                 ?>
 
                 <div class="pagination-container pull-left">
                     <ul class="pagination">
-                        <li id="-1" class="PagedList-skipToNext paginationoldBlogs" rel="prev"> >> </li>
+                        <li id="-1" class="PagedList-skipToNext paginationoldBooks" rel="prev"> >> </li>
                         <?php
                         $x = ($pagenum+4) / 5 ;
                         for ($i=1 ; $i <= min($x,2) ; $i++){
                             ?>
-                            <li id="<?php echo $i?>" class="paginationoldBlogs <?php if ($i==1) echo "active" ?> "><?php echo $i?></li>
+                            <li id="<?php echo $i?>" class="paginationoldBooks <?php if ($i==1) echo "active" ?> "><?php echo $i?></li>
                             <?php
 
                         }
-                        if ($i<max(1,$x)) {
+                        $i--;
+                        if ($i<max(1,floor($x)-1))
+                            echo "<li>...</li>";
+                        if ($i<max(1,floor($x))){
                             ?>
-                            <li>...</li>
-                            <li id="<?php echo floor($x) ?>" class="paginationoldBlogs"><?php echo floor($x) ?></li>
-
+                            <li id="<?php echo floor($x)?>" class="paginationoldBooks"><?php echo floor($x)?></li>
                             <?php
                         }
+
                         ?>
 
-                        <li id="-2" class="PagedList-skipToNext paginationoldBlogs" rel="next"> << </li>
+                        <li id="-2" class="PagedList-skipToNext paginationoldBooks" rel="next"> << </li>
                     </ul>
 
                 </div>

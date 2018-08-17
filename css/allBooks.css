@@ -1,0 +1,24 @@
+.main{
+    background-color: #24646a;
+    color: white;
+    padding: 5%;
+    padding-top: 0;
+}
+
+.pagination li{
+    background-color:darkcyan;
+    color: white;
+}
+
+
+.bookdiv{
+    border-top: 1px solid white;
+    padding: 5% 0px;
+    margin: 0;
+    float: left;
+}
+
+.bookBut{
+    background-color: white;
+    color: #24646a;
+}

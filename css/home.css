@@ -135,7 +135,7 @@ hr{
     border: 1px solid #dddddd;
 }
 
-.paginationoldAzmun:hover , .paginationoldNews:hover , .paginationoldBlogs:hover , .paginationoldInterviews:hover{
+.paginationoldAzmun:hover , .paginationoldNews:hover , .paginationoldBlogs:hover , .paginationoldInterviews:hover , .paginationoldBooks:hover{
     background-color: #3c763d;
     color: white;
 }

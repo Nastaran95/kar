@@ -247,7 +247,6 @@ else if($typ==4){
                 </p>
                 <a href="<?php echo $link ?>">
                     <div class="col-md-4 button col-sm-12 col-xs-12">
-
                         بیشتر بخوانید
                     </div>
                 </a>
@@ -304,6 +303,97 @@ else if($typ==4){
 
 
             <li id="-2" class="PagedList-skipToNext paginationoldInterviews" rel="next"> << </li>
+        </ul>
+
+    </div>
+    <?php
+}
+
+
+else if($typ==5){
+    if ($page==-1)
+        $page = 1;
+    $query = "SELECT * FROM BOOK " ;
+    $result = $connection->query($query);
+    $pagenum = $result->num_rows;
+    if ($page==-2)
+        $page = floor(($pagenum+4) / 5);
+
+    $a = ($page-1)*5;
+    $query = "SELECT * FROM BOOK LIMIT $a , 5;";
+    $result = $connection->query($query);
+
+
+    while ($row=$result->fetch_assoc()) {
+        $name = $row['topic'];
+        $writer = $row['writer'];
+        $motarjem = $row['motarjem'];
+        $nashr = $row['nashr'];
+        $link = '/book/'.$row['post_name'];
+        $mokhtasar = $row['Mokhtasar'];
+        $image = $row['image'];
+        $image = substr($image,3);
+        ?>
+
+        <div class="col-md-12 bookdiv">
+            <div class="col-md-3 pull-right">
+                <img src="<?php echo $image; ?>" width="100%" height="300">
+            </div>
+
+            <div class="col-md-9 bookText pull-right">
+                <h2 class="h4size">
+                    <?php echo $name; ?>
+                </h2>
+                نویسنده:
+                <?php echo $writer; ?>
+                <br>
+                مترجم:
+                <?php echo $motarjem; ?>
+                <br>
+                <?php echo $nashr; ?>
+                <br><br>
+                <p>
+                    <?php echo $mokhtasar; ?>
+                </p>
+            </div>
+            <a href="<?php echo $link ?>">
+                <div class="col-md-4 pull-left bookBut">
+                    در مورد این کتاب بیشتر بخوانید
+                </div>
+            </a>
+        </div>
+        <br>
+
+        <?php
+    }
+    ?>
+
+    <div class="pagination-container pull-left">
+        <ul class="pagination">
+            <li id="-1" class="PagedList-skipToNext paginationoldBooks" rel="prev"> >> </li>
+            <li id="1" class="paginationoldBooks <?php if (1==$page) echo "active" ?>">1</li>
+            <?php
+            if($page>3)
+                echo "<li>...</li>";
+            $x = ($pagenum+4) / 5 ;
+            for ($i=max(2,$page-1) ; $i <= min($page+1,$x) ; $i++){
+                ?>
+                <li id="<?php echo $i?>" class="paginationoldBooks <?php if ($i==$page) echo "active" ?>"><?php echo $i?></li>
+                <?php
+            }
+            $i--;
+            if ($i<max(1,floor($x)-1))
+                echo "<li>...</li>";
+            if ($i<max(1,floor($x))){
+                ?>
+                <li id="<?php echo floor($x)?>" class="paginationoldBooks"><?php echo floor($x)?></li>
+                <?php
+            }
+            ?>
+
+
+
+            <li id="-2" class="PagedList-skipToNext paginationoldBooks" rel="next"> << </li>
         </ul>
 
     </div>

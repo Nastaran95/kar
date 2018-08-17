@@ -35,5 +35,14 @@ $(document).ready(function () {
         });
     });
 
+    $(document).on('click',".paginationoldBooks",function (event) {
+        // alert(event.target.id);
+        page=event.target.id;
+        $.get("getPage.php", {page:page , typ:5}, function (res) {
+            $("#replacepagination").html(res);
+            window.scrollTo(0, 0);
+        });
+    });
+
 
 });

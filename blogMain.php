@@ -107,8 +107,14 @@ include 'Header.php';
 
                 <?php
             }
-            ?>
 
+            ?>
+            <br><br><br>
+            <div class="col-md-12 col-xs-12 text-center morebooks">
+                <a href="allBooks.php" class="morebooks" >
+                  کتاب‌های بیشتر ...
+                </a>
+            </div>
         </div>
 
 
@@ -326,8 +332,8 @@ include 'Header.php';
                             </div>
                         <?php }
                         ?>
-                        <div class="col-md-12 col-xs-12 text-left">
-                            <a href="allInterviws.php" class="col-md-11 col-md-offset-1 more text-left">
+                        <div class="col-md-11 col-md-offset-1 col-xs-12 text-left">
+                            <a href="allInterviws.php" class=" more">
                                 تمام مصاحبه‌ها ...
                             </a>
                         </div>
