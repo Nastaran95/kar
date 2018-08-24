@@ -246,7 +246,7 @@ include '../Settings.php';
         }
     </script>
     </body>
-    <link rel="stylesheet" href="css/Login.css"/>
+    <link rel="stylesheet" href="/css/Login.css"/>
     </html>
 
 <?php
