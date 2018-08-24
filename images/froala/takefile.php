@@ -11,7 +11,7 @@ $imagetempname=$_FILES['image']['tmp_name'];
 $NAMESSS=$imagenames;
 $TMPNAMESSS=$imagetempname;
 if (strlen($NAMESSS)>0) {
-    $target_dir = $_SERVER['DOCUMENT_ROOT']+"/clubrenter/image/froala/";
+    $target_dir = $_SERVER['DOCUMENT_ROOT']+"/karasa/images/froala/";
 //    $target_dir =  "http://localhost/clubrenter/image/froala/";
     $BBB = (string)uniqid();
     $target_file = $target_dir . $BBB . basename($NAMESSS);
@@ -37,7 +37,7 @@ if (strlen($NAMESSS)>0) {
         echo "Sorry, your file was not uploaded.";
     } else {
         if (move_uploaded_file($TMPNAMESSS,$target_file)) {
-            $X="{\"link\": \"/image/froala/$target_file\"}";
+            $X="{\"link\": \"/images/froala/$target_file\"}";
             echo $X;
         } else {
             echo "Sorry, there was an error uploading your file.";

@@ -28,7 +28,7 @@ if ($typ==1){
         $link = '/azmun/'.$row['englishName']
         ?>
         <div class="col-md-12 colorWhite col-sm-12 col-xs-12">
-            <div class="col-md-1 pull-right icon col-xs-1"><img src="images/pre-news.png" ></div>
+            <div class="col-md-1 pull-right icon col-xs-1"><img src="/images/pre-news.png" ></div>
             <div class="col-md-11 col-xs-11">
                 <a class="navnavbarlink" href="<?php echo $link?>"> <?php echo $name?> </a>
                 <p></p>
@@ -91,7 +91,7 @@ else if($typ==2){
         $link = '/azmun/'.$row['englishName']
         ?>
         <div class="col-md-12 colorWhite col-sm-12 col-xs-12">
-            <div class="col-md-1 pull-right icon col-xs-1"><img src="images/pre-news.png" ></div>
+            <div class="col-md-1 pull-right icon col-xs-1"><img src="/images/pre-news.png" ></div>
             <div class="col-md-11 col-xs-11">
                 <a class="navnavbarlink" href="<?php echo $link?>"> <?php echo $name?> </a>
                 <p></p>

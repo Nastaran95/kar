@@ -28,7 +28,7 @@
                                 <input type="checkbox" tabindex="3" class="" name="rememberMe" id="remember">
                             </div>
                             <div class="CENTERCLASS">
-                                <div class="g-recaptcha" data-sitekey="6LejhTgUAAAAABf2eXqXuVKGEbRGiDvJ_gASjgVP"></div>
+                                <div class="g-recaptcha" data-sitekey="6Lc4HWwUAAAAABvJm3EN1IHiJRbXRgshBooqo1D0"></div>
                             </div>
                             <div class="form-group">
                                 <div class="row">

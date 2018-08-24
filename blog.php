@@ -36,20 +36,20 @@ if (file_exists($productXMLNAME)) {
     <meta property="og:site_name" content="کارآسا">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
-    <link rel="stylesheet" href="css/bootstrap.css"/>
-    <script src="js/jQuery.js" ></script>
-    <script src="js/bootstrap.js" ></script>
-    <script src="js/home.js" ></script>
-    <link rel="stylesheet" href="css/global.css"/>
-    <link rel="stylesheet" href="css/azmun.css"/>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+    <link rel="stylesheet" href="/css/bootstrap.css"/>
+    <script src="/js/jQuery.js" ></script>
+    <script src="/js/bootstrap.js" ></script>
+    <script src="/js/home.js" ></script>
+    <link rel="stylesheet" href="/css/global.css"/>
+    <link rel="stylesheet" href="/css/azmun.css"/>
     <link rel="canonical" href="https://www.karasa.ir/">
     <link rel="alternate" href="https://www.karasa.ir/" hreflang="fa-IR" />
 
     <link rel="stylesheet" href="css/helper.css"/>
-    <script src="js/helper.js"></script>
+    <script src="/js/helper.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link rel="stylesheet" href="/froala/css/froala_style.css">
 </head>
 <body>
 <?php
@@ -87,8 +87,10 @@ if (isset($_GET['ID'])) {
     </h2>
 
     <div class="text-justify">
+        <div class="fr-element fr-view">
+            <br>
             <?php echo $blogDescription;?>
-
+        </div>
     </div>
 
 </div>

@@ -39,7 +39,7 @@ include '../Settings.php';
     if (isset($_POST['usernamelogin'])) {
                             $post_data = http_build_query(
                                 array(
-                                    'secret' => '6LcI_V0UAAAAADIgkNEg0RSdZvtaONArWh_6FH0U',
+                                    'secret' => '6Lc4HWwUAAAAADhYJYPvsoSaEmci9eMG7pYM9wT8',
                                     'response' => $_POST['g-recaptcha-response'],
                                     'remoteip' => $_SERVER['REMOTE_ADDR']
                                 )
@@ -58,7 +58,7 @@ include '../Settings.php';
 //                echo $result;
 //                $recaptcahresponse=$_POST['g-recaptcha-response'];
 //                $url = 'https://www.google.com/recaptcha/api/siteverify';
-//                $data = array('secret' => '6LcI_V0UAAAAADIgkNEg0RSdZvtaONArWh_6FH0U', 'response' => $recaptcahresponse);
+//                $data = array('secret' => '6Lc4HWwUAAAAADhYJYPvsoSaEmci9eMG7pYM9wT8', 'response' => $recaptcahresponse);
 //
 //                // use key 'http' even if you send the request to https://...
 //                $options = array(
@@ -73,7 +73,7 @@ include '../Settings.php';
 //                $json = json_decode($output);
 //                echo $result;
     // $result === FALSE
-                            if (false) {
+                            if ($result === FALSE) {
                             include '../Header.php';
                             ?>
                             <br/>
@@ -103,7 +103,7 @@ include '../Settings.php';
                                 }else{
                                 $result = json_decode($result);
                                 // !$result->success
-                                if (false) {
+                                if (!$result->success) {
                                 include '../Header.php';
                                 ?>
                                 <br/>
@@ -240,7 +240,7 @@ include '../Settings.php';
             var recaptchas = document.querySelectorAll('div[class=g-recaptcha]');
             for( i = 0; i < recaptchas.length; i++) {
                 grecaptcha.render(recaptchas[i], {
-                    'sitekey': '6LejhTgUAAAAABf2eXqXuVKGEbRGiDvJ_gASjgVP',
+                    'sitekey': '6Lc4HWwUAAAAABvJm3EN1IHiJRbXRgshBooqo1D0',
                 });
             }
         }

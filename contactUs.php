@@ -145,28 +145,28 @@ if(isset($_GET['result'])){
 
     <div class="communication_ways">
         <div class="item col-md-3">
-            <img src="images/address.png" class="icon"/>
+            <img src="/images/address.png" class="icon"/>
             <div class="info">
                 <span class="way">آدرس</span>
                 <span class="data">تهران - خیابان آزادی - دانشگاه صنعتی شریف</span>
             </div>
         </div>
         <div class="item col-md-3">
-            <img src="images/telephone.png" class="icon"/>
+            <img src="/images/telephone.png" class="icon"/>
             <div class="info">
                 <span class="way">تلفن</span>
                 <span class="data">02166666666</span>
             </div>
         </div>
         <div class="item col-md-3">
-            <img src="images/fax.png" class="icon"/>
+            <img src="/images/fax.png" class="icon"/>
             <div class="info">
                 <span class="way">فکس</span>
                 <span class="data">02166666666</span>
             </div>
         </div>
         <div class="item col-md-3">
-            <img src="images/mail.png" class="icon"/>
+            <img src="/images/mail.png" class="icon"/>
             <div class="info">
                 <span class="way">ایمیل</span>
                 <span class="data">info.karasa@gmail.com</span>

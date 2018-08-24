@@ -12,7 +12,7 @@
             <div class="cover_text">
                 <h1 class="title">کاراسا</h1>
                 <h2 class="h3size">پل ارتباطی بین کارجو و کارفرما</h2>
-                <img src="images/logo.png" class="logo">
+                <img src="/images/logo.png" class="logo">
             </div>
             <a href="#main">
             <div class="cover_arrow" id="scroll"><i class="fa fa-angle-down"></i> </div>
@@ -46,7 +46,7 @@
                 <li><a href="aboutUs.php" >درباره ما</a></li>
                 <li><a href="contactUs.php" >تماس با ما</a></li>
             </ul>
-            <img id="logo" src="images/logo.png">
+            <img id="logo" src="/images/logo.png">
         </div>
         </div>
         <div class="showme">
@@ -59,7 +59,7 @@
             <div class="side_menu hide">
                 <div class="collapsed_menu">
                     <div class="top_menu">
-                        <img src="images/logo.png">
+                        <img src="/images/logo.png">
                         <div class="title_menu">
                             <h1 class="">کاراسا</h1>
                             <h4>پل ارتباطی بین کارجو و کارفرما</h4>
