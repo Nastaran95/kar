@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $(document).on('click',".paginationoldAzmun",function (event) {
+    $(document).on('click touchstart',".paginationoldAzmun",function (event) {
         // alert(event.target.id);
         page=event.target.id;
         $.get("getPage.php", {page:page , typ:1}, function (res) {
@@ -8,7 +8,7 @@ $(document).ready(function () {
         });
     });
 
-    $(document).on('click',".paginationoldNews",function (event) {
+    $(document).on('click touchstart',".paginationoldNews",function (event) {
         // alert(event.target.id);
         page=event.target.id;
         $.get("getPage.php", {page:page , typ:2}, function (res) {
@@ -17,7 +17,7 @@ $(document).ready(function () {
         });
     });
 
-    $(document).on('click',".paginationoldBlogs",function (event) {
+    $(document).on('click touchstart',".paginationoldBlogs",function (event) {
         // alert(event.target.id);
         page=event.target.id;
         $.get("getPage.php", {page:page , typ:3}, function (res) {
@@ -26,7 +26,7 @@ $(document).ready(function () {
         });
     });
 
-    $(document).on('click',".paginationoldInterviews",function (event) {
+    $(document).on('click touchstart',".paginationoldInterviews",function (event) {
         // alert(event.target.id);
         page=event.target.id;
         $.get("getPage.php", {page:page , typ:4}, function (res) {
@@ -35,7 +35,7 @@ $(document).ready(function () {
         });
     });
 
-    $(document).on('click',".paginationoldBooks",function (event) {
+    $(document).on('click touchstart',".paginationoldBooks",function (event) {
         // alert(event.target.id);
         page=event.target.id;
         $.get("getPage.php", {page:page , typ:5}, function (res) {

@@ -1,13 +1,13 @@
 $(document).ready(function () {
-    $(document).on('click',".item",function (event) {
+    $(document).on('click touchstart',".item",function (event) {
         bar = $(this).children(".bar_text").toggleClass('hide');
         $(this).children(".bar").children(".bar_arrow").toggleClass('opened');
     });
 
-    $(document).on('click',".show_side_menu",function (event) {
+    $(document).on('click touchstart',".show_side_menu",function (event) {
         $(".side_menu").removeClass('hide');
     });
-    $('.side_menu').on('click', function(e) {
+    $('.side_menu').on('click touchstart', function(e) {
         if (e.target !== this)
             return;
 

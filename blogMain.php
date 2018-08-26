@@ -112,7 +112,7 @@ include '/Header.php';
 
             ?>
             <br><br><br>
-            <div class="col-md-12 col-xs-12 text-center morebooks">
+            <div class="col-md-10 text-center morebooks">
                 <a href="/allBooks.php" class="morebooks" >
                   کتاب‌های بیشتر ...
                 </a>

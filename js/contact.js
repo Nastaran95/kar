@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    $(document).on('click', ".button", function (event) {
+    $(document).on('click touchstart', ".button", function (event) {
         form_name = $(this).attr('id');
         form_name = form_name + '_register';
         $("div.karfarma_register").addClass('hide');
