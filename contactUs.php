@@ -145,9 +145,9 @@ if(isset($_GET['result'])){
         اگر کارفرما یا کارجو هستید، به صورت زیر با ما ارتباط برقرار کنید
     </p>
 
-    <div class="buttons">
-        <span id="karfarma" class="button light_text col-md-4">کارفرما</span>
-        <span id="karjoo" class="button light_text col-md-4">کارجو</span>
+    <div class="buttons col-md-12 col-xs-12">
+        <div id="karfarma" class="button light_text col-md-4 col-md-offset-1 col-xs-12 ">کارفرما</div>
+        <div id="karjoo" class="button light_text col-md-4 col-md-offset-1 col-xs-12">کارجو</div>
     </div>
 
     <div class="karfarma_register hide">
@@ -177,28 +177,28 @@ if(isset($_GET['result'])){
     </div>
 
     <div class="communication_ways">
-        <div class="item col-md-3">
+        <div class="item col-md-3 col-xs-12">
             <img src="/images/address.png" class="icon"/>
             <div class="info">
                 <span class="way">آدرس</span>
                 <span class="data">تهران - خیابان آزادی - دانشگاه صنعتی شریف</span>
             </div>
         </div>
-        <div class="item col-md-3">
+        <div class="item col-md-3 col-xs-12">
             <img src="/images/telephone.png" class="icon"/>
             <div class="info">
                 <span class="way">تلفن</span>
                 <span class="data">02166666666</span>
             </div>
         </div>
-        <div class="item col-md-3">
+        <div class="item col-md-3 col-xs-12">
             <img src="/images/fax.png" class="icon"/>
             <div class="info">
                 <span class="way">فکس</span>
                 <span class="data">02166666666</span>
             </div>
         </div>
-        <div class="item col-md-3">
+        <div class="item col-md-3 col-xs-12">
             <img src="/images/mail.png" class="icon"/>
             <div class="info">
                 <span class="way">ایمیل</span>
