@@ -8,8 +8,8 @@
 
 session_start();
 
-include 'Settings.php'; //harja khasti DB estefade koni ino bezan faghat
-$productXMLNAME = "XMLs/news.xml";
+include '/Settings.php'; //harja khasti DB estefade koni ino bezan faghat
+$productXMLNAME = "/XMLs/news.xml";
 if (file_exists($productXMLNAME)) {
     $XMLFile = simplexml_load_file($productXMLNAME);
     $SEOdescription=$XMLFile->description;
@@ -38,18 +38,18 @@ if (file_exists($productXMLNAME)) {
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
-    <link rel="stylesheet" href="css/bootstrap.css"/>
-    <script src="js/jQuery.js" ></script>
-    <script src="js/bootstrap.js" ></script>
-    <script src="js/home.js" ></script>
-    <link rel="stylesheet" href="css/global.css"/>
-    <link rel="stylesheet" href="css/home.css"/>
+    <link rel="stylesheet" href="/css/bootstrap.css"/>
+    <script src="/js/jQuery.js" ></script>
+    <script src="/js/bootstrap.js" ></script>
+    <script src="/js/home.js" ></script>
+    <link rel="stylesheet" href="/css/global.css"/>
+    <link rel="stylesheet" href="/css/home.css"/>
     <link rel="canonical" href="https://www.karasa.ir/">
     <link rel="alternate" href="https://www.karasa.ir/" hreflang="fa-IR" />
 </head>
 <body>
 <?php
-include 'Header.php';
+include '/Header.php';
 ?>
 <div class ="container grayColor main">
     <div class="row">
@@ -121,7 +121,7 @@ include 'Header.php';
 </div>
 
 <?php
-include 'Footer.php';
+include '/Footer.php';
 ?>
 <script type="application/ld+json">
     {

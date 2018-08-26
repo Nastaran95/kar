@@ -6,18 +6,18 @@
  * Time: 10:17 PM
  */
 
-include "header.php";
+include "/header.php";
 ?>
 
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 
 <head>
-    <link rel="stylesheet" href="css/bootstrap.css"/>
-    <link rel="stylesheet" href="css/global.css"/>
-    <link rel="stylesheet" href="css/login.css"/>
-    <script src="js/jQuery.js" ></script>
-    <script src="js/helper.js"></script>
+    <link rel="stylesheet" href="/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/css/global.css"/>
+    <link rel="stylesheet" href="/css/login.css"/>
+    <script src="/js/jQuery.js" ></script>
+    <script src="/js/helper.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>

@@ -7,8 +7,8 @@
  */
 session_start();
 
-include 'Settings.php'; //harja khasti DB estefade koni ino bezan faghat
-$productXMLNAME = "XMLs/home.xml";
+include '/Settings.php'; //harja khasti DB estefade koni ino bezan faghat
+$productXMLNAME = "/XMLs/home.xml";
 if (file_exists($productXMLNAME)) {
     $XMLFile = simplexml_load_file($productXMLNAME);
     $SEOdescription=$XMLFile->description;
@@ -37,21 +37,21 @@ if (file_exists($productXMLNAME)) {
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
-    <link rel="stylesheet" href="css/bootstrap.css"/>
-    <script src="js/jQuery.js" ></script>
-    <script src="js/bootstrap.js" ></script>
-    <script src="js/home.js" ></script>
-    <script src="js/index.js" ></script>
-    <script src="js/helper.js" ></script>
-    <link rel="stylesheet" href="css/global.css"/>
-    <link rel="stylesheet" href="css/home.css"/>
+    <link rel="stylesheet" href="/css/bootstrap.css"/>
+    <script src="/js/jQuery.js" ></script>
+    <script src="/js/bootstrap.js" ></script>
+    <script src="/js/home.js" ></script>
+    <script src="/js/index.js" ></script>
+    <script src="/js/helper.js" ></script>
+    <link rel="stylesheet" href="/css/global.css"/>
+    <link rel="stylesheet" href="/css/home.css"/>
     <link rel="canonical" href="https://www.karasa.ir/">
     <link rel="alternate" href="https://www.karasa.ir/" hreflang="fa-IR" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 <?php
-include 'MainPageHeader.php';
+include '/MainPageHeader.php';
 ?>
 <div class ="container grayColor main home_main" id="main">
     <div class="row">
@@ -86,7 +86,7 @@ include 'MainPageHeader.php';
 
                 while ($row=$result->fetch_assoc()) {
                     $name=$row['title'];
-                    $link = '/azmun/'.$row['englishName']
+                    $link = '/new/'.$row['englishName']
                     ?>
 
 
@@ -139,7 +139,7 @@ include 'MainPageHeader.php';
 </div>
 
 <?php
-include 'Footer.php';
+include '/Footer.php';
 ?>
 <script type="application/ld+json">
     {

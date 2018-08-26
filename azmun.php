@@ -7,8 +7,8 @@
  */
 session_start();
 
-include 'Settings.php'; //harja khasti DB estefade koni ino bezan faghat
-$productXMLNAME = "XMLs/azmun.xml";
+include '/Settings.php'; //harja khasti DB estefade koni ino bezan faghat
+$productXMLNAME = "/XMLs/azmun.xml";
 if (file_exists($productXMLNAME)) {
     $XMLFile = simplexml_load_file($productXMLNAME);
     $SEOdescription=$XMLFile->description;
@@ -37,23 +37,23 @@ if (file_exists($productXMLNAME)) {
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
-    <link rel="stylesheet" href="css/bootstrap.css"/>
-    <script src="js/jQuery.js" ></script>
-    <script src="js/bootstrap.js" ></script>
-    <script src="js/home.js" ></script>
-    <link rel="stylesheet" href="css/global.css"/>
-    <link rel="stylesheet" href="css/azmun.css"/>
+    <link rel="stylesheet" href="/css/bootstrap.css"/>
+    <script src="/js/jQuery.js" ></script>
+    <script src="/js/bootstrap.js" ></script>
+    <script src="/js/home.js" ></script>
+    <link rel="stylesheet" href="/css/global.css"/>
+    <link rel="stylesheet" href="/css/azmun.css"/>
     <link rel="canonical" href="https://www.karasa.ir/">
     <link rel="alternate" href="https://www.karasa.ir/" hreflang="fa-IR" />
 
-    <link rel="stylesheet" href="css/helper.css"/>
-    <script src="js/helper.js"></script>
+    <link rel="stylesheet" href="/css/helper.css"/>
+    <script src="/js/helper.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="froala/css/froala_style.css">
+    <link rel="stylesheet" href="/froala/css/froala_style.css">
 </head>
 <body>
 <?php
-include 'Header.php';
+include '/Header.php';
 if (isset($_GET['ID'])) {
     $ID = $_GET['ID'];
     $query = "SELECT * FROM azmun WHERE englishName='$ID';";
@@ -178,7 +178,7 @@ if (isset($_GET['ID'])) {
 </div>
 
 <?php
-include 'Footer.php';
+include '/Footer.php';
 ?>
 <script type="application/ld+json">
     {

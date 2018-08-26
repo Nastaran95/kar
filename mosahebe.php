@@ -7,8 +7,8 @@
  */
 session_start();
 
-include 'Settings.php'; //harja khasti DB estefade koni ino bezan faghat
-$productXMLNAME = "XMLs/mosahebe.xml";
+include '/Settings.php'; //harja khasti DB estefade koni ino bezan faghat
+$productXMLNAME = "/XMLs/mosahebe.xml";
 if (file_exists($productXMLNAME)) {
     $XMLFile = simplexml_load_file($productXMLNAME);
     $SEOdescription=$XMLFile->description;
@@ -52,7 +52,7 @@ if (file_exists($productXMLNAME)) {
 </head>
 <body>
 <?php
-include 'Header.php';
+include '/Header.php';
 if (isset($_GET['ID'])) {
     $ID = $_GET['ID'];
     $query = "SELECT * FROM mosahebe WHERE post_name='$ID';";
@@ -124,7 +124,7 @@ if (isset($_GET['ID'])) {
 </div>
 
 <?php
-include 'Footer.php';
+include '/Footer.php';
 ?>
 <script type="application/ld+json">
     {

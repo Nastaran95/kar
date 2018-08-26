@@ -6,7 +6,7 @@
  * Time: 11:51 PM
  */
 
-include "Settings.php";
+include "/Settings.php";
 $page = $_GET['page'];
 $typ = $_GET['typ'];
 
