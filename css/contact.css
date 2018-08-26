@@ -52,8 +52,10 @@
     display: block;
 }
 #karjoo , #karfarma{
-    padding: 0 120px;
+    /*padding: 0 120px;*/
+    float: left;
 }
+
 #karjoo * , #karfarma *{
     width:100%;
     display: block;

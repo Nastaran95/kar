@@ -150,7 +150,7 @@ if(isset($_GET['result'])){
         <div id="karjoo" class="button light_text col-md-4 col-md-offset-1 col-xs-12">کارجو</div>
     </div>
 
-    <div class="karfarma_register hide">
+    <div class="karfarma_register col-md-9 col-md-offset-1 hide">
         <div class="show_res hide">به موارد الزامی دقت کنید.</div>
         <form id="karfarma" action="contactUs.php?request=karfarma" method="post" onsubmit="return validateForm_karfarma()">
             <input type="text" id="company_farma" name="company" placeholder="نام شرکت">
@@ -163,7 +163,7 @@ if(isset($_GET['result'])){
         </form>
     </div>
 
-    <div class="karjoo_register hide">
+    <div class="karjoo_register col-md-9 col-md-offset-1 hide">
         <div class="show_res hide">به موارد الزامی دقت کنید.</div>
         <form id="karjoo" action="contactUs.php?request=karjoo" method="post" onsubmit="return validateForm_karjoo()">
             <input type="text" id="name_joo" name="name" placeholder="نام و نام خانوادگی">
