@@ -88,14 +88,14 @@ else if($typ==2){
 
     while ($row=$result->fetch_assoc()) {
         $name=$row['title'];
-        $link = '/azmun/'.$row['englishName']
+        $link = '/new/'.$row['englishName']
         ?>
         <div class="col-md-12 colorWhite col-sm-12 col-xs-12">
             <div class="col-md-1 pull-right icon col-xs-1"><img src="/images/pre-news.png" ></div>
             <div class="col-md-11 col-xs-11">
                 <a class="navnavbarlink" href="<?php echo $link?>"> <?php echo $name?> </a>
                 <p></p>
-                <a class="navnavbarlink pull-left" href="/Home/PostView/94"> ادامه خبر ...</a>
+                <a class="navnavbarlink pull-left" href="<?php echo $link?>"> ادامه خبر ...</a>
             </div>
         </div>
         <?php

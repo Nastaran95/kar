@@ -71,7 +71,7 @@ include '/header.php';
 
                 while ($row=$result->fetch_assoc()) {
                     $name=$row['title'];
-                    $link = '/news/'.$row['englishName']
+                    $link = '/new/'.$row['englishName']
                     ?>
 
 
@@ -80,7 +80,7 @@ include '/header.php';
                         <div class="col-md-11 col-xs-11">
                             <a class="navnavbarlink" href="<?php echo $link?>"> <?php echo $name?> </a>
                             <p></p>
-                            <a class="navnavbarlink pull-left" href="<?php echo $link?>"> <?php echo $row['tarikh']?></a>
+                            <a class="navnavbarlink pull-left" href="<?php echo $link?>"> <?php echo $row['realtime']?></a>
                         </div>
                     </div>
                     <?php

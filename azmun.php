@@ -126,7 +126,7 @@ if (isset($_GET['ID'])) {
             <div id="bar_3" class="bar">زمان برگزاری آزمون<span class="bar_arrow"/> </div>
             <div class="bar_text hide">
                 <?php
-                if(strlen($dateKart)>0) {
+                if(strlen($dateAzmun)>0) {
                     ?>
                     زمان برگزاری این آزمون مورخ
                     <?php echo $dateAzmun;
@@ -150,7 +150,7 @@ if (isset($_GET['ID'])) {
             <div id="bar_4" class="bar">زمان اعلام نتایج<span class="bar_arrow" /></div>
             <div class="bar_text hide">
                 <?php
-                if(strlen($dateKart)>0) {
+                if(strlen($dateNatayej)>0) {
                     ?>
                     زمان اعلام نتایج این آزمون مورخ
                     <?php echo $dateNatayej;

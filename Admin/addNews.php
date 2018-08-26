@@ -126,11 +126,11 @@ if ($_SESSION['type']>8) {
 
         if ($product === "all") {
 //            echo "<script>window.alert('insert db');</script>";
-            $stmt  = $connection->prepare("INSERT INTO news (xmlAdress,title,englishName,tarikh)  VALUES (?,?,?,?)");
+            $stmt  = $connection->prepare("INSERT INTO news (xmlAdress,title,englishName,realtime)  VALUES (?,?,?,?)");
             $stmt->bind_param("ssss", $filename,$topic,$englishtopic,$DATE);
         } else {
 //            echo "<script>window.alert('update db');</script>";
-            $stmt  = $connection->prepare("UPDATE news SET xmlAdress=?,title=?,englishName=?,tarikh=? WHERE ID='$product'");
+            $stmt  = $connection->prepare("UPDATE news SET xmlAdress=?,title=?,englishName=?,realtime=? WHERE ID='$product'");
             $stmt->bind_param("ssss", $filename,$topic,$englishtopic,$DATE);
         }
         $result = $stmt->execute(); //execute() tries to fetch a result set. Returns true on succes, false on failure.
