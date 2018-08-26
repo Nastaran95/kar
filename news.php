@@ -39,17 +39,19 @@ if (file_exists($productXMLNAME)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
     <link rel="stylesheet" href="/css/bootstrap.css"/>
-    <script src="/js/jQuery.js" ></script>
-    <script src="/js/bootstrap.js" ></script>
-    <script src="/js/home.js" ></script>
     <link rel="stylesheet" href="/css/global.css"/>
     <link rel="stylesheet" href="/css/home.css"/>
+
+    <script src="/js/jQuery.js" ></script>
+    <script src="/js/home.js" ></script>
+
     <link rel="canonical" href="https://www.karasa.ir/">
     <link rel="alternate" href="https://www.karasa.ir/" hreflang="fa-IR" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 <?php
-include '/Header.php';
+include '/header.php';
 ?>
 <div class ="container grayColor main">
     <div class="row">
