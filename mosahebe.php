@@ -65,7 +65,7 @@ if (isset($_GET['ID'])) {
         $xmlAdress = $row['XMLNAME'];
         $xmlAdress = substr($xmlAdress,3);
         $image = $row['image'];
-        $image = substr($image,3);
+        $image = substr($image,2);
         if (file_exists($xmlAdress)) {
             $XMLFile = simplexml_load_file($xmlAdress);
             $blogDescription=$XMLFile->data;
