@@ -37,7 +37,7 @@
             جهت دریافت آخرین اخبار آزمون استخدامی کارآسا عضو کانال ما شوید.
         </div>
         <div class="col-md-2 pull-left col-xs-12 pull-left">
-            <a class=" col-md-12 col-xs-12" href=""><img class="telegram" width="50" height="50" src="/images/telegram.png" ></a>
+            <a class=" col-md-12 col-xs-12" href="http://t.me/karasanews"><img class="telegram" width="50" height="50" src="/images/telegram.png" ></a>
         </div>
 </div>
 
