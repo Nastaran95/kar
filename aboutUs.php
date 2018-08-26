@@ -51,7 +51,6 @@ include "/header.php";
 ?>
 <div class ="container grayColor main" id="main">
 <div class="row">
-    <br/>
     <div class="col-md-12">
             <h1 class="col-md-12 subj">درباره ما</h1>
             <p class="dark_text tozih">
