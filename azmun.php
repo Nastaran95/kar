@@ -88,9 +88,7 @@ if (isset($_GET['ID'])) {
         &#x2636;
         <?php echo $name;?>
     </h2>
-    <br>
     <div class="subj"><hr></div>
-    <br><br>
 
     <div class="opening_bars azmun">
         <div class="item">
