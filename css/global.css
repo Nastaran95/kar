@@ -157,6 +157,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 .footer input {
     background-color: rgb(38,48,54);
     margin: 5px 0px ;
+    border: 1px solid white ;
 }
 
 .footerDown{
