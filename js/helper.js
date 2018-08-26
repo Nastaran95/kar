@@ -1,7 +1,7 @@
 $(document).ready(function () {
-    $(document).on('click',".bar_arrow",function (event) {
-        bar = $(this).parent().parent().children(".bar_text").toggleClass('hide');
-        $(this).toggleClass('opened');
+    $(document).on('click',".item",function (event) {
+        bar = $(this).children(".bar_text").toggleClass('hide');
+        $(this).children(".bar").children(".bar_arrow").toggleClass('opened');
     });
 
     $(document).on('click',".show_side_menu",function (event) {

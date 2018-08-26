@@ -41,7 +41,6 @@ if (file_exists($productXMLNAME)) {
     <script src="/js/jQuery.js" ></script>
     <script src="/js/bootstrap.js" ></script>
     <script src="/js/home.js" ></script>
-    <script src="/js/helper.js"></script>
     <link rel="stylesheet" href="/css/global.css"/>
     <link rel="stylesheet" href="/css/azmun.css"/>
     <link rel="canonical" href="https://www.karasa.ir/">
@@ -92,11 +91,9 @@ if (isset($_GET['ID'])) {
 
     <div class="opening_bars azmun">
         <div class="item">
-            <div id="bar_1" class="bar"> آگهی استخدام<span id="arrow_1" class="bar_arrow opened"></span></div>
-            <div id="text_1" class="bar_text">
-                <div class="fr-element fr-view">
-                    <?php echo $azmunDescription;?>
-                </div>
+            <div id="bar_1" class="bar"> آگهی استخدام<span id="arrow_1" class="bar_arrow opened"/></div>
+            <div id="text_1" class="fr-element fr-view bar_text">
+                <?php echo $azmunDescription;?>
             </div>
         </div>
         <div class="item">
