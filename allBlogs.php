@@ -42,6 +42,7 @@ if (file_exists($productXMLNAME)) {
     <script src="/js/jQuery.js" ></script>
     <script src="/js/bootstrap.js" ></script>
     <script src="/js/home.js" ></script>
+    <script src="/js/helper.js"></script>
 
     <link rel="stylesheet" href="/css/global.css"/>
     <link rel="stylesheet" href="/css/home.css"/>

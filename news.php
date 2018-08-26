@@ -44,6 +44,7 @@ if (file_exists($productXMLNAME)) {
 
     <script src="/js/jQuery.js" ></script>
     <script src="/js/home.js" ></script>
+    <script src="/js/helper.js"></script>
 
     <link rel="canonical" href="https://www.karasa.ir/">
     <link rel="alternate" href="https://www.karasa.ir/" hreflang="fa-IR" />
