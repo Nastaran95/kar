@@ -290,6 +290,15 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 .headerfix{
     margin-bottom: 125px;
 }
+
+
+.hiddenme{
+    display: block;
+}
+.showme{
+    display: none;
+}
+
 /*tablet*/
 
 @media (max-width: 1300px) {
@@ -318,12 +327,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 }
 
-.hiddenme{
-    display: block;
-}
-.showme{
-    display: none;
-}
+
 
 @media (max-width: 1000px) {
     .foot-box{
@@ -341,6 +345,9 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     }
     .showme{
         display: block;
+    }
+    .headerfix{
+        margin-bottom: 40px;
     }
 }
 

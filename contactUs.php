@@ -18,12 +18,6 @@ if (file_exists($productXMLNAME)) {
     $SEOTITLE="";
 }
 
-include "/header.php";
-
-?>
-
-<?php
-
 include "/Settings.php";
 
 ?>
@@ -128,7 +122,9 @@ if (isset($_GET['request']))
 
 
 <body>
-
+<?php
+include "/header.php";
+?>
 <?php
 
 if(isset($_GET['result'])){
