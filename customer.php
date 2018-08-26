@@ -62,21 +62,18 @@ if (isset($_GET['ID'])) {
     $query = "SELECT * FROM customers WHERE englishName='$ID';";
     $result = $connection->query($query);
     if ($row = $result->fetch_assoc()) {
-        $name = $row['title'];
+        $name = $row['name'];
         $mokhtasar = $row['Mokhtasar'];
-        $imageAdd = $row['image'];
         $xmlAdress = $row['xmlAdress'];
         $xmlAdress = substr($xmlAdress,3);
         $image = $row['image'];
-        $image = substr($image,3);
+        $image = substr($image,2);
         if (file_exists($xmlAdress)) {
             $XMLFile = simplexml_load_file($xmlAdress);
             $blogDescription=$XMLFile->data;
         }else{
             $blogDescription="";
         }
-    } else{
-
     }
 }else {
     header('Location:/');

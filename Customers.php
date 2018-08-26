@@ -63,27 +63,36 @@ include "/header.php";
         $result = $connection->query($query);
         //    echo $connection->error;
         while ($row = $result->fetch_assoc()) {
-            $name = $row['title'];
+            $name = $row['name'];
             $uniqueName = $row['englishName'];
             $xmlAdress = $row['xmlAdress'];
             $xmlAdress = substr($xmlAdress,3);
+            $customerLogo = $row['image'];
+            $customerLogo = substr($customerLogo,2);
+
+//            if (file_exists($xmlAdress)) {
+//                $XMLFile = simplexml_load_file($xmlAdress);
+//                $customerName = $XMLFile->name;
+//                $customerLogo = $XMLFile->image;
+//                $customerDescription = $XMLFile->Mokhtasar;
+//            }
+//            else{
+//                $customerName = "";
+//                $customerLogo = "";
+//                $customerDescription = "";
+//            }
+
             if (file_exists($xmlAdress)) {
                 $XMLFile = simplexml_load_file($xmlAdress);
-                $customerName = $XMLFile->name;
-                $customerLogo = $XMLFile->image;
-                $customerDescription = $XMLFile->Mokhtasar;
-            }
-            else{
-                $customerName = "";
-                $customerLogo = "";
-                $customerDescription = "";
+                $customerDescription=$XMLFile->data;
+            }else{
+                $customerDescription="";
             }
             ?>
             <div class="customer">
-                <a href="http://localhost:63342/karasa/customer/<?php echo $uniqueName; ?> ">
+                <a href="/customer/<?php echo $uniqueName; ?> ">
                 <div class="customer_name">
-                    <i class="fa fa-circle"></i>
-                    <h2><?php echo $customerName ?></h2>
+                    <h2 class="h5size"><?php echo $name ?></h2>
                 </div>
                 <div class="customer_info">
                     <div class="customer_logo">

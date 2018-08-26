@@ -28,7 +28,7 @@ CREATE TABLE news (
 DROP TABLE customers;
 CREATE TABLE customers (
   ID int NOT NULL AUTO_INCREMENT,
-  title VARCHAR(1000) CHARACTER SET utf8 COLLATE utf8_general_ci,
+  name VARCHAR(1000) CHARACTER SET utf8 COLLATE utf8_general_ci,
   englishName VARCHAR(300),
   xmlAdress VARCHAR(300),
   image VARCHAR(1000),
