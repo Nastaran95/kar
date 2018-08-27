@@ -23,6 +23,11 @@ body {
     font-weight: normal;
     src: url('../fonts/IRANSansWeb.woff') format('woff');  /* All Major Browsers */
 }
+
+ul, menu, dir {
+    -webkit-padding-start: 10px;
+}
+
 a:hover {
     text-decoration: none;
     color: inherit;
@@ -42,7 +47,7 @@ a:hover {
     width: 80%;
     margin: 0 auto;
     /*height: 100%;*/
-    padding: 50px 70px;
+    padding: 20px 30px;
     /*position: relative;*/
     /*top: 100px;*/
     float: left;
@@ -361,5 +366,13 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
         margin-right: 0;
         padding: 20px 0;
 
+    }
+    .header .side_menu .collapsed_menu{
+        max-width:50%;
+    }
+    .container{
+        width: 90%;
+        padding: 5px;
+        margin-left: 5%;
     }
 }

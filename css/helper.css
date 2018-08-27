@@ -33,9 +33,9 @@
     padding:10px 20px 30px 20px;
 }
 
-.azmun .item{
-    width: 100%;
-}
+/*.azmun .item{*/
+    /*width: 100%;*/
+/*}*/
 
 /*tablet*/
 @media (max-width: 900px) {
@@ -48,4 +48,8 @@
     .opening_bars .item .bar{
         padding-left:15px;
     }
+    .azmun .item{
+        width: 100%;
+    }
+
 }

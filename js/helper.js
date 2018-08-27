@@ -1,7 +1,7 @@
 $(document).ready(function () {
-    $(document).on('click touchstart',".item",function (event) {
-        bar = $(this).children(".bar_text").toggleClass('hide');
-        $(this).children(".bar").children(".bar_arrow").toggleClass('opened');
+    $(document).on('click touchstart',".bar",function (event) {
+        bar = $(this).parent().children(".bar_text").toggleClass('hide');
+        $(this).children(".bar_arrow").toggleClass('opened');
     });
 
     $(document).on('click touchstart',".show_side_menu",function (event) {
