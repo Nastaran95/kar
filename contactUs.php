@@ -202,7 +202,7 @@ if(isset($_GET['result'])){
             <img src="/images/mail.png" class="icon"/>
             <div class="info">
                 <span class="way">ایمیل</span>
-                <span class="data">info.karasa@gmail.com</span>
+                <span class="data" >info.karasa at gmail dot com</span>
             </div>
         </div>
     </div>

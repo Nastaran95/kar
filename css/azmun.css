@@ -18,3 +18,11 @@
 .nopic{
     font-size: 80px;
 }
+
+
+
+@media (max-width: 768px) {
+    .fr-view table {
+        font-size: 10px;
+    }
+}
