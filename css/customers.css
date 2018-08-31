@@ -32,7 +32,13 @@
 .customer .customer_info .customer_description{
     margin-right: 30px;
     text-align: justify;
+    color: black;
 }
+
 .customer .customer_info .customer_logo .customer_logo_img{
     width: 80px;
+}
+
+.customera:hover{
+    color: red;
 }

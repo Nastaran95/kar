@@ -90,11 +90,11 @@ include "/header.php";
             }
             ?>
             <div class="customer">
-                <a href="/customer/<?php echo $uniqueName; ?> ">
+                <a href="/customer/<?php echo $uniqueName; ?> " class="customera">
                 <div class="customer_name">
-                    <h2 class="h5size"><?php echo $name ?></h2>
+                    <h2 class="h5size customera"><?php echo $name ?></h2>
                 </div>
-                <div class="customer_info">
+                <div class="customer_info customera">
                     <div class="customer_logo">
                         <img class="customer_logo_img" src="<?php echo $customerLogo ?>"/>
                     </div>
