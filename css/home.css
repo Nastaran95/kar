@@ -10,8 +10,7 @@
     background-size:  100% 100%;
     background-repeat: no-repeat;
     background-position: center center;
-    height:100vh;
-    display: flex;
+    height:50vh;
     align-items: center;
     flex-direction: column;
 }
@@ -144,7 +143,9 @@ hr{
     background-color:  #1c4e75 !important;
     color: white;
 }
-
+.hiddenthisoverxs{
+    display: none;
+}
 /*tablet*/
 @media (min-width: 1800px) {
     .header .cover{
@@ -186,6 +187,15 @@ hr{
 @media (min-width: 2400px) {
     .header .cover{
         height:40vh;
+    }
+}
+
+@media (max-width: 992px) {
+    .hiddenthisxs{
+        display: none;
+    }
+    .hiddenthisoverxs{
+        display: block;
     }
 }
 

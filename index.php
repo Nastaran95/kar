@@ -86,7 +86,7 @@ include '/MainPageHeader.php';
 
                 while ($row=$result->fetch_assoc()) {
                     $name=$row['title'];
-                    $link = '/new/'.$row['englishName']
+                    $link = '/azmun/'.$row['englishName']
                     ?>
 
 

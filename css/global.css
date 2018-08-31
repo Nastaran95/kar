@@ -230,6 +230,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 .header .karasa .title{
     font-size: 20px;
     margin: 4px 10px;
+    display: inline-block;
 }
 .header .side_menu{
     position: fixed;
@@ -240,6 +241,11 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     background: rgba(0,0,0,.6);
     z-index: 2000;
 }
+
+.title_menu{
+    margin-right: 5%;
+}
+
 .header .side_menu_icon{
     margin:10px 20px 10px 0;
     font-size: 18px;
@@ -259,7 +265,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     font-size: 16px;
     padding:10px 0;
 }
-.header .side_menu .collapsed_menu a:hover{
+.header .side_menu .collapsed_menu li:hover{
     background-color: silver;
 }
 .header .side_menu .collapsed_menu .top_menu{
@@ -303,6 +309,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 .showme{
     display: none;
+}
+
+.cover{
+    display: flex;
 }
 
 /*tablet*/
@@ -372,7 +382,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     }
     .container{
         width: 90%;
-        padding: 5px;
+        padding: 20px 5px;
         margin-left: 5%;
     }
 }
