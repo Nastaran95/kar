@@ -14,18 +14,21 @@ if (($_SESSION['type'] == 10) || ($_SESSION['type'] == 9)) {
         $type = $_REQUEST['type'];
         if ($type == 1)
             $query = "SELECT * FROM blog WHERE ID = $product";
-        else
-            $query = "SELECT * FROM sitesafhe WHERE ID = $product";
+        else if($type == 2)
+            $query = "SELECT * FROM book WHERE ID = $product";
         $result = $connection->query($query);
         $row = $result->fetch_assoc();
         $name = $row['XMLNAME'];
         unlink($name);
         if ($type == 1)
             $query = "DELETE FROM blog WHERE ID = $product";
-        else
-            $query = "DELETE FROM sitesafhe WHERE ID = $product";
+        else if($type == 2)
+            $query = "DELETE FROM book WHERE ID = $product";
         $result = $connection->query($query);
-        echo '<META HTTP-EQUIV="Refresh" Content="0; URL=/admin/allblog.php?nocache='.generateRandomString(10).'">';
+        if ($type == 1)
+            echo '<META HTTP-EQUIV="Refresh" Content="0; URL=/admin/allblog.php?nocache='.generateRandomString(10).'">';
+        else if($type == 2)
+            echo '<META HTTP-EQUIV="Refresh" Content="0; URL=/admin/allbook.php?nocache='.generateRandomString(10).'">';
 
     }
 }else {

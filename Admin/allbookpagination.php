@@ -141,10 +141,10 @@ if(isset($_GET) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERV
     while($row = $results->fetch_assoc()){ //fetch values
 //echo $row['topic'];
         $productXMLNAME = $row['XMLNAME'];
+        $producimage = $row['image'];
         if (file_exists($productXMLNAME)) {
             $produc = simplexml_load_file($productXMLNAME);
             $produccode = $produc->code;
-            $producimage = $produc->image;
         }
         echo '<tr>';
         $NEWNAME=str_replace(" ","-",$row['topic']);
@@ -196,7 +196,7 @@ if(isset($_GET) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERV
                                                 <i class=\"fa fa-pencil fa-stack-1x fa-inverse bluecolor\"></i>
                                             </span>
                                         </a>
-                                        <a onClick=\"return confirming();\"  href='deletebook.php?type=$type&product=".$row['ID']."' class=\"table-link danger\">
+                                        <a onClick=\"return confirming();\"  href='deleteblog.php?type=2&product=".$row['ID']."' class=\"table-link danger\">
                                             <span class=\"fa-stack\">
                                                 <i class=\"fa fa-square fa-stack-2x\"></i>
                                                 <i class=\"fa fa-trash-o fa-stack-1x fa-inverse\"></i>

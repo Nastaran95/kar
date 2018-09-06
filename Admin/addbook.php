@@ -460,7 +460,7 @@ if ($_SESSION['type']>0) {
                                 </div>
                             </div>
                             <br/>
-                            <div class="block">  تصویر اصلی بلاگ: (تصاویر مربعی باشد، بهتر است سایز آن 200 در 200 باشد.)
+                            <div class="block">  تصویر اصلی کتاب: (تصاویر مربعی باشد، بهتر است سایز آن 200 در 200 باشد.)
                                 <br/>
                                 <?php
                                 if (strlen($imageURL)>0){
@@ -474,7 +474,7 @@ if ($_SESSION['type']>0) {
                             <br/>
                             <div class="block">
                                 <div class="">
-                                    <div class="">دسته بندی بلاگ:</div>
+                                    <div class="">دسته بندی کتاب:</div>
                                     <br/>
                                     <select id="dastebandi" class="form-control width700" name="dastebandi">
                                         <option value="هیچی">دسته بندی</option>
@@ -485,7 +485,7 @@ if ($_SESSION['type']>0) {
                     </div>
                 </div>
                 <div id="getred" class="marginright">محتوای اصلی سایت:</div>
-                <div id="editor pull-right">
+                <div id="editor">
                     <div id='edit' style="margin-top: 30px;"><?php echo $datashould; ?></div>
                 </div>
                 <input name="editor1" id="editor122" class="form-control input-lg ckeditor"
