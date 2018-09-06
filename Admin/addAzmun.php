@@ -6,6 +6,7 @@
  */
 session_start();
 include '../Settings.php';
+include 'Parsedown.php';
 if ($_SESSION['type']>8) {
 
     if (isset($_GET['type'])) {
@@ -89,7 +90,14 @@ if ($_SESSION['type']>8) {
         $titleshould=$_POST['topic'];
         $englishtopic = $_POST['englishtopic'];
         $englishtopic=str_replace(" ","-",$englishtopic);
-
+        $CITy="";
+        foreach ($_POST['ostan'] as $XXX) {
+            $writer->writeElement('shahr', $XXX);
+            if (strlen($CITy)==0)
+                $CITy=$XXX;
+            else
+                $CITy=$CITy.",".$XXX;
+        }
         $filename = '../XMLs/azmuns/' . $name . '.xml';
 
         $uploadOk = 0;
@@ -165,12 +173,12 @@ if ($_SESSION['type']>8) {
 
         if ($product === "all") {
 //            echo "<script>window.alert('insert db');</script>";
-            $stmt  = $connection->prepare("INSERT INTO azmun (xmlAdress,title, dateAzmun, dateKart, dateNatayej,englishName,typ, state, realtime)  VALUES (?,?,?,?,?,?,?,?,?)");
-            $stmt->bind_param("sssssssss", $filename,$topic,$dateAzmun,$dateKart,$dateNatayej,$englishtopic,$azmuntype,$state, $modified_time);
+            $stmt  = $connection->prepare("INSERT INTO azmun (xmlAdress,title, dateAzmun, dateKart, dateNatayej,englishName,typ, state, realtime , ostan)  VALUES (?,?,?,?,?,?,?,?,?,?)");
+            $stmt->bind_param("ssssssssss", $filename,$topic,$dateAzmun,$dateKart,$dateNatayej,$englishtopic,$azmuntype,$state, $modified_time , $CITy);
         } else {
 //            echo "<script>window.alert('update db');</script>";
-            $stmt  = $connection->prepare("UPDATE azmun SET xmlAdress=?,title=?,dateAzmun=?, dateKart=?,dateNatayej=?,englishName=?,typ=?,state=?,realtime=? WHERE ID='$product'");
-            $stmt->bind_param("sssssssss", $filename,$topic,$dateAzmun,$dateKart,$dateNatayej,$englishtopic,$azmuntype,$state,$modified_time);
+            $stmt  = $connection->prepare("UPDATE azmun SET xmlAdress=?,title=?,dateAzmun=?, dateKart=?,dateNatayej=?,englishName=?,typ=?,state=?,realtime=?,ostan=? WHERE ID='$product'");
+            $stmt->bind_param("ssssssssss", $filename,$topic,$dateAzmun,$dateKart,$dateNatayej,$englishtopic,$azmuntype,$state,$modified_time,$CITy);
         }
         $result = $stmt->execute(); //execute() tries to fetch a result set. Returns true on succes, false on failure.
         $stmt->store_result();
@@ -268,6 +276,12 @@ if ($_SESSION['type']>8) {
                 $titleseo = $produc->seotitle;
             }
             $englishtopic=$row['englishName'];
+            $dateAzmun=$row['dateAzmun'];
+            $dateKart=$row['dateKart'];
+            $dateNatayej=$row['dateNatayej'];
+            $typ = $row['typ'];
+            $stat =$row['state'];
+            $city = $row['ostan'];
         } else {
 //            echo "<script>window.alert('set3');</script>";
             $datashould = "";
@@ -307,7 +321,7 @@ if ($_SESSION['type']>8) {
                             <div class="">
                                 <br/>
                                 <div class="">زمان برگزاری آزمون</div>
-                                <input id="tarikhAzmun" name="dateAzmun" type="text" maxlength="300" class="inlineblock"/>
+                                <input id="tarikhAzmun" name="dateAzmun" type="text" maxlength="300" class="inlineblock" value="<?php echo $dateAzmun; ?>"/>
 
                             </div>
                         </div>
@@ -315,7 +329,7 @@ if ($_SESSION['type']>8) {
                             <div class="">
                                 <br/>
                                 <div class="">زمان دریافت کارت</div>
-                                <input id="tarikhKart" name="dateKart" type="text" maxlength="300" class="inlineblock"/>
+                                <input id="tarikhKart" name="dateKart" type="text" maxlength="300" class="inlineblock" value="<?php echo $dateKart; ?>"/>
 
                             </div>
                         </div>
@@ -323,7 +337,7 @@ if ($_SESSION['type']>8) {
                             <div class="">
                                 <br/>
                                 <div class="">زمان اعلام نتایج</div>
-                                <input id="tarikhNatayej" name="dateNatayej" type="text" maxlength="300" class="inlineblock"/>
+                                <input id="tarikhNatayej" name="dateNatayej" type="text" maxlength="300" class="inlineblock" value="<?php echo $dateNatayej; ?>"/>
 
                             </div>
                         </div>
@@ -331,8 +345,8 @@ if ($_SESSION['type']>8) {
                             <div class="">
                                 <br/>
                                 <div class="">نوع آزمون</div>
-                                <input id="stateAzmun" name="state" value="1" type="radio" maxlength="300" class="inlineblock"/>فعال
-                                <input id="stateAzmun" name="state" value="2" type="radio" maxlength="300" class="inlineblock"/>غیرفعال
+                                <input id="stateAzmun" name="state" value="1" type="radio" maxlength="300" class="inlineblock" <?php if($stat==1) echo " checked";?>/>فعال
+                                <input id="stateAzmun" name="state" value="2" type="radio" maxlength="300" class="inlineblock" <?php if($stat==2) echo " checked";?>/>غیرفعال
 
                             </div>
                         </div>
@@ -340,19 +354,58 @@ if ($_SESSION['type']>8) {
                             <div class="">
                                 <br/>
                                 <div class="">نوع آزمون</div>
-                                <input id="typeAzmun" name="typeAzmun" value="1" type="radio" maxlength="300" class="inlineblock"/>جاری
-                                <input id="typeAzmun" name="typeAzmun" value="2" type="radio" maxlength="300" class="inlineblock"/>گذشته
+                                <input id="typeAzmun" name="typeAzmun" value="1" type="radio" maxlength="300" class="inlineblock" <?php if($typ==1) echo " checked";?>/>جاری
+                                <input id="typeAzmun" name="typeAzmun" value="2" type="radio" maxlength="300" class="inlineblock" <?php if($typ==2) echo " checked";?>/>گذشته
 
+                            </div>
+                        </div>
+                        <div class="block">
+                            <div class="col-md-6 pull-right">
+                                <label for="ostan" class="loginFormElement">استان برگزاری:</label>
+                                <select id="ostan" class="form-control bfh-states" name="ostan[]" multiple >
+                                    <option value="0" >تمامی استان ها</option>
+                                    <option  value="تهران" <?php if (strpos($city, 'تهران') !== false) echo ' selected'; ?>  >تهران </option>
+                                    <option  value="البرز"  <?php if (strpos($city, 'البرز') !== false) echo ' selected'; ?>  >البرز</option>
+                                    <option  value="آذربایجان غربی"  <?php if (strpos($city, 'آذربایجان غربی') !== false) echo ' selected'; ?>  >آذربایجان غربی</option><option value="اردبیل">اردبیل</option>
+                                    <option  value="بوشهر"  <?php if (strpos($city, 'بوشهر') !== false) echo ' selected'; ?>  >بوشهر</option>
+                                    <option  value="چهار محال بختیاری" <?php if (strpos($city, 'چهار محال بختیاری') !== false) echo ' selected'; ?>  >چهار محال بختیاری</option>
+                                    <option  value="آذربایجان شرقی" <?php if (strpos($city, 'آذربایجان شرقی') !== false) echo ' selected'; ?>  >آذربایجان شرقی</option>
+                                    <option  value="اصفهان" <?php if (strpos($city, 'اصفهان') !== false) echo ' selected'; ?>  >اصفهان</option>
+                                    <option  value="فارس" <?php if (strpos($city, 'فارس') !== false) echo ' selected'; ?>  >فارس</option>
+                                    <option  value="گیلان" <?php if (strpos($city, 'گیلان') !== false) echo ' selected'; ?>  >گیلان</option>
+                                    <option  value="گلستان" <?php if (strpos($city, 'گلستان') !== false) echo ' selected'; ?>  >گلستان</option>
+                                    <option  value="همدان" <?php if (strpos($city, 'همدان') !== false) echo ' selected'; ?>  >همدان</option>
+                                    <option  value="هرمزگان" <?php if (strpos($city, 'هرمزگان') !== false) echo ' selected'; ?>  >هرمزگان</option>
+                                    <option  value="ایلام" <?php if (strpos($city, 'ایلام') !== false) echo ' selected'; ?>  >ایلام</option>
+                                    <option  value="کهگیلویه و بویراحمد" <?php if (strpos($city, 'کهگیلویه و بویراحمد') !== false) echo ' selected'; ?>  >کهگیلویه و بویراحمد</option>
+                                    <option  value="کرمان" <?php if (strpos($city, 'کرمان') !== false) echo ' selected'; ?>  >کرمان</option>
+                                    <option  value="کردستان" <?php if (strpos($city, 'کردستان') !== false) echo ' selected'; ?>  >کردستان</option>
+                                    <option value="کرمانشاه" <?php if (strpos($city, 'کرمانشاه') !== false) echo ' selected'; ?>  >کرمانشاه</option>
+                                    <option value="خوزستان" <?php if (strpos($city, 'خوزستان') !== false) echo ' selected'; ?>  >خوزستان</option>
+                                    <option value="لرستان" <?php if (strpos($city, 'لرستان') !== false) echo ' selected'; ?>  >لرستان</option>
+                                    <option value="مرکزی" <?php if (strpos($city, 'مرکزی') !== false) echo ' selected'; ?>  >مرکزی</option>
+                                    <option value="مازندران" <?php if (strpos($city, 'مازندران') !== false) echo ' selected'; ?>  >مازندران</option>
+                                    <option value="خراسان شمالی" <?php if (strpos($city, 'خراسان شمالی') !== false) echo ' selected'; ?>  >خراسان شمالی</option>
+                                    <option value="قزوین" <?php if (strpos($city, 'قزوین') !== false) echo ' selected'; ?>  >قزوین</option>
+                                    <option value="قم" <?php if (strpos($city, 'قم') !== false) echo ' selected'; ?>  >قم</option>
+                                    <option value="خراسان رضوی" <?php if (strpos($city, 'خراسان رضوی') !== false) echo ' selected'; ?>  >خراسان رضوی</option>
+                                    <option value="سیستان و بلوچستان" <?php if (strpos($city, 'سیستان و بلوچستان') !== false) echo ' selected'; ?>  >سیستان و بلوچستان</option>
+                                    <option value="خراسان جنوبی" <?php if (strpos($city, 'خراسان جنوبی') !== false) echo ' selected'; ?>  >خراسان جنوبی</option>
+                                    <option value="سمنان" <?php if (strpos($city, 'سمنان') !== false) echo ' selected'; ?>  >سمنان</option>
+                                    <option value="یزد" <?php if (strpos($city, 'یزد') !== false) echo ' selected'; ?>  >یزد</option>
+                                    <option value="زنجان" <?php if (strpos($city, 'زنجان') !== false) echo ' selected'; ?>  >زنجان</option>
+                                </select>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <div id="getred" class="marginright">محتوای اصلی سایت:</div>
-                <div id="editor pull-right">
+                <div id="editor">
                     <div id='edit' style="margin-top: 30px;"><?php echo $datashould; ?></div>
                 </div>
                 <input name="editor1" id="editor122" class="form-control input-lg ckeditor"
-                       type="text" value="" placeholder="بلاک"/>
+                       type="text" value="" placeholder="آزمون"/>
                 <div class="seo row width700">
                     <div>کنترل سئو:</div>
                     <label for="seodesc">متا توضیحات:(حداکثر 300 کاراکتر کلمات با - از یکدیگر جداسازی شوند)</label>

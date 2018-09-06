@@ -86,3 +86,7 @@ div#editor {
 input{
     color: black
 }
+
+.fr-toolbar{
+    margin-top: 40px;
+}
