@@ -403,7 +403,7 @@ if ($_SESSION['type']>8) {
                     </div>
                 </div>
                 <div id="getred" class="marginright">محتوای اصلی سایت:</div>
-                <div id="editor pull-right">
+                <div id="editor">
                     <div id='edit' style="margin-top: 30px;"><?php echo $datashould; ?></div>
                 </div>
                 <input name="editor1" id="editor122" class="form-control input-lg ckeditor"
