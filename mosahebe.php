@@ -92,7 +92,7 @@ if (isset($_GET['ID'])) {
         <?php
         if (strlen($image)>0){
         ?>
-            <img class="pull-right col-md-3" src="<?php echo $image; ?>" >
+            <img class="pull-right col-md-3 col-xs-12" src="<?php echo $image; ?>" >
         <?php
         }
         else{ ?>

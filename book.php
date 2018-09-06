@@ -92,7 +92,7 @@ if (isset($_GET['ID'])) {
         <?php echo $name;?>
     </h2>
     <div class="col-md-12">
-        <img class="pull-right col-md-3" src="<?php echo $image; ?>">
+        <img class="pull-right col-md-3 col-xs-12" src="<?php echo $image; ?>">
         <div class="col-md-9">
             نویسنده:
             <?php echo $writer; ?>

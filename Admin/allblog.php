@@ -11,13 +11,6 @@ if (($_SESSION['type']>0)) {
     else
         $cat1 = false;
     ?>
-    <?php
-    if (isset($_GET['type'])) {
-        $type = $_GET['type'];
-    } else {
-        $type = 1;
-    }
-    ?>
 
     <!DOCTYPE html>
     <html lang="en">
@@ -59,14 +52,12 @@ if (($_SESSION['type']>0)) {
                     </div>
                 </div>
                 <div class="col-sm-4">
-                    <?php
-                    if ($type == 1) {
-                        ?>
-                        <div class="col-md-6 dataTables_length" id="dataTables-example_length">
-                            <label>دسته بندی ها:
-                                <select id="dastebandi" class="form-control bfh-states" name="dastebandi">
-                                    <option value="all">تمامی دسته ها</option>
-                                    <option value="آزاد">سایر</option>
+
+                    <div class="col-md-12 dataTables_length" id="dataTables-example_length">
+                        <label>دسته بندی ها:
+                            <select id="dastebandi" class="form-control bfh-states" name="dastebandi">
+                                <option value="all">تمامی دسته ها</option>
+                                <option value="آزاد">سایر</option>
 <!--                                    <option value="بازی و سرگرمی">بازی و سرگرمی</option>-->
 <!--                                    <option value="صوتی تصویری">صوتی تصویری</option>-->
 <!--                                    <option value="لوازم دیجیتال">لوازم دیجیتال</option>-->
@@ -75,16 +66,11 @@ if (($_SESSION['type']>0)) {
 <!--                                    <option value="کیف و جواهرات">کیف و جواهرات</option>-->
 <!--                                    <option value="تجهیزات نمایشگاهی">تجهیزات نمایشگاهی</option>-->
 <!--                                    <option value="اجاره به شرط تملیک">اجاره به شرط تملیک</option>-->
-                                </select>
-                            </label>
-                        </div>
-                        <?php
-                    } else {
-                        ?>
+                            </select>
+                        </label>
+                    </div>
 
-                        <?php
-                    }
-                    ?>
+
                 </div>
                 <div class="col-sm-4">
                     <div id="dataTables-example_filter" class="dataTables_filter"><label>جستجو:<input type="search"

@@ -14,7 +14,7 @@ if(isset($_GET) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERV
     //Get page number from Ajax POST
     $page_number=0;
     $item_per_page = $_GET["limit"];
-    $type = $_GET["type"];
+
     $query = $_GET["query"];
     if (isset($_GET["category"])){
         $dastebandi=$_GET["category"];
@@ -30,11 +30,9 @@ if(isset($_GET) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERV
     //get total number of records from database for pagination
     if ($query==="=====+++=====") {
         if ($dastebandi=='all'){
-            if ($type == 1)
-                $results = $connection->query("SELECT COUNT(*) FROM blog");
+            $results = $connection->query("SELECT COUNT(*) FROM blog");
         }else{
-            if ($type == 1)
-                $results = $connection->query("SELECT COUNT(*) FROM blog WHERE dastebandi='$dastebandi'");
+            $results = $connection->query("SELECT COUNT(*) FROM blog WHERE dastebandi='$dastebandi'");
         }
     }else {
         $D=0;
@@ -55,19 +53,15 @@ if(isset($_GET) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERV
         }
         if ($D===0){
             if ($dastebandi=='all') {
-                if ($type == 1)
-                    $results = $connection->query("SELECT COUNT(*) FROM blog");
+                $results = $connection->query("SELECT COUNT(*) FROM blog");
             }else{
-                if ($type == 1)
-                    $results = $connection->query("SELECT COUNT(*) FROM blog WHERE dastebandi='$dastebandi'");
+                $results = $connection->query("SELECT COUNT(*) FROM blog WHERE dastebandi='$dastebandi'");
             }
         }else {
             if ($dastebandi=='all') {
-                if ($type == 1)
-                    $results = $connection->query("SELECT COUNT(*) FROM blog " . $command);
+                $results = $connection->query("SELECT COUNT(*) FROM blog " . $command);
             }else{
-                if ($type == 1)
-                    $results = $connection->query("SELECT COUNT(*) FROM blog " . $command." and dastebandi='$dastebandi'");
+                $results = $connection->query("SELECT COUNT(*) FROM blog " . $command." and dastebandi='$dastebandi'");
             }
         }
     }
@@ -82,11 +76,9 @@ if(isset($_GET) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERV
     if ($query==="=====+++====="){
         $D=1;
         if ($dastebandi=='all') {
-            if ($type == 1)
-                $results = $connection->query("SELECT * FROM blog ORDER BY ID DESC  LIMIT $page_position, $item_per_page ");
+            $results = $connection->query("SELECT * FROM blog ORDER BY ID DESC  LIMIT $page_position, $item_per_page ");
         }else{
-            if ($type == 1)
-                $results = $connection->query("SELECT * FROM blog WHERE dastebandi='$dastebandi' ORDER BY ID DESC  LIMIT $page_position, $item_per_page ");
+            $results = $connection->query("SELECT * FROM blog WHERE dastebandi='$dastebandi' ORDER BY ID DESC  LIMIT $page_position, $item_per_page ");
         }
     }else {
         $command="WHERE";
@@ -106,36 +98,31 @@ if(isset($_GET) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERV
         }
         if ($D===0){
             if ($dastebandi=='all') {
-                if ($type == 1)
-                    $results = $connection->query("SELECT * FROM blog ORDER BY ID DESC  LIMIT $page_position, $item_per_page ");
+                $results = $connection->query("SELECT * FROM blog ORDER BY ID DESC  LIMIT $page_position, $item_per_page ");
             }else {
-                if ($type == 1)
-                    $results = $connection->query("SELECT * FROM blog  WHERE dastebandi='$dastebandi' ORDER BY ID DESC  LIMIT $page_position, $item_per_page ");
+                $results = $connection->query("SELECT * FROM blog  WHERE dastebandi='$dastebandi' ORDER BY ID DESC  LIMIT $page_position, $item_per_page ");
             }
         }else {
             if ($dastebandi=='all') {
-                if ($type == 1)
-                    $results = $connection->query("SELECT * FROM blog " . $command . " ORDER BY ID DESC LIMIT $page_position, $item_per_page ");
+                $results = $connection->query("SELECT * FROM blog " . $command . " ORDER BY ID DESC LIMIT $page_position, $item_per_page ");
             }else{
-                if ($type == 1)
-                    $results = $connection->query("SELECT * FROM blog " . $command ."and dastebandi='$dastebandi'". " ORDER BY ID DESC LIMIT $page_position, $item_per_page ");
+                $results = $connection->query("SELECT * FROM blog " . $command ."and dastebandi='$dastebandi'". " ORDER BY ID DESC LIMIT $page_position, $item_per_page ");
             }
         }
     }
 
     //Display records fetched from database.
-    if ($type==1)
-        echo '<table class="table user-list">
-                                <thead>
-                                <tr>
-                                    <th><input id="checkAll" type="checkbox"/></th>
-                                    <th><span>عنوان</span></th>
-                                    <th><span>توضیح مختصر</span></th>
-                                    <th><span>دسته بندی</span></th>
-                                    <th><span>زمان آخرین تغییرات</span></th>                                    
-                                    <th><span>لینک</span></th>                                  
-                                </tr>
-                                </thead>';
+    echo '<table class="table user-list">
+                            <thead>
+                            <tr>
+                                <th><input id="checkAll" type="checkbox"/></th>
+                                <th><span>عنوان</span></th>
+                                <th><span>توضیح مختصر</span></th>
+                                <th><span>دسته بندی</span></th>
+                                <th><span>زمان آخرین تغییرات</span></th>                                    
+                                <th><span>لینک</span></th>                                  
+                            </tr>
+                            </thead>';
     echo '<tbody>';
 
     while($row = $results->fetch_assoc()){ //fetch values
@@ -155,48 +142,47 @@ if(isset($_GET) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERV
             $IDOA=$row['ID'];
             $NEWNAME=$NEWNAME."/";
         }
-        if ($type==1){
-            echo  "                     <td>
-                                        <input type=\"checkbox\"/>
-                                    </td>
-                                    <td>
-                                        <img src=\"$producimage\" alt=\"$NEWNAME\">
-                                        <div class=\"info\">
-                                            <a target='_blank' href=\"/blog/".$IDOA."/$NEWNAME\" class=\"user-link\">".$row['topic']."</a>
-                                        </div>
-                                    </td>";
+        echo  "                     <td>
+                                    <input type=\"checkbox\"/>
+                                </td>
+                                <td>
+                                    
+                                    <div class=\"info\">
+                                        <a target='_blank' href=\"/blog/".$IDOA."/$NEWNAME\" class=\"user-link\">".$row['topic']."</a>
+                                    </div>
+                                </td>";
+        echo "   
+                                <td>                                                                                                               
+                                    <span>".$row['Mokhtasar']."</span>
+                                </td>";
+        if ($row['dastebandi']=='آزاد'){
             echo "   
-                                    <td>                                                                                                               
-                                        <span>".$row['Mokhtasar']."</span>
-                                    </td>";
-            if ($row['dastebandi']=='آزاد'){
-                echo "   
-                                    <td>                                                                                                               
-                                        <span>سایر</span>
-                                    </td>";
-            }else{
-                echo "   
-                                    <td>                                                                                                               
-                                        <span>".$row['dastebandi']."</span>
-                                    </td>";
-            }
-            echo "<td dir='ltr'>                                                                                                               
-                                        <span>".$row['realtime']."</span>
-                                    </td>";
+                                <td>                                                                                                               
+                                    <span>سایر</span>
+                                </td>";
+        }else{
             echo "   
-                                    <td dir='ltr'>                                                                                                               
-                                        <span>/blog/".$IDOA."/$NEWNAME</span>
-                                    </td>";
+                                <td>                                                                                                               
+                                    <span>".$row['dastebandi']."</span>
+                                </td>";
         }
+        echo "<td dir='ltr'>                                                                                                               
+                                    <span>".$row['realtime']."</span>
+                                </td>";
+        echo "   
+                                <td dir='ltr'>                                                                                                               
+                                    <span>/blog/".$IDOA."/$NEWNAME</span>
+                                </td>";
+
         echo "                                                                      
                                     <td style=\"width: 20%;\">
-                                        <a  target='_blank' href='addblog.php?type=$type&product=".$row['ID']."' class=\"table-link\">
+                                        <a  target='_blank' href='addblog.php?product=".$row['ID']."' class=\"table-link\">
                                             <span class=\"fa-stack\">
                                                 <i class=\"fa fa-square fa-stack-2x\"></i>
                                                 <i class=\"fa fa-pencil fa-stack-1x fa-inverse bluecolor\"></i>
                                             </span>
                                         </a>
-                                        <a onClick=\"return confirming();\"  href='deleteblog.php?type=$type&product=".$row['ID']."' class=\"table-link danger\">
+                                        <a onClick=\"return confirming();\"  href='deleteblog.php?type=1&product=".$row['ID']."' class=\"table-link danger\">
                                             <span class=\"fa-stack\">
                                                 <i class=\"fa fa-square fa-stack-2x\"></i>
                                                 <i class=\"fa fa-trash-o fa-stack-1x fa-inverse\"></i>

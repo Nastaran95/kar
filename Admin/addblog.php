@@ -8,13 +8,6 @@ session_start();
 include '../Settings.php';
 if ($_SESSION['type']>8) {
 
-    if (isset($_GET['type'])) {
-        $type = $_GET['type'];
-    } elseif (isset($_POST['type'])) {
-        $type = $_POST['type'];
-    } else {
-        $type = 1;
-    }
     ?>
 
     <!DOCTYPE html>
@@ -57,20 +50,15 @@ if ($_SESSION['type']>8) {
     if ($product == "namovafagh"){
         $product = "all";
     }
-    if ($type == 2) {
-        $_POST['MOkhtasar'] = "aaaaaaaaaaaaaaa";
-    }
+
     if ((isset($_POST['editor1'])) && (isset($_POST['topic'])) && (isset($_POST['MOkhtasar'])) && (strlen($_POST['editor1']) > 0) && (strlen($_POST['MOkhtasar']) > 0) && (strlen($_POST['topic']) > 0)) {
         $writer = new XMLWriter();
         if ($product === "all") {
             $imageURL = "";
             $name = (string)uniqid().uniqid();
         } else {
-            if ($type == 1) {
-                $query = "SELECT * FROM blog WHERE ID='$product'";
-            } else {
-                $query = "SELECT * FROM sitesafhe WHERE ID='$product'";
-            }
+            $query = "SELECT * FROM blog WHERE ID='$product'";
+
             $result = $connection->query($query);
             if ($result->num_rows > 0) {
                 $row = mysqli_fetch_assoc($result);
@@ -100,179 +88,172 @@ if ($_SESSION['type']>8) {
         $writer->writeElement('Mokhtasar', $_POST['MOkhtasar']);
         $Mokhtasar = $_POST['MOkhtasar'];
         $dastebandi = $_POST['dastebandi'];
-        if (isset($_FILES["files"])) {
-            $imagenames = $_FILES["files"]["name"];
-            $imagetempname = $_FILES["files"]["tmp_name"];
-        } else {
-            $imagetempname = "";
-            $imagenames = "";
-        }
+//        if (isset($_FILES["files"])) {
+//            $imagenames = $_FILES["files"]["name"];
+//            $imagetempname = $_FILES["files"]["tmp_name"];
+//        } else {
+//            $imagetempname = "";
+//            $imagenames = "";
+//        }
         $uploadOk = 0;
         $URL = "";
-        for ($i = 0; $i < sizeof($imagetempname); $i++) {
-            $NAMESSS = "";
-            $TMPNAMESSS = "";
-            if (sizeof($imagetempname) == 1) {
-                $NAMESSS = $imagenames;
-                $TMPNAMESSS = $imagetempname;
-            }
-            if (strlen($NAMESSS) > 0) {
-                $target_dir = "../images/blog/";
-                $BBB = (string)uniqid();
-                $target_file = $target_dir . $BBB . basename($NAMESSS);
-                $uploadOk = 1;
-                $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
-                // Check if image file is a actual image or fake image
-                $check = getimagesize($TMPNAMESSS);
-                if ($check !== false) {
-                    $uploadOk = 1;
-                } else {
-                    $uploadOk = 0;
-                }
-                // Allow certain file formats
-                if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-                    && $imageFileType != "gif") {
-                    $uploadOk = 0;
-                }
-                // Check if $uploadOk is set to 0 by an error
-                if ($uploadOk == 0) {
-                } else {
-                    if (move_uploaded_file($TMPNAMESSS, $target_file)) {
-//                            $imageSize = getImageSize($target_file);
-//                            $imageWidth = $imageSize[0];
-//                            $imageHeight = $imageSize[1];
-//                            $TYPEOFIMAGE = $imageSize[2];
-//                            if ($imageWidth>400){
-//                                $resizedDestination = "../images/blog/".md5( $BBB . basename($NAMESSS))."_RESIZED.jpg";
-//
-//                                copy($target_file, $resizedDestination);
-//
-//                                $DESIRED_WIDTH = 300;
-//                                $proportionalHeight = round(($DESIRED_WIDTH * $imageHeight) / $imageWidth);
-//
-////                                if ($TYPEOFIMAGE == 1)
-////                                {
-////                                    $originalImage = imagecreate($target_file);
-////                                }
-////                                elseif ($TYPEOFIMAGE == 2)
-////                                {
-////                                    $originalImage = imagecreatefromjpeg($target_file);
-////                                }
-////                                elseif ($TYPEOFIMAGE == 3)
-////                                {
-////                                    $originalImage = imagecreatefrompng($target_file);
-////                                }
-////                                else
-////                                {
-////                                    $originalImage = imagecreatefromwbmp($target_file);
-////                                }
-//                                $originalImage = imagecreate($target_file);
-//
-//                                $resizedImage = imageCreateTrueColor($DESIRED_WIDTH, $proportionalHeight);
-//
-//                                imageCopyResampled($resizedImage, $originalImage, 0, 0, 0, 0, $DESIRED_WIDTH+1, $proportionalHeight+1, $imageWidth, $imageHeight);
-//                                imageJPEG($resizedImage, $resizedDestination);
-//
-//                                imageDestroy($originalImage);
-//                                imageDestroy($resizedImage);
-//                            }else {
-//                                $resizedDestination="../images/blog/".$BBB . basename($NAMESSS);
-//                            }
-                        $imageURL = $target_file;
-                    } else {
-                        $uploadOk = 0;
-                    }
-                }
-            } else {
-                $uploadOk = 0;
-            }
+//        for ($i = 0; $i < sizeof($imagetempname); $i++) {
+//            $NAMESSS = "";
+//            $TMPNAMESSS = "";
+//            if (sizeof($imagetempname) == 1) {
+//                $NAMESSS = $imagenames;
+//                $TMPNAMESSS = $imagetempname;
+//            }
+//            if (strlen($NAMESSS) > 0) {
+//                $target_dir = "../images/blog/";
+//                $BBB = (string)uniqid();
+//                $target_file = $target_dir . $BBB . basename($NAMESSS);
+//                $uploadOk = 1;
+//                $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+//                // Check if image file is a actual image or fake image
+//                $check = getimagesize($TMPNAMESSS);
+//                if ($check !== false) {
+//                    $uploadOk = 1;
+//                } else {
+//                    $uploadOk = 0;
+//                }
+//                // Allow certain file formats
+//                if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+//                    && $imageFileType != "gif") {
+//                    $uploadOk = 0;
+//                }
+//                // Check if $uploadOk is set to 0 by an error
+//                if ($uploadOk == 0) {
+//                } else {
+//                    if (move_uploaded_file($TMPNAMESSS, $target_file)) {
+////                            $imageSize = getImageSize($target_file);
+////                            $imageWidth = $imageSize[0];
+////                            $imageHeight = $imageSize[1];
+////                            $TYPEOFIMAGE = $imageSize[2];
+////                            if ($imageWidth>400){
+////                                $resizedDestination = "../images/blog/".md5( $BBB . basename($NAMESSS))."_RESIZED.jpg";
+////
+////                                copy($target_file, $resizedDestination);
+////
+////                                $DESIRED_WIDTH = 300;
+////                                $proportionalHeight = round(($DESIRED_WIDTH * $imageHeight) / $imageWidth);
+////
+//////                                if ($TYPEOFIMAGE == 1)
+//////                                {
+//////                                    $originalImage = imagecreate($target_file);
+//////                                }
+//////                                elseif ($TYPEOFIMAGE == 2)
+//////                                {
+//////                                    $originalImage = imagecreatefromjpeg($target_file);
+//////                                }
+//////                                elseif ($TYPEOFIMAGE == 3)
+//////                                {
+//////                                    $originalImage = imagecreatefrompng($target_file);
+//////                                }
+//////                                else
+//////                                {
+//////                                    $originalImage = imagecreatefromwbmp($target_file);
+//////                                }
+////                                $originalImage = imagecreate($target_file);
+////
+////                                $resizedImage = imageCreateTrueColor($DESIRED_WIDTH, $proportionalHeight);
+////
+////                                imageCopyResampled($resizedImage, $originalImage, 0, 0, 0, 0, $DESIRED_WIDTH+1, $proportionalHeight+1, $imageWidth, $imageHeight);
+////                                imageJPEG($resizedImage, $resizedDestination);
+////
+////                                imageDestroy($originalImage);
+////                                imageDestroy($resizedImage);
+////                            }else {
+////                                $resizedDestination="../images/blog/".$BBB . basename($NAMESSS);
+////                            }
+//                        $imageURL = $target_file;
+//                    } else {
+//                        $uploadOk = 0;
+//                    }
+//                }
+//            } else {
+//                $uploadOk = 0;
+//            }
+//        }
+        $imageURL="";
+        if (isset($_POST['dastebandi'])){
+            $writer->writeElement('dastebandi', $_POST['dastebandi']);
+            $dastebandi=$_POST['dastebandi'];
+        }else {
+            $dastebandi="";
         }
-        if (($uploadOk === 0) && ($imageURL == "")) {
-            $movafagh = 'عملیات مورد نظر موفق نبود. وارد کردن تصویر اصلی الزامی است.';
-        } else {
-            if ($type == 1) {
-                if (isset($_POST['dastebandi'])){
-                    $writer->writeElement('dastebandi', $_POST['dastebandi']);
-                    $dastebandi=$_POST['dastebandi'];
-                }else {
-                    $dastebandi="";
-                }
-            }
-            if ($type == 1) {
-                $writer->writeElement('image', $imageURL);
-            }
-            $writer->writeElement('data', $_POST['editor1']);
-            $datashould=$_POST['editor1'];
 
-            $description="";
-            if (isset($_POST['seodesc'])) {
-                $writer->writeElement('description', $_POST['seodesc']);
+
+        $writer->writeElement('image', $imageURL);
+
+        $writer->writeElement('data', $_POST['editor1']);
+        $datashould=$_POST['editor1'];
+
+        $description="";
+        if (isset($_POST['seodesc'])) {
+            $writer->writeElement('description', $_POST['seodesc']);
+            $description=$_POST['seodesc'];
+        }
+        $kewords="";
+        if (isset($_POST['seokeyword'])) {
+            $writer->writeElement('kewords', $_POST['seokeyword']);
+            $kewords=$_POST['seokeyword'];
+        }
+        $titleseo="";
+        if (isset($_POST['seotitle'])) {
+            $writer->writeElement('seotitle', $_POST['seotitle']);
+            $titleseo=$_POST['seotitle'];
+        }
+        $writer->endElement();
+        $writer->endDocument();
+        $file = $writer->outputMemory();
+        file_put_contents($filename, $file);
+        $topic = $_POST['topic'];
+        date_default_timezone_set("Iran");
+        $DATE=date('Y-m-d H:i:s');
+        if ($product === "all") {
+            $stmt  = $connection->prepare("INSERT INTO BLOG (XMLNAME,topic, Mokhtasar,image,time,dastebandi,pishnevis,post_name,realtime)  VALUES (?,?,?,?,NOW(),?,?,?,?)");
+            $stmt->bind_param("ssssssss", $filename,$topic,$Mokhtasar,$imageURL,$dastebandi,$pishnevis,$englishtopic,$DATE);
+        } else {
+            $stmt  = $connection->prepare("UPDATE BLOG SET pishnevis=?,XMLNAME=?,topic=?,dastebandi=?, Mokhtasar=?,image=?,post_name=?,realtime=? WHERE ID='$product'");
+            $stmt->bind_param("ssssssss", $pishnevis,$filename,$topic,$dastebandi,$Mokhtasar,$imageURL,$englishtopic,$DATE);
+        }
+        $result = $stmt->execute(); //execute() tries to fetch a result set. Returns true on succes, false on failure.
+        $stmt->store_result();
+        $result = $stmt->get_result();
+        if ($product === "all") {
+            $product =$connection->insert_id;
+        }
+        $movafagh = 'عملیات مورد نظر با موفقیت انجام شد.';
+
+        if ($connection->error) {
+            $movafagh = 'عملیات مورد نظر موفق نبود. وارد کردن تمامی موارد الزامی است.';
+            $product="namovafagh";
+            if (isset($_POST['topic'])){
+                $titleshould=$_POST['topic'];
+            }
+            if (isset($_POST['MOkhtasar'])){
+                $Mokhtasar = $_POST['MOkhtasar'];
+            }
+            if (isset($_POST['dastebandi'])){
+                $dastebandi = $_POST['dastebandi'];
+            }
+            if (isset($_POST['editor1'])){
+                $datashould=$_POST['editor1'];
+            }
+
+            if (isset($_POST['seodesc'])){
                 $description=$_POST['seodesc'];
             }
-            $kewords="";
-            if (isset($_POST['seokeyword'])) {
-                $writer->writeElement('kewords', $_POST['seokeyword']);
-                $kewords=$_POST['seokeyword'];
-            }
-            $titleseo="";
-            if (isset($_POST['seotitle'])) {
-                $writer->writeElement('seotitle', $_POST['seotitle']);
+            if (isset($_POST['seotitle'])){
                 $titleseo=$_POST['seotitle'];
             }
-            $writer->endElement();
-            $writer->endDocument();
-            $file = $writer->outputMemory();
-            file_put_contents($filename, $file);
-            $topic = $_POST['topic'];
-            date_default_timezone_set("Iran");
-            $DATE=date('Y-m-d H:i:s');
-            if ($product === "all") {
-                $stmt  = $connection->prepare("INSERT INTO BLOG (XMLNAME,topic, Mokhtasar,image,time,dastebandi,pishnevis,post_name,realtime)  VALUES (?,?,?,?,NOW(),?,?,?,?)");
-                $stmt->bind_param("ssssssss", $filename,$topic,$Mokhtasar,$imageURL,$dastebandi,$pishnevis,$englishtopic,$DATE);
-            } else {
-
-                echo $topic;
-                die();
-                $stmt  = $connection->prepare("UPDATE BLOG SET pishnevis=?,XMLNAME=?,topic=?,dastebandi=?, Mokhtasar=?,image=?,post_name=?,realtime=? WHERE ID='$product'");
-                $stmt->bind_param("ssssssss", $pishnevis,$filename,$topic,$dastebandi,$Mokhtasar,$imageURL,$englishtopic,$DATE);
+            if (isset($_POST['seokeyword'])){
+                $kewords=$_POST['seokeyword'];
             }
-            $result = $stmt->execute(); //execute() tries to fetch a result set. Returns true on succes, false on failure.
-            $stmt->store_result();
-            $result = $stmt->get_result();
-            if ($product === "all") {
-                $product =$connection->insert_id;
-            }
-            $movafagh = 'عملیات مورد نظر با موفقیت انجام شد.';
-
-            if ($connection->error) {
-                $movafagh = 'عملیات مورد نظر موفق نبود. وارد کردن تمامی موارد الزامی است.';
-                $product="namovafagh";
-                if (isset($_POST['topic'])){
-                    $titleshould=$_POST['topic'];
-                }
-                if (isset($_POST['MOkhtasar'])){
-                    $Mokhtasar = $_POST['MOkhtasar'];
-                }
-                if (isset($_POST['dastebandi'])){
-                    $dastebandi = $_POST['dastebandi'];
-                }
-                if (isset($_POST['editor1'])){
-                    $datashould=$_POST['editor1'];
-                }
-
-                if (isset($_POST['seodesc'])){
-                    $description=$_POST['seodesc'];
-                }
-                if (isset($_POST['seotitle'])){
-                    $titleseo=$_POST['seotitle'];
-                }
-                if (isset($_POST['seokeyword'])){
-                    $kewords=$_POST['seokeyword'];
-                }
-            }else{
-                echo "<script>alert('عملیات مورد نظر موفقیت آمیز بود.');</script>";
-                echo '<META HTTP-EQUIV="Refresh" Content="0; URL=addblog.php?product='.$product.'&type='.$type.'">';
-            }
+        }else{
+            echo "<script>alert('عملیات مورد نظر موفقیت آمیز بود.');</script>";
+            echo '<META HTTP-EQUIV="Refresh" Content="0; URL=addblog.php?product='.$product.'&type='.$type.'">';
         }
     } elseif ((isset($_POST['editor1'])) && (isset($_POST['topic'])) && (isset($_POST['MOkhtasar']))) {
         $movafagh = 'عملیات مورد نظر موفق نبود. وارد کردن تمامی موارد الزامی است.';
@@ -321,14 +302,14 @@ if ($_SESSION['type']>8) {
         } else {
             $URL = "addblog.php?product=$product";
         }
-        $URL2 = "allblogs.php?type=$type";
+        $URL2 = "allblogs.php";
         $englishtopic="";
         if ($product=="namovafagh"){
 
         } else if ($product !== "all") {
-            if ($type == 1) {
-                $query = "SELECT * FROM blog WHERE ID='$product'";
-            }
+
+            $query = "SELECT * FROM blog WHERE ID='$product'";
+
             $result = $connection->query($query);
             if ($result->num_rows > 0) {
                 $row = mysqli_fetch_assoc($result);
@@ -344,10 +325,8 @@ if ($_SESSION['type']>8) {
                 $description = $produc->description;
                 $kewords = $produc->kewords;
                 $titleseo = $produc->seotitle;
-                if ($type == 1) {
-                    $Mokhtasar = $produc->Mokhtasar;
-                    $pishnevis=$row['pishnevis'];
-                }
+                $Mokhtasar = $produc->Mokhtasar;
+                $pishnevis=$row['pishnevis'];
             }
             $englishtopic=$row['post_name'];
         } else {
@@ -355,9 +334,7 @@ if ($_SESSION['type']>8) {
             $imageURL = "";
             $titleshould = "";
             $datashould = "";
-            if ($type == 1) {
-                $Mokhtasar = "";
-            }
+            $Mokhtasar = "";
             $description = "";
             $kewords = "";
             $titleseo = "";
@@ -401,17 +378,17 @@ if ($_SESSION['type']>8) {
                                 </div>
                             </div>
                             <br/>
-                            <div class="block">  تصویر اصلی بلاگ: (تصاویر مربعی باشد، بهتر است سایز آن 200 در 200 باشد.)
-                                <br/>
-                                <?php
-                                if (strlen($imageURL)>0){
-                                    ?>
-                                    <img id="forcheck" src="<?php echo $imageURL; ?>" width="200" height="200" alt=""/>
-                                    <?php
-                                }
-                                ?>
-                                <input name="files" id="files" class="filestyle" type="file" data-icon="false" value="">
-                            </div>
+<!--                            <div class="block">  تصویر اصلی بلاگ: (تصاویر مربعی باشد، بهتر است سایز آن 200 در 200 باشد.)-->
+<!--                                <br/>-->
+<!--                                --><?php
+//                                if (strlen($imageURL)>0){
+//                                    ?>
+<!--                                    <img id="forcheck" src="--><?php //echo $imageURL; ?><!--" width="200" height="200" alt=""/>-->
+<!--                                    --><?php
+//                                }
+//                                ?>
+<!--                                <input name="files" id="files" class="filestyle" type="file" data-icon="false" value="">-->
+<!--                            </div>-->
                             <br/>
                             <div class="block">
                                 <div class="">

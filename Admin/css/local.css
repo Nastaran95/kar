@@ -5671,15 +5671,15 @@ button.close {
 }
 table,
 .table {
-  color: #fff;
+  color: black;
 }
 table a,
 .table a {
-  color: #fff;
+  color: black;
   text-decoration: underline;
 }
 .table-responsive > .table {
-  background-color: #181818;
+  background-color: white;
 }
 .has-warning .help-block,
 .has-warning .control-label {
