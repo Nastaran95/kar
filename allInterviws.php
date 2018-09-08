@@ -149,10 +149,16 @@ include '/Header.php';
                         if ($i<max(1,$x)) {
                             ?>
                             <li>...</li>
+                            <?php
+                        }
+
+                        if ($i<=max(1,$x)) {
+                            ?>
                             <li id="<?php echo floor($x) ?>" class="paginationoldInterviews"><?php echo floor($x) ?></li>
 
                             <?php
                         }
+
                         ?>
 
                         <li id="-2" class="PagedList-skipToNext paginationoldInterviews" rel="next"> << </li>
