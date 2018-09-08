@@ -45,7 +45,10 @@ if (isset($_GET['request']))
             $result = $stmt->execute();
             $stmt->store_result();
             $result = $stmt->get_result();
+
             if ($connection->error) {
+                echo $connection->error;
+                die();
 //                echo "<script>alert('عملیات موفقیت آمیز نبود. لطفا دوباره امتحان کنید.');</script>";
                 echo '<META HTTP-EQUIV="Refresh" Content="0; URL=contactUs.php?result=namovafagh">';
             }else{
@@ -77,6 +80,8 @@ if (isset($_GET['request']))
             $stmt->store_result();
             $result = $stmt->get_result();
             if ($connection->error) {
+                echo $connection->error;
+                die();
 //                echo "<script>alert('عملیات موفقیت آمیز نبود. لطفا دوباره امتحان کنید.');</script>";
                 echo '<META HTTP-EQUIV="Refresh" Content="0; URL=contactUs.php?result=namovafagh">';
             }else{
@@ -153,25 +158,26 @@ if(isset($_GET['result'])){
     <div class="karfarma_register col-md-9 col-md-offset-1 hide">
         <div class="show_res hide">به موارد الزامی دقت کنید.</div>
         <form id="karfarma" action="contactUs.php?request=karfarma" method="post" onsubmit="return validateForm_karfarma()">
-            <input type="text" id="company_farma" name="company" placeholder="نام شرکت">
-            <div><input type="text" id="subject_farma" name="subject" placeholder="موضوع درخواست">
-                <input type="email" id="mail_farma" name="email" placeholder="ایمیل"></div>
-            <div><input type="number" id="phone_farma" name="phone" placeholder="شماره تلفن">
-                <input type="number" id="mobile_farma" name="mobile" placeholder="شماره موبایل"></div>
-            <textarea rows="10" id="matn_farma" name="matn" placeholder="متن درخواست"></textarea>
+            <input type="text" id="company_farma" name="company" placeholder="نام شرکت" maxlength="300">
+            <div><input type="text" id="subject_farma" name="subject" placeholder="موضوع درخواست" maxlength="300">
+                <input type="email" id="mail_farma" name="email" placeholder="ایمیل" maxlength="100"></div>
+            <div><input type="text" pattern="\d*" id="phone_farma" name="phone" placeholder="شماره تلفن" maxlength="11">
+                <input type="text" pattern="\d*" id="mobile_farma" name="mobile" placeholder="شماره موبایل" maxlength="11"></div>
+            <textarea rows="10" id="matn_farma" name="matn" placeholder="متن درخواست" maxlength="1000"></textarea>
             <input type="submit" value="ارسال" class="cntct">
         </form>
     </div>
 
+
     <div class="karjoo_register col-md-9 col-md-offset-1 hide">
         <div class="show_res hide">به موارد الزامی دقت کنید.</div>
         <form id="karjoo" action="contactUs.php?request=karjoo" method="post" onsubmit="return validateForm_karjoo()">
-            <input type="text" id="name_joo" name="name" placeholder="نام و نام خانوادگی">
-            <div><input type="number" id="id_joo" name="id" placeholder="کد ملی">
-                <input type="text" id="azmun_joo" name="azmun" placeholder="نام آزمون"></div>
-            <div><input type="number" id="phone_joo" name="phone" placeholder="تلفن تماس">
-                <input type="email" id="mail_joo" name="email" placeholder="ایمیل"></div>
-            <textarea rows="10" id="matn_joo" name="matn" placeholder="متن شکایت و نظر"></textarea>
+            <input type="text" id="name_joo" name="name" placeholder="نام و نام خانوادگی" maxlength="1000">
+            <div><input type="text" pattern="\d*" id="id_joo" name="id" placeholder="کد ملی" maxlength="10">
+                <input type="text" id="azmun_joo" name="azmun" placeholder="نام آزمون" maxlength="300"></div>
+            <div><input type="text" pattern="\d*" id="phone_joo" name="phone" placeholder="تلفن تماس" maxlength="11">
+                <input type="email" id="mail_joo" name="email" placeholder="ایمیل" maxlength="100"></div>
+            <textarea rows="10" id="matn_joo" name="matn" placeholder="متن شکایت و نظر" maxlength="1000"></textarea>
             <input type="submit" value="ارسال" class="cntct">
         </form>
     </div>
