@@ -156,7 +156,7 @@ if(isset($_GET) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERV
                                     </td>
                                     <td>
                                         <div class=\"info\">
-                                            <a target='_blank' href=\"/news/".$row['englishName']." class=\"user-link\">".$row['title']."</a>
+                                            <a target='_blank' href='/customer/".$row['englishName']."' class=\"user-link\">".$row['title']."</a>
                                         </div>
                                     </td>";
 

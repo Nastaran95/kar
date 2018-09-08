@@ -114,7 +114,7 @@ if ($_SESSION['type']>8) {
                 $TMPNAMESSS = $imagetempname;
             }
             if (strlen($NAMESSS) > 0) {
-                $target_dir = "../images/customer/";
+                $target_dir = "../images/customers/";
                 $BBB = (string)uniqid();
                 $target_file = $target_dir . $BBB . basename($NAMESSS);
                 $uploadOk = 1;
@@ -210,18 +210,23 @@ if ($_SESSION['type']>8) {
                 $writer->writeElement('seotitle', $_POST['seotitle']);
                 $titleseo = $_POST['seotitle'];
             }
+
             $writer->endElement();
             $writer->endDocument();
             $file = $writer->outputMemory();
             file_put_contents($filename, $file);
             $topic = $_POST['topic'];
+
+
+
             date_default_timezone_set("Iran");
             $DATE = date('Y-m-d H:i:s');
+            list($DATE, $time) = explode(" ", $DATE);
+
             if ($product === "all") {
                 $stmt = $connection->prepare("INSERT INTO customers (xmlAdress,title,englishName, Mokhtasar,image,realtime)  VALUES (?,?,?,?,?,?)");
                 $stmt->bind_param("ssssss", $filename, $topic, $englishtopic, $Mokhtasar, $imageURL, $DATE);
             } else {
-
                 $stmt = $connection->prepare("UPDATE customers SET xmlAdress=?,title=?, Mokhtasar=?,image=?,englishName=?,realtime=? WHERE ID='$product'");
                 $stmt->bind_param("ssssss", $filename, $topic, $Mokhtasar, $imageURL, $englishtopic, $DATE);
             }
@@ -399,7 +404,7 @@ if ($_SESSION['type']>8) {
                     </div>
                 </div>
                 <div id="getred" class="marginright">توضیح کامل مشتری:</div>
-                <div id="editor pull-right">
+                <div id="editor">
                     <div id='edit' style="margin-top: 30px;"><?php echo $datashould; ?></div>
                 </div>
                 <input name="editor1" id="editor122" class="form-control input-lg ckeditor"

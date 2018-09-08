@@ -74,62 +74,69 @@ include '/MainPageHeader.php';
                 </div>
             <?php
             }
+            $query = "SELECT * FROM azmun WHERE (typ='2' and state='1')" ;
+            $result = $connection->query($query);
+            $pagenum = $result->num_rows;
+            if ($pagenum > 0 ) {
+                ?>
+                <div class="col-md-12">
+                    <hr/>
+                </div>
+                <div id="replacepagination">
+                    <?php
+                    $page = 1;
+                    $a = ($page - 1) * 5;
+                    $query = "SELECT * FROM azmun WHERE (typ='2' and state='1') LIMIT $a , 5;";
+                    $result = $connection->query($query);
 
-            ?>
-            <div class="col-md-12"><hr/></div>
-            <div id="replacepagination">
-                <?php
-                $page = 1;
-                $a = ($page-1)*5;
-                $query = "SELECT * FROM azmun WHERE (typ='2' and state='1') LIMIT $a , 5;";
-                $result = $connection->query($query);
+                    while ($row = $result->fetch_assoc()) {
+                        $name = $row['title'];
+                        $link = '/azmun/' . $row['englishName']
+                        ?>
 
-                while ($row=$result->fetch_assoc()) {
-                    $name=$row['title'];
-                    $link = '/azmun/'.$row['englishName']
+
+                        <div class="col-md-12 colorWhite col-sm-12 col-xs-12">
+                            <div class="col-md-1 pull-right icon col-xs-1"><img src="/images/pre-news.png"></div>
+                            <div class="col-md-11 col-xs-11">
+                                <a class="navnavbarlink" href="<?php echo $link ?>"> <?php echo $name ?> </a>
+                                <p></p>
+                                <a class="navnavbarlink pull-left" href="<?php echo $link ?>"> ادامه خبر ...</a>
+                            </div>
+                        </div>
+                        <?php
+                    }
+
                     ?>
 
-
-                    <div class="col-md-12 colorWhite col-sm-12 col-xs-12">
-                        <div class="col-md-1 pull-right icon col-xs-1"><img src="/images/pre-news.png" ></div>
-                        <div class="col-md-11 col-xs-11">
-                            <a class="navnavbarlink" href="<?php echo $link?>"> <?php echo $name?> </a>
-                            <p></p>
-                            <a class="navnavbarlink pull-left" href="<?php echo $link?>"> ادامه خبر ...</a>
-                        </div>
-                    </div>
-                    <?php
-                }
-                $query = "SELECT * FROM azmun WHERE (typ='2' and state='1')" ;
-                $result = $connection->query($query);
-                $pagenum = $result->num_rows;
-                ?>
-
-                <div class="pagination-container pull-left">
-                    <ul class="pagination">
-                        <li id="-1" class="PagedList-skipToNext paginationoldAzmun" rel="prev"> >> </li>
-                        <?php
-                            $x = ($pagenum+4) / 5 ;
-                            for ($i=1 ; $i <= min($x,2) ; $i++){
-                                 ?>
-                                <li id="<?php echo $i?>" class="paginationoldAzmun <?php if ($i==1) echo "active" ?> "><?php echo $i?></li>
-                        <?php
+                    <div class="pagination-container pull-left">
+                        <ul class="pagination">
+                            <li id="-1" class="PagedList-skipToNext paginationoldAzmun" rel="prev"> >></li>
+                            <?php
+                            $x = ($pagenum + 4) / 5;
+                            for ($i = 1; $i <= min($x, 2); $i++) {
+                                ?>
+                                <li id="<?php echo $i ?>"
+                                    class="paginationoldAzmun <?php if ($i == 1) echo "active" ?> "><?php echo $i ?></li>
+                                <?php
 
                             }
-                            if ($i<max(1,$x)) {
+                            if ($i < max(1, $x)) {
                                 ?>
                                 <li>...</li>
                                 <li id="<?php echo floor($x) ?>" class="paginationoldAzmun"><?php echo floor($x) ?></li>
 
                                 <?php
                             }
-                        ?>
+                            ?>
 
-                        <li id="-2" class="PagedList-skipToNext paginationoldAzmun" rel="next" > << </li>
-                    </ul>
+                            <li id="-2" class="PagedList-skipToNext paginationoldAzmun" rel="next"> <<</li>
+                        </ul>
 
+                    </div>
                 </div>
-            </div>
+                <?php
+            }
+            ?>
 
         </div>
 
