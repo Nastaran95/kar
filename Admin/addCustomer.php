@@ -298,7 +298,7 @@ if ($_SESSION['type']>8) {
     ?>
     <div id="wrapper">
         <?php
-        $which=2;
+        $which=12;
         include 'adminmenue.php';
         $query = "SELECT * FROM customers WHERE ID='$product'";
         $result = $connection->query($query);

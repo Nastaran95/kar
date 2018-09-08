@@ -62,7 +62,7 @@ if (isset($_GET['ID'])) {
     $query = "SELECT * FROM customers WHERE englishName='$ID';";
     $result = $connection->query($query);
     if ($row = $result->fetch_assoc()) {
-        $name = $row['name'];
+        $name = $row['title'];
         $mokhtasar = $row['Mokhtasar'];
         $xmlAdress = $row['xmlAdress'];
         $xmlAdress = substr($xmlAdress,3);

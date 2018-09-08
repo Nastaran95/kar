@@ -180,7 +180,7 @@ if(isset($_GET) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERV
                                                 <i class=\"fa fa-pencil fa-stack-1x fa-inverse bluecolor\"></i>
                                             </span>
                                         </a>
-                                        <a onClick=\"return confirming();\"  href='deletecustomer.php?type=$type&product=".$row['ID']."' class=\"table-link danger\">
+                                        <a onClick=\"return confirming();\"  href='deleteblog.php?type=5&product=".$row['ID']."' class=\"table-link danger\">
                                             <span class=\"fa-stack\">
                                                 <i class=\"fa fa-square fa-stack-2x\"></i>
                                                 <i class=\"fa fa-trash-o fa-stack-1x fa-inverse\"></i>

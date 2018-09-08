@@ -40,7 +40,7 @@ if (($_SESSION['type']>0)) {
     <body dir="rtl">
     <div id="wrapper">
         <?php
-        $which=9;
+        $which=13;
         include 'adminmenue.php';
         ?>
         <div id="page-wrapper">

@@ -63,7 +63,7 @@ include "/header.php";
         $result = $connection->query($query);
         //    echo $connection->error;
         while ($row = $result->fetch_assoc()) {
-            $name = $row['name'];
+            $name = $row['title'];
             $uniqueName = $row['englishName'];
             $xmlAdress = $row['xmlAdress'];
             $xmlAdress = substr($xmlAdress,3);
