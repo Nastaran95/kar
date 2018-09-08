@@ -154,7 +154,7 @@ if(isset($_GET) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERV
                                     </td>
                                     <td>
                                         <div class=\"info\">
-                                            <a target='_blank' href=\"/news/".$row['englishName']." class=\"user-link\">".$row['title']."</a>
+                                            <a target='_blank' href='/new/".$row['englishName']."' class=\"user-link\">".$row['title']."</a>
                                         </div>
                                     </td>";
             echo "<td dir='ltr'>                                                                                                               
@@ -162,7 +162,7 @@ if(isset($_GET) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERV
                                     </td>";
             echo "   
                                     <td dir='ltr'>                                                                                                               
-                                        <span>/news/".$row['englishName']."</span>
+                                        <span>/new/".$row['englishName']."</span>
                                     </td>";
         }
         echo "                                                                      
@@ -173,7 +173,7 @@ if(isset($_GET) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERV
                                                 <i class=\"fa fa-pencil fa-stack-1x fa-inverse bluecolor\"></i>
                                             </span>
                                         </a>
-                                        <a onClick=\"return confirming();\"  href='deletenews.php?type=$type&product=".$row['ID']."' class=\"table-link danger\">
+                                        <a onClick=\"return confirming();\"  href='deleteblog.php?type=4&product=".$row['ID']."' class=\"table-link danger\">
                                             <span class=\"fa-stack\">
                                                 <i class=\"fa fa-square fa-stack-2x\"></i>
                                                 <i class=\"fa fa-trash-o fa-stack-1x fa-inverse\"></i>

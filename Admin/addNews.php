@@ -56,6 +56,7 @@ if ($_SESSION['type']>8) {
         $product = $_GET['product'];
     } else
         $product = "all";
+
     if ($product == "namovafagh"){
         $product = "all";
     }
@@ -106,6 +107,7 @@ if ($_SESSION['type']>8) {
             $writer->writeElement('seotitle', $_POST['seotitle']);
             $titleseo=$_POST['seotitle'];
         }
+
         $writer->endElement();
         $writer->endDocument();
         $file = $writer->outputMemory();
@@ -113,16 +115,10 @@ if ($_SESSION['type']>8) {
         $topic = $_POST['topic'];
         // date_default_timezone_set('Asia/Tehran');
 
-        $now = new DateTime();
+        date_default_timezone_set("Iran");
+        $DATE = date('Y-m-d H:i:s');
+        list($DATE, $time) = explode(" ", $DATE);
 
-        $formatter = new IntlDateFormatter(
-            "fa_IR@calendar=persian",
-            IntlDateFormatter::FULL,
-            IntlDateFormatter::FULL,
-            'Asia/Tehran',
-            IntlDateFormatter::TRADITIONAL,
-            "yyyy/MM/dd");
-        $DATE= tr_num($formatter->format($now));
 
         if ($product === "all") {
 //            echo "<script>window.alert('insert db');</script>";
@@ -219,10 +215,10 @@ if ($_SESSION['type']>8) {
                 $row = mysqli_fetch_assoc($result);
             }
             $productXMLNAME = $row['xmlAdress'];
+            $titleshould = $row['title'];
             if (file_exists($productXMLNAME)) {
                 $produc = simplexml_load_file($productXMLNAME);
                 $name = $produc->code;
-                $titleshould = $produc->name;
                 $datashould = $produc->data;
                 $description = $produc->description;
                 $kewords = $produc->kewords;
@@ -232,7 +228,6 @@ if ($_SESSION['type']>8) {
         } else {
 //            echo "<script>window.alert('set3');</script>";
             $datashould = "";
-            $titleshould = "";
             $description = "";
             $kewords = "";
             $titleseo = "";
@@ -267,7 +262,7 @@ if ($_SESSION['type']>8) {
                     </div>
                 </div>
                 <div id="getred" class="marginright">متن اصلی خبر:</div>
-                <div id="editor pull-right">
+                <div id="editor">
                     <div id='edit' style="margin-top: 30px;"><?php echo $datashould; ?></div>
                 </div>
                 <input name="editor1" id="editor122" class="form-control input-lg ckeditor"
