@@ -52,6 +52,7 @@ if (file_exists($productXMLNAME)) {
 <body>
 <?php
 include '/header.php';
+
 ?>
 <div class ="container grayColor main">
     <div class="row">
@@ -60,6 +61,14 @@ include '/header.php';
             <div class="col-md-12 subj">
                 آزمون‌های گذشته
             </div>
+
+
+            <?php
+            $query = "SELECT * FROM azmun WHERE (typ='2' and state='1')" ;
+            $result = $connection->query($query);
+            $pagenum = $result->num_rows;
+            if ($pagenum>0){
+?>
 
             <div id="replacepagination">
                 <?php
@@ -84,9 +93,7 @@ include '/header.php';
                     </div>
                     <?php
                 }
-                $query = "SELECT * FROM azmun WHERE (typ='2' and state='1')" ;
-                $result = $connection->query($query);
-                $pagenum = $result->num_rows;
+
                 ?>
 
                 <div class="pagination-container pull-left">
@@ -114,6 +121,12 @@ include '/header.php';
 
                 </div>
             </div>
+
+            <?php
+
+            }
+            
+            ?>
 
         </div>
 

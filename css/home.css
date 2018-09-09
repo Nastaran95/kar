@@ -51,13 +51,13 @@
 .header .cover_arrow{
     width: 40px;
     height: 40px;
-    border: 2px solid #fff;
+    /*border: 2px solid #fff;*/
     color: #fff;
     display: flex;
     justify-content:center;
     align-items: center;
     font-size:40px;
-    margin: 20px auto;
+    margin: 5px auto;
     position: absolute;
     bottom:0;
     right:0;
