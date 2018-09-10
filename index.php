@@ -142,6 +142,66 @@ include '/MainPageHeader.php';
 
 
 
+        <div id="myCarousel2" class="carousel slide" data-ride="carousel">
+            <?php
+            $productXMLNAME = "XMLs/homeslider.xml";
+            if (file_exists($productXMLNAME)) {
+                $produc = simplexml_load_file($productXMLNAME);
+                ?>
+                <div class="col-sm-12 marginzero">
+                    <div class="slider">
+                        <div id="home-slider" class="carousel slide carousel-fade" data-ride="carousel">
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner" role="listbox">
+                                <?php
+                                foreach ($produc->slider->image as $THIS){
+                                    if ($THIS['active']=="true"){
+                                        ?>
+                                        <a class="item active" href="<?php echo $THIS->productURL?>">
+                                            <img class="img-responsive" src="<?php echo "/".$THIS->url?>" alt="<?php echo $THIS->alt?>"/>
+                                            <!--<div class="carousel-caption">-->
+                                            <!--<h3>Headline</h3>-->
+                                            <!--<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. <a href="http://sevenx.de/demo/bootstrap-carousel/" target="_blank" class="label label-danger">Bootstrap 3 - Carousel Collection</a></p>-->
+                                            <!--</div>-->
+                                        </a>
+                                        <?php
+                                    }else{
+                                        ?>
+                                        <a class="item" href="<?php echo $THIS->productURL?>">
+                                            <img class="img-responsive" src="<?php echo "/".$THIS->url?>" alt="<?php echo $THIS->alt?>"/>
+                                            <!--<div class="carousel-caption">-->
+                                            <!--<h3>Headline</h3>-->
+                                            <!--<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. <a href="http://sevenx.de/demo/bootstrap-carousel/" target="_blank" class="label label-danger">Bootstrap 3 - Carousel Collection</a></p>-->
+                                            <!--</div>-->
+                                        </a><!-- End Item -->
+                                        <?php
+                                    }
+                                    ?>
+                                    <?php
+                                }
+                                ?>
+                            </div>
+                            <!-- Controls -->
+                            <span class="left carousel-control" role="button">
+                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                <span class="sr-only">قبلی</span>
+                            </span>
+                            <span class="right carousel-control" role="button">
+                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                <span class="sr-only">بعدی</span>
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+                <?php
+            }
+            ?>
+        </div>
+
+
+
+
     </div>
 </div>
 

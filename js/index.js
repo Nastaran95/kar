@@ -1,5 +1,7 @@
 $(document).ready(function () {
-
+    $('.carousel').carousel({
+        interval: 5000
+    });
     var top_of_element=0, bottom_of_element=1, bottom_of_screen=1, top_of_screen=0, zoom=1;
     $("#scroll").click(function() {
         $('html, body').animate({

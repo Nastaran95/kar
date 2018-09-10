@@ -5,7 +5,6 @@
  * Date: 8/10/2018
  * Time: 10:59 AM
  */
-
 session_start();
 if (($_SESSION['type']>0)) {
     if (isset($_REQUEST['cat1']))

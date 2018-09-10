@@ -45,6 +45,24 @@ $(document).ready(function() {
             $(this).trigger("enterKey");
         }
     });
+
+    $(document).on('change','.status',function(e){
+        e.preventDefault();
+        status = $(this).find(":selected").val();
+        statustemp=status;
+        orderID = $(this).find(":selected").attr('class');
+        if (confirm('از تغییر استیت این کامنت مطمعنید؟')){
+            $.get("changestatus.php", {orderID:orderID, status:status,type:1}, function (data, status) {
+                if (data=="0"){
+                    alert("عملیات مورد نظر انجام نشد.");
+                }
+                else{
+                    alert("عملیات مورد نظر با موفقیت انجام شد.");
+                }
+            });
+        }
+    });
+
 });
 
 function confirming() {
