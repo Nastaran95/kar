@@ -321,7 +321,7 @@ if ($_SESSION['type']>8) {
                             <div class="">
                                 <br/>
                                 <div class="">زمان برگزاری آزمون</div>
-                                <input id="tarikhAzmun" name="dateAzmun" type="text" maxlength="300" class="inlineblock" value="<?php echo $dateAzmun; ?>"/>
+                                <input id="tarikhAzmun" name="dateAzmun" type="text" class="width700" maxlength="300" class="inlineblock" value="<?php echo $dateAzmun; ?>"/>
 
                             </div>
                         </div>
@@ -329,7 +329,7 @@ if ($_SESSION['type']>8) {
                             <div class="">
                                 <br/>
                                 <div class="">زمان دریافت کارت</div>
-                                <input id="tarikhKart" name="dateKart" type="text" maxlength="300" class="inlineblock" value="<?php echo $dateKart; ?>"/>
+                                <input id="tarikhKart" name="dateKart" type="text" class="width700" maxlength="300" class="inlineblock" value="<?php echo $dateKart; ?>"/>
 
                             </div>
                         </div>
@@ -337,7 +337,7 @@ if ($_SESSION['type']>8) {
                             <div class="">
                                 <br/>
                                 <div class="">زمان اعلام نتایج</div>
-                                <input id="tarikhNatayej" name="dateNatayej" type="text" maxlength="300" class="inlineblock" value="<?php echo $dateNatayej; ?>"/>
+                                <input id="tarikhNatayej" name="dateNatayej" type="text" class="width700" maxlength="300" class="inlineblock" value="<?php echo $dateNatayej; ?>"/>
 
                             </div>
                         </div>
@@ -617,58 +617,58 @@ if ($_SESSION['type']>8) {
         });
     </script>
     </body>
-    <script>
-        var customOptions = {
-            placeholder: "روز / ماه / سال"
-            , twodigit: false
-            , closeAfterSelect: true
-            , nextButtonIcon: "fa fa-arrow-circle-right"
-            , previousButtonIcon: "fa fa-arrow-circle-left"
-            , buttonsColor: "black"
-            , forceFarsiDigits: true
-            , markToday: true
-            , markHolidays: true
-            , highlightSelectedDay: true
-            , sync: true
-            , gotoToday: true
-        };
-        kamaDatepicker('tarikhAzmun', customOptions);
-        kamaDatepicker('tarikhKart', customOptions);
-        kamaDatepicker('tarikhNatayej', customOptions);
-    </script>
+<!--    <script>-->
+<!--        var customOptions = {-->
+<!--            placeholder: "روز / ماه / سال"-->
+<!--            , twodigit: false-->
+<!--            , closeAfterSelect: true-->
+<!--            , nextButtonIcon: "fa fa-arrow-circle-right"-->
+<!--            , previousButtonIcon: "fa fa-arrow-circle-left"-->
+<!--            , buttonsColor: "black"-->
+<!--            , forceFarsiDigits: true-->
+<!--            , markToday: true-->
+<!--            , markHolidays: true-->
+<!--            , highlightSelectedDay: true-->
+<!--            , sync: true-->
+<!--            , gotoToday: true-->
+<!--        };-->
+<!--        kamaDatepicker('tarikhAzmun', customOptions);-->
+<!--        kamaDatepicker('tarikhKart', customOptions);-->
+<!--        kamaDatepicker('tarikhNatayej', customOptions);-->
+<!--    </script>-->
     </html>
     <?php
 }else{
     header('Location:/');
 }
 
-function gregorian_to_jalali($gy,$gm,$gd,$mod=''){
-    list($gy,$gm,$gd)=explode('_',tr_num($gy.'_'.$gm.'_'.$gd));/* <= Extra :اين سطر ، جزء تابع اصلي نيست */
-    $g_d_m=array(0,31,59,90,120,151,181,212,243,273,304,334);
-    if($gy > 1600){
-        $jy=979;
-        $gy-=1600;
-    }else{
-        $jy=0;
-        $gy-=621;
-    }
-    $gy2=($gm > 2)?($gy+1):$gy;
-    $days=(365*$gy) +((int)(($gy2+3)/4)) -((int)(($gy2+99)/100)) +((int)(($gy2+399)/400)) -80 +$gd +$g_d_m[$gm-1];
-    $jy+=33*((int)($days/12053));
-    $days%=12053;
-    $jy+=4*((int)($days/1461));
-    $days%=1461;
-    $jy+=(int)(($days-1)/365);
-    if($days > 365)$days=($days-1)%365;
-    if($days < 186){
-        $jm=1+(int)($days/31);
-        $jd=1+($days%31);
-    }else{
-        $jm=7+(int)(($days-186)/30);
-        $jd=1+(($days-186)%30);
-    }
-    return($mod==='')?array($jy,$jm,$jd):$jy .$mod .$jm .$mod .$jd;
-}
+//function gregorian_to_jalali($gy,$gm,$gd,$mod=''){
+//    list($gy,$gm,$gd)=explode('_',tr_num($gy.'_'.$gm.'_'.$gd));/* <= Extra :اين سطر ، جزء تابع اصلي نيست */
+//    $g_d_m=array(0,31,59,90,120,151,181,212,243,273,304,334);
+//    if($gy > 1600){
+//        $jy=979;
+//        $gy-=1600;
+//    }else{
+//        $jy=0;
+//        $gy-=621;
+//    }
+//    $gy2=($gm > 2)?($gy+1):$gy;
+//    $days=(365*$gy) +((int)(($gy2+3)/4)) -((int)(($gy2+99)/100)) +((int)(($gy2+399)/400)) -80 +$gd +$g_d_m[$gm-1];
+//    $jy+=33*((int)($days/12053));
+//    $days%=12053;
+//    $jy+=4*((int)($days/1461));
+//    $days%=1461;
+//    $jy+=(int)(($days-1)/365);
+//    if($days > 365)$days=($days-1)%365;
+//    if($days < 186){
+//        $jm=1+(int)($days/31);
+//        $jd=1+($days%31);
+//    }else{
+//        $jm=7+(int)(($days-186)/30);
+//        $jd=1+(($days-186)%30);
+//    }
+//    return($mod==='')?array($jy,$jm,$jd):$jy .$mod .$jm .$mod .$jd;
+//}
 
 function tr_num($str,$mod='en',$mf='٫'){
     $num_a=array('0','1','2','3','4','5','6','7','8','9','.');
