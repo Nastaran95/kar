@@ -130,10 +130,12 @@ if(isset($_GET) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERV
         echo '<table class="table user-list">
                                 <thead>
                                 <tr>
-                                    <th><input id="checkAll" type="checkbox"/></th>
                                     <th><span>نام شرکت</span></th>
                                     <th><span>موضوع درخواست</span></th>
                                     <th><span>ایمیل</span></th>
+                                    <th><span>شماره تماس</span></th>
+                                    <th><span>موبایل</span></th>
+                                    <th><span>وضعیت</span></th>
                                     <th><span>متن درخواست</span></th>                                 
                                 </tr>
                                 </thead>';
@@ -143,27 +145,46 @@ if(isset($_GET) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERV
 //echo $row['topic'];
         echo '<tr>';
         if ($type==1){
-            echo  "                     <td>
-                                        <input type=\"checkbox\"/>
-                                    </td>
-                                    <td>
+            echo  "
+                                    <td style=\"width: 10%;\">
                                         <span>".$row['company']."</span>
                                     </td>";
 
             echo "   
-                                    <td>                                                                                                               
+                                    <td style=\"width: 10%;\">                                                                                                               
                                         <span>".$row['subject']."</span>
                                     </td>";
-            echo "<td dir='ltr'>                                                                                                               
+            echo "<td dir='ltr' style=\"width: 10%;\">                                                                                                               
                                         <span>".$row['email']."</span>
                                     </td>";
+            echo "<td dir='ltr' style=\"width: 10%;\">                                                                                                               
+                                        <span>".$row['phone']."</span>
+                                    </td>";
+            echo "<td dir='ltr' style=\"width: 10%;\">                                                                                                               
+                                        <span>".$row['mobile']."</span>
+                                    </td>";
+            ?>
+            <td style="width: 8%;">
+                <select id="status" name="status" class="status form-control input-lg">
+                    <option value="0"
+                            class="<?php echo $row['ID'] ?>" <?php if ($row['status'] == 0) echo "selected" ?> >کامنت اولیه
+                    </option>
+                    <option value="1"
+                            class="<?php echo $row['ID'] ?>" <?php if ($row['status'] == 1) echo "selected" ?> >در حال بررسی
+                    </option>
+                    <option value="2"
+                            class="<?php echo $row['ID'] ?>" <?php if ($row['status'] == 2) echo "selected" ?> >تمام شده
+                    </option>
+                </select>
+            </td>
+            <?php
             echo "   
-                                    <td dir='ltr'>                                                                                                               
+                                    <td dir='rtl' style=\"width: 40%;\">                                                                                                               
                                         <span>".$row['matn']."</span>
                                     </td>";
         }
         echo "                                                                      
-                                    <td style=\"width: 20%;\">
+                                    <td style=\"width: 3%;\">
                                         <a onClick=\"return confirming();\"  href='deletekarfarmarequest.php?type=$type&product=".$row['ID']."' class=\"table-link danger\">
                                             <span class=\"fa-stack\">
                                                 <i class=\"fa fa-square fa-stack-2x\"></i>

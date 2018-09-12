@@ -45,6 +45,7 @@ CREATE TABLE karfarma_request(
   email VARCHAR(100),
   phone  VARCHAR(11),
   mobile VARCHAR(11),
+  status int default 0,
   PRIMARY KEY (ID)) DEFAULT CHARSET=utf8;
 
 DROP TABLE karjoo_request;
@@ -56,6 +57,7 @@ CREATE TABLE karjoo_request(
   matn VARCHAR(2000) CHARACTER SET utf8 COLLATE utf8_general_ci,
   email VARCHAR(100),
   phone  VARCHAR(11),
+  status int default 0,
   PRIMARY KEY (ID)) DEFAULT CHARSET=utf8;
 
 INSERT INTO azmun(title, typ, ostan, state, dateAzmun, dateKart, dateNatayej,englishName,xmlAdress) VALUES ('دریافت کارت ورود به جلسه آزمون فولاد سیرجان ایرانیان', '1','تهران' , '1' , '1397/05/02' , '1397/05/02' , '1397/05/02' , 'fuladsirjan','azmun/test.xml');
