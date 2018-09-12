@@ -64,7 +64,8 @@ if ($_SESSION['type']>8) {
     if ($product == "namovafagh"){
         $product = "all";
     }
-    if ((isset($_POST['editor1'])) && (isset($_POST['topic'])) && (strlen($_POST['editor1']) > 0) && (strlen($_POST['topic']) > 0)) {
+
+    if ((isset($_POST['editor1'])) && (isset($_POST['topic'])) && (isset($_POST['englishtopic'])) && (strlen($_POST['editor1']) > 0) && (strlen($_POST['topic']) > 0) && (strlen($_POST['englishtopic']) > 0)) {
 //        echo "<script>window.alert('pr $product');</script>";
         $writer = new XMLWriter();
         if ($product === "all") {
