@@ -9,13 +9,15 @@
 session_start();
 
 include '/Settings.php'; //harja khasti DB estefade koni ino bezan faghat
-$productXMLNAME = "/XMLs/news.xml";
+$productXMLNAME = "XMLs/news.xml";
 if (file_exists($productXMLNAME)) {
+    echo '1';
     $XMLFile = simplexml_load_file($productXMLNAME);
     $SEOdescription=$XMLFile->description;
     $SEOKEYWORDS=$XMLFile->kewords;
     $SEOTITLE=$XMLFile->seotitle;
 }else{
+    echo '2';
     $SEOdescription="";
     $SEOKEYWORDS="";
     $SEOTITLE="";

@@ -8,7 +8,7 @@
 session_start();
 
 include '/Settings.php'; //harja khasti DB estefade koni ino bezan faghat
-$productXMLNAME = "/XMLs/book.xml";
+$productXMLNAME = "XMLs/book.xml";
 if (file_exists($productXMLNAME)) {
     $XMLFile = simplexml_load_file($productXMLNAME);
     $SEOdescription=$XMLFile->description;

@@ -6,7 +6,7 @@
  * Time: 7:13 PM
  */
 
-$productXMLNAME = "/XMLs/allBlogs.xml";
+$productXMLNAME = "XMLs/aboutus.xml";
 if (file_exists($productXMLNAME)) {
     $XMLFile = simplexml_load_file($productXMLNAME);
     $SEOdescription=$XMLFile->description;
