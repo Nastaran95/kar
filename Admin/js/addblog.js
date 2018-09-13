@@ -108,11 +108,13 @@ function validateFormdata(tab){
             $("#englishtopic").removeClass( "BORDERCOLOR");
         }
     }
-    if(document.getElementById("MOkhtasar").value.length===0){
-        $("#MOkhtasar").addClass( "BORDERCOLOR" );
-        time=time+1;
-    }else{
-        $("#MOkhtasar").removeClass( "BORDERCOLOR" );
+    if(tab==1 || tab==2 || tab==3) {
+        if(document.getElementById("MOkhtasar").value.length===0){
+            $("#MOkhtasar").addClass( "BORDERCOLOR" );
+            time=time+1;
+        }else{
+            $("#MOkhtasar").removeClass( "BORDERCOLOR" );
+        }
     }
     if(document.getElementById("editor122").value.length===0){
         $("#getred").addClass( "BORDERCOLOR" );
@@ -120,28 +122,28 @@ function validateFormdata(tab){
     }else{
         $("#getred").removeClass( "BORDERCOLOR" );
     }
-    if ((tab!=3) && (document.getElementById("files").files.length == 0)){
-        var myElem = document.getElementById('forcheck');
-        if (myElem!=null){
-            if (document.getElementById("forcheck").src.length==0){
-                $("#files").addClass( "BORDERCOLOR" );
-                time=time+1;
-            }else{
-                $("#files").removeClass( "BORDERCOLOR" );
-            }
-        }else{
-            $("#files").addClass( "BORDERCOLOR" );
-            time=time+1;
-        }
-    }else{
-        $("#files").removeClass( "BORDERCOLOR" );
-    }
-    if($('#dastebandi').val()=='هیچی'){
-        $("#dastebandi").addClass( "BORDERCOLOR" );
-        time=time+1;
-    }else {
-        $("#dastebandi").removeClass( "BORDERCOLOR" );
-    }
+    // if ((tab!=3) && (document.getElementById("files").files.length == 0)){
+    //     var myElem = document.getElementById('forcheck');
+    //     if (myElem!=null){
+    //         if (document.getElementById("forcheck").src.length==0){
+    //             $("#files").addClass( "BORDERCOLOR" );
+    //             time=time+1;
+    //         }else{
+    //             $("#files").removeClass( "BORDERCOLOR" );
+    //         }
+    //     }else{
+    //         $("#files").addClass( "BORDERCOLOR" );
+    //         time=time+1;
+    //     }
+    // }else{
+    //     $("#files").removeClass( "BORDERCOLOR" );
+    // }
+    // if($('#dastebandi').val()=='هیچی'){
+    //     $("#dastebandi").addClass( "BORDERCOLOR" );
+    //     time=time+1;
+    // }else {
+    //     $("#dastebandi").removeClass( "BORDERCOLOR" );
+    // }
     if (time>0){
         $('#showerror').text("به موارد الزامی دقت کنید.");
     }

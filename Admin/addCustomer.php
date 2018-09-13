@@ -353,7 +353,7 @@ if ($_SESSION['type']>8) {
         }
         ?>
 
-        <form action="<?php echo $URL ?>" method="post" enctype="multipart/form-data" onsubmit="return validateFormdata(1)">
+        <form action="<?php echo $URL ?>" method="post" enctype="multipart/form-data" onsubmit="return validateFormdata(5)">
 
             <div id="X-wrapper">
                 <div class="container2">
