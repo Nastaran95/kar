@@ -74,7 +74,7 @@ include '/MainPageHeader.php';
                 </div>
             <?php
             }
-            $query = "SELECT * FROM azmun WHERE (typ='2' and state='1')" ;
+            $query = "SELECT * FROM news" ;
             $result = $connection->query($query);
             $pagenum = $result->num_rows;
             if ($pagenum > 0 ) {
@@ -86,12 +86,12 @@ include '/MainPageHeader.php';
                     <?php
                     $page = 1;
                     $a = ($page - 1) * 5;
-                    $query = "SELECT * FROM azmun WHERE (typ='2' and state='1') LIMIT $a , 5;";
+                    $query = "SELECT * FROM news LIMIT $a , 5;";
                     $result = $connection->query($query);
 
                     while ($row = $result->fetch_assoc()) {
                         $name = $row['title'];
-                        $link = '/azmun/' . $row['englishName']
+                        $link = '/new/' . $row['englishName']
                         ?>
 
 
@@ -110,26 +110,26 @@ include '/MainPageHeader.php';
 
                     <div class="pagination-container pull-left">
                         <ul class="pagination">
-                            <li id="-1" class="PagedList-skipToNext paginationoldAzmun" rel="prev"> >></li>
+                            <li id="-1" class="PagedList-skipToNext paginationoldNews" rel="prev"> >></li>
                             <?php
                             $x = ($pagenum + 4) / 5;
                             for ($i = 1; $i <= min($x, 2); $i++) {
                                 ?>
                                 <li id="<?php echo $i ?>"
-                                    class="paginationoldAzmun <?php if ($i == 1) echo "active" ?> "><?php echo $i ?></li>
+                                    class="paginationoldNews <?php if ($i == 1) echo "active" ?> "><?php echo $i ?></li>
                                 <?php
 
                             }
                             if ($i < max(1, $x)) {
                                 ?>
                                 <li>...</li>
-                                <li id="<?php echo floor($x) ?>" class="paginationoldAzmun"><?php echo floor($x) ?></li>
+                                <li id="<?php echo floor($x) ?>" class="paginationoldNews"><?php echo floor($x) ?></li>
 
                                 <?php
                             }
                             ?>
 
-                            <li id="-2" class="PagedList-skipToNext paginationoldAzmun" rel="next"> <<</li>
+                            <li id="-2" class="PagedList-skipToNext paginationoldNews" rel="next"> <<</li>
                         </ul>
 
                     </div>
