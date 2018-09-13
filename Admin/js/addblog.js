@@ -122,22 +122,24 @@ function validateFormdata(tab){
     }else{
         $("#getred").removeClass( "BORDERCOLOR" );
     }
-    // if ((tab!=3) && (document.getElementById("files").files.length == 0)){
-    //     var myElem = document.getElementById('forcheck');
-    //     if (myElem!=null){
-    //         if (document.getElementById("forcheck").src.length==0){
-    //             $("#files").addClass( "BORDERCOLOR" );
-    //             time=time+1;
-    //         }else{
-    //             $("#files").removeClass( "BORDERCOLOR" );
-    //         }
-    //     }else{
-    //         $("#files").addClass( "BORDERCOLOR" );
-    //         time=time+1;
-    //     }
-    // }else{
-    //     $("#files").removeClass( "BORDERCOLOR" );
-    // }
+    if(tab==2 || tab==5) {
+        if (document.getElementById("files").files.length == 0) {
+            var myElem = document.getElementById('forcheck');
+            if (myElem != null) {
+                if (document.getElementById("forcheck").src.length == 0) {
+                    $("#files").addClass("BORDERCOLOR");
+                    time = time + 1;
+                } else {
+                    $("#files").removeClass("BORDERCOLOR");
+                }
+            } else {
+                $("#files").addClass("BORDERCOLOR");
+                time = time + 1;
+            }
+        } else {
+            $("#files").removeClass("BORDERCOLOR");
+        }
+    }
     // if($('#dastebandi').val()=='هیچی'){
     //     $("#dastebandi").addClass( "BORDERCOLOR" );
     //     time=time+1;
