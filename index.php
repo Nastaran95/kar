@@ -120,9 +120,14 @@ include '/MainPageHeader.php';
                                 <?php
 
                             }
-                            if ($i < max(1, $x)) {
+                            if ($i<max(1,$x)) {
                                 ?>
                                 <li>...</li>
+                                <?php
+                            }
+
+                            if ($i<=max(1,$x)) {
+                                ?>
                                 <li id="<?php echo floor($x) ?>" class="paginationoldNews"><?php echo floor($x) ?></li>
 
                                 <?php

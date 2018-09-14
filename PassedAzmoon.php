@@ -100,7 +100,7 @@ include '/header.php';
                     <ul class="pagination">
                         <li id="-1" class="PagedList-skipToNext paginationoldAzmun" rel="prev"> >> </li>
                         <?php
-                        $x = ($pagenum+4) / 5 ;
+                        $x = floor(($pagenum+4) / 5 );
                         for ($i=1 ; $i <= min($x,2) ; $i++){
                             ?>
                             <li id="<?php echo $i?>" class="paginationoldAzmun <?php if ($i==1) echo "active" ?> "><?php echo $i?></li>
@@ -110,6 +110,11 @@ include '/header.php';
                         if ($i<max(1,$x)) {
                             ?>
                             <li>...</li>
+                            <?php
+                        }
+
+                        if ($i<=max(1,$x)) {
+                            ?>
                             <li id="<?php echo floor($x) ?>" class="paginationoldAzmun"><?php echo floor($x) ?></li>
 
                             <?php

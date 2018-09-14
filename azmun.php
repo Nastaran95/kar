@@ -65,6 +65,8 @@ if (isset($_GET['ID'])) {
         $dateAzmun = $row['dateAzmun'];
         $dateKart = $row['dateKart'];
         $dateNatayej = $row['dateNatayej'];
+        $dateNatayejNahayi = $row['dateNatayejNahayi'];
+        $dateMosahebe = $row['dateMosahebe'];
         $xmlAdress = $row['xmlAdress'];
         $xmlAdress = substr($xmlAdress,3);
         $type = $row['typ'];
@@ -123,12 +125,32 @@ if (isset($_GET['ID'])) {
         if(strlen($dateNatayej)>0) {
             ?>
             <div class="item">
-                <div id="bar_4" class="bar">زمان اعلام نتایج<span class="bar_arrow"/></div>
+                <div id="bar_4" class="bar">زمان اعلام نتایج اولیه<span class="bar_arrow"/></div>
                 <div class="bar_text hide">
                     <?php echo $dateNatayej; ?>
                 </div>
             </div>
             <?php
+        }
+        if(strlen($dateMosahebe)>0) {
+        ?>
+        <div class="item">
+            <div id="bar_5" class="bar">زمان مصاحبه<span class="bar_arrow"/></div>
+            <div class="bar_text hide">
+                <?php echo $dateMosahebe; ?>
+            </div>
+        </div>
+        <?php
+        }
+        if(strlen($dateNatayejNahayi)>0) {
+        ?>
+        <div class="item">
+            <div id="bar_6" class="bar">زمان اعلام نتایج نهایی<span class="bar_arrow"/></div>
+            <div class="bar_text hide">
+                <?php echo $dateNatayejNahayi; ?>
+            </div>
+        </div>
+        <?php
         }
         ?>
     </div>

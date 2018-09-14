@@ -181,12 +181,12 @@ if ($_SESSION['type']>8) {
 
         if ($product === "all") {
 //            echo "<script>window.alert('insert db');</script>";
-            $stmt  = $connection->prepare("INSERT INTO azmun (xmlAdress,title, dateAzmun, dateKart, dateNatayej,dateNatayejNahayi,dateMosahebe,englishName,typ, state, realtime , ostan)  VALUES (?,?,?,?,?,?,?,?,?,?)");
-            $stmt->bind_param("ssssssssss", $filename,$topic,$dateAzmun,$dateKart,$dateNatayej,$dateNatayejNahayi,$dateMosahebe,$englishtopic,$azmuntype,$state, $modified_time , $CITy);
+            $stmt  = $connection->prepare("INSERT INTO azmun (xmlAdress,title, dateAzmun, dateKart, dateNatayej,dateNatayejNahayi,dateMosahebe,englishName,typ, state, realtime , ostan)  VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
+            $stmt->bind_param("ssssssssssss", $filename,$topic,$dateAzmun,$dateKart,$dateNatayej,$dateNatayejNahayi,$dateMosahebe,$englishtopic,$azmuntype,$state, $modified_time , $CITy);
         } else {
 //            echo "<script>window.alert('update db');</script>";
             $stmt  = $connection->prepare("UPDATE azmun SET xmlAdress=?,title=?,dateAzmun=?, dateKart=?,dateNatayej=?,dateNatayejNahayi=?,dateMosahebe=?,englishName=?,typ=?,state=?,realtime=?,ostan=? WHERE ID='$product'");
-            $stmt->bind_param("ssssssssss", $filename,$topic,$dateAzmun,$dateKart,$dateNatayej,$dateNatayejNahayi,$dateMosahebe,$englishtopic,$azmuntype,$state,$modified_time,$CITy);
+            $stmt->bind_param("ssssssssssss", $filename,$topic,$dateAzmun,$dateKart,$dateNatayej,$dateNatayejNahayi,$dateMosahebe,$englishtopic,$azmuntype,$state,$modified_time,$CITy);
         }
         $result = $stmt->execute(); //execute() tries to fetch a result set. Returns true on succes, false on failure.
         $stmt->store_result();
