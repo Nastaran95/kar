@@ -1,19 +1,24 @@
 # create DATABASE karasa;
 use karasa;
-DROP TABLE azmun;
+drop table azmun;
 CREATE TABLE azmun (
   ID int NOT NULL AUTO_INCREMENT,
-  title VARCHAR(1000) CHARACTER SET utf8 COLLATE utf8_general_ci,
+  title VARCHAR(1000)CHARACTER SET utf8 COLLATE utf8_general_ci,
   typ int,
   ostan VARCHAR(300),
   state int,
   dateAzmun VARCHAR(300),
   dateKart VARCHAR(300),
   dateNatayej VARCHAR(300),
+  dateNatayejNahayi VARCHAR(300) ,
+  dateMosahebe VARCHAR(300) ,
   englishName VARCHAR(300),
   xmlAdress VARCHAR(300),
   realtime VARCHAR(200),
-  PRIMARY KEY (ID)) DEFAULT CHARSET=utf8;
+  PRIMARY KEY (ID)
+)  DEFAULT CHARSET=utf8;
+
+
 
 DROP TABLE news;
 CREATE TABLE news (

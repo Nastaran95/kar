@@ -116,6 +116,12 @@ if ($_SESSION['type']>8) {
         if(isset($_POST['dateNatayej'])){
             $dateNatayej = $_POST['dateNatayej'];
         }
+        if(isset($_POST['dateNatayejNahayi'])){
+            $dateNatayejNahayi = $_POST['dateNatayejNahayi'];
+        }
+        if(isset($_POST['dateMosahebe'])){
+            $dateMosahebe = $_POST['dateMosahebe'];
+        }
         if(isset($_POST['state'])){
             $state = (int)$_POST['state'];
         }
@@ -175,12 +181,12 @@ if ($_SESSION['type']>8) {
 
         if ($product === "all") {
 //            echo "<script>window.alert('insert db');</script>";
-            $stmt  = $connection->prepare("INSERT INTO azmun (xmlAdress,title, dateAzmun, dateKart, dateNatayej,englishName,typ, state, realtime , ostan)  VALUES (?,?,?,?,?,?,?,?,?,?)");
-            $stmt->bind_param("ssssssssss", $filename,$topic,$dateAzmun,$dateKart,$dateNatayej,$englishtopic,$azmuntype,$state, $modified_time , $CITy);
+            $stmt  = $connection->prepare("INSERT INTO azmun (xmlAdress,title, dateAzmun, dateKart, dateNatayej,dateNatayejNahayi,dateMosahebe,englishName,typ, state, realtime , ostan)  VALUES (?,?,?,?,?,?,?,?,?,?)");
+            $stmt->bind_param("ssssssssss", $filename,$topic,$dateAzmun,$dateKart,$dateNatayej,$dateNatayejNahayi,$dateMosahebe,$englishtopic,$azmuntype,$state, $modified_time , $CITy);
         } else {
 //            echo "<script>window.alert('update db');</script>";
-            $stmt  = $connection->prepare("UPDATE azmun SET xmlAdress=?,title=?,dateAzmun=?, dateKart=?,dateNatayej=?,englishName=?,typ=?,state=?,realtime=?,ostan=? WHERE ID='$product'");
-            $stmt->bind_param("ssssssssss", $filename,$topic,$dateAzmun,$dateKart,$dateNatayej,$englishtopic,$azmuntype,$state,$modified_time,$CITy);
+            $stmt  = $connection->prepare("UPDATE azmun SET xmlAdress=?,title=?,dateAzmun=?, dateKart=?,dateNatayej=?,dateNatayejNahayi=?,dateMosahebe=?,englishName=?,typ=?,state=?,realtime=?,ostan=? WHERE ID='$product'");
+            $stmt->bind_param("ssssssssss", $filename,$topic,$dateAzmun,$dateKart,$dateNatayej,$dateNatayejNahayi,$dateMosahebe,$englishtopic,$azmuntype,$state,$modified_time,$CITy);
         }
         $result = $stmt->execute(); //execute() tries to fetch a result set. Returns true on succes, false on failure.
         $stmt->store_result();
@@ -281,6 +287,8 @@ if ($_SESSION['type']>8) {
             $dateAzmun=$row['dateAzmun'];
             $dateKart=$row['dateKart'];
             $dateNatayej=$row['dateNatayej'];
+            $dateNatayejNahayi=$row['dateNatayejNahayi'];
+            $dateMosahebe=$row['dateMosahebe'];
             $typ = $row['typ'];
             $stat =$row['state'];
             $city = $row['ostan'];
@@ -338,8 +346,24 @@ if ($_SESSION['type']>8) {
                         <div class="block">
                             <div class="">
                                 <br/>
-                                <div class="">زمان اعلام نتایج</div>
+                                <div class="">زمان اعلام نتایج اولیه</div>
                                 <input id="tarikhNatayej" name="dateNatayej" type="text" class="width700" maxlength="300" class="inlineblock" value="<?php echo $dateNatayej; ?>"/>
+
+                            </div>
+                        </div>
+                        <div class="block">
+                            <div class="">
+                                <br/>
+                                <div class="">زمان مصاحبه</div>
+                                <input id="tarikhMosahebe" name="dateMosahebe" type="text" class="width700" maxlength="300" class="inlineblock" value="<?php echo $dateMosahebe; ?>"/>
+
+                            </div>
+                        </div>
+                        <div class="block">
+                            <div class="">
+                                <br/>
+                                <div class="">زمان اعلام نتایج نهایی</div>
+                                <input id="tarikhNatayejNahayi" name="dateNatayejNahayi" type="text" class="width700" maxlength="300" class="inlineblock" value="<?php echo $dateNatayejNahayi; ?>"/>
 
                             </div>
                         </div>
