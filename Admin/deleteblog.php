@@ -24,6 +24,10 @@ if (($_SESSION['type'] == 10) || ($_SESSION['type'] == 9)) {
             $query = "SELECT * FROM customers WHERE ID = $product";
         else if($type == 6)
             $query = "SELECT * FROM mosahebe WHERE ID = $product";
+        else if($type == 7)
+            $query = "SELECT * FROM karfarma_request WHERE ID = $product";
+        else if($type == 8)
+            $query = "SELECT * FROM karjoo_request WHERE ID = $product";
         $result = $connection->query($query);
         $row = $result->fetch_assoc();
         $name = $row['XMLNAME'];
@@ -40,6 +44,10 @@ if (($_SESSION['type'] == 10) || ($_SESSION['type'] == 9)) {
             $query = "DELETE FROM customers WHERE ID = $product";
         else if($type == 6)
             $query = "DELETE FROM mosahebe WHERE ID = $product";
+        else if($type == 7)
+            $query = "DELETE FROM karfarma_request WHERE ID = $product";
+        else if($type == 8)
+            $query = "DELETE FROM karjoo_request WHERE ID = $product";
         $result = $connection->query($query);
         if ($type == 1)
             echo '<META HTTP-EQUIV="Refresh" Content="0; URL=/admin/allblog.php?nocache='.generateRandomString(10).'">';
@@ -53,6 +61,10 @@ if (($_SESSION['type'] == 10) || ($_SESSION['type'] == 9)) {
             echo '<META HTTP-EQUIV="Refresh" Content="0; URL=/admin/allCustomer.php?nocache='.generateRandomString(10).'">';
         else if($type == 6)
             echo '<META HTTP-EQUIV="Refresh" Content="0; URL=/admin/allmosahebe.php?nocache='.generateRandomString(10).'">';
+        else if($type == 7)
+            echo '<META HTTP-EQUIV="Refresh" Content="0; URL=/admin/allKarfarmaRequest.php?nocache='.generateRandomString(10).'">';
+        else if($type == 8)
+            echo '<META HTTP-EQUIV="Refresh" Content="0; URL=/admin/allKarjooRequest.php?nocache='.generateRandomString(10).'">';
 
     }
 }else {
