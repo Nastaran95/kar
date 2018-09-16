@@ -59,7 +59,7 @@ include '/MainPageHeader.php';
         <div class="col-md-12">
 
             <?php
-            $query = "SELECT * FROM azmun WHERE typ='1' and state='1';";
+            $query = "SELECT * FROM azmun WHERE typ='1' and state='1'  ORDER by ID DESC ;";
             $result = $connection->query($query);
 
             while ($row=$result->fetch_assoc()) {
@@ -86,7 +86,7 @@ include '/MainPageHeader.php';
                     <?php
                     $page = 1;
                     $a = ($page - 1) * 5;
-                    $query = "SELECT * FROM news LIMIT $a , 5;";
+                    $query = "SELECT * FROM news ORDER by ID DESC LIMIT $a , 5;";
                     $result = $connection->query($query);
 
                     while ($row = $result->fetch_assoc()) {

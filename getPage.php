@@ -13,14 +13,14 @@ $typ = $_GET['typ'];
 if ($typ==1){
     if ($page==-1)
         $page = 1;
-    $query = "SELECT * FROM azmun WHERE (typ='2' and state='1')" ;
+    $query = "SELECT * FROM azmun WHERE (typ='2' and state='1')  ORDER by ID DESC " ;
     $result = $connection->query($query);
     $pagenum = $result->num_rows;
     if ($page==-2)
         $page = floor(($pagenum+4) / 5);
 
     $a = ($page-1)*5;
-    $query = "SELECT * FROM azmun WHERE (typ='2' and state='1') LIMIT $a , 5;";
+    $query = "SELECT * FROM azmun WHERE (typ='2' and state='1')  ORDER by ID DESC  LIMIT $a , 5;";
     $result = $connection->query($query);
 
     while ($row=$result->fetch_assoc()) {
@@ -76,14 +76,14 @@ if ($typ==1){
 else if($typ==2){
     if ($page==-1)
         $page = 1;
-    $query = "SELECT * FROM news " ;
+    $query = "SELECT * FROM news  ORDER by ID DESC " ;
     $result = $connection->query($query);
     $pagenum = $result->num_rows;
     if ($page==-2)
         $page = floor(($pagenum+4) / 5);
 
     $a = ($page-1)*5;
-    $query = "SELECT * FROM news LIMIT $a , 5;";
+    $query = "SELECT * FROM news  ORDER by ID DESC  LIMIT $a , 5;";
     $result = $connection->query($query);
 
     while ($row=$result->fetch_assoc()) {
@@ -95,7 +95,7 @@ else if($typ==2){
             <div class="col-md-11 col-xs-11">
                 <a class="navnavbarlink" href="<?php echo $link?>"> <?php echo $name?> </a>
                 <p></p>
-                <a class="navnavbarlink pull-left" href="<?php echo $link?>"> <?php echo $row['realtime']?> </a>
+                <a class="navnavbarlink pull-left" href="<?php echo $link?>">  ادامه خبر ... </a>
             </div>
         </div>
         <?php
@@ -137,14 +137,14 @@ else if($typ==2){
 else if($typ==3){
     if ($page==-1)
         $page = 1;
-    $query = "SELECT * FROM BLOG " ;
+    $query = "SELECT * FROM BLOG  ORDER by ID DESC " ;
     $result = $connection->query($query);
     $pagenum = $result->num_rows;
     if ($page==-2)
         $page = floor(($pagenum+4) / 5);
 
     $a = ($page-1)*5;
-    $query = "SELECT * FROM BLOG LIMIT $a , 5;";
+    $query = "SELECT * FROM BLOG  ORDER by ID DESC  LIMIT $a , 5;";
     $result = $connection->query($query);
 
 
@@ -205,14 +205,14 @@ else if($typ==3){
 else if($typ==4){
     if ($page==-1)
         $page = 1;
-    $query = "SELECT * FROM mosahebe " ;
+    $query = "SELECT * FROM mosahebe  ORDER by ID DESC " ;
     $result = $connection->query($query);
     $pagenum = $result->num_rows;
     if ($page==-2)
         $page = floor(($pagenum+4) / 5);
 
     $a = ($page-1)*5;
-    $query = "SELECT * FROM mosahebe LIMIT $a , 5;";
+    $query = "SELECT * FROM mosahebe  ORDER by ID DESC  LIMIT $a , 5;";
     $result = $connection->query($query);
 
 
@@ -313,14 +313,14 @@ else if($typ==4){
 else if($typ==5){
     if ($page==-1)
         $page = 1;
-    $query = "SELECT * FROM BOOK " ;
+    $query = "SELECT * FROM BOOK  ORDER by ID DESC " ;
     $result = $connection->query($query);
     $pagenum = $result->num_rows;
     if ($page==-2)
         $page = floor(($pagenum+4) / 5);
 
     $a = ($page-1)*5;
-    $query = "SELECT * FROM BOOK LIMIT $a , 5;";
+    $query = "SELECT * FROM BOOK  ORDER by ID DESC LIMIT $a , 5;";
     $result = $connection->query($query);
 
 

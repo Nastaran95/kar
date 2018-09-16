@@ -60,7 +60,7 @@ if ($_SESSION['type']>8) {
     if ($product == "namovafagh"){
         $product = "all";
     }
-    if ((isset($_POST['editor1'])) && (isset($_POST['topic'])) && (strlen($_POST['editor1']) > 0) && (strlen($_POST['topic']) > 0)) {
+    if ((isset($_POST['editor1'])) && (isset($_POST['topic'])) && (isset($_POST['englishtopic'])) && (strlen($_POST['editor1']) > 0) && (strlen($_POST['topic']) > 0) && (strlen($_POST['englishtopic']) > 0)) {
         $writer = new XMLWriter();
         if ($product === "all") {
             $name = (string)uniqid().uniqid();
@@ -117,7 +117,7 @@ if ($_SESSION['type']>8) {
 
         date_default_timezone_set("Iran");
         $DATE = date('Y-m-d H:i:s');
-        list($DATE, $time) = explode(" ", $DATE);
+//        list($DATE, $time) = explode(" ", $DATE);
 
 
         if ($product === "all") {

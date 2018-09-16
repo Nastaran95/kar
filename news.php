@@ -68,7 +68,7 @@ include '/header.php';
                 <?php
                 $page = 1;
                 $a = ($page-1)*5;
-                $query = "SELECT * FROM news LIMIT $a , 5;";
+                $query = "SELECT * FROM news  ORDER by ID DESC LIMIT $a , 5;";
                 $result = $connection->query($query);
 
                 while ($row=$result->fetch_assoc()) {
@@ -82,12 +82,12 @@ include '/header.php';
                         <div class="col-md-11 col-xs-11">
                             <a class="navnavbarlink" href="<?php echo $link?>"> <?php echo $name?> </a>
                             <p></p>
-                            <a class="navnavbarlink pull-left" href="<?php echo $link?>"> <?php echo $row['realtime']?></a>
+                            <a class="navnavbarlink pull-left" href="<?php echo $link?>">  ادامه خبر ...</a>
                         </div>
                     </div>
                     <?php
                 }
-                $query = "SELECT * FROM news" ;
+                $query = "SELECT * FROM news  ORDER by ID DESC " ;
                 $result = $connection->query($query);
                 $pagenum = $result->num_rows;
                 ?>

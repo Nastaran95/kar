@@ -64,7 +64,7 @@ include '/header.php';
 
 
             <?php
-            $query = "SELECT * FROM azmun WHERE (typ='2' and state='1')" ;
+            $query = "SELECT * FROM azmun WHERE (typ='2' and state='1')  ORDER by ID DESC " ;
             $result = $connection->query($query);
             $pagenum = $result->num_rows;
             if ($pagenum>0){
@@ -74,7 +74,7 @@ include '/header.php';
                 <?php
                 $page = 1;
                 $a = ($page-1)*5;
-                $query = "SELECT * FROM azmun WHERE (typ='2' and state='1') LIMIT $a , 5;";
+                $query = "SELECT * FROM azmun WHERE (typ='2' and state='1')  ORDER by ID DESC LIMIT $a , 5;";
                 $result = $connection->query($query);
 
                 while ($row=$result->fetch_assoc()) {
