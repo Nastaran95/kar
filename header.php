@@ -8,13 +8,13 @@
 ?>
 <div class="header col-lg-12 col-md-12 headerfix hidden-xs hidden-sm ">
     <div class="fixed">
-        <a href="/index.php"><div class="karasa dark light_text">
+        <a href="/"><div class="karasa dark light_text">
             <h1 class="title">کاراسا</h1>
             <h2>پل ارتباطی بین کارجو و کارفرما</h2>
             </div></a>
         <div class="menu">
             <ul class="dark_text">
-                <li><a href="/index.php" >صفحه نخست</a></li>
+                <li><a href="/" >صفحه نخست</a></li>
                 <li><a href="/PassedAzmoon.php" >آزمون های گذشته</a></li>
                 <li><a href="/news.php" >اخبار ویژه</a></li>
                 <li><a href="/Customers.php" >مشتریان</a></li>
@@ -43,11 +43,11 @@
                     <h1>کاراسا</h1>
                     <h4>پل ارتباطی بین کارجو و کارفرما</h4>
                 </div>
-                <a href="/index.php"><img src="/images/logo.png"></a>
+                <a href="/"><img src="/images/logo.png"></a>
             </div>
 
             <ul class="dark_text">
-                <a href="/index.php" ><li>صفحه نخست</li></a>
+                <a href="/" ><li>صفحه نخست</li></a>
                 <a href="/PassedAzmoon.php" ><li>آزمون های گذشته</li></a>
                 <a href="/news.php" ><li>اخبار ویژه</li></a>
                 <a href="/Customers.php" ><li>مشتریان</li></a>
