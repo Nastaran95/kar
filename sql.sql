@@ -37,7 +37,7 @@ CREATE TABLE customers (
   englishName VARCHAR(300),
   xmlAdress VARCHAR(300),
   image VARCHAR(1000),
-  Mokhtasar VARCHAR(1000) CHARACTER SET utf8 COLLATE utf8_general_ci,
+  Mokhtasar VARCHAR(3000) CHARACTER SET utf8 COLLATE utf8_general_ci,
   realtime VARCHAR(200),
   PRIMARY KEY (ID)) DEFAULT CHARSET=utf8;
 

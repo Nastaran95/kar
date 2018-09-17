@@ -69,6 +69,7 @@ include "/header.php";
             $xmlAdress = substr($xmlAdress,3);
             $customerLogo = $row['image'];
             $customerLogo = substr($customerLogo,2);
+            $mokh  = $row['Mokhtasar'];
 
 //            if (file_exists($xmlAdress)) {
 //                $XMLFile = simplexml_load_file($xmlAdress);
@@ -95,10 +96,10 @@ include "/header.php";
                     <h2 class="h5size customera"><?php echo $name ?></h2>
                 </div>
                 <div class="customer_info customera">
-                    <div class="customer_logo">
+<!--                    <div class="customer_logo">-->
                         <img class="customer_logo_img" src="<?php echo $customerLogo ?>"/>
-                    </div>
-                    <p class="customer_description"><?php echo $customerDescription ?></p>
+<!--                    </div>-->
+                    <p class="customer_description"><?php echo $mokh ?></p>
                 </div>
                 </a>
             </div>

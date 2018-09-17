@@ -382,9 +382,9 @@ if ($_SESSION['type']>8) {
                             <div class="">
                                 <div class="">توضیح مختصر: (حداکثر 150 کاراکتر)</div>
                                 <br/>
-                                <textarea id="MOkhtasar" class="form-control width700" rows="2" name="MOkhtasar" maxlength="153"
+                                <textarea id="MOkhtasar" class="form-control width700" rows="10" name="MOkhtasar"
                                           placeholder="توضیح مختصر"
-                                          class="inlineblock" onkeyup="countChar(this)"><?php echo $Mokhtasar; ?></textarea>
+                                          class="inlineblock" maxlength="1000"><?php echo $Mokhtasar; ?></textarea>
                                 <div id="charNum"></div>
                             </div>
                         </div>

@@ -13,11 +13,33 @@ if (file_exists($productXMLNAME)) {
     $XMLFile = simplexml_load_file($productXMLNAME);
     $SEOdescription=$XMLFile->description;
     $SEOKEYWORDS=$XMLFile->kewords;
-    $SEOTITLE=$XMLFile->seotitle;
 }else{
     $SEOdescription="";
     $SEOKEYWORDS="";
-    $SEOTITLE="";
+}
+
+if (isset($_GET['ID'])) {
+    $ID = $_GET['ID'];
+    $query = "SELECT * FROM news WHERE englishName='$ID';";
+    $result = $connection->query($query);
+//    echo $connection->error;
+    if ($row = $result->fetch_assoc()) {
+        $name = $row['title'];
+        $date = $row['realtime'];
+        $xmlAdress = $row['xmlAdress'];
+        $xmlAdress = substr($xmlAdress,3);
+        if (file_exists($xmlAdress)) {
+            $XMLFile = simplexml_load_file($xmlAdress);
+            $azmunDescription=$XMLFile->data;
+        }else{
+            $azmunDescription="";
+        }
+        $SEOTITLE= $row['title'];
+    } else{
+
+    }
+}else {
+    header('Location:/');
 }
 ?>
 
@@ -54,29 +76,6 @@ if (file_exists($productXMLNAME)) {
 <body>
 <?php
 include '/Header.php';
-if (isset($_GET['ID'])) {
-    $ID = $_GET['ID'];
-    $query = "SELECT * FROM news WHERE englishName='$ID';";
-    $result = $connection->query($query);
-//    echo $connection->error;
-    if ($row = $result->fetch_assoc()) {
-        $name = $row['title'];
-        $date = $row['realtime'];
-        $xmlAdress = $row['xmlAdress'];
-        $xmlAdress = substr($xmlAdress,3);
-        if (file_exists($xmlAdress)) {
-            $XMLFile = simplexml_load_file($xmlAdress);
-            $azmunDescription=$XMLFile->data;
-        }else{
-            $azmunDescription="";
-        }
-    } else{
-
-    }
-}else {
-    header('Location:/');
-}
-
 ?>
 
 <div class ="container grayColor main">

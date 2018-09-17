@@ -15,11 +15,31 @@ if (file_exists($productXMLNAME)) {
     $XMLFile = simplexml_load_file($productXMLNAME);
     $SEOdescription=$XMLFile->description;
     $SEOKEYWORDS=$XMLFile->kewords;
-    $SEOTITLE=$XMLFile->seotitle;
 }else{
     $SEOdescription="";
     $SEOKEYWORDS="";
-    $SEOTITLE="";
+}
+if (isset($_GET['ID'])) {
+    $ID = $_GET['ID'];
+    $query = "SELECT * FROM customers WHERE englishName='$ID';";
+    $result = $connection->query($query);
+    if ($row = $result->fetch_assoc()) {
+        $name = $row['title'];
+        $mokhtasar = $row['Mokhtasar'];
+        $xmlAdress = $row['xmlAdress'];
+        $xmlAdress = substr($xmlAdress,3);
+        $image = $row['image'];
+        $image = substr($image,2);
+        if (file_exists($xmlAdress)) {
+            $XMLFile = simplexml_load_file($xmlAdress);
+            $blogDescription=$XMLFile->data;
+        }else{
+            $blogDescription="";
+        }
+        $SEOTITLE=$row['title'];
+    }
+}else {
+    header('Location:/');
 }
 ?>
 
@@ -57,27 +77,6 @@ if (file_exists($productXMLNAME)) {
 <body>
 <?php
 include '/Header.php';
-if (isset($_GET['ID'])) {
-    $ID = $_GET['ID'];
-    $query = "SELECT * FROM customers WHERE englishName='$ID';";
-    $result = $connection->query($query);
-    if ($row = $result->fetch_assoc()) {
-        $name = $row['title'];
-        $mokhtasar = $row['Mokhtasar'];
-        $xmlAdress = $row['xmlAdress'];
-        $xmlAdress = substr($xmlAdress,3);
-        $image = $row['image'];
-        $image = substr($image,2);
-        if (file_exists($xmlAdress)) {
-            $XMLFile = simplexml_load_file($xmlAdress);
-            $blogDescription=$XMLFile->data;
-        }else{
-            $blogDescription="";
-        }
-    }
-}else {
-    header('Location:/');
-}
 
 ?>
 
