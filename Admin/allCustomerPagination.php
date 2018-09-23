@@ -154,26 +154,26 @@ if(isset($_GET) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERV
             echo  "                     <td>
                                         <input type=\"checkbox\"/>
                                     </td>
-                                    <td>
+                                    <td style=\"width: 20%;\">
                                         <div class=\"info\">
                                             <a target='_blank' href='/customer/".$row['englishName']."' class=\"user-link\">".$row['title']."</a>
                                         </div>
                                     </td>";
 
             echo "   
-                                    <td>                                                                                                               
+                                    <td style=\"width: 40%;\">                                                                                                               
                                         <span>".$row['Mokhtasar']."</span>
                                     </td>";
-            echo "<td dir='ltr'>                                                                                                               
+            echo "<td dir='ltr' style=\"width: 10%;\">                                                                                                               
                                         <span>".$row['realtime']."</span>
                                     </td>";
             echo "   
-                                    <td dir='ltr'>                                                                                                               
+                                    <td dir='ltr' style=\"width: 10%;\">                                                                                                               
                                         <span>/customer/".$row['englishName']."</span>
                                     </td>";
         }
         echo "                                                                      
-                                    <td style=\"width: 20%;\">
+                                    <td style=\"width: 10%;\">
                                         <a  target='_blank' href='addCustomer.php?type=$type&product=".$row['ID']."' class=\"table-link\">
                                             <span class=\"fa-stack\">
                                                 <i class=\"fa fa-square fa-stack-2x\"></i>
