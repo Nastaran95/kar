@@ -77,7 +77,7 @@ if (isset($_GET['ID'])) {
             $blogDescription="";
         }
     } else{
-
+        header('Location:/');
     }
 }else {
     header('Location:/');

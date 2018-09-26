@@ -37,12 +37,18 @@ if (isset($_GET['ID'])) {
         if (file_exists($xmlAdress)) {
             $XMLFile = simplexml_load_file($xmlAdress);
             $azmunDescription=$XMLFile->data;
+            $azmunDescription2=$XMLFile->data2;
+            $azmunDescription3=$XMLFile->data3;
+            $azmunDescription4=$XMLFile->data4;
         }else{
             $azmunDescription="";
+            $azmunDescription2="";
+            $azmunDescription3="";
+            $azmunDescription4="";
         }
         $SEOTITLE=$row['title'];
     } else{
-
+        header('Location:/');
     }
 }else {
     header('Location:/');
@@ -104,12 +110,12 @@ include '/Header.php';
             </div>
         </div>
         <?php
-        if(strlen($dateKart)>0) {
+        if(strlen($azmunDescription2)>0) {
             ?>
             <div class="item">
                 <div id="bar_2" class="bar">زمان دریافت کارت<span class="bar_arrow"/></div>
                 <div class="bar_text hide">
-                    <?php echo $dateKart; ?>
+                    <?php echo $azmunDescription2; ?>
                 </div>
             </div>
             <?php
@@ -125,12 +131,12 @@ include '/Header.php';
             <?php
         }
 
-        if(strlen($dateNatayej)>0) {
+        if(strlen($azmunDescription3)>0) {
             ?>
             <div class="item">
                 <div id="bar_4" class="bar">زمان اعلام نتایج اولیه<span class="bar_arrow"/></div>
                 <div class="bar_text hide">
-                    <?php echo $dateNatayej; ?>
+                    <?php echo $azmunDescription3; ?>
                 </div>
             </div>
             <?php
@@ -145,12 +151,12 @@ include '/Header.php';
         </div>
         <?php
         }
-        if(strlen($dateNatayejNahayi)>0) {
+        if(strlen($azmunDescription4)>0) {
         ?>
         <div class="item">
             <div id="bar_6" class="bar">زمان اعلام نتایج نهایی<span class="bar_arrow"/></div>
             <div class="bar_text hide">
-                <?php echo $dateNatayejNahayi; ?>
+                <?php echo $azmunDescription4; ?>
             </div>
         </div>
         <?php

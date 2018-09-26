@@ -11,17 +11,12 @@ $(document).ready(function() {
             $("#editor4").val($('#edit4').froalaEditor('html.get'));
         }
     });
-    $(".btn-successmainpage").click(function () {
+    $(".btn-successaddazmun").click(function () {
         if (confirm('آیا از انجام این کار مطمئین هستید؟')) {
-            $("#editor1").val($('#edit1').froalaEditor('html.get'));
-            $("#editor2").val($('#edit2').froalaEditor('html.get'));
-            $("#editor3").val($('#edit3').froalaEditor('html.get'));
-            $("#editor4").val($('#edit4').froalaEditor('html.get'));
-            $("#editor5").val($('#edit5').froalaEditor('html.get'));
-            $("#editor6").val($('#edit6').froalaEditor('html.get'));
-            $("#editor7").val($('#edit7').froalaEditor('html.get'));
-            $("#editor8").val($('#edit8').froalaEditor('html.get'));
-            $("#editor9").val($('#edit9').froalaEditor('html.get'));
+            $("#editor122").val($('#edit').froalaEditor('html.get'));
+            $("#editor1222").val($('#edit2').froalaEditor('html.get'));
+            $("#editor1223").val($('#edit3').froalaEditor('html.get'));
+            $("#editor1224").val($('#edit4').froalaEditor('html.get'));
         }
     });
     var feedbackseodesc = parseInt($('#seodesc').attr('maxlength'));

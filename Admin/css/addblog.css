@@ -2,6 +2,10 @@ div#editor {
     width: 81%;
     margin: 30px;
 }
+div#editor2,div#editor3,div#editor4 {
+    width: 81%;
+    margin: 30px;
+}
 .width700{
     width: 500px;
 }
@@ -89,4 +93,8 @@ input{
 
 .fr-toolbar{
     margin-top: 40px;
+}
+
+.btn-successaddazmun{
+    background: lightseagreen;
 }

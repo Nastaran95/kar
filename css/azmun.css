@@ -19,6 +19,10 @@
     font-size: 80px;
 }
 
+.bar_text{
+    font-family: "B Nazanin";
+}
+
 
 
 @media (max-width: 768px) {

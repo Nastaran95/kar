@@ -105,7 +105,13 @@ if ($_SESSION['type']>8) {
         $uploadOk = 0;
         $URL = "";
         $writer->writeElement('data', $_POST['editor1']);
+        $writer->writeElement('data2', $_POST['editor2']);
+        $writer->writeElement('data3', $_POST['editor3']);
+        $writer->writeElement('data4', $_POST['editor4']);
         $datashould=$_POST['editor1'];
+        $datashould2=$_POST['editor2'];
+        $datashould3=$_POST['editor3'];
+        $datashould4=$_POST['editor4'];
 
         if(isset($_POST['dateAzmun'])){
             $dateAzmun = $_POST['dateAzmun'];
@@ -205,7 +211,17 @@ if ($_SESSION['type']>8) {
             if (isset($_POST['editor1'])){
                 $datashould=$_POST['editor1'];
             }
+            if (isset($_POST['editor2'])){
+                $datashould2=$_POST['editor2'];
+            }
 
+            if (isset($_POST['editor3'])){
+                $datashould3=$_POST['editor3'];
+            }
+
+            if (isset($_POST['editor4'])){
+                $datashould4=$_POST['editor4'];
+            }
             if (isset($_POST['seodesc'])){
                 $description=$_POST['seodesc'];
             }
@@ -228,6 +244,15 @@ if ($_SESSION['type']>8) {
         }
         if (isset($_POST['editor1'])){
             $datashould=$_POST['editor1'];
+        }
+        if (isset($_POST['editor2'])){
+            $datashould2=$_POST['editor2'];
+        }
+        if (isset($_POST['editor3'])){
+            $datashould3=$_POST['editor3'];
+        }
+        if (isset($_POST['editor4'])){
+            $datashould4=$_POST['editor4'];
         }
 
         if (isset($_POST['seodesc'])){
@@ -279,6 +304,9 @@ if ($_SESSION['type']>8) {
                 $name = $produc->code;
                 $titleshould = $produc->name;
                 $datashould = $produc->data;
+                $datashould2 = $produc->data2;
+                $datashould3 = $produc->data3;
+                $datashould4 = $produc->data4;
                 $description = $produc->description;
                 $kewords = $produc->kewords;
                 $titleseo = $produc->seotitle;
@@ -295,6 +323,9 @@ if ($_SESSION['type']>8) {
         } else {
 //            echo "<script>window.alert('set3');</script>";
             $datashould = "";
+            $datashould2 = "";
+            $datashould3 = "";
+            $datashould4 = "";
             $titleshould = "";
             $description = "";
             $kewords = "";
@@ -339,16 +370,24 @@ if ($_SESSION['type']>8) {
                             <div class="">
                                 <br/>
                                 <div class="">زمان دریافت کارت</div>
-                                <input id="tarikhKart" name="dateKart" type="text" class="width700" maxlength="300" class="inlineblock" value="<?php echo $dateKart; ?>"/>
-
+<!--                                <input id="tarikhKart" name="dateKart" type="text" class="width700" maxlength="300" class="inlineblock" value="--><?php //echo $dateKart; ?><!--"/>-->
+                                <div id="editor2">
+                                    <div id='edit2' style="margin-top: 30px;"><?php echo $datashould2; ?></div>
+                                </div>
+                                <input name="editor2" id="editor1222" class="form-control input-lg ckeditor hidden" hidden
+                                       type="text" value="" placeholder="آزمون"/>
                             </div>
                         </div>
                         <div class="block">
                             <div class="">
                                 <br/>
                                 <div class="">زمان اعلام نتایج اولیه</div>
-                                <input id="tarikhNatayej" name="dateNatayej" type="text" class="width700" maxlength="300" class="inlineblock" value="<?php echo $dateNatayej; ?>"/>
-
+<!--                                <input id="tarikhNatayej" name="dateNatayej" type="text" class="width700" maxlength="300" class="inlineblock" value="--><?php //echo $dateNatayej; ?><!--"/>-->
+                                <div id="editor3">
+                                    <div id='edit3' style="margin-top: 30px;"><?php echo $datashould3; ?></div>
+                                </div>
+                                <input name="editor3" id="editor1223" class="form-control input-lg ckeditor hidden" hidden
+                                       type="text" value="" placeholder="آزمون"/>
                             </div>
                         </div>
                         <div class="block">
@@ -363,8 +402,12 @@ if ($_SESSION['type']>8) {
                             <div class="">
                                 <br/>
                                 <div class="">زمان اعلام نتایج نهایی</div>
-                                <input id="tarikhNatayejNahayi" name="dateNatayejNahayi" type="text" class="width700" maxlength="300" class="inlineblock" value="<?php echo $dateNatayejNahayi; ?>"/>
-
+<!--                                <input id="tarikhNatayejNahayi" name="dateNatayejNahayi" type="text" class="width700" maxlength="300" class="inlineblock" value="--><?php //echo $dateNatayejNahayi; ?><!--"/>-->
+                                <div id="editor4">
+                                    <div id='edit4' style="margin-top: 30px;"><?php echo $datashould4; ?></div>
+                                </div>
+                                <input name="editor4" id="editor1224" class="form-control input-lg ckeditor hidden" hidden
+                                       type="text" value="" placeholder="آزمون"/>
                             </div>
                         </div>
                         <div class="block">
@@ -456,7 +499,7 @@ if ($_SESSION['type']>8) {
                 </div>
                 <div class="col-md-12 col-xs-12">
                     <input type="text" class="editor122" value="<?php echo $type ?>">
-                    <input type="submit" value="ثبت" class="btn btn-success"/>
+                    <input type="submit" value="ثبت" class="btn btn-successaddazmun"/>
                     <input type="button" name="cancel" value="لغو" class="btn btn-danger"
                            onClick="window.location='<?php echo $URL2; ?>';"/>
                     <span id="showerror"></span>
@@ -639,6 +682,453 @@ if ($_SESSION['type']>8) {
             linkAutoPrefix: '/'
         });
         $('#edit1').froalaEditor({
+            imageDefaultAlign: 'center'
+        });
+    </script>
+    <script>
+        $(function () {
+            $('#edit2').froalaEditor({
+                // Define new image styles.
+                // Set the image upload parameter.
+                imageUploadParam: 'image',
+
+                // Set the image upload URL.
+                imageUploadURL: '../images/froala/takefile.php',
+
+                // Additional upload params.
+//                imageUploadParams: {id: 'my_editor'},
+
+                // Set request type.
+                imageUploadMethod: 'POST',
+
+                // Set max image size to 5MB.
+                imageMaxSize: 5 * 1024 * 1024,
+
+                // Allow to upload PNG and JPG.
+                imageAllowedTypes: ['jpeg', 'jpg', 'png'],
+
+                imageStyles: {
+                    class1: 'Class 1',
+                    class2: 'Class 2'
+                },
+                // Set the video upload parameter.
+                videoUploadParam: 'image',
+
+                // Set the video upload URL.
+                videoUploadURL: '../images/froala/takeVideoFile.php',
+
+                // Additional upload params.
+                videoUploadParams: {id: 'my_editor'},
+
+                // Set request type.
+                videoUploadMethod: 'POST',
+
+                // Set max video size to 50MB.
+                videoMaxSize: 50 * 1024 * 1024,
+
+                // Set the file upload parameter.
+                fileUploadParam: 'image',
+
+                // Set the file upload URL.
+                fileUploadURL: '../images/froala/takeVideoFile.php',
+
+                // Additional upload params.
+                fileUploadParams: {id: 'my_editor'},
+
+                // Set request type.
+                fileUploadMethod: 'POST',
+
+                // Set max file size to 20MB.
+                fileMaxSize: 20 * 1024 * 1024,
+
+                // Allow to upload any file.
+                fileAllowedTypes: ['*']
+            })
+                .on('froalaEditor.image.beforeUpload', function (e, editor, images) {
+//            alert("berfor upload");
+                })
+                .on('froalaEditor.image.uploaded', function (e, editor, response) {
+                    // Image was uploaded to the server.
+//            alert(response);
+                })
+                .on('froalaEditor.image.inserted', function (e, editor, $img, response) {
+                    // Image was inserted in the editor.
+//            alert("inserted");
+                })
+                .on('froalaEditor.image.replaced', function (e, editor, $img, response) {
+                    // Image was replaced in the editor.
+//            alert("replaced");
+                })
+                .on('froalaEditor.image.error', function (e, editor, error, response) {
+                    // Bad link.
+                    alert(error.code);
+//            if (error.code == 1) { }
+//
+//            // No link in upload response.
+//            else if (error.code == 2) { }
+//
+//            // Error during image upload.
+//            else if (error.code == 3) {  }
+//
+//            // Parsing response failed.
+//            else if (error.code == 4) {  }
+//
+//            // Image too text-large.
+//            else if (error.code == 5) {  }
+//
+//            // Invalid image type.
+//            else if (error.code == 6) {  }
+//
+//            // Image can be uploaded only to same domain in IE 8 and IE 9.
+//            else if (error.code == 7) {  }
+
+                    // Response contains the original server response to the request if available.
+                }).on('froalaEditor.video.beforeUpload', function (e, editor, videos) {
+                // Return false if you want to stop the video upload.
+//            alert("berfor upload");
+            })
+                .on('froalaEditor.video.uploaded', function (e, editor, response) {
+                    // Video was uploaded to the server.
+//            alert(response);
+                })
+                .on('froalaEditor.video.inserted', function (e, editor, $img, response) {
+                    // Video was inserted in the editor.
+//            alert("inserted");
+                })
+                .on('froalaEditor.video.replaced', function (e, editor, $img, response) {
+                    // Video was replaced in the editor.
+//            alert("replaced");
+                })
+                .on('froalaEditor.video.error', function (e, editor, error, response) {
+                    // Bad link.
+//            alert(error.code);
+//            if (error.code == 1) { }
+//
+//            // No link in upload response.
+//            else if (error.code == 2) { }
+//
+//            // Error during video upload.
+//            else if (error.code == 3) { }
+//
+//            // Parsing response failed.
+//            else if (error.code == 4) { }
+//
+//            // Video too text-large.
+//            else if (error.code == 5) { }
+//
+//            // Invalid video type.
+//            else if (error.code == 6) { }
+//
+//            // Video can be uploaded only to same domain in IE 8 and IE 9.
+//            else if (error.code == 7) { }
+
+                    // Response contains the original server response to the request if available.
+                });
+
+
+        });
+        $('#edit2').froalaEditor({
+            linkAutoPrefix: '/'
+        });
+        $('#edit2').froalaEditor({
+            imageDefaultAlign: 'center'
+        });
+    </script>
+    <script>
+        $(function () {
+            $('#edit3').froalaEditor({
+                // Define new image styles.
+                // Set the image upload parameter.
+                imageUploadParam: 'image',
+
+                // Set the image upload URL.
+                imageUploadURL: '../images/froala/takefile.php',
+
+                // Additional upload params.
+//                imageUploadParams: {id: 'my_editor'},
+
+                // Set request type.
+                imageUploadMethod: 'POST',
+
+                // Set max image size to 5MB.
+                imageMaxSize: 5 * 1024 * 1024,
+
+                // Allow to upload PNG and JPG.
+                imageAllowedTypes: ['jpeg', 'jpg', 'png'],
+
+                imageStyles: {
+                    class1: 'Class 1',
+                    class2: 'Class 2'
+                },
+                // Set the video upload parameter.
+                videoUploadParam: 'image',
+
+                // Set the video upload URL.
+                videoUploadURL: '../images/froala/takeVideoFile.php',
+
+                // Additional upload params.
+                videoUploadParams: {id: 'my_editor'},
+
+                // Set request type.
+                videoUploadMethod: 'POST',
+
+                // Set max video size to 50MB.
+                videoMaxSize: 50 * 1024 * 1024,
+
+                // Set the file upload parameter.
+                fileUploadParam: 'image',
+
+                // Set the file upload URL.
+                fileUploadURL: '../images/froala/takeVideoFile.php',
+
+                // Additional upload params.
+                fileUploadParams: {id: 'my_editor'},
+
+                // Set request type.
+                fileUploadMethod: 'POST',
+
+                // Set max file size to 20MB.
+                fileMaxSize: 20 * 1024 * 1024,
+
+                // Allow to upload any file.
+                fileAllowedTypes: ['*']
+            })
+                .on('froalaEditor.image.beforeUpload', function (e, editor, images) {
+//            alert("berfor upload");
+                })
+                .on('froalaEditor.image.uploaded', function (e, editor, response) {
+                    // Image was uploaded to the server.
+//            alert(response);
+                })
+                .on('froalaEditor.image.inserted', function (e, editor, $img, response) {
+                    // Image was inserted in the editor.
+//            alert("inserted");
+                })
+                .on('froalaEditor.image.replaced', function (e, editor, $img, response) {
+                    // Image was replaced in the editor.
+//            alert("replaced");
+                })
+                .on('froalaEditor.image.error', function (e, editor, error, response) {
+                    // Bad link.
+                    alert(error.code);
+//            if (error.code == 1) { }
+//
+//            // No link in upload response.
+//            else if (error.code == 2) { }
+//
+//            // Error during image upload.
+//            else if (error.code == 3) {  }
+//
+//            // Parsing response failed.
+//            else if (error.code == 4) {  }
+//
+//            // Image too text-large.
+//            else if (error.code == 5) {  }
+//
+//            // Invalid image type.
+//            else if (error.code == 6) {  }
+//
+//            // Image can be uploaded only to same domain in IE 8 and IE 9.
+//            else if (error.code == 7) {  }
+
+                    // Response contains the original server response to the request if available.
+                }).on('froalaEditor.video.beforeUpload', function (e, editor, videos) {
+                // Return false if you want to stop the video upload.
+//            alert("berfor upload");
+            })
+                .on('froalaEditor.video.uploaded', function (e, editor, response) {
+                    // Video was uploaded to the server.
+//            alert(response);
+                })
+                .on('froalaEditor.video.inserted', function (e, editor, $img, response) {
+                    // Video was inserted in the editor.
+//            alert("inserted");
+                })
+                .on('froalaEditor.video.replaced', function (e, editor, $img, response) {
+                    // Video was replaced in the editor.
+//            alert("replaced");
+                })
+                .on('froalaEditor.video.error', function (e, editor, error, response) {
+                    // Bad link.
+//            alert(error.code);
+//            if (error.code == 1) { }
+//
+//            // No link in upload response.
+//            else if (error.code == 2) { }
+//
+//            // Error during video upload.
+//            else if (error.code == 3) { }
+//
+//            // Parsing response failed.
+//            else if (error.code == 4) { }
+//
+//            // Video too text-large.
+//            else if (error.code == 5) { }
+//
+//            // Invalid video type.
+//            else if (error.code == 6) { }
+//
+//            // Video can be uploaded only to same domain in IE 8 and IE 9.
+//            else if (error.code == 7) { }
+
+                    // Response contains the original server response to the request if available.
+                });
+
+
+        });
+        $('#edit3').froalaEditor({
+            linkAutoPrefix: '/'
+        });
+        $('#edit3').froalaEditor({
+            imageDefaultAlign: 'center'
+        });
+    </script>
+    <script>
+        $(function () {
+            $('#edit4').froalaEditor({
+                // Define new image styles.
+                // Set the image upload parameter.
+                imageUploadParam: 'image',
+
+                // Set the image upload URL.
+                imageUploadURL: '../images/froala/takefile.php',
+
+                // Additional upload params.
+//                imageUploadParams: {id: 'my_editor'},
+
+                // Set request type.
+                imageUploadMethod: 'POST',
+
+                // Set max image size to 5MB.
+                imageMaxSize: 5 * 1024 * 1024,
+
+                // Allow to upload PNG and JPG.
+                imageAllowedTypes: ['jpeg', 'jpg', 'png'],
+
+                imageStyles: {
+                    class1: 'Class 1',
+                    class2: 'Class 2'
+                },
+                // Set the video upload parameter.
+                videoUploadParam: 'image',
+
+                // Set the video upload URL.
+                videoUploadURL: '../images/froala/takeVideoFile.php',
+
+                // Additional upload params.
+                videoUploadParams: {id: 'my_editor'},
+
+                // Set request type.
+                videoUploadMethod: 'POST',
+
+                // Set max video size to 50MB.
+                videoMaxSize: 50 * 1024 * 1024,
+
+                // Set the file upload parameter.
+                fileUploadParam: 'image',
+
+                // Set the file upload URL.
+                fileUploadURL: '../images/froala/takeVideoFile.php',
+
+                // Additional upload params.
+                fileUploadParams: {id: 'my_editor'},
+
+                // Set request type.
+                fileUploadMethod: 'POST',
+
+                // Set max file size to 20MB.
+                fileMaxSize: 20 * 1024 * 1024,
+
+                // Allow to upload any file.
+                fileAllowedTypes: ['*']
+            })
+                .on('froalaEditor.image.beforeUpload', function (e, editor, images) {
+//            alert("berfor upload");
+                })
+                .on('froalaEditor.image.uploaded', function (e, editor, response) {
+                    // Image was uploaded to the server.
+//            alert(response);
+                })
+                .on('froalaEditor.image.inserted', function (e, editor, $img, response) {
+                    // Image was inserted in the editor.
+//            alert("inserted");
+                })
+                .on('froalaEditor.image.replaced', function (e, editor, $img, response) {
+                    // Image was replaced in the editor.
+//            alert("replaced");
+                })
+                .on('froalaEditor.image.error', function (e, editor, error, response) {
+                    // Bad link.
+                    alert(error.code);
+//            if (error.code == 1) { }
+//
+//            // No link in upload response.
+//            else if (error.code == 2) { }
+//
+//            // Error during image upload.
+//            else if (error.code == 3) {  }
+//
+//            // Parsing response failed.
+//            else if (error.code == 4) {  }
+//
+//            // Image too text-large.
+//            else if (error.code == 5) {  }
+//
+//            // Invalid image type.
+//            else if (error.code == 6) {  }
+//
+//            // Image can be uploaded only to same domain in IE 8 and IE 9.
+//            else if (error.code == 7) {  }
+
+                    // Response contains the original server response to the request if available.
+                }).on('froalaEditor.video.beforeUpload', function (e, editor, videos) {
+                // Return false if you want to stop the video upload.
+//            alert("berfor upload");
+            })
+                .on('froalaEditor.video.uploaded', function (e, editor, response) {
+                    // Video was uploaded to the server.
+//            alert(response);
+                })
+                .on('froalaEditor.video.inserted', function (e, editor, $img, response) {
+                    // Video was inserted in the editor.
+//            alert("inserted");
+                })
+                .on('froalaEditor.video.replaced', function (e, editor, $img, response) {
+                    // Video was replaced in the editor.
+//            alert("replaced");
+                })
+                .on('froalaEditor.video.error', function (e, editor, error, response) {
+                    // Bad link.
+//            alert(error.code);
+//            if (error.code == 1) { }
+//
+//            // No link in upload response.
+//            else if (error.code == 2) { }
+//
+//            // Error during video upload.
+//            else if (error.code == 3) { }
+//
+//            // Parsing response failed.
+//            else if (error.code == 4) { }
+//
+//            // Video too text-large.
+//            else if (error.code == 5) { }
+//
+//            // Invalid video type.
+//            else if (error.code == 6) { }
+//
+//            // Video can be uploaded only to same domain in IE 8 and IE 9.
+//            else if (error.code == 7) { }
+
+                    // Response contains the original server response to the request if available.
+                });
+
+
+        });
+        $('#edit4').froalaEditor({
+            linkAutoPrefix: '/'
+        });
+        $('#edit4').froalaEditor({
             imageDefaultAlign: 'center'
         });
     </script>

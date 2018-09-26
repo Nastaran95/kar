@@ -3431,7 +3431,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav > li > a {
   position: relative;
   display: block;
-  padding: 10px 15px;
+  padding: 5px 5px;
 }
 .nav > li > a:hover,
 .nav > li > a:focus {
@@ -3609,7 +3609,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar {
   position: relative;
-  min-height: 50px;
+  min-height: 30px;
   margin-bottom: 20px;
   border: 1px solid transparent;
 }
@@ -3706,10 +3706,10 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-brand {
   float: left;
-  padding: 15px 15px;
+  padding: 15px 5px;
   font-size: 18px;
-  line-height: 20px;
-  height: 50px;
+  line-height: 10px;
+  height: 30px;
 }
 .navbar-brand:hover,
 .navbar-brand:focus {
@@ -3756,7 +3756,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-nav > li > a {
   padding-top: 10px;
   padding-bottom: 10px;
-  line-height: 20px;
+  line-height: 10px
 }
 @media (max-width: 767px) {
   .navbar-nav .open .dropdown-menu {
@@ -3789,7 +3789,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     float: left;
   }
   .navbar-nav > li > a {
-    padding-top: 15px;
+    padding-top: 5px;
     padding-bottom: 15px;
   }
   .navbar-nav.navbar-right:last-child {
@@ -5914,7 +5914,7 @@ table.tablesorter thead tr th:hover {
 	right: 0px;
 	width: 225px;
 	position: fixed;
-	top: 50px;
+	top: 30px;
 	height: 95%;
 	border-radius: 0;
 	border: none;
@@ -6237,7 +6237,7 @@ table.tablesorter thead tr th:hover {
                 }
         }
 .navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse{
-  max-height: 110px !important;
+  max-height: 30px !important;
 }
 
 body {
