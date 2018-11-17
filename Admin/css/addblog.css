@@ -1,10 +1,12 @@
 div#editor {
-    width: 81%;
-    margin: 30px;
-}
+     width: 81%;
+     margin: 30px;
+    font-family: "B Nazanin";
+ }
 div#editor2,div#editor3,div#editor4 {
     width: 81%;
     margin: 30px;
+    font-family: "B Nazanin";
 }
 .width700{
     width: 500px;
@@ -20,6 +22,7 @@ div#editor2,div#editor3,div#editor4 {
 
 #editor122{
     visibility: hidden;
+    font-family: "B Nazanin";
 }
 
 .inlineblock{

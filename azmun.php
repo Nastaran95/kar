@@ -102,30 +102,41 @@ include '/Header.php';
     </h2>
     <div class="subj"><hr></div>
 
+
+    <?php
+    $num = 1;
+    if(strlen($azmunDescription4)>0)
+        $num = 6;
+    elseif (strlen($dateMosahebe)>0)
+        $num = 5;
+    elseif (strlen($azmunDescription3)>0)
+        $num = 4;
+    elseif (strlen($dateAzmun)>0)
+        $num = 3;
+    elseif (strlen($azmunDescription2)>0)
+        $num = 2;
+    ?>
+
     <div class="opening_bars azmun">
-        <div class="item">
-            <div id="bar_1" class="bar"> آگهی استخدام<span id="arrow_1" class="bar_arrow opened"/></div>
-            <div id="text_1" class="fr-element fr-view bar_text">
-                <?php echo $azmunDescription;?>
-            </div>
-        </div>
+
         <?php
-        if(strlen($azmunDescription2)>0) {
+        if(strlen($azmunDescription4)>0) {
             ?>
             <div class="item">
-                <div id="bar_2" class="bar">زمان دریافت کارت<span class="bar_arrow"/></div>
-                <div class="bar_text hide">
-                    <?php echo $azmunDescription2; ?>
+                <div id="bar_6" class="bar">زمان اعلام نتایج نهایی<span class="bar_arrow <?php if($num==6) echo 'opened'?>"/></div>
+                <div class="bar_text <?php if($num!=6) echo 'hide'?>">
+                    <?php echo $azmunDescription4; ?>
                 </div>
             </div>
             <?php
         }
-        if(strlen($dateAzmun)>0) {
+
+        if(strlen($dateMosahebe)>0) {
             ?>
             <div class="item">
-                <div id="bar_3" class="bar">زمان برگزاری آزمون<span class="bar_arrow"/></div>
-                <div class="bar_text hide">
-                    <?php echo $dateAzmun; ?>
+                <div id="bar_5" class="bar">زمان مصاحبه<span class="bar_arrow <?php if($num==5) echo 'opened'?>"/></div>
+                <div class="bar_text <?php if($num!=5) echo 'hide'?>">
+                    <?php echo $dateMosahebe; ?>
                 </div>
             </div>
             <?php
@@ -134,34 +145,44 @@ include '/Header.php';
         if(strlen($azmunDescription3)>0) {
             ?>
             <div class="item">
-                <div id="bar_4" class="bar">زمان اعلام نتایج اولیه<span class="bar_arrow"/></div>
-                <div class="bar_text hide">
+                <div id="bar_4" class="bar">زمان اعلام نتایج اولیه<span class="bar_arrow <?php if($num==4) echo 'opened'?>"/></div>
+                <div class="bar_text <?php if($num!=4) echo 'hide'?>">
                     <?php echo $azmunDescription3; ?>
                 </div>
             </div>
             <?php
         }
-        if(strlen($dateMosahebe)>0) {
+        if(strlen($dateAzmun)>0) {
+            ?>
+            <div class="item">
+                <div id="bar_3" class="bar">زمان برگزاری آزمون<span class="bar_arrow <?php if($num==3) echo 'opened'?>"/></div>
+                <div class="bar_text <?php if($num!=3) echo 'hide'?>">
+                    <?php echo $dateAzmun; ?>
+                </div>
+            </div>
+            <?php
+        }
+
+
+        if(strlen($azmunDescription2)>0) {
+            ?>
+            <div class="item">
+                <div id="bar_2" class="bar">زمان دریافت کارت<span class="bar_arrow <?php if($num==2) echo 'opened'?>"/></div>
+                <div class="bar_text <?php if($num!=2) echo 'hide'?> ">
+                    <?php echo $azmunDescription2; ?>
+                </div>
+            </div>
+            <?php
+        }
         ?>
+
         <div class="item">
-            <div id="bar_5" class="bar">زمان مصاحبه<span class="bar_arrow"/></div>
-            <div class="bar_text hide">
-                <?php echo $dateMosahebe; ?>
+            <div id="bar_1" class="bar"> آگهی استخدام<span id="arrow_1" class="bar_arrow <?php if($num==1) echo 'opened'?>"/></div>
+            <div id="text_1" class="fr-element fr-view bar_text <?php if($num!=1) echo 'hide'?>">
+                <?php echo $azmunDescription;?>
             </div>
         </div>
-        <?php
-        }
-        if(strlen($azmunDescription4)>0) {
-        ?>
-        <div class="item">
-            <div id="bar_6" class="bar">زمان اعلام نتایج نهایی<span class="bar_arrow"/></div>
-            <div class="bar_text hide">
-                <?php echo $azmunDescription4; ?>
-            </div>
-        </div>
-        <?php
-        }
-        ?>
+
     </div>
 
 </div>
