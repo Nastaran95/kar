@@ -167,7 +167,7 @@ include '/Header.php';
         if(strlen($azmunDescription2)>0) {
             ?>
             <div class="item">
-                <div id="bar_2" class="bar">زمان دریافت کارت<span class="bar_arrow <?php if($num==2) echo 'opened'?>"/></div>
+                <div id="bar_2" class="bar">دریافت کارت<span class="bar_arrow <?php if($num==2) echo 'opened'?>"/></div>
                 <div class="bar_text <?php if($num!=2) echo 'hide'?> ">
                     <?php echo $azmunDescription2; ?>
                 </div>

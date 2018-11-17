@@ -22,7 +22,7 @@
                 <li><a href="/aboutUs.php" >درباره ما</a></li>
                 <li><a href="/contactUs.php" >تماس با ما</a></li>
             </ul>
-            <img id="logo" src="/images/logo.png">
+            <img id="logo" src="/images/logo.png" alt="لوگو">
         </div>
     </div>
 </div>
@@ -43,7 +43,7 @@
                     <h1>کاراسا</h1>
                     <h4>پل ارتباطی بین کارجو و کارفرما</h4>
                 </div>
-                <a href="/"><img src="/images/logo.png"></a>
+                <a href="/"><img src="/images/logo.png" alt="لوگو"></a>
             </div>
 
             <ul class="dark_text">
